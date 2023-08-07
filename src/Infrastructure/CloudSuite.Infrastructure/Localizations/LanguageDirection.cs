@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace CloudSuite.Infrastructure.Localizations
 {
-    internal class LanguageDirection
+    public enum LanguageDirection
     {
+        LTR,
+        RTL
     }
 }
