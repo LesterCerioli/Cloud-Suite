@@ -8,20 +8,23 @@ using System.Threading.Tasks;
 
 namespace CloudSuite.Infrastructure.Localizations
 {
-    public class Resource : EntityBase
+    public class LocalizedContentProperty : EntityBase
     {
 
-        [Required(ErrorMessage = "The {0} field is required.")]
+        public long EntityId { get; set; }
+
         [StringLength(450)]
+        public string EntitiType { get; set; }
 
-        public string Key { get; set; }
-
-        public string Value { get; set; }
-
-        [Required(ErrorMessage = "The {0} field is required.")]
-
+        [Required]
         public string CultureId { get; set; }
 
         public Culture Culture { get; set; }
+
+        [Required]
+        [StringLength(450)]
+        public string ProperyName { get; set; }
+
+        public string Value { get; set; }
     }
 }
