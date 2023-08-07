@@ -20,7 +20,7 @@ namespace CloudSuite.Infrastructure.Localizations
 
         [Required(ErrorMessage = "The {0} field is required.")]
 
-        public string CultureId { get; set; }
+        public string CultureId { get; set; } 
 
         public Culture Culture { get; set; }
     }
