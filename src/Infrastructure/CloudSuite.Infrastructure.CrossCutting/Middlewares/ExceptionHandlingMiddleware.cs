@@ -4,11 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CloudSuite.Infrastructure.Localizations
+namespace CloudSuite.Infrastructure.CrossCutting.Middlewares
 {
-    public enum LanguageDirection
+    public class ExceptionHandlingMiddleware
     {
-        LTR,
-        RTL
     }
 }

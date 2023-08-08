@@ -4,11 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CloudSuite.Infrastructure.Localizations
+namespace CloudSuite.Infrastructure.Data.Core
 {
-    public enum LanguageDirection
+    public class CoreCustomModelBuilder
     {
-        LTR,
-        RTL
     }
 }
