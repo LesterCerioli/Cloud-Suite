@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CloudSuite.Modules.Application.Handlers.Core.Addresses.Request
+namespace CloudSuite.Modules.Application.Handlers.Core.Addresses
 {
-    internal class SampleClass
+    public class CheckAddressExistsByContactNameHandlers
     {
     }
 }
