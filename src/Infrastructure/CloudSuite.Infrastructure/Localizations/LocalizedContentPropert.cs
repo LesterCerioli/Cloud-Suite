@@ -10,11 +10,10 @@ namespace CloudSuite.Infrastructure.Localizations
 {
     public class LocalizedContentProperty : EntityBase
     {
-
         public long EntityId { get; set; }
 
         [StringLength(450)]
-        public string EntitiType { get; set; }
+        public string EntityType { get; set; }
 
         [Required]
         public string CultureId { get; set; }
