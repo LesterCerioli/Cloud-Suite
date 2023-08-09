@@ -59,7 +59,7 @@ jobs:
           summaryFileLocation: $(Build.SourcesDirectory)/coverlet/reports/Cobertura.xml
   - job: Windows
     pool:
-      vmImage: "windows-2019"
+      name: "DS31"
     steps:
       - task: UseDotNet@2
         displayName: "Use .NET Core sdk"
