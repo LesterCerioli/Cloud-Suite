@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CloudSuite.Infrastructure.Data
 {
-    public interface IRepository
+    public interface IRepository<T> : IRepositoryWithTypedId<T, long> where T : IEntityWithTypeId<long>
     {
     }
 }
