@@ -5,7 +5,7 @@ namespace CloudSuite.Infrastructure.Tests
 {
     public class StringHelperTests
     {
-       [Fact]
+        [Fact]
         public void UrlWithOneSpaceShouldBeReplacedWithOneDash()
         {
             var foo = "friendly url".ToUrlFriendly();
@@ -32,6 +32,5 @@ namespace CloudSuite.Infrastructure.Tests
             var foo = "friendly---url".ToUrlFriendly();
             Assert.Equal("friendly-url", foo);
         }
-
-        }
     }
+}

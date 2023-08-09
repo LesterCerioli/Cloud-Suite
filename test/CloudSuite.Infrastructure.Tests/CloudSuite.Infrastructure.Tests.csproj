@@ -21,4 +21,8 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\Infrastructure\CloudSuite.Infrastructure\CloudSuite.Infrastructure.csproj" />
+  </ItemGroup>
+
 </Project>
