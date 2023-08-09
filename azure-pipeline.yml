@@ -81,12 +81,7 @@ jobs:
           arguments: "--logger trx /p:CollectCoverage=true /p:CoverletOutputFormat=cobertura /p:Exclude=[xunit.*]*%2c[System.*]*"
           projects: "test/**/*.csproj"
           nobuild: true
-      - task: DotNetCoreCLI@2
-        inputs:
-          command: custom
-          custom: tool
-          arguments: install --tool-path . dotnet-reportgenerator-globaltool
-          displayName: Install ReportGenerator tool
+     
 
       - task: PublishCodeCoverageResults@1
         displayName: "Publish code coverage"
