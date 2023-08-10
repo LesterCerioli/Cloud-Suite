@@ -8,5 +8,8 @@ namespace CloudSuite.Modules.Application.ViewModels.Core
 {
     internal class MediaViewModel
     {
+        public string Url { get; set; }
+
+        public string ThumnailUrl { get; set; }
     }
 }

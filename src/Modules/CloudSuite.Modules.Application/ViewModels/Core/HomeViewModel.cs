@@ -8,5 +8,6 @@ namespace CloudSuite.Modules.Application.ViewModels.Core
 {
     internal class HomeViewModel
     {
+        public IList<WidgetInstanceViewModel> WidgetInstances { get; set;} = new List<WidgetInstanceViewModel>();
     }
 }

@@ -8,5 +8,8 @@ namespace CloudSuite.Modules.Application.ViewModels.Core
 {
     public class AppSettingViewModel
     {
+        public string Key { get; set; }
+
+        public string Value { get; set; }
     }
 }
