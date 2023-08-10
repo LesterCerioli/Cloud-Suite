@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace CloudSuite.Modules.Application.Services.Contracts.Core
 {
-    internal interface IEmailService
+    public interface IEmailService
     {
+        Task SendEmailAsync(string email, string subject, string message, bool isHtml = false);
     }
 }

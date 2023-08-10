@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace CloudSuite.Modules.Application.Services.Contracts.Core
 {
-    internal interface IPdfConverter
+    public interface IPdfConverter
     {
+        byte[] Convert(string htmlContent);
     }
 }
