@@ -10,11 +10,12 @@ namespace CloudSuite.Modules.Domain.Models.Core
 {
     public class Address : EntityBase
     {
-        public Address(long id)
+        public Address(string? addressLine1, City city)
         {
-            Id = id;
+            AddressLine1 = addressLine1;
+            City = city;
         }
-        
+
         public string? ContactName { get; set; }
 
         [StringLength(450)]
