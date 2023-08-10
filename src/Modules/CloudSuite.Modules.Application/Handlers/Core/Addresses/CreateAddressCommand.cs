@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using CloudSuite.Modules.Domain.ValueObjects;
+using MediatR;
+using AddressEntity = CloudSuite.Modules.Domain.Models.Core.Address;
 
 namespace CloudSuite.Modules.Application.Handlers.Core.Addresses
 {
-    internal class CreateAddressCommand
+    public class CreateAddressCommand : IRequest<>
     {
     }
 }
