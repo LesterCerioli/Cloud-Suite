@@ -5,6 +5,9 @@ namespace CloudSuite.Modules.Domain.Models.Fiscal
 {
     public class PedSitNfse : EntityBase
     {
+
         
+
+
     }
 }

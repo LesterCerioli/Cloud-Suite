@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CloudSuite.Modules.Domain.Contracts.Core
+namespace CloudSuite.Modules.Application.ViewModels.Core.Manage
 {
-    public interface ICoreRepository
+    internal class ManageLoginsViewModel
     {
     }
 }
