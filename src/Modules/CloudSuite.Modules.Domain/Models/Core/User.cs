@@ -1,6 +1,6 @@
-﻿using CloudSuite.Infrastructure.Models;
-using CloudSuite.Modules.Domain.ValueObjects;
+﻿using CloudSuite.Modules.Domain.ValueObjects;
 using Microsoft.AspNetCore.Identity;
+using NetDevPack.Domain;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace CloudSuite.Modules.Domain.Models.Core
 {
-    public class User : IdentityUser<long>, IEntityWithTypedId<long>, IExtendableObject
+    public class User : Entity, IAggregateRoot
     {
         public User()
         {

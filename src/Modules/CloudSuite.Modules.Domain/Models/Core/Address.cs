@@ -1,4 +1,4 @@
-﻿using CloudSuite.Infrastructure.Models;
+﻿using NetDevPack.Domain;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace CloudSuite.Modules.Domain.Models.Core
 {
-    public class Address : EntityBase
+    public class Address : Entity, IAggregateRoot
     {
-        public Address(long id)
+        public Address(Guid id)
         {
             Id = id;
         }

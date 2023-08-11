@@ -1,11 +1,11 @@
-using CloudSuite.Infrastructure.Models;
+using NetDevPack.Domain;
 using System.ComponentModel.DataAnnotations;
 
 namespace CloudSuite.Modules.Domain.Models.Core
 {
-    public class Country : EntityBase
+    public class Country : Entity, IAggregateRoot
     {
-        public Country(long id)
+        public Country(Guid id)
         {
             Id = id;
         }

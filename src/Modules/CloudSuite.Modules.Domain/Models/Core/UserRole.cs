@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Identity;
+using NetDevPack.Domain;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,14 +8,9 @@ using System.Threading.Tasks;
 
 namespace CloudSuite.Modules.Domain.Models.Core
 {
-    public class UserRole : IdentityUserRole<long>
+    public class UserRole : IdentityUserRole<long>, IAggregateRoot
     {
-        public override long UserId { get; set; }
-
-        public User User { get; set; }
-
-        public override long RoleId { get; set; }
-
-        public Role Role { get; set; }
+        public virtual User User { get; set; }
+        public virtual Role Role { get; set; }
     }
 }
