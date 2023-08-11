@@ -1,4 +1,5 @@
 ﻿using CloudSuite.Infrastructure.Models;
+using CloudSuite.Modules.Domain.ValueObjects;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -25,7 +26,9 @@ namespace CloudSuite.Modules.Domain.Models.Core
 
         public string? Description { get; set; }
 
-        public string? Email { get; set; }
+        public Cnpj Cnpj { get; set; }
+
+        public Email Email { get; set; }
 
         public DateTimeOffset? CreatedOn { get; set; }
 

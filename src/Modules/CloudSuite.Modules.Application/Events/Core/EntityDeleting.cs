@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using MediatR;
 
 namespace CloudSuite.Modules.Application.Events.Core
 {
-    internal class EntityDeleting
+    public class EntityDeleting : INotification
     {
+        public long EntityId { get; set; }
     }
 }
