@@ -14,7 +14,7 @@ namespace CloudSuite.Modules.Application.Handlers.Core.Addresses
 
     public string? AddressLine1 { get; set; }
 
-    public City? City { get; set; }
+    // public City? City { get; set; }
 
     public CreateAddressCommand()
     {
