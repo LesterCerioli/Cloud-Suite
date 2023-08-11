@@ -11,8 +11,4 @@
     <PackageReference Include="NetDevPack" Version="6.1.0" />
   </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\..\Infrastructure\CloudSuite.Infrastructure\CloudSuite.Infrastructure.csproj" />
-  </ItemGroup>
-
 </Project>

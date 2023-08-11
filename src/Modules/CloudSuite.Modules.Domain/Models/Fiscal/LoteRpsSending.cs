@@ -1,9 +1,8 @@
-using CloudSuite.Infrastructure.Models;
-
+using NetDevPack.Domain;
 
 namespace CloudSuite.Modules.Domain.Models.Fiscal
 {
-    public class LoteRpsSending : EntityBase
+    public class LoteRpsSending : Entity, IAggregateRoot
     {
         
     }

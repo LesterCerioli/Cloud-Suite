@@ -1,5 +1,5 @@
-﻿using CloudSuite.Infrastructure.Models;
-using CloudSuite.Modules.Domain.ValueObjects;
+﻿using CloudSuite.Modules.Domain.ValueObjects;
+using NetDevPack.Domain;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace CloudSuite.Modules.Domain.Models.Core
 {
-    public class Vendor : EntityBase
+    public class Vendor : Entity, IAggregateRoot
     {
         public Vendor()
         {

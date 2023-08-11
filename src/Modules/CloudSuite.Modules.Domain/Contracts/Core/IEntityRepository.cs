@@ -9,16 +9,16 @@ namespace CloudSuite.Modules.Domain.Contracts.Core
 {
     public interface IEntityRepository
     {
-        Task<Entity> GetBySlug(string slug);
+        Task<Entidade> GetBySlug(string slug);
 
-        Task<Entity> GetByName(string name);
+        Task<Entidade> GetByName(string name);
 
-        Task<IEnumerable<Entity>> GetAll();
+        Task<IEnumerable<Entidade>> GetAll();
 
-        Task Add(Entity entity);
+        Task Add(Entidade entity);
 
-        void Update(Entity entity);
+        void Update(Entidade entity);
 
-        void Remove(Entity entity);
+        void Remove(Entidade entity);
     }
 }

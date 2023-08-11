@@ -1,9 +1,8 @@
-using CloudSuite.Infrastructure.Models;
-
+using NetDevPack.Domain;
 
 namespace CloudSuite.Modules.Domain.Models.Fiscal
 {
-    public class PedSitLoteRps : EntityBase
+    public class PedSitLoteRps : Entity, IAggregateRoot
     {
         
     }

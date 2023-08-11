@@ -1,12 +1,11 @@
-using CloudSuite.Infrastructure.Models;
 using CloudSuite.Modules.Domain.ValueObjects;
-
+using NetDevPack.Domain;
 
 namespace CloudSuite.Modules.Domain.Models.Core
 {
-    public class Customer : EntityBase
+    public class Customer : Entity, IAggregateRoot
     {
-        public Customer(long id)
+        public Customer(Guid id)
         {
             Id = id;
         }
