@@ -2,6 +2,7 @@
 using System.Text.Json;
 using CloudSuite.Modules.Application.Handlers.Core.Addresses;
 using CloudSuite.Modules.Application.Handlers.Core.Addresses.Responses;
+using CloudSuite.Modules.Application.Validations.Core.Addresses;
 using CloudSuite.Modules.Domain.Contracts.Core;
 using MediatR;
 using Microsoft.Extensions.Logging;
@@ -23,6 +24,29 @@ namespace CloudSuite.Modules.Application.Handlers.Core.Addresses
             _logger.LogInformation($"CreateAddressCommand: {JsonSerializer.Serialize(command)}");
 
             var validationResult = new CreateAddressCommandValidation().Validate(command);
+
+            if (validationResult.IsValid)
+            {
+                try 
+                {
+                    var address = await _addressRepository.GetByAddressLine(command.AddressLine1);
+
+                    if (address != null)
+                    return await Task.FromResult(new CreateAddressResponse(command.Id, "Endereço já foi cadastrado"));
+
+                    await _addressRepository.Add(command.GetEntity());
+
+                    return await Task.FromResult(new CreateAddressResponse(command.Id, validationResult));
+                }
+                catch (Exception ex)
+                {
+                    _logger.LogCritical(ex.Message);
+
+                    return await Task.FromResult(new CreateAddressResponse(command.Id, "Não foi possivel processar a solicitação."));
+                }
+            }
+
+            return await Task.FromResult(new CreateAddressResponse(command.Id, validationResult));
         }
     }
 }
