@@ -15,6 +15,7 @@ namespace CloudSuite.Modules.Domain.Models.Core
         {
             CreatedOn = DateTimeOffset.Now;
             LatestUpdatedOn = DateTimeOffset.Now;
+            PublishedOn = DateTimeOffset.Now;
         }
 
         [Required(ErrorMessage = "The {0} field is required.")]

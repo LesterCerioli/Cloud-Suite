@@ -5,9 +5,12 @@ namespace CloudSuite.Modules.Domain.Models.Core
 {
     public class Country : Entity, IAggregateRoot
     {
+        private readonly List<State> _states;
+
         public Country(Guid id)
         {
             Id = id;
+            _states = new List<State>();
         }
 
 
@@ -28,7 +31,7 @@ namespace CloudSuite.Modules.Domain.Models.Core
 
         public bool? IsDistrictEnabled { get; set; } = true;
 
-        public IList<State> States { get; set; } = new List<State>();
+        public IReadOnlyCollection<State> States => _states.AsReadOnly();
 
 
 
