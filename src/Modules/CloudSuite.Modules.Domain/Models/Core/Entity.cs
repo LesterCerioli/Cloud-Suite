@@ -12,16 +12,16 @@ namespace CloudSuite.Modules.Domain.Models.Core
     {
         [Required(ErrorMessage = "The {0} field is required.")]
         [StringLength(450)]
-        public string Slug { get; set; }
+        public string? Slug { get; set; }
 
         [Required(ErrorMessage = "The {0} field is required.")]
         [StringLength(450)]
-        public string Name { get; set; }
+        public string? Name { get; set; }
 
-        public long EntityId { get; set; }
+        public long? EntityId { get; set; }
 
         [StringLength(450)]
-        public string EntityTypeId { get; set; }
+        public string? EntityTypeId { get; set; }
 
         public EntityType EntityType { get; set; }
     }

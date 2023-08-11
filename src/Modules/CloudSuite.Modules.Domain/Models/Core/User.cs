@@ -1,4 +1,5 @@
 ﻿using CloudSuite.Infrastructure.Models;
+using CloudSuite.Modules.Domain.ValueObjects;
 using Microsoft.AspNetCore.Identity;
 using System;
 using System.Collections.Generic;
@@ -25,31 +26,35 @@ namespace CloudSuite.Modules.Domain.Models.Core
         [StringLength(450)]
         public string FullName { get; set; }
 
+        public Email Email { get; set; }
+
+        public Cpf Cpf { get; set; }
+
         public long? VendorId { get; set; }
 
-        public bool IsDeleted { get; set; }
+        public bool? IsDeleted { get; set; }
 
-        public DateTimeOffset CreatedOn { get; set; }
+        public DateTimeOffset? CreatedOn { get; set; }
 
-        public DateTimeOffset LatestUpdatedOn { get; set; }
+        public DateTimeOffset? LatestUpdatedOn { get; set; }
 
                 
-        public long? DefaultShippingAddressId { get; set; }
+        //public long? DefaultShippingAddressId { get; set; }
 
         
         public long? DefaultBillingAddressId { get; set; }
 
         [StringLength(450)]
-        public string RefreshTokenHash { get; set; }
+        public string? RefreshTokenHash { get; set; }
 
         public IList<UserRole> Roles { get; set; } = new List<UserRole>();
 
         public IList<CustomerGroupUser> CustomerGroups { get; set; } = new List<CustomerGroupUser>();
 
         [StringLength(450)]
-        public string Culture { get; set; }
+        public string? Culture { get; set; }
 
         /// <inheritdoc />
-        public string ExtensionData { get; set; }
+        public string? ExtensionData { get; set; }
     }
 }
