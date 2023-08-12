@@ -11,32 +11,43 @@ namespace CloudSuite.Modules.Domain.Models.Core
 {
     public class Vendor : Entity, IAggregateRoot
     {
-        public Vendor()
+        public Vendor(Guid id, string? name, string? slug, string? description, Cnpj cnpj, Email email, DateTimeOffset? createdOn, DateTimeOffset? latestUpdatedOn, bool? isActive, bool? isDeleted)
         {
-            CreatedOn = DateTimeOffset.Now;
+            Id = id;
+            Name = name;
+            Slug = slug;
+            Description = description;
+            Cnpj = cnpj;
+            Email = email;
+            CreatedOn = createdOn;
+            LatestUpdatedOn = latestUpdatedOn;
+            IsActive = isActive;
+            IsDeleted = isDeleted;
         }
 
+        public Vendor() { }
+        
         [Required(ErrorMessage = "The {0} field is required.")]
         [StringLength(450)]
-        public string Name { get; set; }
+        public string? Name { get; private set; }
 
         [Required(ErrorMessage = "The {0} field is required.")]
         [StringLength(450)]
-        public string? Slug { get; set; }
+        public string? Slug { get; private set; }
 
-        public string? Description { get; set; }
+        public string? Description { get; private set; }
 
-        public Cnpj Cnpj { get; set; }
+        public Cnpj Cnpj { get; private set; }
 
-        public Email Email { get; set; }
+        public Email Email { get; private set; }
 
-        public DateTimeOffset? CreatedOn { get; set; }
+        public DateTimeOffset? CreatedOn { get; private set; }
 
-        public DateTimeOffset? LatestUpdatedOn { get; set; }
+        public DateTimeOffset? LatestUpdatedOn { get; private set; }
 
-        public bool? IsActive { get; set; }
+        public bool? IsActive { get; private set; }
 
-        public bool? IsDeleted { get; set; }
+        public bool? IsDeleted { get; private set; }
 
         public IList<User> Users { get; set; } = new List<User>();
     }

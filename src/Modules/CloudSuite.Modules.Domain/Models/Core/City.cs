@@ -17,10 +17,12 @@ namespace CloudSuite.Modules.Domain.Models.Core
             _states = new List<State>();
         }
         
-        public string? CityName { get; set; }
+        public City() { }
+        
+        public string? CityName { get; private set; }
 
         public IReadOnlyCollection<State> States => _states.AsReadOnly();
 
-        public State State { get; set; }
+        public State State { get; private set; }
     }
 }

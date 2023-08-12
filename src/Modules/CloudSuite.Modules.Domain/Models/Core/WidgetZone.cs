@@ -10,9 +10,11 @@ namespace CloudSuite.Modules.Domain.Models.Core
 {
     public class WidgetZone : Entity, IAggregateRoot
     {
-        public WidgetZone(Guid id)
+        public WidgetZone(Guid id, string? name, string? description)
         {
             Id = id;
+            Name = name;
+            Description = description;
         }
 
         [Required(ErrorMessage = "The {0} field is required.")]

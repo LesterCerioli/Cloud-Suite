@@ -21,14 +21,14 @@ namespace CloudSuite.Modules.Domain.Models.Core
             _cities = new List<City>();
         }
         
-        public string? ContactName { get; set; }
+        public string? ContactName { get; private set; }
 
         [StringLength(450)]
-        public string? AddressLine1 { get; set; }
+        public string? AddressLine1 { get; private set; }
 
-        public City City { get; set; }
+        public City City { get; private set; }
 
-        public District District { get; set; }
+        public District District { get; private set; }
 
         public IReadOnlyCollection<City> Cities => _cities.AsReadOnly();
 
