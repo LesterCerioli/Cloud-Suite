@@ -8,11 +8,14 @@ namespace CloudSuite.Modules.Domain.Models.Core
     {
         private readonly List<Country> _countries;
 
-        public State(Guid id)
+        public State(Guid id, string uf)
         {
             Id = id;
             _countries = new List<Country>();
+            UF = uf;
         }
+        
+        public State() { }
         
         public string? StateName { get; private set; }
 
