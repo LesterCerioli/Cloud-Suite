@@ -1,12 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿
 
-namespace CloudSuite.Modules.Application.Handlers.Core.Addresses.Request
+using CloudSuite.Modules.Application.Handlers.Core.Addresses.Responses;
+using MediatR;
+
+namespace CloudSuite.Modules.Application.Handlers.Core.Addresses.Requests
 {
-    public class CheckAddressExistsByContactNameRequest
+    public class CheckAddressExistsByContactNameRequest : IRequest<CheckAddressExistsByContactNameResponse>
     {
+        public Guid Id { get; private set; }
+        public string? ContactName { get; set; }
+        public CheckAddressExistsByContactNameRequest(string contactName)
+        {
+            Id = Guid.NewGuid();
+            ContactName = contactName;
+        }
     }
 }
