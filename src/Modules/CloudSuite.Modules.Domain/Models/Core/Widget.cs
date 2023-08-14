@@ -10,28 +10,34 @@ namespace CloudSuite.Modules.Domain.Models.Core
 {
     public class Widget : Entity, IAggregateRoot
     {
-        protected Widget() { } // Private constructor required by EF Core
-
-        public Widget(Guid id)
+        
+        public Widget(string name, string viewComponentName,
+            string createUrl,string editUrl, bool isPublished)
         {
-            Id = id;
+            Name = name;
+            ViewComponentName = viewComponentName;
+            CreateUrl = createUrl;
+            EditUrl = editUrl;
             CreatedOn = DateTimeOffset.Now;
+            IsPublished = isPublished;
+
         }
 
-        public string? Code => Id.ToString();
+                
+        
 
         [Required(ErrorMessage = "The {0} field is required.")]
         [StringLength(450)]
-        public string? Name { get; set; }
+        public string? Name { get; private set; }
 
         [StringLength(450)]
-        public string? ViewComponentName { get; set; }
+        public string? ViewComponentName { get; private set; }
 
         [StringLength(450)]
-        public string? CreateUrl { get; set; }
+        public string? CreateUrl { get; private set; }
 
         [StringLength(450)]
-        public string? EditUrl { get; set; }
+        public string? EditUrl { get; private set; }
 
         public DateTimeOffset? CreatedOn { get; private set; }
 

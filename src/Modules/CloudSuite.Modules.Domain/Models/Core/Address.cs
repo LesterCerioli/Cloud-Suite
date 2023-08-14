@@ -10,20 +10,30 @@ namespace CloudSuite.Modules.Domain.Models.Core
 {
     public class Address : Entity, IAggregateRoot
     {
+        private readonly List<District> _districts = new List<District>();
+
+        private readonly List<City> _cities = new List<City>();
+
         public Address(Guid id)
         {
             Id = id;
+            _districts = new List<District>();
+            _cities = new List<City>();
         }
         
-        public string? ContactName { get; set; }
+        public string? ContactName { get; private set; }
 
         [StringLength(450)]
-        public string? AddressLine1 { get; set; }
+        public string? AddressLine1 { get; private set; }
 
-        public City City { get; set; }
+        public City City { get; private set; }
 
-        public long? CityId { get; set; }
+        public District District { get; private set; }
 
-        public long? DistrictId { get; set; }
+        public IReadOnlyCollection<City> Cities => _cities.AsReadOnly();
+
+        public IReadOnlyCollection<District> Districts => _districts.AsReadOnly();
+
+
     }
 }
