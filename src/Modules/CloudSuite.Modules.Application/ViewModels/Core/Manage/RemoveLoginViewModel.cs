@@ -8,5 +8,8 @@ namespace CloudSuite.Modules.Application.ViewModels.Core.Manage
 {
     internal class RemoveLoginViewModel
     {
+        public string LoginProvider { get; set;}
+
+        public string ProviderKey { get; set;}
     }
 }

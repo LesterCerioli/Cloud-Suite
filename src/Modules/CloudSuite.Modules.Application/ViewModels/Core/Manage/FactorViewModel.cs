@@ -8,5 +8,6 @@ namespace CloudSuite.Modules.Application.ViewModels.Core.Manage
 {
     internal class FactorViewModel
     {
+        public string Purpose { get; set; }
     }
 }
