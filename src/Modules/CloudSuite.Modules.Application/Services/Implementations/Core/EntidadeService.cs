@@ -5,20 +5,21 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using CloudSuite.Infrastructure.Data;
 using CloudSuite.Modules.Application.Services.Contracts.Core;
 using CloudSuite.Modules.Domain.Models.Core;
 using CloudSuite.Modules.Application.Events.Core;
 using MediatR;
+using NetDevPack.Domain;
+using NetDevPack.Data;
 
 namespace CloudSuite.Modules.Application.Services.Implementations.Core
 {
-    public class EntityService : IEntityService
+    public class EntidadeService : IEntidadeService
     {
-        private readonly IRepository<Entity> _entityRepository;
+        private readonly IRepository<Entidade> _entityRepository;
         private readonly IMediator _mediator;
 
-        public EntityService(IRepository<Entity> entityRepository, IMediator mediator)
+        public EntidadeService(IRepository<Entidade> entityRepository, IMediator mediator)
         {
             _entityRepository = entityRepository;
             _mediator = mediator;
@@ -50,7 +51,7 @@ namespace CloudSuite.Modules.Application.Services.Implementations.Core
 
         public void Add(string name, string slug, long entityId, string entityTypeId)
         {
-            var entity = new Entity
+            var entity = new Entidade
             {
                 Name = name,
                 Slug = slug,

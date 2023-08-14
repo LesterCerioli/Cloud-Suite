@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using CloudSuite.Modules.Application.Services.Contracts.Core;
 using Microsoft.Extensions.Configuration;
+using System.Globalization;
 
 namespace CloudSuite.Modules.Application.Services.Implementations.Core
 {
