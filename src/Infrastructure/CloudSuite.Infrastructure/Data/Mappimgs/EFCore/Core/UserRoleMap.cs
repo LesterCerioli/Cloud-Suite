@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CloudSuite.Infrastructure.Data.Mappimgs.EFCore.Core
 {
-    internal class ExampleMapping
+    internal class UserRoleMap
     {
     }
 }
