@@ -4,10 +4,11 @@
 # https://docs.microsoft.com/azure/devops/pipelines/languages/dotnet-core
 
 trigger:
-  - "*"
+- '*'
 
 pr:
-  - "*"
+- '*'
+
 
 jobs:
   - job: Linux
@@ -87,3 +88,4 @@ jobs:
         inputs:
           codeCoverageTool: Cobertura
           summaryFileLocation: $(Build.SourcesDirectory)/coverlet/reports/Cobertura.xml
+  
