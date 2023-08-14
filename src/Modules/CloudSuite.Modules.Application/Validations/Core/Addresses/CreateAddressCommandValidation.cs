@@ -1,5 +1,4 @@
 using CloudSuite.Modules.Application.Handlers.Core.Addresses;
-using CloudSuite.Modules.Domain.ValueObjects;
 using FluentValidation;
 
 namespace CloudSuite.Modules.Application.Validations.Core.Addresses

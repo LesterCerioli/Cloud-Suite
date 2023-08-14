@@ -1,11 +1,9 @@
-﻿using System.Reflection.Metadata;
-using System.Text.Json;
-using CloudSuite.Modules.Application.Handlers.Core.Addresses;
-using CloudSuite.Modules.Application.Handlers.Core.Addresses.Responses;
+﻿using CloudSuite.Modules.Application.Handlers.Core.Addresses.Responses;
 using CloudSuite.Modules.Application.Validations.Core.Addresses;
 using CloudSuite.Modules.Domain.Contracts.Core;
-using MediatR;
 using Microsoft.Extensions.Logging;
+using System.Text.Json;
+using MediatR;
 
 namespace CloudSuite.Modules.Application.Handlers.Core.Addresses
 {
@@ -32,7 +30,7 @@ namespace CloudSuite.Modules.Application.Handlers.Core.Addresses
                     var address = await _addressRepository.GetByAddressLine(command.AddressLine1);
 
                     if (address != null)
-                    return await Task.FromResult(new CreateAddressResponse(command.Id, "Endereço já foi cadastrado"));
+                    return await Task.FromResult(new CreateAddressResponse(command.Id, "Endereço já cadastrado"));
 
                     await _addressRepository.Add(command.GetEntity());
 

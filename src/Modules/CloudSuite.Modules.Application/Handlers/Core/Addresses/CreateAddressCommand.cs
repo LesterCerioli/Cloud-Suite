@@ -1,9 +1,7 @@
 ﻿using CloudSuite.Modules.Application.Handlers.Core.Addresses.Responses;
-using CloudSuite.Modules.Domain.ValueObjects;
-using MediatR;
 using AddressEntity = CloudSuite.Modules.Domain.Models.Core.Address;
 using CloudSuite.Modules.Domain.Models.Core;
-
+using MediatR;
 namespace CloudSuite.Modules.Application.Handlers.Core.Addresses
 {
   public class CreateAddressCommand : IRequest<CreateAddressResponse>
@@ -24,8 +22,7 @@ namespace CloudSuite.Modules.Application.Handlers.Core.Addresses
     public AddressEntity GetEntity()
     {
       return new AddressEntity(
-          this.AddressLine1,
-          this.City
+          this.Id
       );
     }
   }
