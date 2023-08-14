@@ -1,34 +1,46 @@
-using CloudSuite.Infrastructure.Models;
+using NetDevPack.Domain;
 using System.ComponentModel.DataAnnotations;
 
 namespace CloudSuite.Modules.Domain.Models.Core
 {
-    public class Country : EntityBase
+    public class Country : Entity, IAggregateRoot
     {
-        public Country(long id)
+        private readonly List<State> _states;
+
+        
+        public Country(Guid id, string? countryName, string? code3, bool? isBillingEnabled, bool? isShippingEnabled, bool? isCityEnabled, bool? isZipCodeEnabled, bool? isDistrictEnabled)
         {
             Id = id;
+            CountryName = countryName;
+            Code3 = code3;
+            IsBillingEnabled = isBillingEnabled;
+            IsShippingEnabled = isShippingEnabled;
+            IsCityEnabled = isCityEnabled;
+            IsZipCodeEnabled = isZipCodeEnabled;
+            IsDistrictEnabled = isDistrictEnabled;
+            _states = new List<State>();
         }
 
-
+        public Country() { }
+        
         [Required(ErrorMessage = "The {0} field is required.")]
         [StringLength(450)]
-        public string? CountryName { get; set; }
+        public string? CountryName { get; private set; }
 
         [StringLength(450)]
-        public string? Code3 { get; set; }
+        public string? Code3 { get; private set; }
 
-        public bool? IsBillingEnabled { get; set; }
+        public bool? IsBillingEnabled { get; private set; }
 
-        public bool? IsShippingEnabled { get; set; }
+        public bool? IsShippingEnabled { get; private set; }
 
-        public bool? IsCityEnabled { get; set; } = true;
+        public bool? IsCityEnabled { get; private set; } = true;
 
-        public bool? IsZipCodeEnabled { get; set; } = true;
+        public bool? IsZipCodeEnabled { get; private set; } = true;
 
-        public bool? IsDistrictEnabled { get; set; } = true;
+        public bool? IsDistrictEnabled { get; private set; } = true;
 
-        public IList<State> States { get; set; } = new List<State>();
+        public IReadOnlyCollection<State> States => _states.AsReadOnly();
 
 
 

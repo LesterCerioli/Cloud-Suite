@@ -1,29 +1,35 @@
-using CloudSuite.Infrastructure.Models;
+using NetDevPack.Domain;
 using System.ComponentModel.DataAnnotations;
 
 namespace CloudSuite.Modules.Domain.Models.Core
 {
-    public class District : EntityBase
+    public class District : Entity, IAggregateRoot
     {
-        public District(long id)
+        private readonly List<State> _states;
+
+        public District(Guid id, string name, string type, string location)
         {
             Id = id;
+            _states = new List<State>();
+            Name = name;
+            Type = type;
+            Location = location;
         }
 
         public District() { }
 
-        public long StateId { get; set; }
+        public IReadOnlyCollection<State> States => _states.AsReadOnly();
 
         public State State { get; set; }
 
         [Required(ErrorMessage = "The {0} field is required.")]
         [StringLength(450)]
-        public string? Name { get; set; }
+        public string? Name { get; private set; }
 
         [StringLength(450)]
-        public string? Type { get; set; }
+        public string? Type { get; private set; }
 
-        public string? Location { get; set; }
+        public string? Location { get; private set; }
 
     }
 }

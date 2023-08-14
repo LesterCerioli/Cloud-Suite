@@ -1,4 +1,4 @@
-﻿using CloudSuite.Infrastructure.Models;
+﻿using NetDevPack.Domain;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -8,11 +8,13 @@ using System.Threading.Tasks;
 
 namespace CloudSuite.Modules.Domain.Models.Core
 {
-    public class WidgetZone : EntityBase
+    public class WidgetZone : Entity, IAggregateRoot
     {
-        public WidgetZone(long id)
+        public WidgetZone(Guid id, string? name, string? description)
         {
             Id = id;
+            Name = name;
+            Description = description;
         }
 
         [Required(ErrorMessage = "The {0} field is required.")]

@@ -1,4 +1,4 @@
-﻿using CloudSuite.Infrastructure.Models;
+﻿using NetDevPack.Domain;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace CloudSuite.Modules.Domain.Models.Core
 {
-    public class Entity : EntityBase
+    public class Entidade : Entity, IAggregateRoot
     {
         [Required(ErrorMessage = "The {0} field is required.")]
         [StringLength(450)]
@@ -23,6 +23,6 @@ namespace CloudSuite.Modules.Domain.Models.Core
         [StringLength(450)]
         public string? EntityTypeId { get; set; }
 
-        public EntityType EntityType { get; set; }
+        public EntidadeTipo EntityType { get; set; }
     }
 }

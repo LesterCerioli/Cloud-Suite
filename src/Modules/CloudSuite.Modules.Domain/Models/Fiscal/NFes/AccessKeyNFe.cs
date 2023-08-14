@@ -1,6 +1,6 @@
-﻿using CloudSuite.Infrastructure.Models;
-using CloudSuite.Modules.Domain.Models.Core;
+﻿using CloudSuite.Modules.Domain.Models.Core;
 using CloudSuite.Modules.Domain.ValueObjects;
+using NetDevPack.Domain;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace CloudSuite.Modules.Domain.Models.Fiscal.NFes
 {
-    public class AccessKeyNFe : EntityBase
+    public class AccessKeyNFe : Entity, IAggregateRoot
     {
         public Cnpj Cnpj { get; set; }
 

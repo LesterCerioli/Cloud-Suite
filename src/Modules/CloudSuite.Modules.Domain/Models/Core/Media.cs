@@ -1,4 +1,4 @@
-﻿using CloudSuite.Infrastructure.Models;
+﻿using NetDevPack.Domain;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -8,8 +8,17 @@ using System.Threading.Tasks;
 
 namespace CloudSuite.Modules.Domain.Models.Core
 {
-    public class Media : EntityBase
+    public class Media : Entity, IAggregateRoot
     {
+        public Media(Guid id, string? caption, int? fileSize, string? fileName, MediaType mediaType)
+        {
+            Id = id;
+            Caption = caption;
+            FileSize = fileSize;
+            FileName = fileName;
+            MediaType = mediaType;
+        }
+
         [StringLength(450)]
         public string? Caption { get; set; }
 

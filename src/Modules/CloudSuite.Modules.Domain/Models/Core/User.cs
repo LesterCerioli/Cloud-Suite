@@ -1,6 +1,6 @@
-﻿using CloudSuite.Infrastructure.Models;
-using CloudSuite.Modules.Domain.ValueObjects;
+﻿using CloudSuite.Modules.Domain.ValueObjects;
 using Microsoft.AspNetCore.Identity;
+using NetDevPack.Domain;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -10,51 +10,63 @@ using System.Threading.Tasks;
 
 namespace CloudSuite.Modules.Domain.Models.Core
 {
-    public class User : IdentityUser<long>, IEntityWithTypedId<long>, IExtendableObject
+    public class User : Entity, IAggregateRoot
     {
-        public User()
+        private readonly List<Vendor> _vendors;
+
+        
+        public User(string? fullName, Email email, Cpf cpf, Vendor vendor, bool? isDeleted, DateTimeOffset? createdOn, DateTimeOffset? latestUpdatedOn, string? refreshTokenHash, string? culture, string? extensionData)
         {
+            FullName = fullName;
+            Email = email;
+            Cpf = cpf;
+            Vendor = vendor;
+            IsDeleted = isDeleted;
+            CreatedOn = createdOn;
+            LatestUpdatedOn = latestUpdatedOn;
+            RefreshTokenHash = refreshTokenHash;
+            Culture = culture;
+            ExtensionData = extensionData;
             CreatedOn = DateTimeOffset.Now;
             LatestUpdatedOn = DateTimeOffset.Now;
+            _vendors = new List<Vendor>();
         }
 
+        public User() { }
+        
         public const string SettingsDataKey = "Settings";
 
         public Guid UserGuid { get; set; }
 
         [Required(ErrorMessage = "The {0} field is required.")]
         [StringLength(450)]
-        public string FullName { get; set; }
+        public string? FullName { get; private set; }
 
-        public Email Email { get; set; }
+        public Email Email { get; private set; }
 
-        public Cpf Cpf { get; set; }
+        public Cpf Cpf { get; private set; }
 
-        public long? VendorId { get; set; }
-
-        public bool? IsDeleted { get; set; }
-
-        public DateTimeOffset? CreatedOn { get; set; }
-
-        public DateTimeOffset? LatestUpdatedOn { get; set; }
-
+        public Vendor Vendor { get; private set; }
                 
-        //public long? DefaultShippingAddressId { get; set; }
+        public bool? IsDeleted { get; private set; }
 
-        
-        public long? DefaultBillingAddressId { get; set; }
+        public DateTimeOffset? CreatedOn { get; private set; }
 
+        public DateTimeOffset? LatestUpdatedOn { get; private set; }
+                                
         [StringLength(450)]
-        public string? RefreshTokenHash { get; set; }
+        public string? RefreshTokenHash { get; private set; }
+        
+        [StringLength(450)]
+        public string? Culture { get; private set; }
+
+        /// <inheritdoc />
+        public string? ExtensionData { get; private set; }
+
+        public IReadOnlyCollection<Vendor> Vendors => _vendors.AsReadOnly();
 
         public IList<UserRole> Roles { get; set; } = new List<UserRole>();
 
         public IList<CustomerGroupUser> CustomerGroups { get; set; } = new List<CustomerGroupUser>();
-
-        [StringLength(450)]
-        public string? Culture { get; set; }
-
-        /// <inheritdoc />
-        public string? ExtensionData { get; set; }
     }
 }
