@@ -7,7 +7,7 @@ namespace CloudSuite.Modules.Application.Validations.Core.Addresses
   {
     public CheckAddressExistsByAddressLineRequestValidation()
     {
-      RuleFor(a => a.AddressLine1)
+      RuleFor(command => command.AddressLine1)
       .NotEmpty()
       .MaximumLength(50)
       .WithMessage("AddressLine1 deve ser preenchida");

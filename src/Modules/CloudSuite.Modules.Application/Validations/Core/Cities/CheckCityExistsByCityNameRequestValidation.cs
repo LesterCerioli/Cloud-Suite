@@ -7,7 +7,7 @@ namespace CloudSuite.Modules.Application.Validations.Core.Cities
   {
     public CheckCityExistsByCityNameRequestValidation()
     {
-      RuleFor(a => a.CityName)
+      RuleFor(command => command.CityName)
       .NotEmpty()
       .MaximumLength(50)
       .WithMessage("CityName deve ser preenchida");

@@ -6,15 +6,7 @@ namespace CloudSuite.Modules.Application.Handlers.Core.Addresses
 {
   public class CreateAddressCommand : IRequest<CreateAddressResponse>
   {
-    public Guid Id { get; private set; }
-
-    public string? ContactName { get; set; }
-
-    public string? AddressLine1 { get; set; }
-
-    public City? City { get; set; }
-
-    public CreateAddressCommand()
+        public CreateAddressCommand()
     {
       Id = Guid.NewGuid();
     }
@@ -25,5 +17,13 @@ namespace CloudSuite.Modules.Application.Handlers.Core.Addresses
           this.Id
       );
     }
+
+    public Guid Id { get; private set; }
+
+    public string? ContactName { get; set; }
+
+    public string? AddressLine1 { get; set; }
+
+    public City? City { get; set; }
   }
 }

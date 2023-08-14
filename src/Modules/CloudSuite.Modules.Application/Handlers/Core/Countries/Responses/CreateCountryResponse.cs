@@ -1,13 +1,13 @@
-﻿using CloudSuite.Modules.Application.Core;
+using CloudSuite.Modules.Application.Core;
 using FluentValidation.Results;
 
-namespace CloudSuite.Modules.Application.Handlers.Core.Addresses.Responses
+namespace CloudSuite.Modules.Application.Handlers.Core.Countries.Responses
 {
-  public class CreateAddressResponse : Response
+  public class CreateCountryResponse : Response
     {
         public Guid RequestId { get; private set; }
 
-        public CreateAddressResponse(Guid requestId, ValidationResult result)
+        public CreateCountryResponse(Guid requestId, ValidationResult result)
         {
             RequestId = requestId;
             foreach (var item in result.Errors)
@@ -16,7 +16,7 @@ namespace CloudSuite.Modules.Application.Handlers.Core.Addresses.Responses
             }
         }
 
-        public CreateAddressResponse(Guid requestId, string ValidationFailure)
+        public CreateCountryResponse(Guid requestId, string ValidationFailure)
         {
             RequestId = requestId ;
             this.AddError(ValidationFailure);

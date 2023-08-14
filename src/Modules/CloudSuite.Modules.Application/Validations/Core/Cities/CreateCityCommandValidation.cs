@@ -7,12 +7,12 @@ namespace CloudSuite.Modules.Application.Validations.Core.Cities
   {
     public CreateCityCommandValidation()
     {
-      RuleFor(a => a.CityName)
+      RuleFor(command => command.CityName)
       .NotEmpty()
       .MaximumLength(50)
       .WithMessage("CityName deve ser preenchida");
 
-      RuleFor(a => a.State)
+      RuleFor(command => command.State)
       .NotEmpty()
       .WithMessage("State deve ser preenchida");
     }
