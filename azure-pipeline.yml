@@ -4,16 +4,15 @@
 # https://docs.microsoft.com/azure/devops/pipelines/languages/dotnet-core
 
 trigger:
-- '*'
+  - "*"
 
 pr:
-- '*'
-
+  - "*"
 
 jobs:
   - job: Linux
     pool:
-      name: "DS11"
+      name: "DS31"
     steps:
       - task: UseDotNet@2
         displayName: "Use .NET Core sdk"
@@ -61,4 +60,30 @@ jobs:
         inputs:
           codeCoverageTool: Cobertura
           summaryFileLocation: $(Build.SourcesDirectory)/coverlet/reports/Cobertura.xml
-  
+
+  - job: Windows
+    pool:
+      vmImage: "windows-2019"
+    variables:
+      buildConfiguration: "Release"
+    steps:
+      - task: UseDotNet@2
+        displayName: "Use .NET Core sdk"
+        inputs:
+          packageType: "sdk"
+          version: "6.0.100"
+      - script: dotnet build --configuration $(buildConfiguration)
+        displayName: "dotnet build $(buildConfiguration)"
+      - task: DotNetCoreCLI@2
+        displayName: "run tests"
+        inputs:
+          command: test
+          arguments: "--configuration $(buildConfiguration) --logger trx /p:CollectCoverage=true /p:CoverletOutputFormat=cobertura /p:Exclude=[xunit.*]*%2c[System.*]*"
+          projects: "test/**/*.csproj"
+          nobuild: true
+
+      - task: PublishCodeCoverageResults@1
+        displayName: "Publish code coverage"
+        inputs:
+          codeCoverageTool: Cobertura
+          summaryFileLocation: $(Build.SourcesDirectory)/coverlet/reports/Cobertura.xml
