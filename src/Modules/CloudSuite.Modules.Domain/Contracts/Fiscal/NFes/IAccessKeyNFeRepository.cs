@@ -18,6 +18,5 @@ namespace CloudSuite.Modules.Domain.Contracts.Fiscal.NFes
 
          void Remove(AccessKeyNFe accessKeyNFe);
 
-
     }
 }
