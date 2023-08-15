@@ -6,7 +6,7 @@
   {
     public class CreateCountryCommand : IRequest<CreateCountryResponse>
     {
-          public CreateCountryCommand()
+      public CreateCountryCommand()
       {
         Id = Guid.NewGuid();
       }

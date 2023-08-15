@@ -1,10 +1,10 @@
-using System.Text.Json;
-using CloudSuite.Modules.Application.Handlers.Core.Cities.Requests;
 using CloudSuite.Modules.Application.Handlers.Core.Cities.Responses;
+using CloudSuite.Modules.Application.Handlers.Core.Cities.Requests;
 using CloudSuite.Modules.Application.Validations.Core.Cities;
 using CloudSuite.Modules.Domain.Contracts.Core;
-using MediatR;
 using Microsoft.Extensions.Logging;
+using System.Text.Json;
+using MediatR;
 
 namespace CloudSuite.Modules.Application.Handlers.Core.Cities
 {

@@ -1,9 +1,9 @@
-using System.Text.Json;
 using CloudSuite.Modules.Application.Handlers.Core.Countries.Responses;
 using CloudSuite.Modules.Application.Validations.Core.Countries;
 using CloudSuite.Modules.Domain.Contracts.Core;
-using MediatR;
 using Microsoft.Extensions.Logging;
+using System.Text.Json;
+using MediatR;
 
 namespace CloudSuite.Modules.Application.Handlers.Core.Countries
 {
