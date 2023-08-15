@@ -11,7 +11,7 @@ namespace CloudSuite.Modules.Application.Services.Contracts.Core
 {
     public interface IThemeService
     {
-        Task<IList<ThemeListItem>> GetInstalledThemes();
+       // Task<IList<ThemeListItem>> GetInstalledThemes();
 
         Task SetCurrentTheme(string themeName);
 
