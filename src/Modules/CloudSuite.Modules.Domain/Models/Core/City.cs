@@ -1,4 +1,4 @@
-﻿using CloudSuite.Infrastructure.Models;
+﻿using NetDevPack.Domain;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,17 +7,22 @@ using System.Threading.Tasks;
 
 namespace CloudSuite.Modules.Domain.Models.Core
 {
-    public class City : EntityBase
+    public class City : Entity, IAggregateRoot
     {
-        public City(long id)
+        private readonly List<State> _states;
+
+        public City(Guid id)
         {
             Id = id;
+            _states = new List<State>();
         }
         
-        public string? CityName { get; set; }
+        public City() { }
+        
+        public string? CityName { get; private set; }
 
-        public long? StateId { get; set; }
+        public IReadOnlyCollection<State> States => _states.AsReadOnly();
 
-        public State State { get; set; }
+        public State State { get; private set; }
     }
 }
