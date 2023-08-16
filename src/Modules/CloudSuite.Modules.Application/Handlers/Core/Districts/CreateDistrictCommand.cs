@@ -1,6 +1,5 @@
 using CloudSuite.Modules.Application.Handlers.Core.Districts.Responses;
 using DistrictEntity = CloudSuite.Modules.Domain.Models.Core.District;
-using CloudSuite.Modules.Domain.Models.Core;
 using MediatR;
 
 namespace CloudSuite.Modules.Application.Handlers.Core.Districts
