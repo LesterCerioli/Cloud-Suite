@@ -9,7 +9,7 @@ namespace CloudSuite.Modules.Domain.Contracts.Core
 {
     public interface IAddressRepository
     {
-        Task<Address> GetByContractName(string contactName);
+        Task<Address> GetByContactName(string contactName);
 
         Task<Address> GetByAddressLine(string addressLine1);
 
