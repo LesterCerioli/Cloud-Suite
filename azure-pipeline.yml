@@ -13,7 +13,7 @@ pr:
 jobs:
   - job: Linux
     pool:
-      name: "DS31"
+      vmImage: "ubuntu-latest"
     steps:
       - task: UseDotNet@2
         displayName: "Use .NET Core sdk"
@@ -37,7 +37,7 @@ jobs:
           summaryFileLocation: $(Build.SourcesDirectory)/coverlet/reports/Cobertura.xml
   - job: LinuxRelease
     pool:
-      name: "DS11"
+      vmImage: "ubuntu-latest"
     variables:
       buildConfiguration: "Release"
     steps:
