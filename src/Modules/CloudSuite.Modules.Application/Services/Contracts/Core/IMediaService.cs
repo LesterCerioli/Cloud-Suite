@@ -9,16 +9,16 @@ namespace CloudSuite.Modules.Application.Services.Contracts.Core
 {
     public interface IMediaService
     {
-        string GetMediaUrl(Media media);
+        Task<Media> GetMediaUrl(Media media);
 
-        string GetMediaUrl(string fileName);
+        Task<Media> GetMediaUrl(string fileName);
 
-        string GetThumbnailUrl(Media media);
+        Task<Media> GetThumbnailUrl(Media media);
 
-        Task SaveMediaAsync(Stream mediaBinaryStream, string fileName, string MimeType = null);
+        Task<Media> SaveMediaAsync(Stream mediaBinaryStream, string fileName, string MimeType = null);
 
-        Task DeleteMediaAsync(Media media);
+        Task<Media> DeleteMediaAsync(Media media);
 
-        Task DeleteMediaAsync(string fileName);
+        Task<Media> DeleteMediaAsync(string fileName);
     }
 }
