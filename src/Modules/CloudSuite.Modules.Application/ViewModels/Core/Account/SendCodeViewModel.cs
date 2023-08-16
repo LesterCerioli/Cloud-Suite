@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc.Rendering;
+//using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace CloudSuite.Modules.Application.ViewModels.Core.Account
 {
@@ -11,7 +11,7 @@ namespace CloudSuite.Modules.Application.ViewModels.Core.Account
     {
         public string SelectedProvider { get; set; }
 
-        public ICollection<SelectionItem> Providers { get; set; }
+        //public ICollection<SelectionItem> Providers { get; set; }
 
         public string ReturnUrl { get; set; }
 
