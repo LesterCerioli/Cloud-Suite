@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CloudSuite.Modules.Application.Services.Implementations.Core
+namespace CloudSuite.Modules.Application.Services.Contracts.Core
 {
-    internal class MediaService
+    internal interface IEmailService
     {
     }
 }
