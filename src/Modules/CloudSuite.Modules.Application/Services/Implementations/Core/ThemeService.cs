@@ -12,8 +12,27 @@ using Microsoft.Extensions.Configuration;
 
 namespace CloudSuite.Modules.Application.Services.Implementations.Core
 {
-    public class ThemeService
+    public class ThemeService : IThemeService
     {
+        public void Delete(string themeName)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task Install(Stream stream, string themeName)
+        {
+            throw new NotImplementedException();
+        }
+
+        public string PackTheme(string themeName)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task SetCurrentTheme(string themeName)
+        {
+            throw new NotImplementedException();
+        }
     }
 
 }

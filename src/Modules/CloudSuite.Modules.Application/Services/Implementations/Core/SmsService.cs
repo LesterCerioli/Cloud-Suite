@@ -7,8 +7,11 @@ using CloudSuite.Modules.Application.Services.Contracts.Core;
 
 namespace CloudSuite.Modules.Application.Services.Implementations.Core
 {
-    public class SmsService 
+    public class SmsService : ISmsSender
     {
-       
+        public Task SendSmsAsync(string number, string message)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

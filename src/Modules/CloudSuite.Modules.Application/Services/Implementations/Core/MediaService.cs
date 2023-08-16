@@ -12,7 +12,7 @@ using NetDevPack.Mediator;
 
 namespace CloudSuite.Modules.Application.Services.Implementations.Core
 {
-    public class MediaService
+    public class MediaService : IMediaService
     {
         private readonly IMediaRepository _mediaRepository;
         private readonly IMapper _mapper;
@@ -28,6 +28,14 @@ namespace CloudSuite.Modules.Application.Services.Implementations.Core
             _mediator = mediator;
         }
 
-       
+        public async Task<Media> GetByFileName(string fileName)
+        {
+            return _mapper.Map<Media>(await _mediaRepository.GetByFileName(fileName));
+        }
+
+        public async Task<Media> GetByFileSize(int fileSize)
+        {
+            return _mapper.Map<Media>(await _mediaRepository.GetByFileSize(fileSize));
+        }
     }
 }

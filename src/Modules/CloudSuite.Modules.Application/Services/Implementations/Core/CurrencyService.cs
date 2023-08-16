@@ -9,5 +9,13 @@ using Microsoft.Extensions.Configuration;
 
 namespace CloudSuite.Modules.Application.Services.Implementations.Core
 {
+    public class CurrencyService : ICurrencyService
+    {
+        public CultureInfo CurrencyCulture => throw new NotImplementedException();
 
+        public string FormatCurrency(decimal value)
+        {
+            throw new NotImplementedException();
+        }
+    }
 }

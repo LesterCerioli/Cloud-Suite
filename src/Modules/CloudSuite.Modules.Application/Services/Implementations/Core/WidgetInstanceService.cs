@@ -9,8 +9,11 @@ using NetDevPack.Data;
 
 namespace CloudSuite.Modules.Application.Services.Implementations.Core
 {
-    public class WidgetInstanceService
+    public class WidgetInstanceService : IWidgetInstanceService
     {
-        
+        public IQueryable<WidgetInstance> GetPublished()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
