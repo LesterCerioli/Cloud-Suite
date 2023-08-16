@@ -1,18 +1,16 @@
+using NetDevPack.Domain;
 namespace CloudSuite.Modules.Domain.Models.Finance
 {
-    public class BankAccount : Entity, |IAggregateRoot
+    public class BankAccount : Entity, IAggregateRoot
     {
-        public BankAccount(Guid id, string branch,
-            string? account, string? accountDigit)
+        public BankAccount(string? branch, string? branchDigit, string? account, string? accountDigit)
         {
-            Id = id;
             Branch = branch;
+            BranchDigit = branchDigit;
             Account = account;
             AccountDigit = accountDigit;
-
         }
-        
-                
+
         public string? Branch { get; private set; }
         
         public string? BranchDigit { get; private set; }

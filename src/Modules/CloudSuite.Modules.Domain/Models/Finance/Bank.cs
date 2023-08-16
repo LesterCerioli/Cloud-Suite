@@ -1,3 +1,5 @@
+using NetDevPack.Domain;
+
 namespace CloudSuite.Modules.Domain.Models.Finance
 {
     public class Bank : Entity, IAggregateRoot
