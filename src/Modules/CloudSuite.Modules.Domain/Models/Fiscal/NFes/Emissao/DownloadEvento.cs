@@ -1,7 +1,18 @@
+using NetDevPack.Domain;
+
 namespace CloudSuite.Modules.Domain.Models.Fiscal.NFes.Emissao
 {
-    public class DownloadEvento
+    public class DownloadEvento : Entity, IAggregateRoot
     {
+        public DownloadEvento(string? chNFe, string? tpAmb, string? tpDown, string? tpEvento, string? nSeqEvento)
+        {
+            ChNFe = chNFe;
+            TpAmb = tpAmb;
+            TpDown = tpDown;
+            TpEvento = tpEvento;
+            NSeqEvento = nSeqEvento;
+        }
+
         public string? ChNFe { get; private set; }
         
         public string? TpAmb { get; private set; }

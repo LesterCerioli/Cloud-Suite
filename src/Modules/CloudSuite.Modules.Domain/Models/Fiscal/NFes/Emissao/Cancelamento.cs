@@ -4,9 +4,8 @@ namespace CloudSuite.Modules.Domain.Models.Fiscal.NFes.Emissao
 {
     public class Cancelamento : Entity, IAggregateRoot
     {
-        public Cancelamento(Guid id, string? chNFe, string? tpAmb, string? dhEvento, string? nProt, string? xJust)
+        public Cancelamento(string? chNFe, string? tpAmb, string? dhEvento, string? nProt, string? xJust)
         {
-            Id = id;
             ChNFe = chNFe;
             TpAmb = tpAmb;
             DhEvento = dhEvento;

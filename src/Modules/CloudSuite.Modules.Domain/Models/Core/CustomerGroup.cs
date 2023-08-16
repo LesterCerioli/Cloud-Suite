@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace CloudSuite.Modules.Domain.Models.Core
 {
-    public class CustomerGroup : Entidade, IAggregateRoot
+    public class CustomerGroup : Entity, IAggregateRoot
     {
              
         public CustomerGroup() { }

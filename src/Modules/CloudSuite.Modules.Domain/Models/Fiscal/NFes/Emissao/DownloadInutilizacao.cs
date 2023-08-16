@@ -1,3 +1,5 @@
+using NetDevPack.Domain;
+
 namespace CloudSuite.Modules.Domain.Models.Fiscal.NFes.Emissao
 {
     public class DownloadInutilizacao : Entity, IAggregateRoot
