@@ -42,6 +42,8 @@ namespace CloudSuite.Modules.Domain.Models.Core
 
         public CustomerGroupUser CustomerGroupUsers { get; private set; }
 
+        public Guid CustomerGroupUserId { get; private set; }
+
         public IReadOnlyCollection<CustomerGroupUser> CustomerGroupUser => _customerGroupUsers.AsReadOnly();
     }
 }
