@@ -22,6 +22,8 @@ namespace CloudSuite.Modules.Domain.Models.Core
 
         public State State { get; set; }
 
+        public Guid StateId { get; private set; }
+
         [Required(ErrorMessage = "The {0} field is required.")]
         [StringLength(450)]
         public string? Name { get; private set; }

@@ -26,5 +26,7 @@ namespace CloudSuite.Modules.Domain.Models.Core
         public string? RegisterName { get; private set; }
 
         public Address Address { get; private set; }
+
+        public Guid AddressId { get; private set; }
     }
 }

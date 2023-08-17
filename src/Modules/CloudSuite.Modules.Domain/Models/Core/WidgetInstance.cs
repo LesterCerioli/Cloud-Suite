@@ -38,6 +38,7 @@ namespace CloudSuite.Modules.Domain.Models.Core
         public string? WidgetId { get; private set; }
 
         public Widget Widget { get; private set; }
+
         
         public WidgetZone WidgetZone { get; private set; }
 

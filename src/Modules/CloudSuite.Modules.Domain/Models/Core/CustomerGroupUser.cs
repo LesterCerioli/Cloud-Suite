@@ -27,6 +27,8 @@ namespace CloudSuite.Modules.Domain.Models.Core
 
         public CustomerGroup CustomerGroup { get; private set; }
 
+        public Guid CustomerGroupId { get; private set; }
+
         public Name Name { get; private set; }
 
         public Cpf Cpf { get; private set; }
