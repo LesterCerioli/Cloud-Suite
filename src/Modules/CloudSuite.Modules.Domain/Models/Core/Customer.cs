@@ -19,6 +19,8 @@ namespace CloudSuite.Modules.Domain.Models.Core
 
         private readonly List<Company> _companies;
 
+        public Guid CompanyId { get; private set; }
+
         public IReadOnlyCollection<Company> Companies => _companies.AsReadOnly();
 
         public Cnpj Cnpj { get; private set; }

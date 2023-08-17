@@ -24,6 +24,8 @@ namespace CloudSuite.Modules.Domain.Models.Core
 
         public Country Country { get; set; }
 
+        public Guid CountryId { get; private set; }
+
         public IReadOnlyCollection<Country> Countries => _countries.AsReadOnly();
 
 
