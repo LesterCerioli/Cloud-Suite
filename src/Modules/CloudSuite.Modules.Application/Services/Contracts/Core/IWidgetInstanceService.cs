@@ -9,6 +9,13 @@ namespace CloudSuite.Modules.Application.Services.Contracts.Core
 {
     public interface IWidgetInstanceService
     {
-        IQueryable<WidgetInstance> GetPublished();
+        Task<Widget> GetByName(string name);
+
+        Task<Widget> GetByCreationDate(DateTimeOffset creationDate);
+
+        Task<Widget> GetByLatestUpdatedDate(string createUrl);
+
+        Task<Widget> GetByEditUrl(string editUrl);
+
     }
 }

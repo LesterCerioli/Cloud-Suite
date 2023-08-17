@@ -17,10 +17,5 @@ namespace CloudSuite.Modules.Application.Services.Contracts.Core
 
         Task<Dictionary<string, string>> GetAllSettingsForUserAsync(long userId);
 
-        Task UpdateSettingForUserAsync(User user, string name, string value);
-
-        Task UpdateSettingAsync(string name, string value);
-
-        void SetCustomSettingValueForUser(User user, string name, string value);
     }
 }

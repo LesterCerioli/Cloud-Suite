@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CloudSuite.Modules.Application.Handlers.Core.RoboEmails;
 using CloudSuite.Modules.Domain.Models.Core;
 
 namespace CloudSuite.Modules.Application.Services.Contracts.Core
@@ -18,7 +19,7 @@ namespace CloudSuite.Modules.Application.Services.Contracts.Core
 
         Task SendEmailAsync(string emailAddress, string subject, string body, bool isHtml = false);
 
-        //Task Save(CreateEmailCommand commandCreate);
+        Task Save(CreateRoboEmailCommand commandCreate);
     
     }
 }
