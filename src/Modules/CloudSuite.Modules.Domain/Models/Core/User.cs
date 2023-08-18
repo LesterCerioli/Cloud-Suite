@@ -65,6 +65,11 @@ namespace CloudSuite.Modules.Domain.Models.Core
 
         public IReadOnlyCollection<Vendor> Vendors => _vendors.AsReadOnly();
 
+        public Customer Customer { get; private set; }
+
+        
+        public Guid VendorId { get; private set; }
+
         public IList<UserRole> Roles { get; set; } = new List<UserRole>();
 
         public IList<CustomerGroupUser> CustomerGroups { get; set; } = new List<CustomerGroupUser>();
