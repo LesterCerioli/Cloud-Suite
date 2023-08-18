@@ -7,7 +7,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace CloudSuite.Modules.Application.ViewModels.Core.Account
 {
-    internal class LoginViewModel
+    public class LoginViewModel
     {
         [Required(ErrorMessage = "The Email field is required.")]
         [EmailAddress(ErrorMessage = "The Email field is not a valid e-mail address.")]

@@ -17,6 +17,8 @@ namespace CloudSuite.Modules.Domain.Models.Core
         
         public Company Company { get; private set; }
 
+        public Telephone Telephone { get; private set; }
+
         private readonly List<Company> _companies;
 
         public IReadOnlyCollection<Company> Companies => _companies.AsReadOnly();

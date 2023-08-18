@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CloudSuite.Modules.Application.ViewModels.Core
 {
-    internal class WidgetInstanceViewModel
+    public class WidgetInstanceViewModel
     {
         public long Id { get; set; }
 

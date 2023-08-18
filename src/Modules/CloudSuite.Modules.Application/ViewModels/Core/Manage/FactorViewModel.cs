@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CloudSuite.Modules.Application.ViewModels.Core.Manage
 {
-    internal class FactorViewModel
+    public class FactorViewModel
     {
         public string Purpose { get; set; }
     }

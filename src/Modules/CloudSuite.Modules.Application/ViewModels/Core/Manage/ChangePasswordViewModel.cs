@@ -7,7 +7,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace CloudSuite.Modules.Application.ViewModels.Core.Manage
 {
-    internal class ChangePasswordViewModel
+    public class ChangePasswordViewModel
     {
         [Required(ErrorMessage = "The {0} field is required.")]
         [DataType(DataType.Password)]

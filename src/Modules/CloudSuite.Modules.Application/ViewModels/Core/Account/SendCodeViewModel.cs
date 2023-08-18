@@ -1,20 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-//using Microsoft.AspNetCore.Mvc.Rendering;
+using System.ComponentModel.DataAnnotations;
 
 namespace CloudSuite.Modules.Application.ViewModels.Core.Account
 {
-    internal class SendCodeViewModel
-    {
-        public string SelectedProvider { get; set; }
+    public class SendCodeViewModel
 
-        //public ICollection<SelectionItem> Providers { get; set; }
 
-        public string ReturnUrl { get; set; }
+    {   
+        [Key]
+        public Guid Id { get; set; }
 
-        public bool RememberMe { get; set; }
+        [Required(ErrorMessage = "The {0} field is required.")]
+        public string Telephone { get; set; }
+
+        public DateTime CreatedOn { get; set; }
     }
 }

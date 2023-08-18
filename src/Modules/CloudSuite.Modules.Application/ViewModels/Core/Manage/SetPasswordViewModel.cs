@@ -7,7 +7,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace CloudSuite.Modules.Application.ViewModels.Core.Manage
 {
-    internal class SetPasswordViewModel
+    public class SetPasswordViewModel
     {
         [Required(ErrorMessage = "The {0} field is required.")]
         [StringLength(100, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 6)]

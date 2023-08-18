@@ -7,7 +7,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace CloudSuite.Modules.Application.ViewModels.Core.Manage
 {
-    internal class VerifyPhoneNumberViewModel
+    public class VerifyPhoneNumberViewModel
     {
         [Required(ErrorMessage = "The {0} field is required.")]
         public string Code { get; set; }

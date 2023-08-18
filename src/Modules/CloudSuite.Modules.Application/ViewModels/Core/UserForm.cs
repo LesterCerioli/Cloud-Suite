@@ -7,7 +7,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace CloudSuite.Modules.Application.ViewModels.Core
 {
-    internal class UserForm
+    public class UserForm
     {
         public long Id { get; set; }
 

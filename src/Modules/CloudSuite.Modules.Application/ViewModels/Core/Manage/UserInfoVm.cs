@@ -7,7 +7,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace CloudSuite.Modules.Application.ViewModels.Core.Manage
 {
-    internal class UserInfoVm
+    public class UserInfoVm
     {
         [Required(ErrorMessage = "The {0} field is required.")]
         public string FullName { get; set; }

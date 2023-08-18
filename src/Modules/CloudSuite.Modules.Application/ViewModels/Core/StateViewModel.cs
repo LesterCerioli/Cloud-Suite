@@ -7,7 +7,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace CloudSuite.Modules.Application.ViewModels.Core
 {
-    internal class StateViewModel
+    public class StateViewModel
     {
         public string Code { get; set; }
 

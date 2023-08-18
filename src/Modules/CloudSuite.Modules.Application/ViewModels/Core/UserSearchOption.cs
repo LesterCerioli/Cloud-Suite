@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CloudSuite.Modules.Application.ViewModels.Core
 {
-    internal class UserSearchOption
+    public class UserSearchOption
     {
         public string Name { get; set; }
 

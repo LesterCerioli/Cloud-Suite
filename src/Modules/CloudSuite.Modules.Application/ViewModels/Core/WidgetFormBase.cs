@@ -7,7 +7,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace CloudSuite.Modules.Application.ViewModels.Core
 {
-    internal class WidgetFormBase
+    public class WidgetFormBase
     {
         public long Id { get; set; }
 

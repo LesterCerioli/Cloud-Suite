@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CloudSuite.Modules.Application.ViewModels.Core.Manage
 {
-    internal class RemoveLoginViewModel
+    public class RemoveLoginViewModel
     {
         public string LoginProvider { get; set;}
 

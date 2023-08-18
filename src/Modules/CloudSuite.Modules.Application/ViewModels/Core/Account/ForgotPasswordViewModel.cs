@@ -8,7 +8,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace CloudSuite.Modules.Application.ViewModels.Core.Account
 {
-    internal class ForgotPasswordViewModel
+    public class ForgotPasswordViewModel
     {
         [Required(ErrorMessage ="The {0} field is required.")]
         [EmailAddress]

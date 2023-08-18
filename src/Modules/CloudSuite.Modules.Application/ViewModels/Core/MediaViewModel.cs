@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CloudSuite.Modules.Application.ViewModels.Core
 {
-    internal class MediaViewModel
+    public class MediaViewModel
     {
         public string Url { get; set; }
 

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CloudSuite.Modules.Application.ViewModels.Core
 {
-    internal class HomeViewModel
+    public class HomeViewModel
     {
         public IList<WidgetInstanceViewModel> WidgetInstances { get; set;} = new List<WidgetInstanceViewModel>();
     }

@@ -7,7 +7,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace CloudSuite.Modules.Application.ViewModels.Core.Account
 {
-    internal class ExternalLoginConfirmationViewModel
+    public class ExternalLoginConfirmationViewModel
     {
         [Required(ErrorMessage ="The {0} field is required.")]
         [EmailAddress]

@@ -7,7 +7,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace CloudSuite.Modules.Application.ViewModels.Core.Account
 {
-    internal class VerifyCodeViewModel
+    public class VerifyCodeViewModel
     {
         [Required(ErrorMessage = "The {0} field is required.")]
         public string Provider { get; set; }
