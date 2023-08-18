@@ -16,7 +16,6 @@ namespace CloudSuite.Modules.Domain.Models.Core
             IsBillingEnabled = isBillingEnabled;
             IsShippingEnabled = isShippingEnabled;
             IsCityEnabled = isCityEnabled;
-
             IsZipCodeEnabled = isZipCodeEnabled;
             IsDistrictEnabled = isDistrictEnabled;
             _states = new List<State>();
