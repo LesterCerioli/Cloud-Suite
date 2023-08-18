@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace CloudSuite.Modules.Domain.Contracts.Core
 {
-    public interface CustomerGroupUserRepository
+    public interface ICustomerGroupUserRepository
     {
         Task<CustomerGroupUser> GetByName(Name name);
 
