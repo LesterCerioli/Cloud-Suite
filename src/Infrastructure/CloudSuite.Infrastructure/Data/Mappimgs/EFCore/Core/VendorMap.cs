@@ -13,7 +13,56 @@ namespace CloudSuite.Infrastructure.Data.Mappimgs.EFCore.Core
     {
         public void Configure(EntityTypeBuilder<Vendor> builder)
         {
-            throw new NotImplementedException();
+            builder.Property(a => a.Name)
+                .HasColumnName("Name")
+                .HasColumnType("varchar(450)")
+                .HasMaxLength(450)
+                .IsRequired();
+
+            builder.Property(a => a.Slug)
+                .HasColumnName("Slug")
+                .HasColumnType("varchar(450)")
+                .HasMaxLength(450)
+                .IsRequired();
+
+            builder.Property(a => a.Description)
+                .HasColumnName("Description")
+                .HasColumnType("varchar(100)")
+                .HasMaxLength(100)
+                .IsRequired();
+
+            builder.Property(a => a.IsActive)
+              .HasColumnName("IsActive")
+              .HasColumnType("bit");
+
+            builder.Property(a => a.IsDeleted)
+              .HasColumnName("IsDeleted")
+              .HasColumnType("bit");
+
+            builder.Property(y => y.CreatedOn)
+               .HasColumnName("CreatedOn")
+               .HasColumnType("DateTimeOffset")
+               .IsRequired();
+
+            builder.Property(y => y.LatestUpdatedOn)
+               .HasColumnName("LatestUpdatedOn")
+               .HasColumnType("DateTimeOffset")
+               .IsRequired();
+
+            builder.HasOne(a => a.Email)
+               .WithMany()
+               .HasForeignKey(a => a.Email)
+               .OnDelete(DeleteBehavior.Restrict);
+
+                builder.HasOne(a => a.Cnpj)
+                .WithMany()
+                .HasForeignKey(a => a.Cnpj)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            builder.HasOne(a => a.User)
+                .WithMany()
+                .HasForeignKey(a => a.UserId)
+                .OnDelete(DeleteBehavior.Restrict);
         }
     }
 }

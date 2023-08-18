@@ -13,7 +13,28 @@ namespace CloudSuite.Infrastructure.Data.Mappimgs.EFCore.Core
     {
         public void Configure(EntityTypeBuilder<District> builder)
         {
-            throw new NotImplementedException();
+            builder.Property(a => a.Name)
+                .HasColumnName("Name")
+                .HasColumnType("varchar(450)")
+                .HasMaxLength(450)
+                .IsRequired();
+
+            builder.Property(a => a.Type)
+                .HasColumnName("Type")
+                .HasColumnType("varchar(450)")
+                .HasMaxLength(450)
+                .IsRequired();
+
+            builder.Property(a => a.Location)
+                .HasColumnName("Location")
+                .HasColumnType("varchar(100)")
+                .HasMaxLength(100)
+                .IsRequired();
+
+            builder.HasOne(a => a.State)
+                .WithMany()
+                .HasForeignKey(a => a.StateId)
+                .OnDelete(DeleteBehavior.Restrict);
         }
     }
 }

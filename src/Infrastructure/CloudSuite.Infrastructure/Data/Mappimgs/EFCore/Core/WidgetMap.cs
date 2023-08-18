@@ -13,7 +13,38 @@ namespace CloudSuite.Infrastructure.Data.Mappimgs.EFCore.Core
     {
         public void Configure(EntityTypeBuilder<Widget> builder)
         {
-            throw new NotImplementedException();
+            builder.Property(a => a.Name)
+               .HasColumnName("Name")
+               .HasColumnType("varchar(450)")
+               .HasMaxLength(450)
+               .IsRequired();
+
+            builder.Property(a => a.ViewComponentName)
+                .HasColumnName("ViewComponentName")
+                .HasColumnType("varchar(450)")
+                .HasMaxLength(450)
+                .IsRequired();
+
+            builder.Property(a => a.CreateUrl)
+               .HasColumnName("CreateUrl")
+               .HasColumnType("varchar(450)")
+               .HasMaxLength(450)
+               .IsRequired();
+
+            builder.Property(a => a.EditUrl)
+                .HasColumnName("EditUrl")
+                .HasColumnType("varchar(450)")
+                .HasMaxLength(450)
+                .IsRequired();
+
+            builder.Property(a => a.IsPublished)
+              .HasColumnName("IsPublished")
+              .HasColumnType("bit");
+
+            builder.Property(y => y.CreatedOn)
+               .HasColumnName("CreatedOn")
+               .HasColumnType("DateTimeOffset")
+               .IsRequired();
         }
     }
 }

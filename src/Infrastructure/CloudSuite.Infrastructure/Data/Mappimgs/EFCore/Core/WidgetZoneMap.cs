@@ -13,7 +13,17 @@ namespace CloudSuite.Infrastructure.Data.Mappimgs.EFCore.Core
     {
         public void Configure(EntityTypeBuilder<WidgetZone> builder)
         {
-            throw new NotImplementedException();
+            builder.Property(a => a.Name)
+               .HasColumnName("Name")
+               .HasColumnType("varchar(450)")
+               .HasMaxLength(450)
+               .IsRequired();
+
+            builder.Property(a => a.Description)
+                .HasColumnName("Description")
+                .HasColumnType("varchar(100)")
+                .HasMaxLength(100)
+                .IsRequired();
         }
     }
 }

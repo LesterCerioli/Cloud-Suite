@@ -18,19 +18,18 @@ namespace CloudSuite.Infrastructure.Data.Mappimgs.EFCore.Core
             builder.Property(c => c.ContactName)
                 .HasColumnName("ContactName")
                 .HasColumnType("varchar(100)")
-                .HasMaxLength(100);
+                .HasMaxLength(100)
+                .IsRequired();
 
             builder.Property(c => c.AddressLine1)
                 .HasColumnName("AddressLine1")
                 .HasColumnType("varchar(450)")
-                .HasMaxLength(450);
-            
+                .HasMaxLength(450)
+                .IsRequired();
+
             builder.HasOne(c => c.Districts)
                 .WithMany()
                 .HasForeignKey(c => c.District);
-
-            
-
 
         }
     }

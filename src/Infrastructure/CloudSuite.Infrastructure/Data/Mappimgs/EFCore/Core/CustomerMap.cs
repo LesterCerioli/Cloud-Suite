@@ -13,7 +13,15 @@ namespace CloudSuite.Infrastructure.Data.Mappimgs.EFCore.Core
     {
         public void Configure(EntityTypeBuilder<Customer> builder)
         {
-            throw new NotImplementedException();
+            builder.HasOne(a => a.Company)
+                .WithMany()
+                .HasForeignKey(a => a.CompanyId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            builder.HasOne(a => a.Cnpj)
+                .WithMany()
+                .HasForeignKey(a => a.Cnpj)
+                .OnDelete(DeleteBehavior.Restrict);
         }
     }
 }

@@ -13,7 +13,13 @@ namespace CloudSuite.Infrastructure.Data.Mappimgs.EFCore.Core
     {
         public void Configure(EntityTypeBuilder<UserRole> builder)
         {
-            throw new NotImplementedException();
+            builder.Property(a => a.User)
+                .HasColumnName("User")
+                .HasColumnType("virtual");
+
+            builder.Property(a => a.Role)
+                .HasColumnName("Role")
+                .HasColumnType("virtual");
         }
     }
 }
