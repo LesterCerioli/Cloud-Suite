@@ -10,7 +10,9 @@ namespace CloudSuite.Modules.Application.ViewModels.Core.Account
         public Guid Id { get; set; }
 
         [Required(ErrorMessage = "The {0} field is required.")]
-        public string Telephone { get; set; }
+        [Phone]
+        [Display(Name = "Phone number")]
+        public string? Telephone { get; set; }
 
         public DateTime CreatedOn { get; set; }
     }

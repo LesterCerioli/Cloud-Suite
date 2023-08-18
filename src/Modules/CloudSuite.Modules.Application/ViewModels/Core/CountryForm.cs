@@ -11,11 +11,11 @@ namespace CloudSuite.Modules.Application.ViewModels.Core
     {
         [Required(ErrorMessage = "The {0} field is required.")]
 
-        public string Id { get; set; }
+        public string? Id { get; set; }
 
-        public string Name { get; set; }
+        public string? Name { get; set; }
 
-        public string Conde3 { get; set;}
+        public string? Conde3 { get; set;}
 
         public bool IsBillingEnabled { get; set; }
 

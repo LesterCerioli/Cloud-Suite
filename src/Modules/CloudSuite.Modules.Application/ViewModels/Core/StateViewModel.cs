@@ -9,10 +9,10 @@ namespace CloudSuite.Modules.Application.ViewModels.Core
 {
     public class StateViewModel
     {
-        public string Code { get; set; }
+        public string? Code { get; set; }
 
         [Required(ErrorMessage = "The {0} field is required.")]
         [StringLength(450)]
-        public string Name { get; set; }
+        public string? Name { get; set; }
     }
 }

@@ -9,9 +9,12 @@ namespace CloudSuite.Modules.Application.ViewModels.Core.Manage
 {
     public class AddPhoneNumberViewModel
     {
+        [Key]
+        public Guid Id { get; set; }
+
         [Required(ErrorMessage = "The {0} field is required.")]
         [Phone]
         [Display(Name = "Phone number")]
-        public string PhoneNumber { get; set; }
+        public string? PhoneNumber { get; set; }
     }
 }

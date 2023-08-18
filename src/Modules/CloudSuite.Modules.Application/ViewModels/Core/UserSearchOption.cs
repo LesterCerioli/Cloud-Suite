@@ -8,9 +8,9 @@ namespace CloudSuite.Modules.Application.ViewModels.Core
 {
     public class UserSearchOption
     {
-        public string Name { get; set; }
+        public string? Name { get; set; }
 
-        public string Email { get; set; }
+        public string? Email { get; set; }
         
     }
 }
