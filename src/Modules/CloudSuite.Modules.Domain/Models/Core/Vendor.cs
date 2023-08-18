@@ -50,5 +50,9 @@ namespace CloudSuite.Modules.Domain.Models.Core
         public bool? IsDeleted { get; private set; }
 
         public IList<User> Users { get; set; } = new List<User>();
+
+        public User User { get; private set; }
+
+        public Guid UserId { get; private set; }
     }
 }

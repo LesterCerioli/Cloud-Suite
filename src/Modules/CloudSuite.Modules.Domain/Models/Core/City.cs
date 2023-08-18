@@ -1,6 +1,7 @@
 ﻿using NetDevPack.Domain;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,11 +19,14 @@ namespace CloudSuite.Modules.Domain.Models.Core
         }
         
         public City() { }
-        
+
+        [MaxLength(45)]
         public string? CityName { get; private set; }
 
         public IReadOnlyCollection<State> States => _states.AsReadOnly();
 
         public State State { get; private set; }
+
+        public Guid StateId { get; private set; }
     }
 }

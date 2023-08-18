@@ -10,5 +10,9 @@ namespace CloudSuite.Modules.Domain.Models.Core
     public class Role : Entity, IAggregateRoot
     {
         public IList<UserRole> Users { get; set; } = new List<UserRole>();
+
+        public Guid UserRoleId { get; private set; }
+
+        public UserRole UserRole { get; private set; }
     }
 }
