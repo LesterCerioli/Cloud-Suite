@@ -7,10 +7,11 @@ namespace CloudSuite.Modules.Application.Validations.Core.Addresses
   {
     public CheckAddressExistsByContactNameRequestValidation()
     {
-      RuleFor(command => command.ContactName)
+      RuleFor(request => request.ContactName)
       .NotEmpty()
-      .WithMessage("ContactName deve ser preenchida");
+      .WithMessage("ContactName deve ser preenchida")
+      .MinimumLength(50)
+      .WithMessage("ContactName muito longo, deve conter até 50 caracteres");
     }
   }
-  
 }

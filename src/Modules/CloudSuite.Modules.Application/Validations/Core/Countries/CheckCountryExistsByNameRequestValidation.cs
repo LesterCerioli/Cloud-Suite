@@ -7,10 +7,11 @@ namespace CloudSuite.Modules.Application.Validations.Core.Countries
   {
     public CheckCountryExistsByNameRequestValidation()
     {
-      RuleFor(command => command.CountryName)
+      RuleFor(request => request.CountryName)
       .NotEmpty()
+      .WithMessage("CountryName deve ser preenchida")
       .MaximumLength(50)
-      .WithMessage("CountryName deve ser preenchida");
+      .WithMessage("CountryName muito longo, deve conter até 50 caracteres");
     }
   }
 }

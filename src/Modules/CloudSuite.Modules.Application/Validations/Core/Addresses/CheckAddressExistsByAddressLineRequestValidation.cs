@@ -7,11 +7,11 @@ namespace CloudSuite.Modules.Application.Validations.Core.Addresses
   {
     public CheckAddressExistsByAddressLineRequestValidation()
     {
-      RuleFor(command => command.AddressLine1)
+      RuleFor(request => request.AddressLine1)
       .NotEmpty()
+      .WithMessage("AddressLine1 deve ser preenchida")
       .MaximumLength(50)
-      .WithMessage("AddressLine1 deve ser preenchida");
+      .WithMessage("AddressLine1 muito longa, dete conter até 50 caracteres");
     }
   }
-  
 }

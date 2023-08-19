@@ -7,11 +7,11 @@ namespace CloudSuite.Modules.Application.Validations.Core.Cities
   {
     public CheckCityExistsByCityNameRequestValidation()
     {
-      RuleFor(command => command.CityName)
+      RuleFor(request => request.CityName)
       .NotEmpty()
+      .WithMessage("CityName deve ser preenchida")
       .MaximumLength(50)
-      .WithMessage("CityName deve ser preenchida");
+      .WithMessage("CityName muito longo, deve conter até 50 caracteres");
     }
   }
-  
 }

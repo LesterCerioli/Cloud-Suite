@@ -7,7 +7,7 @@ namespace CloudSuite.Modules.Application.Validations.Core.RoboEmail
     {
         public CheckRoboEmailExistsByReceivedTimeRequestValidation()        
         {
-            RuleFor(command => command.ReceivedTime)
+            RuleFor(request => request.ReceivedTime)
             .NotEmpty()
             .WithMessage("ReceivedTime deve ser preenchida");
         }

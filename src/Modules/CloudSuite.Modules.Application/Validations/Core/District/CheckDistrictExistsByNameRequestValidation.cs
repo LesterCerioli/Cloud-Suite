@@ -7,7 +7,7 @@ namespace CloudSuite.Modules.Application.Validations.Core.District
     {
         public CheckDistrictExistsByNameRequestValidation()        
         {
-            RuleFor(command => command.Name)
+            RuleFor(request => request.Name)
             .NotEmpty()
             .WithMessage("Name deve ser preenchida")
             .MinimumLength(3)

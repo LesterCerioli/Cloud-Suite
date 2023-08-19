@@ -7,16 +7,17 @@ namespace CloudSuite.Modules.Application.Validations.Core.Countries
   {
     public CreateCountryCommandValidation()
     {
-      RuleFor(command => command.CountryName)
+      RuleFor(request => request.CountryName)
       .NotEmpty()
+      .WithMessage("CountryName deve ser preenchida")
       .MaximumLength(50)
-      .WithMessage("CountryName deve ser preenchida");
+      .WithMessage("CountryName muito longo, deve conter até 50 caracteres");
 
-      RuleFor(command => command.Code3)
+      RuleFor(request => request.Code3)
       .NotEmpty()
       .WithMessage("Code3 deve ser preenchida")
       .MaximumLength(3)
-      .WithMessage("Code3 não pode ter mais de 3 letras");
+      .WithMessage("Code3 muito curto, não deve conter mais de 3 caracteres");
 
       RuleFor(command => command.IsBillingEnabled)
       .NotNull()
