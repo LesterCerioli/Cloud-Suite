@@ -1,4 +1,4 @@
-namespace CloudSuite.Modules.Domain.Models.Fiscal.NFes
+namespace CloudSuite.Modules.Domain.Shared.Enums.Fiscal.NFs
 {
     public enum TipoFinalidade
     {
@@ -21,6 +21,6 @@ namespace CloudSuite.Modules.Domain.Models.Fiscal.NFes
         /// 4 - Devolução/Retorno
         /// </summary>
         Devolucao = 4
-        
+
     }
 }

@@ -1,4 +1,4 @@
-namespace CloudSuite.Modules.Domain.Models.Fiscal.NFes
+namespace CloudSuite.Modules.Domain.Shared.Enums.Fiscal.NFs
 {
     public enum TipoModalidadeFrete
     {
@@ -21,6 +21,6 @@ namespace CloudSuite.Modules.Domain.Models.Fiscal.NFes
         /// 9 - Sem Frete.
         /// </summary>
         SemFrete = 9
-        
+
     }
 }

@@ -1,4 +1,4 @@
-namespace CloudSuite.Modules.Domain.Models.Fiscal.NFes
+namespace CloudSuite.Modules.Domain.Shared.Enums.Fiscal.NFs
 {
     public enum TipoModalidadeDocumentoFiscal
     {
@@ -10,6 +10,6 @@ namespace CloudSuite.Modules.Domain.Models.Fiscal.NFes
         /// <summary>
         /// Nota Fiscal de Consumidor Eletrônica (NFC-e).
         /// </summary>
-        
+
     }
 }

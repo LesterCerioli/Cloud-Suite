@@ -1,4 +1,4 @@
-namespace CloudSuite.Modules.Domain.Models.Fiscal.NFes
+namespace CloudSuite.Modules.Domain.Shared.Enums.Fiscal.NFs
 {
     public enum TipoIndicadorPresencaComprador
     {
@@ -31,6 +31,6 @@ namespace CloudSuite.Modules.Domain.Models.Fiscal.NFes
         /// 9 - Não presencial, outros.
         /// </summary>
         Outros = 9
-        
+
     }
 }

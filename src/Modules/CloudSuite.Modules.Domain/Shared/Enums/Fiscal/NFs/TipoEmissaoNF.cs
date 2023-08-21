@@ -1,4 +1,4 @@
-namespace CloudSuite.Modules.Domain.Models.Fiscal.NFes
+namespace CloudSuite.Modules.Domain.Shared.Enums.Fiscal.NFs
 {
     public enum TipoEmissaoNF
     {
@@ -45,6 +45,6 @@ namespace CloudSuite.Modules.Domain.Models.Fiscal.NFes
         ///       momento atual.
         /// </summary>
         ContingenciaOffLineNfce = 9
-        
+
     }
 }
