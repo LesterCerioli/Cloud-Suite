@@ -19,7 +19,7 @@ namespace CloudSuite.Modules.Domain.Models.Fiscal.NFes.Emissao
 
         public int? CUF { get; private set; }
         
-        public string tpAmb { get; set; }
+        public string TpAmb { get; set; }
         
         public string? Ano { get; private set; }
         
