@@ -1,9 +1,12 @@
 using CloudSuite.Modules.Domain.Models.Fiscal.NFes.Emissao;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace CloudSuite.Infrastructure.Data.Mappimgs.EFCore.Fiscal.NFes.Emissao
 {
     public class CartaCorrecaoMap : IEntityTypeConfiguration<CartaCorrecao>
     {
+   
         public void Configure(EntityTypeBuilder<CartaCorrecao> builder)
         {
             builder.HasKey(c => c.Id);

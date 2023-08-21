@@ -1,4 +1,7 @@
 using CloudSuite.Modules.Domain.Models.Fiscal.NFes.Emissao;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
+
 
 namespace CloudSuite.Infrastructure.Data.Mappimgs.EFCore.Fiscal.NFes.Emissao
 {
@@ -41,4 +44,6 @@ namespace CloudSuite.Infrastructure.Data.Mappimgs.EFCore.Fiscal.NFes.Emissao
 
         }
     }
+
+ 
 }
