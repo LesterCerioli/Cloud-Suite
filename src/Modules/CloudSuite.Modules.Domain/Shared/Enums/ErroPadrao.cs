@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CloudSuite.Modules.Domain.ValueObjects
+namespace CloudSuite.Modules.Domain.Shared.Enums
 {
     public enum ErroPadrao
     {

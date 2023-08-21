@@ -6,10 +6,7 @@ using System.Threading.Tasks;
 
 namespace CloudSuite.Modules.Domain.ValueObjects
 {
-    public enum SentFolder
+    internal class Telephone
     {
-        EmProcessamento,
-        Autorizados,
-        Denegados
     }
 }

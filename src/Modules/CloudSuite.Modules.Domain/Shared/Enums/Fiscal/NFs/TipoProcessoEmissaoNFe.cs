@@ -1,4 +1,4 @@
-namespace CloudSuite.Modules.Domain.Models.Fiscal.NFes
+namespace CloudSuite.Modules.Domain.Shared.Enums.Fiscal.NFs
 {
     public enum TipoProcessoEmissaoNFe
     {
@@ -22,6 +22,6 @@ namespace CloudSuite.Modules.Domain.Models.Fiscal.NFes
         /// 3 - Emissão de NF-e pelo contribuinte com aplicativo fornecido pelo Fisco.
         /// </summary>
         AplicativoFisco = 3
-        
+
     }
 }
