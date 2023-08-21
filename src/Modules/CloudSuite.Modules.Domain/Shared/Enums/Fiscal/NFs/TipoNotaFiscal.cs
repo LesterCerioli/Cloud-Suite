@@ -1,4 +1,4 @@
-namespace CloudSuite.Modules.Domain.Models.Fiscal.NFes
+namespace CloudSuite.Modules.Domain.Shared.Enums.Fiscal.NFs
 {
     public enum TipoNotaFiscal
     {
@@ -11,6 +11,6 @@ namespace CloudSuite.Modules.Domain.Models.Fiscal.NFes
         /// Nota Fiscal de Saída (1).
         /// </summary>
         Saida = 1
-        
+
     }
 }

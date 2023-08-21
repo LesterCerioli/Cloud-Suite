@@ -1,6 +1,6 @@
 using System.ComponentModel;
 
-namespace CloudSuite.Modules.Domain.Models.Fiscal.NFes
+namespace CloudSuite.Modules.Domain.Shared.Enums.Fiscal.NFs
 {
     public enum TipoPagamento
     {
@@ -63,6 +63,6 @@ namespace CloudSuite.Modules.Domain.Models.Fiscal.NFes
         /// </summary>
         [Description("Outros")]
         Outros = 99
-        
+
     }
 }

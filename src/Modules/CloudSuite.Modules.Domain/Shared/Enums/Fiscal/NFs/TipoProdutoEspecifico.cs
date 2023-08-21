@@ -1,4 +1,4 @@
-namespace CloudSuite.Modules.Domain.Models.Fiscal.NFes
+namespace CloudSuite.Modules.Domain.Shared.Enums.Fiscal.NFs
 {
     public enum TipoProdutoEspecifico
     {
@@ -31,6 +31,6 @@ namespace CloudSuite.Modules.Domain.Models.Fiscal.NFes
         /// Aplicado em caso de produto ser relacionado a Papel Imune.
         /// </summary>
         PapelImune = 5
-        
+
     }
 }
