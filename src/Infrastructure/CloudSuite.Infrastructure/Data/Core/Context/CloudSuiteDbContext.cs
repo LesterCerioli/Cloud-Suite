@@ -1,4 +1,5 @@
 ﻿
+using CloudSuite.Infrastructure.Data.Mappimgs.EFCore.Core;
 using CloudSuite.Modules.Domain.Models.Core;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -25,6 +26,8 @@ namespace CloudSuite.Infrastructure.Data.Core.Context
 
         public DbSet<City> Cities { get; set; }
 
+        public DbSet<Company> Companys { get; set; }    
+
         public DbSet<Country> Countries { get; set; }
 
         // public DbSet<Customer> Customers { get; set; }
@@ -38,6 +41,8 @@ namespace CloudSuite.Infrastructure.Data.Core.Context
         public DbSet<EntidadeTipo> EntidadeTipos { get; set; }
 
         public DbSet<Media> Medias { get; set; }
+
+        public DbSet<RoboEmail> roboEmails { get; set; }
 
         public DbSet<Role> Roles { get; set; }  
 
@@ -137,6 +142,7 @@ namespace CloudSuite.Infrastructure.Data.Core.Context
             //modelBuilder.ApplyConfiguration(new AddressMap());
             //modelBuilder.ApplyConfiguration(new AppSettingMap());
             //modelBuilder.ApplyConfiguration(new CityMap());
+            //modelBuilder.ApplyConfiguration(new CompanyMap());
             //modelBuilder.ApplyConfiguration(new CountryMap());
             //modelBuilder.ApplyConfiguration(new CustomerMap());
             //modelBuilder.ApplyConfiguration(new CustomerGroupMap());
@@ -144,6 +150,7 @@ namespace CloudSuite.Infrastructure.Data.Core.Context
             //modelBuilder.ApplyConfiguration(new EntidadeMap());
             //modelBuilder.ApplyConfiguration(new EntidadeTipoMap());
             //modelBuilder.ApplyConfiguration(new MediaMap());
+            //modelBuilder.ApplyConfiguration(new RoboEmailMap());
             //modelBuilder.ApplyConfiguration(new RoleMap());
             //modelBuilder.ApplyConfiguration(new StateMap());
             //modelBuilder.ApplyConfiguration(new UserMap());
@@ -203,6 +210,11 @@ namespace CloudSuite.Infrastructure.Data.Core.Context
                 c.ToTable("Cities");
             });
 
+            modelBuilder.Entity<Company>(c =>
+            {
+                c.ToTable("Companys");
+            });
+
             modelBuilder.Entity<Country>(c =>
             {
                 c.ToTable("Contries");
@@ -241,6 +253,11 @@ namespace CloudSuite.Infrastructure.Data.Core.Context
             modelBuilder.Entity<Media>(c =>
             {
                 c.ToTable("Medias");
+            });
+
+            modelBuilder.Entity<RoboEmail>(c =>
+            {
+                c.ToTable("RoboEmails");
             });
 
             modelBuilder.Entity<Role>(c =>
