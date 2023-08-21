@@ -1,4 +1,4 @@
-namespace CloudSuite.Modules.Domain.Models.Fiscal.NFes
+namespace CloudSuite.Modules.Domain.Shared.Enums.Fiscal.NFs
 {
     public enum TipoIdentificadorLocalDestinoOperacao
     {
@@ -16,6 +16,6 @@ namespace CloudSuite.Modules.Domain.Models.Fiscal.NFes
         /// 3 - Operação com Exterior
         /// </summary>
         Exterior = 3
-        
+
     }
 }

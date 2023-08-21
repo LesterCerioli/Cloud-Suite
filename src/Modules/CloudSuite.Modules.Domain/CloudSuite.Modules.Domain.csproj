@@ -15,4 +15,8 @@
     <PackageReference Include="NetDevPack" Version="6.1.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Models\Fiscal\Declaracoes\" />
+  </ItemGroup>
+
 </Project>

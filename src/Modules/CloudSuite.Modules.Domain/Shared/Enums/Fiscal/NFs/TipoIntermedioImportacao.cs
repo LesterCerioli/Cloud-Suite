@@ -1,4 +1,4 @@
-namespace CloudSuite.Modules.Domain.Models.Fiscal.NFes
+namespace CloudSuite.Modules.Domain.Shared.Enums.Fiscal.NFs
 {
     public enum TipoIntermedioImportacao
     {
@@ -16,6 +16,6 @@ namespace CloudSuite.Modules.Domain.Models.Fiscal.NFes
         /// 3 - Importação por encomenda.
         /// </summary>
         Encomenda = 3
-        
+
     }
 }

@@ -1,4 +1,4 @@
-namespace CloudSuite.Modules.Domain.Models.Fiscal.NFes
+namespace CloudSuite.Modules.Domain.Shared.Enums.Fiscal.NFs
 {
     public enum TipoFormatoImpressaoDanfe
     {
@@ -31,6 +31,6 @@ namespace CloudSuite.Modules.Domain.Models.Fiscal.NFes
         /// 5 - DANFE NFC-e em mensagem eletronica.
         /// </summary>
         NfceMensagemEletronica = 5
-        
+
     }
 }
