@@ -27,9 +27,9 @@ namespace CloudSuite.Infrastructure.Data.Mappimgs.EFCore.Core
                 .HasMaxLength(450)
                 .IsRequired();
 
-            builder.HasOne(c => c.Districts)
+            builder.HasOne(c => c.District)
                 .WithMany()
-                .HasForeignKey(c => c.District)
+                .HasForeignKey(c => c.DistrictId)
                 .OnDelete(DeleteBehavior.Restrict);
 
         }

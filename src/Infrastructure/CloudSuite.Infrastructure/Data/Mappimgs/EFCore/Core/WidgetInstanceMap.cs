@@ -68,12 +68,12 @@ namespace CloudSuite.Infrastructure.Data.Mappimgs.EFCore.Core
 
             builder.HasOne(a => a.Widget)
                .WithMany()
-               .HasForeignKey(a => a.Widget)
+               .HasForeignKey(a => a.WidgetId)
                .OnDelete(DeleteBehavior.Restrict);
 
                 builder.HasOne(a => a.WidgetZone)
                 .WithMany()
-                .HasForeignKey(a => a.WidgetZone)
+                .HasForeignKey(a => a.WidgetZoneId)
                 .OnDelete(DeleteBehavior.Restrict);
         }
     }

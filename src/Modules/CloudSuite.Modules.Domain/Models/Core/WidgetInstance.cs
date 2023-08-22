@@ -39,8 +39,9 @@ namespace CloudSuite.Modules.Domain.Models.Core
 
         public Widget Widget { get; private set; }
 
-        
         public WidgetZone WidgetZone { get; private set; }
+
+        public Guid WidgetZoneId { get; private set; }
 
         public int? DisplayOrder { get; set; }
 

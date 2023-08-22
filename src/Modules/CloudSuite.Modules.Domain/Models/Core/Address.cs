@@ -30,6 +30,8 @@ namespace CloudSuite.Modules.Domain.Models.Core
 
         public District District { get; private set; }
 
+        public Guid DistrictId { get; private set; }
+
         public IReadOnlyCollection<City> Cities => _cities.AsReadOnly();
 
         public IReadOnlyCollection<District> Districts => _districts.AsReadOnly();

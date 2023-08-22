@@ -29,11 +29,6 @@ namespace CloudSuite.Infrastructure.Data.Mappimgs.EFCore.Core
                 .HasColumnType("varchar(450)")
                 .HasMaxLength(450)
                 .IsRequired();
-
-            //builder.HasOne(a => a.MediaType)
-              //  .WithMany()
-                //.HasForeignKey(a => a.MediaType)
-                //.OnDelete(DeleteBehavior.Restrict);
         }
     }
 }

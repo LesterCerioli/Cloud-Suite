@@ -51,12 +51,12 @@ namespace CloudSuite.Infrastructure.Data.Mappimgs.EFCore.Core
 
             builder.HasOne(a => a.Email)
                .WithMany()
-               .HasForeignKey(a => a.Email)
+               .HasForeignKey(a => a.EmailId)
                .OnDelete(DeleteBehavior.Restrict);
 
                 builder.HasOne(a => a.Cnpj)
                 .WithMany()
-                .HasForeignKey(a => a.Cnpj)
+                .HasForeignKey(a => a.CnpjId)
                 .OnDelete(DeleteBehavior.Restrict);
 
             builder.HasOne(a => a.User)
