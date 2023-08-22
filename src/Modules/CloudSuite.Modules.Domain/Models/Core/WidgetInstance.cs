@@ -29,7 +29,6 @@ namespace CloudSuite.Modules.Domain.Models.Core
 
         public DateTimeOffset LatestUpdatedOn { get; private set; }
          
-
         public DateTimeOffset? PublishStart { get; private set; }
 
         public DateTimeOffset? PublishEnd { get; private set; }
