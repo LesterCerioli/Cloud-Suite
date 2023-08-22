@@ -7,12 +7,13 @@ using System.Threading.Tasks;
 namespace CloudSuite.Modules.Domain.Shared.Enums.JobsContext
 {
     [Serializable]
-    public enum JobPriority
+    public enum JobStatus
     {
-        Low = 1,
-        Medium = 2,
-        High = 3,
-        Higher = 4,
-        Higest = 5
+        Pending = 1,
+        Running = 2,
+        Canceled = 3,
+        Failed = 4,
+        Finished = 5,
+        Aborted = 6
     }
 }
