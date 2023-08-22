@@ -20,12 +20,14 @@ namespace CloudSuite.Infrastructure.Data.Mappimgs.EFCore.Core
             builder.Property(a => a.Value)
                 .HasColumnName("Value")
                 .HasColumnType("varchar(450)")
-                .HasMaxLength(450);
+                .HasMaxLength(450)
+                .IsRequired();
 
             builder.Property(a => a.Module)
                 .HasColumnName("Module")
                 .HasColumnType("varchar(450)")
-                .HasMaxLength(450);
+                .HasMaxLength(450)
+                .IsRequired();
 
             builder.Property(a => a.IsVisibleInCommonSettingPage)
                 .HasColumnName("IsVisibleInCommonSettingPage")

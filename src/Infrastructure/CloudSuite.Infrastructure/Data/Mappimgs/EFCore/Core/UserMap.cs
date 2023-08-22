@@ -65,11 +65,6 @@ namespace CloudSuite.Infrastructure.Data.Mappimgs.EFCore.Core
                 .WithMany()
                 .HasForeignKey(a => a.VendorId)
                 .OnDelete(DeleteBehavior.Restrict);
-
-            builder.HasOne(a => a.Customer)
-                .WithMany()
-                .HasForeignKey(a => a.Customer)
-                .OnDelete(DeleteBehavior.Restrict);
         }
     }
 }

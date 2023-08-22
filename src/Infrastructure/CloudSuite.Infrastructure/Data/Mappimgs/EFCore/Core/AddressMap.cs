@@ -29,7 +29,8 @@ namespace CloudSuite.Infrastructure.Data.Mappimgs.EFCore.Core
 
             builder.HasOne(c => c.Districts)
                 .WithMany()
-                .HasForeignKey(c => c.District);
+                .HasForeignKey(c => c.District)
+                .OnDelete(DeleteBehavior.Restrict);
 
         }
     }
