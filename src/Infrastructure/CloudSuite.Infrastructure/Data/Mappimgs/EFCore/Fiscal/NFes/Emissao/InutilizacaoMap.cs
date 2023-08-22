@@ -30,10 +30,7 @@ namespace CloudSuite.Infrastructure.Data.Mappimgs.EFCore.Fiscal.NFes.Emissao
 
             builder.OwnsOne(c => c.Cnpj)
             .Property(c => c.CnpjNumber)
-            .HasColumnName("Cnpj")
-            .HasColumnType("varchar(100)")
-            .HasMaxLength(100)
-            .IsRequired();
+            .HasColumnName("Cnpj");
 
             builder.Property(c => c.Serie)
             .HasColumnName("Serie")
