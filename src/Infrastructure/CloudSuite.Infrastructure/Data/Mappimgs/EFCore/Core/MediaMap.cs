@@ -24,6 +24,7 @@ namespace CloudSuite.Infrastructure.Data.Mappimgs.EFCore.Core
             builder.Property(a => a.FileSize)
                 .HasColumnName("FileSize")
                 .HasColumnType("int")
+                .HasMaxLength(100)
                 .IsRequired();
 
             builder.Property(a => a.FileName)
