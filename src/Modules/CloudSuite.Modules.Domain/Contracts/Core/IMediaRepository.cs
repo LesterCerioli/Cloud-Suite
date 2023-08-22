@@ -14,5 +14,11 @@ namespace CloudSuite.Modules.Domain.Contracts.Core
         Task<Media> GetByFileSize(int fileSize);
 
         Task<IEnumerable<Media>> GetList();
+
+        Task Add(Media media);
+
+        void Update(Media media);
+
+        void Remove(Media media);
     }
 }
