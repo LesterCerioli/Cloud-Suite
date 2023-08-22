@@ -28,7 +28,8 @@ namespace CloudSuite.Infrastructure.Data.Mappimgs.EFCore.Fiscal.NFes.Emissao
             .HasMaxLength(100)
             .IsRequired();
 
-            builder.Property(c => c.Cnpj)
+            builder.OwnsOne(c => c.Cnpj)
+            .Property(c => c.CnpjNumber)
             .HasColumnName("Cnpj")
             .HasColumnType("varchar(100)")
             .HasMaxLength(100)
