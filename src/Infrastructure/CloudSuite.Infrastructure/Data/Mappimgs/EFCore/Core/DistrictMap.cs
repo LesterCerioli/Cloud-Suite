@@ -13,6 +13,8 @@ namespace CloudSuite.Infrastructure.Data.Mappimgs.EFCore.Core
     {
         public void Configure(EntityTypeBuilder<District> builder)
         {
+            builder.HasKey(a => a.Id);
+
             builder.Property(a => a.Name)
                 .HasColumnName("Name")
                 .HasColumnType("varchar(450)")

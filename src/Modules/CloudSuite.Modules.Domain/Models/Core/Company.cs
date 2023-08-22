@@ -21,6 +21,8 @@ namespace CloudSuite.Modules.Domain.Models.Core
 
         public Cnpj Cnpj { get; set; }
 
+        public Guid CnpjId { get; private set; }
+
         public string? FantasyName { get; private set; }
 
         public string? RegisterName { get; private set; }

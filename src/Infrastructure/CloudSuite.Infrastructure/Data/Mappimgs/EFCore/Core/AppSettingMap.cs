@@ -10,12 +10,10 @@ using System.Threading.Tasks;
 namespace CloudSuite.Infrastructure.Data.Mappimgs.EFCore.Core
 {
     public class ExampleMapping : IEntityTypeConfiguration<AppSetting>
-    {
-        
-        
+    {     
         public void Configure(EntityTypeBuilder<AppSetting> builder)
         {
-            builder.HasKey();
+            builder.HasKey(a => a.Id);
 
             builder.Property(a => a.Value)
                 .HasColumnName("Value")

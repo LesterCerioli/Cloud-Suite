@@ -13,6 +13,8 @@ namespace CloudSuite.Infrastructure.Data.Mappimgs.EFCore.Core
     {
         public void Configure(EntityTypeBuilder<Role> builder)
         {
+            builder.HasKey(a => a.Id);
+
             builder.HasOne(a => a.UserRole)
                 .WithMany()
                 .HasForeignKey(a => a.UserRoleId)

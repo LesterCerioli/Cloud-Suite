@@ -13,7 +13,7 @@ namespace CloudSuite.Infrastructure.Data.Mappimgs.EFCore.Core
     {
         public void Configure(EntityTypeBuilder<City> builder)
         {
-            builder.HasKey();
+            builder.HasKey(a => a.Id);
 
             builder.Property(a => a.CityName)
                 .HasColumnName("CityName")
