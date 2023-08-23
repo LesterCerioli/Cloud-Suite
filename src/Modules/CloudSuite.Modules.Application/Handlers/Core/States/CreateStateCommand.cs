@@ -15,7 +15,8 @@ namespace CloudSuite.Modules.Application.Handlers.Core.States
     {
       return new StateEntity(
         this.Id,
-        this.UF
+        this.UF,
+        this.StateName
       );
     }
 
