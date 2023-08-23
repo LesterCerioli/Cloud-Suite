@@ -33,6 +33,7 @@ namespace CloudSuite.Infrastructure.Data.Core.Context
 
         // public DbSet<Customer> Customers { get; set; }
 
+
         // public DbSet<CustomerGroup> CustomerGroups { get; set; }
 
         public DbSet<District> Districts { get; set; } 
