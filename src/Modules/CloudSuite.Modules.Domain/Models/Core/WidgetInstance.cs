@@ -33,9 +33,10 @@ namespace CloudSuite.Modules.Domain.Models.Core
 
         public DateTimeOffset? PublishEnd { get; private set; }
 
-        public Widget Widget { get; private set; }
+        [StringLength(450)]
+        public string? WidgetId { get; private set; }
 
-        public Guid WidgetId { get; private set; }
+        public Widget Widget { get; private set; }
 
         public WidgetZone WidgetZone { get; private set; }
 

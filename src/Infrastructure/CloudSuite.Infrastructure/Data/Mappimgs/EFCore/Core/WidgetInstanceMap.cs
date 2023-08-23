@@ -21,6 +21,12 @@ namespace CloudSuite.Infrastructure.Data.Mappimgs.EFCore.Core
                .HasMaxLength(450)
                .IsRequired();
 
+            builder.Property(a => a.WidgetId)
+                .HasColumnName("WidgetId")
+                .HasColumnType("varchar(450)")
+                .HasMaxLength(450)
+                .IsRequired();
+
             builder.Property(a => a.Data)
                 .HasColumnName("Data")
                 .HasColumnType("varchar(100)")
