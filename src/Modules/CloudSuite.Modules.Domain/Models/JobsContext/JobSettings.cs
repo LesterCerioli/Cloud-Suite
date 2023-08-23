@@ -11,9 +11,9 @@ namespace CloudSuite.Modules.Domain.Models.JobsContext
     public class JobManagerSettings 
     {
         [JsonProperty(PropertyName ="db_connection-string")]
-        public string DbConnectinString { get; set; }
+        public string DbConnectinString { get; private set; }
 
         [JsonProperty(PropertyName ="enabled")]
-        public bool Enabled { get; set; }
+        public bool Enabled { get; private set; }
     } 
 }

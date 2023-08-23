@@ -13,22 +13,22 @@ namespace CloudSuite.Modules.Domain.Models.JobsContext
     public class JobType 
     {
         [JsonProperty(PropertyName = "name")]
-        public string Name { get; set; }
+        public string Name { get; private set; }
 
         [JsonProperty(PropertyName = "default_job_priority_id")]
-        public JobPriority DefaultPriority { get; set; }
+        public JobPriority DefaultPriority { get; private set; }
 
         [JsonProperty(PropertyName = "assembly")]
-        public string Assembly { get; set; }
+        public string Assembly { get; private set; }
 
         [JsonProperty(PropertyName = "complete_class_name")]
-        public string CompleteClassName { get; set; }
+        public string CompleteClassName { get; private set; }
 
         [JsonProperty(PropertyName = "allow_single_instance")]
-        public bool AllowSingleInstance { get; set; }
+        public bool AllowSingleInstance { get; private set; }
 
         [JsonIgnore] 
-        public Type ErpJobType { get; set; }
+        public Type ErpJobType { get; private set; }
 
     }
 }

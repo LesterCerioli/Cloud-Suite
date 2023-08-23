@@ -10,25 +10,25 @@ namespace CloudSuite.Modules.Domain.Models.JobsContext
     public class SchedulePlanDaysOfWeek
     {
         [JsonProperty(PropertyName = "scheduled_on_sunday")]
-        public bool ScheduledOnSunday { get; set; }
+        public bool ScheduledOnSunday { get; private set; }
 
         [JsonProperty(PropertyName = "scheduled_on_monday")]
-        public bool ScheduledOnMonday { get; set; }
+        public bool ScheduledOnMonday { get; private set; }
 
         [JsonProperty(PropertyName = "scheduled_on_tuesday")]
-        public bool ScheduledOnTuesday { get; set; }
+        public bool ScheduledOnTuesday { get; private set; }
 
         [JsonProperty(PropertyName = "scheduled_on_wednesday")]
-        public bool ScheduledOnWednesday { get; set; }
+        public bool ScheduledOnWednesday { get; private set; }
 
         [JsonProperty(PropertyName = "scheduled_on_thursday")]
-        public bool ScheduledOnThursday { get; set; }
+        public bool ScheduledOnThursday { get; private set; }
 
         [JsonProperty(PropertyName = "scheduled_on_friday")]
-        public bool ScheduledOnFriday { get; set; }
+        public bool ScheduledOnFriday { get; private set; }
 
         [JsonProperty(PropertyName = "scheduled_on_saturday")] 
-        public bool ScheduledOnSaturday { get; set; }
+        public bool ScheduledOnSaturday { get; private set; }
 
         public bool HasOneSelectedDay()
         {
