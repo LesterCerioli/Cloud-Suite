@@ -14,6 +14,6 @@ namespace CloudSuite.Modules.Domain.Shared.Enums.JobsContext
         Canceled = 3,
         Failed = 4,
         Finished = 5,
-        Aborted = 6
+        Aborted = 6 
     }
 }

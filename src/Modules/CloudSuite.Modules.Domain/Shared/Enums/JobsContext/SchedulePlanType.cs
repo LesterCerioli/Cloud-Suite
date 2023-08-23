@@ -14,6 +14,6 @@ namespace CloudSuite.Modules.Domain.Shared.Enums.JobsContext
         Interval = 1,
         Daily = 2,
         Weekly = 3,       
-        Monthly = 4
+        Monthly = 4 
     }
 }

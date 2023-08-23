@@ -19,7 +19,7 @@ namespace CloudSuite.Modules.Domain.Models.JobsContext
     }
 
     [Serializable]
-    public class Job
+    public class Job 
     {
         [JsonProperty(PropertyName = "type_id")]
         public Guid TypeId { get; set; }

@@ -16,7 +16,7 @@ namespace CloudSuite.Modules.Domain.Models.JobsContext
 
         [JsonProperty(PropertyName = "aborted")]
         public bool Aborted { get; set; }
-
+         
         [JsonProperty(PropertyName = "priority")]
         public JobPriority Priority { get; set; }
 

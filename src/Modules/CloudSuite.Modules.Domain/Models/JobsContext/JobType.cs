@@ -27,7 +27,7 @@ namespace CloudSuite.Modules.Domain.Models.JobsContext
         [JsonProperty(PropertyName = "allow_single_instance")]
         public bool AllowSingleInstance { get; set; }
 
-        [JsonIgnore]
+        [JsonIgnore] 
         public Type ErpJobType { get; set; }
 
     }

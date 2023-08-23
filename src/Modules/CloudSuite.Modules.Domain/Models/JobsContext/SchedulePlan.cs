@@ -26,7 +26,7 @@ namespace CloudSuite.Modules.Domain.Models.JobsContext
         public DateTime? StartDate { get; set; }
 
         [JsonProperty(PropertyName = "end_date")]
-        public DateTime? EndDate { get; set; }
+        public DateTime? EndDate { get; set; } 
 
         [JsonProperty(PropertyName = "schedule_days")]
         public SchedulePlanDaysOfWeek ScheduledDays { get; set; }

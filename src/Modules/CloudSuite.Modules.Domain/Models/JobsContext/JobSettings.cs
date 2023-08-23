@@ -15,5 +15,5 @@ namespace CloudSuite.Modules.Domain.Models.JobsContext
 
         [JsonProperty(PropertyName ="enabled")]
         public bool Enabled { get; set; }
-    }
+    } 
 }

@@ -27,7 +27,7 @@ namespace CloudSuite.Modules.Domain.Models.JobsContext
         [JsonProperty(PropertyName = "scheduled_on_friday")]
         public bool ScheduledOnFriday { get; set; }
 
-        [JsonProperty(PropertyName = "scheduled_on_saturday")]
+        [JsonProperty(PropertyName = "scheduled_on_saturday")] 
         public bool ScheduledOnSaturday { get; set; }
 
         public bool HasOneSelectedDay()
