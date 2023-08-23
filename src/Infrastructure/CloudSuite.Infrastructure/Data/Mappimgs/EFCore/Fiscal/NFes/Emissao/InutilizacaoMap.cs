@@ -33,7 +33,7 @@ namespace CloudSuite.Infrastructure.Data.Mappimgs.EFCore.Fiscal.NFes.Emissao
             .HasColumnName("Cnpj")
             .HasColumnType("varchar(14)")
             .HasMaxLength(14)
-            .IsRequired();
+                .IsRequired();
 
             builder.Property(c => c.Serie)
             .HasColumnName("Serie")
