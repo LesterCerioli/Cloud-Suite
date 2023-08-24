@@ -1,13 +1,13 @@
 using CloudSuite.Modules.Application.Core;
 using FluentValidation.Results;
 
-namespace CloudSuite.Modules.Application.Handlers.Core.Users.Responses
+namespace CloudSuite.Modules.Application.Handlers.Core.Vendores.Responses
 {
-  public class CreateUserResponse : Response
+  public class CreateVendorResponse : Response
   {
     public Guid RequestId { get; private set; }
 
-    public CreateUserResponse(Guid requestId, ValidationResult result)
+    public CreateVendorResponse(Guid requestId, ValidationResult result)
     {
       RequestId = requestId;
       foreach (var item in result.Errors)
@@ -16,10 +16,10 @@ namespace CloudSuite.Modules.Application.Handlers.Core.Users.Responses
       }
     }
 
-    public CreateUserResponse(Guid requestId, string ValidationFailure)
+    public CreateVendorResponse(Guid requestId, string ValidationFailure)
     {
       RequestId = requestId ;
       this.AddError(ValidationFailure);
-    }    
+    }  
   }
 }

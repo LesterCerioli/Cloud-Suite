@@ -1,14 +1,14 @@
 using CloudSuite.Modules.Application.Core;
 using FluentValidation.Results;
 
-namespace CloudSuite.Modules.Application.Handlers.Core.Users.Responses
+namespace CloudSuite.Modules.Application.Handlers.Core.Vendores.Responses
 {
-  public class CheckUserExistsByCpfResponse : Response
+  public class CheckVendorExistsByNameResponse : Response
   {
     public Guid RequestId { get; private set; }
     public bool Exists { get; set; }
 
-    public CheckUserExistsByCpfResponse(Guid requestId, bool exists, ValidationResult result)
+    public CheckVendorExistsByNameResponse(Guid requestId, bool exists, ValidationResult result)
     {
       RequestId = requestId;
       Exists = exists;
@@ -17,7 +17,7 @@ namespace CloudSuite.Modules.Application.Handlers.Core.Users.Responses
         this.AddError(item.ErrorMessage);
       }
     }
-    public CheckUserExistsByCpfResponse(Guid requestId, string validationFailure)
+    public CheckVendorExistsByNameResponse(Guid requestId, string validationFailure)
     {
       RequestId = requestId;
       Exists = false;

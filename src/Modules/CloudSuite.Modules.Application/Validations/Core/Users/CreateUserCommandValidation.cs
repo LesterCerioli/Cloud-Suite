@@ -5,7 +5,7 @@ namespace CloudSuite.Modules.Application.Validations.Core.Users
 {
   public class CreateUserCommandValidation : AbstractValidator<CreateUserCommand>
   {
-        public CreateUserCommandValidation()
+    public CreateUserCommandValidation()
     {
       RuleFor(command => command.FullName)
       .NotEmpty()
