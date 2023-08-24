@@ -12,9 +12,9 @@ using System.Threading.Tasks;
 
 namespace CloudSuite.Infrastructure.Data.Core.Context
 {
-    public class CloudSuiteDbContext : DbContext
+    public class CloudSuiteDbContext : DbContext 
     {
-        public CloudSuiteDbContext(DbContextOptions options) : base(options)
+        public CloudSuiteDbContext(DbContextOptions options) : base(options) 
         {
             ChangeTracker.QueryTrackingBehavior = QueryTrackingBehavior.NoTracking;
             ChangeTracker.AutoDetectChangesEnabled = false;
