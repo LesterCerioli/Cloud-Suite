@@ -1,21 +1,32 @@
-using CloudSuite.Infrastructure.Models;
+using NetDevPack.Domain;
 using System.ComponentModel.DataAnnotations;
+using System.Net.Http.Headers;
 
 namespace CloudSuite.Modules.Domain.Models.Core
 {
-    public class State : EntityBase
+    public class State : Entity, IAggregateRoot
     {
-        public State(long id)
+        private readonly List<Country> _countries;
+
+        public State(Guid id, string uf)
         {
             Id = id;
+            _countries = new List<Country>();
+            UF = uf;
         }
         
-        public string? StateName { get; set; }
+        public State() { }
+        
+        public string? StateName { get; private set; }
 
         [MaxLength(2)]
-        public string? UF { get; set; }
+        public string? UF { get; private set; }
 
         public Country Country { get; set; }
+
+        public Guid CountryId { get; private set; }
+
+        public IReadOnlyCollection<Country> Countries => _countries.AsReadOnly();
 
 
     }

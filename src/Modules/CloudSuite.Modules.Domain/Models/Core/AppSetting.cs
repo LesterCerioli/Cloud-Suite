@@ -1,4 +1,4 @@
-﻿using CloudSuite.Infrastructure.Models;
+﻿using NetDevPack.Domain;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -8,19 +8,19 @@ using System.Threading.Tasks;
 
 namespace CloudSuite.Modules.Domain.Models.Core
 {
-    public class AppSetting : EntityBaseWithTypedId<string>
+    public class AppSetting : Entity, IAggregateRoot
     {
-        public AppSetting(string id)
+        public AppSetting(Guid id)
         {
             Id = id;
         }
 
         [StringLength(450)]
-        public string? Value { get; set; }
+        public string? Value { get; private set; }
 
         [StringLength(450)]
-        public string? Module { get; set; }
+        public string? Module { get; private set; }
 
-        public bool? IsVisibleInCommonSettingPage { get; set; }
+        public bool? IsVisibleInCommonSettingPage { get; private set; }
     }
 }
