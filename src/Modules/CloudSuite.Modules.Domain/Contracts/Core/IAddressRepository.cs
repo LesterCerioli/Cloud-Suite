@@ -14,7 +14,7 @@ namespace CloudSuite.Modules.Domain.Contracts.Core
         Task<Address> GetByAddressLine(string addressLine1);
 
 
-        Task<IEnumerable<Address>> GetAll()
+        Task<IEnumerable<Address>> GetAll();
 
         Task Add(Address address);
 
