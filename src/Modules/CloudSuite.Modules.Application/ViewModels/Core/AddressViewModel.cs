@@ -9,29 +9,30 @@ using System.Threading.Tasks;
 
 namespace CloudSuite.Modules.Application.ViewModels.Core
 {
-    public class StateViewModel
+    public class AddressViewModel
     {
         [Key]
         public Guid Id { get; set; }
 
         [Required(ErrorMessage = "Este campo é de preenchimento obrigatório.")]
-        [DisplayName("StateName")]
+        [DisplayName("ContactName")]
         [MaxLength(100)]
-        public string StateName { get; private set; }
+        public string ContactName { get; private set; }
 
         [Required(ErrorMessage = "Este campo é de preenchimento obrigatório.")]
-        [DisplayName("UF")]
-        [MaxLength(2)]
-        public string? UF { get; private set; }
+        [DisplayName("AddressLine1")]
+        [StringLength(450)]
+        public string? AddressLine1 { get; private set; }
 
-        [DisplayName("Country")]
+        [Required(ErrorMessage = "Este campo é de preenchimento obrigatório.")]
+        [DisplayName("City")]
         [MaxLength(100)]
-        public string Country { get; set; }
+        public string City { get; private set; }
 
-        [DisplayName("CountryId")]
+        [Required(ErrorMessage = "Este campo é de preenchimento obrigatório.")]
+        [DisplayName("District")]
         [MaxLength(100)]
-        public Guid CountryId { get; private set; }
+        public string District { get; private set; }
 
-       
     }
 }

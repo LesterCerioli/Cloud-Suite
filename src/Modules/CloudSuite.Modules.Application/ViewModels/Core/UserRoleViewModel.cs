@@ -9,29 +9,19 @@ using System.Threading.Tasks;
 
 namespace CloudSuite.Modules.Application.ViewModels.Core
 {
-    public class StateViewModel
+    public class UserRoleViewModel
     {
         [Key]
         public Guid Id { get; set; }
 
         [Required(ErrorMessage = "Este campo é de preenchimento obrigatório.")]
-        [DisplayName("StateName")]
+        [DisplayName("User")]
         [MaxLength(100)]
-        public string StateName { get; private set; }
+        public string User { get; set; }
 
         [Required(ErrorMessage = "Este campo é de preenchimento obrigatório.")]
-        [DisplayName("UF")]
-        [MaxLength(2)]
-        public string? UF { get; private set; }
-
-        [DisplayName("Country")]
+        [DisplayName("Role")]
         [MaxLength(100)]
-        public string Country { get; set; }
-
-        [DisplayName("CountryId")]
-        [MaxLength(100)]
-        public Guid CountryId { get; private set; }
-
-       
+        public string Role { get; set; }
     }
 }
