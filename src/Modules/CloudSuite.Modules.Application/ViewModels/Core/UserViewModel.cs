@@ -28,30 +28,26 @@ namespace CloudSuite.Modules.Application.ViewModels.Core
         [MaxLength(11)]
         public Cpf Cpf { get; private set; }
 
-        public Vendor Vendor { get; private set; }
+        [DisplayName("Vendor")]
+        [MaxLength(100)]
+        public string Vendor { get; private set; }
 
-        public bool? IsDeleted { get; private set; }
+        public bool IsDeleted { get; private set; }
 
         public DateTimeOffset? CreatedOn { get; private set; }
 
         public DateTimeOffset? LatestUpdatedOn { get; private set; }
 
-        [StringLength(450)]
-        public string? RefreshTokenHash { get; private set; }
+        [MaxLength(450)]
+        public string RefreshTokenHash { get; private set; }
 
-        [StringLength(450)]
-        public string? Culture { get; private set; }
+        [MaxLength(450)]
+        public string Culture { get; private set; }
 
         /// <inheritdoc />
-        public string? ExtensionData { get; private set; }
-
-        public IReadOnlyCollection<Vendor> Vendors => _vendors.AsReadOnly();
-
-        // public Customer Customer { get; private set; }
-
+        public string ExtensionData { get; private set; }
 
         public Guid VendorId { get; private set; }
 
-        public IList<UserRole> Roles { get; set; } = new List<UserRole>();
     }
 }
