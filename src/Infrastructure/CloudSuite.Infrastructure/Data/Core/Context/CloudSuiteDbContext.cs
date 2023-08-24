@@ -19,7 +19,7 @@ namespace CloudSuite.Infrastructure.Data.Core.Context
             ChangeTracker.QueryTrackingBehavior = QueryTrackingBehavior.NoTracking;
             ChangeTracker.AutoDetectChangesEnabled = false;
         }
-
+         
         public DbSet<Address> Addresses { get; set; }
 
         public DbSet<AppSetting> AppSettings { get; set; }
