@@ -31,7 +31,9 @@ namespace CloudSuite.Infrastructure.Data.Mappimgs.EFCore.Core
                 .WithMany()
                 .HasForeignKey(c => c.District);
 
-            
+            //builder.HasOne(c => c.Districts)
+              //  .WithMany()
+                //.HasForeignKey(c => c.District);
 
 
         }
