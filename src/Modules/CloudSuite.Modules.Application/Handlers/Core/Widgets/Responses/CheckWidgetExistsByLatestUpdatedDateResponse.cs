@@ -1,14 +1,14 @@
 using CloudSuite.Modules.Application.Core;
 using FluentValidation.Results;
 
-namespace CloudSuite.Modules.Application.Handlers.Core.Vendores.Responses
+namespace CloudSuite.Modules.Application.Handlers.Core.Widgets.Responses
 {
-  public class CheckVendorExistsByCnpjResponse : Response
+  public class CheckWidgetExistsByLatestUpdatedDateResponse : Response
   {
     public Guid RequestId { get; private set; }
     public bool Exists { get; set; }
 
-    public CheckVendorExistsByCnpjResponse(Guid requestId, bool exists, ValidationResult result)
+    public CheckWidgetExistsByLatestUpdatedDateResponse(Guid requestId, bool exists, ValidationResult result)
     {
       RequestId = requestId;
       Exists = exists;
@@ -18,7 +18,7 @@ namespace CloudSuite.Modules.Application.Handlers.Core.Vendores.Responses
         this.AddError(item.ErrorMessage);
       }
     }
-    public CheckVendorExistsByCnpjResponse(Guid requestId, string validationFailure)
+    public CheckWidgetExistsByLatestUpdatedDateResponse(Guid requestId, string validationFailure)
     {
       RequestId = requestId;
       Exists = false;
