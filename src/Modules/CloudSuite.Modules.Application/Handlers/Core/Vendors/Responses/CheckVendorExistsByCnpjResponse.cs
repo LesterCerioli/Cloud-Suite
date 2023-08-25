@@ -6,6 +6,7 @@ namespace CloudSuite.Modules.Application.Handlers.Core.Vendores.Responses
   public class CheckVendorExistsByCnpjResponse : Response
   {
     public Guid RequestId { get; private set; }
+    
     public bool Exists { get; set; }
 
     public CheckVendorExistsByCnpjResponse(Guid requestId, bool exists, ValidationResult result)

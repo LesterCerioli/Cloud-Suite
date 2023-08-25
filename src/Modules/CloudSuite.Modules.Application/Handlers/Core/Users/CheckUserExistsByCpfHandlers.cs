@@ -16,7 +16,7 @@ namespace CloudSuite.Modules.Application.Handlers.Core.Users
     {
       _userRepository = userRepository;
       _logger = logger;
-      
+
     }
 
     public async Task<CheckUserExistsByCpfResponse> Handle(CheckUserExistsByCpfRequest request, CancellationToken cancellationToken)
@@ -32,7 +32,7 @@ namespace CloudSuite.Modules.Application.Handlers.Core.Users
           var state = await _userRepository.GetByCpf(request.Cpf);
 
           if (state != null)
-          return await Task.FromResult(new CheckUserExistsByCpfResponse(request.Id, true, validationResult));
+            return await Task.FromResult(new CheckUserExistsByCpfResponse(request.Id, true, validationResult));
         }
         catch (Exception ex)
         {
@@ -43,4 +43,4 @@ namespace CloudSuite.Modules.Application.Handlers.Core.Users
       return await Task.FromResult(new CheckUserExistsByCpfResponse(request.Id, false, validationResult));
     }
   }
-} 
+}

@@ -43,4 +43,5 @@ namespace CloudSuite.Modules.Application.Handlers.Core.Widgets
       return await Task.FromResult(new CheckWidgetExistsByCreationDateResponse(request.Id, false, validationResult));
     }
   }
+  
 } 

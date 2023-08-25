@@ -31,7 +31,7 @@ namespace CloudSuite.Modules.Application.Handlers.Core.States
           var state = await _stateRepository.GetByName(request.StateName);
 
           if (state != null)
-          return await Task.FromResult(new CheckStateExistsByStateNameResponse(request.Id, true, validationResult));
+            return await Task.FromResult(new CheckStateExistsByStateNameResponse(request.Id, true, validationResult));
         }
         catch (Exception ex)
         {
@@ -42,4 +42,4 @@ namespace CloudSuite.Modules.Application.Handlers.Core.States
       return await Task.FromResult(new CheckStateExistsByStateNameResponse(request.Id, false, validationResult));
     }
   }
-} 
+}

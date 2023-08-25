@@ -9,17 +9,18 @@ namespace CloudSuite.Modules.Application.Handlers.Core.Medias.Responses
 
     public CreateMediaResponse(Guid requestId, ValidationResult result)
     {
-        RequestId = requestId;
-        foreach (var item in result.Errors)
-        {
-            this.AddError(item.ErrorMessage);
-        }
+      RequestId = requestId;
+      
+      foreach (var item in result.Errors)
+      {
+        this.AddError(item.ErrorMessage);
+      }
     }
 
     public CreateMediaResponse(Guid requestId, string ValidationFailure)
     {
-      RequestId = requestId ;
+      RequestId = requestId;
       this.AddError(ValidationFailure);
-    }  
+    }
   }
 }

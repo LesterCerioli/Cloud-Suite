@@ -10,6 +10,7 @@ namespace CloudSuite.Modules.Application.Handlers.Core.Vendores.Responses
     public CreateVendorResponse(Guid requestId, ValidationResult result)
     {
       RequestId = requestId;
+      
       foreach (var item in result.Errors)
       {
         this.AddError(item.ErrorMessage);

@@ -31,7 +31,7 @@ namespace CloudSuite.Modules.Application.Handlers.Core.Medias
           var media = await _mediaRepository.GetByFileSize((int)request.FileSize);
 
           if (media != null)
-          return await Task.FromResult(new CheckMediaExistsByFileSizeResponse(request.Id, true, validationResult));
+            return await Task.FromResult(new CheckMediaExistsByFileSizeResponse(request.Id, true, validationResult));
         }
         catch (Exception ex)
         {
@@ -42,4 +42,4 @@ namespace CloudSuite.Modules.Application.Handlers.Core.Medias
       return await Task.FromResult(new CheckMediaExistsByFileSizeResponse(request.Id, false, validationResult));
     }
   }
-} 
+}

@@ -3,14 +3,16 @@ using MediatR;
 
 namespace CloudSuite.Modules.Application.Handlers.Core.Medias.Requests
 {
-    public class CheckMediaExistsByFileNameRequest : IRequest<CheckMediaExistsByFileNameResponse>
+  public class CheckMediaExistsByFileNameRequest : IRequest<CheckMediaExistsByFileNameResponse>
+  {
+    public Guid Id { get; private set; }
+
+    public string? FileName { get; set; }
+    
+    public CheckMediaExistsByFileNameRequest(string? name)
     {
-        public Guid Id { get; private set; }
-        public string? FileName { get; set; }
-        public CheckMediaExistsByFileNameRequest(string? name)
-        {
-            Id = Guid.NewGuid();
-            FileName = name;
-        }
+      Id = Guid.NewGuid();
+      FileName = name;
     }
+  }
 }

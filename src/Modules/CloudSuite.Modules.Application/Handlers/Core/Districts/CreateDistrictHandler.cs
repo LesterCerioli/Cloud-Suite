@@ -30,7 +30,7 @@ namespace CloudSuite.Modules.Application.Handlers.Core.Districts
           var districts = await _districtRepository.GetByName(command.Name);
 
           if (districts != null)
-          return await Task.FromResult(new CreateDistrictResponse(command.Id, "Distrito já cadastrado"));
+            return await Task.FromResult(new CreateDistrictResponse(command.Id, "Distrito já cadastrado"));
 
           await _districtRepository.Add(command.GetEntity());
 

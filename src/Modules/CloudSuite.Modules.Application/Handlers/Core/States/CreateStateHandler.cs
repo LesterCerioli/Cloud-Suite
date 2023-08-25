@@ -30,7 +30,7 @@ namespace CloudSuite.Modules.Application.Handlers.Core.States
           var states = await _stateRepository.GetByName(command.StateName);
 
           if (states != null)
-          return await Task.FromResult(new CreateStateResponse(command.Id, "Distrito já cadastrado"));
+            return await Task.FromResult(new CreateStateResponse(command.Id, "Distrito já cadastrado"));
 
           await _stateRepository.Add(command.GetEntity());
 

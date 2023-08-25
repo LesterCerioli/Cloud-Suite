@@ -31,7 +31,7 @@ namespace CloudSuite.Modules.Application.Handlers.Core.RoboEmails
           var email = await _emailRepository.GetByMessageRecipient(request.MessageRecipient);
 
           if (email != null)
-          return await Task.FromResult(new CheckRoboEmailExistsByMessageRecipientResponse(request.Id, true, validationResult));
+            return await Task.FromResult(new CheckRoboEmailExistsByMessageRecipientResponse(request.Id, true, validationResult));
         }
         catch (Exception ex)
         {
@@ -42,4 +42,4 @@ namespace CloudSuite.Modules.Application.Handlers.Core.RoboEmails
       return await Task.FromResult(new CheckRoboEmailExistsByMessageRecipientResponse(request.Id, false, validationResult));
     }
   }
-} 
+}

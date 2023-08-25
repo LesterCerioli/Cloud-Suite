@@ -30,15 +30,25 @@ namespace CloudSuite.Modules.Application.Handlers.Core.Users
     }
 
     public Guid Id { get; private set; }
+
     public string? FullName { get; private set; }
+
     public Email Email { get; private set; }
+
     public Cpf Cpf { get; private set; }
+
     public Vendor Vendor { get; private set; }
+
     public bool? IsDeleted { get; private set; }
+
     public DateTimeOffset? CreatedOn { get; private set; }
+
     public DateTimeOffset? LatestUpdatedOn { get; private set; }
+
     public string? RefreshTokenHash { get; private set; }
+
     public string? Culture { get; private set; }
+    
     public string? ExtensionData { get; private set; }
   }
 }

@@ -31,7 +31,7 @@ namespace CloudSuite.Modules.Application.Handlers.Core.Users
           var state = await _userRepository.GetByEmail(request.Email);
 
           if (state != null)
-          return await Task.FromResult(new CheckUserExistsByEmailResponse(request.Id, true, validationResult));
+            return await Task.FromResult(new CheckUserExistsByEmailResponse(request.Id, true, validationResult));
         }
         catch (Exception ex)
         {
@@ -42,4 +42,4 @@ namespace CloudSuite.Modules.Application.Handlers.Core.Users
       return await Task.FromResult(new CheckUserExistsByEmailResponse(request.Id, false, validationResult));
     }
   }
-} 
+}

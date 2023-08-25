@@ -21,7 +21,9 @@ namespace CloudSuite.Modules.Application.Handlers.Core.States
     }
 
     public Guid Id { get; private set; }
+
     public string? UF { get; private set; }
+
     public string? StateName { get; private set; }
   }
 }

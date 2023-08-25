@@ -30,7 +30,7 @@ namespace CloudSuite.Modules.Application.Handlers.Core.Widgets
           var widgets = await _widgetRepository.GetByName(command.Name);
 
           if (widgets != null)
-          return await Task.FromResult(new CreateWidgetResponse(command.Id, "Distrito já cadastrado"));
+            return await Task.FromResult(new CreateWidgetResponse(command.Id, "Distrito já cadastrado"));
 
           await _widgetRepository.Add(command.GetEntity());
 

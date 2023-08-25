@@ -10,6 +10,7 @@ namespace CloudSuite.Modules.Application.Handlers.Core.Districts.Responses
     public CreateDistrictResponse(Guid requestId, ValidationResult result)
     {
       RequestId = requestId;
+      
       foreach (var item in result.Errors)
       {
         this.AddError(item.ErrorMessage);
@@ -18,8 +19,8 @@ namespace CloudSuite.Modules.Application.Handlers.Core.Districts.Responses
 
     public CreateDistrictResponse(Guid requestId, string ValidationFailure)
     {
-      RequestId = requestId ;
+      RequestId = requestId;
       this.AddError(ValidationFailure);
-    }    
+    }
   }
 }

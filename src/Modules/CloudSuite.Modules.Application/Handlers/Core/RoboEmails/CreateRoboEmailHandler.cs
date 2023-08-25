@@ -30,7 +30,7 @@ namespace CloudSuite.Modules.Application.Handlers.Core.RoboEmails
           var emails = await _emailRepository.GetBySubject(command.Subject);
 
           if (emails != null)
-          return await Task.FromResult(new CreateRoboEmailResponse(command.Id, "Distrito já cadastrado"));
+            return await Task.FromResult(new CreateRoboEmailResponse(command.Id, "Distrito já cadastrado"));
 
           await _emailRepository.Add(command.GetEntity());
 

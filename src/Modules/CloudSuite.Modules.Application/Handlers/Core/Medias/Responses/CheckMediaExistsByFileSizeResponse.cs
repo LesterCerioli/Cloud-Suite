@@ -5,25 +5,26 @@ namespace CloudSuite.Modules.Application.Handlers.Core.Medias.Responses
 {
   public class CheckMediaExistsByFileSizeResponse : Response
   {
-        public Guid RequestId { get; private set; }
-        public bool Exists { get; set; }
+    public Guid RequestId { get; private set; }
 
-        public CheckMediaExistsByFileSizeResponse(Guid requestId, bool exists, ValidationResult result)
-        {
-            RequestId = requestId;
-            Exists = exists;
-            foreach (var item in result.Errors)
-            {
-                this.AddError(item.ErrorMessage);
-            }
-        }
-        public CheckMediaExistsByFileSizeResponse(Guid requestId, string validationFailure)
-        {
-            RequestId = requestId;
-            Exists = false;
-            this.AddError(validationFailure);
-        }
+    public bool Exists { get; set; }
 
+    public CheckMediaExistsByFileSizeResponse(Guid requestId, bool exists, ValidationResult result)
+    {
+      RequestId = requestId;
+      Exists = exists;
+
+      foreach (var item in result.Errors)
+      {
+        this.AddError(item.ErrorMessage);
+      }
+    }
+
+    public CheckMediaExistsByFileSizeResponse(Guid requestId, string validationFailure)
+    {
+      RequestId = requestId;
+      Exists = false;
+      this.AddError(validationFailure);
+    }
   }
-
 }

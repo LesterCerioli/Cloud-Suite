@@ -16,7 +16,7 @@ namespace CloudSuite.Modules.Application.Handlers.Core.Vendores
     {
       _vendorRepository = vendorRepository;
       _logger = logger;
-      
+
     }
 
     public async Task<CheckVendorExistsByCreationDateResponse> Handle(CheckVendorExistsByCreationDateRequest request, CancellationToken cancellationToken)
@@ -32,7 +32,7 @@ namespace CloudSuite.Modules.Application.Handlers.Core.Vendores
           var vendor = await _vendorRepository.GetByCreationDate(request.CreatedOn);
 
           if (vendor != null)
-          return await Task.FromResult(new CheckVendorExistsByCreationDateResponse(request.Id, true, validationResult));
+            return await Task.FromResult(new CheckVendorExistsByCreationDateResponse(request.Id, true, validationResult));
         }
         catch (Exception ex)
         {
@@ -43,4 +43,4 @@ namespace CloudSuite.Modules.Application.Handlers.Core.Vendores
       return await Task.FromResult(new CheckVendorExistsByCreationDateResponse(request.Id, false, validationResult));
     }
   }
-} 
+}

@@ -30,7 +30,7 @@ namespace CloudSuite.Modules.Application.Handlers.Core.Medias
           var medias = await _mediaRepository.GetByFileName(command.FileName);
 
           if (medias != null)
-          return await Task.FromResult(new CreateMediaResponse(command.Id, "Media já cadastrado"));
+            return await Task.FromResult(new CreateMediaResponse(command.Id, "Media já cadastrado"));
 
           await _mediaRepository.Add(command.GetEntity());
 

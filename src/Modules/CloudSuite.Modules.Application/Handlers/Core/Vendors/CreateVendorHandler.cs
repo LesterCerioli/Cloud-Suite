@@ -30,7 +30,7 @@ namespace CloudSuite.Modules.Application.Handlers.Core.Vendores
           var vendores = await _vendorRepository.GetByCnpj(command.Cnpj);
 
           if (vendores != null)
-          return await Task.FromResult(new CreateVendorResponse(command.Id, "Distrito já cadastrado"));
+            return await Task.FromResult(new CreateVendorResponse(command.Id, "Distrito já cadastrado"));
 
           await _vendorRepository.Add(command.GetEntity());
 

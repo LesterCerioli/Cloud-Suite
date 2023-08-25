@@ -16,7 +16,7 @@ namespace CloudSuite.Modules.Application.Handlers.Core.Widgets
     {
       _widgetRepository = widgetRepository;
       _logger = logger;
-      
+
     }
 
     public async Task<CheckWidgetExistsByNameResponse> Handle(CheckWidgetExistsByNameRequest request, CancellationToken cancellationToken)
@@ -32,7 +32,7 @@ namespace CloudSuite.Modules.Application.Handlers.Core.Widgets
           var widget = await _widgetRepository.GetByName(request.Name);
 
           if (widget != null)
-          return await Task.FromResult(new CheckWidgetExistsByNameResponse(request.Id, true, validationResult));
+            return await Task.FromResult(new CheckWidgetExistsByNameResponse(request.Id, true, validationResult));
         }
         catch (Exception ex)
         {
@@ -43,4 +43,4 @@ namespace CloudSuite.Modules.Application.Handlers.Core.Widgets
       return await Task.FromResult(new CheckWidgetExistsByNameResponse(request.Id, false, validationResult));
     }
   }
-} 
+}

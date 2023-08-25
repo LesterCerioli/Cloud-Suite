@@ -6,6 +6,7 @@ namespace CloudSuite.Modules.Application.Handlers.Core.WidgetZones.Responses
   public class CheckWidgetZoneExistsByDescriptionResponse : Response
   {
     public Guid RequestId { get; private set; }
+
     public bool Exists { get; set; }
 
     public CheckWidgetZoneExistsByDescriptionResponse(Guid requestId, bool exists, ValidationResult result)
@@ -18,6 +19,7 @@ namespace CloudSuite.Modules.Application.Handlers.Core.WidgetZones.Responses
         this.AddError(item.ErrorMessage);
       }
     }
+    
     public CheckWidgetZoneExistsByDescriptionResponse(Guid requestId, string validationFailure)
     {
       RequestId = requestId;

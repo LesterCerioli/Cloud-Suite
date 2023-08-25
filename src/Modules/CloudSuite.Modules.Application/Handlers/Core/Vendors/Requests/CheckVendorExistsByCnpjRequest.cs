@@ -7,7 +7,9 @@ namespace CloudSuite.Modules.Application.Handlers.Core.Vendores.Requests
   public class CheckVendorExistsByCnpjRequest : IRequest<CheckVendorExistsByCnpjResponse>
   {
     public Guid Id { get; private set; }  
+
     public Cnpj Cnpj { get; private set; }
+    
     public CheckVendorExistsByCnpjRequest(Cnpj cnpj)
     {
       Id = Guid.NewGuid();
