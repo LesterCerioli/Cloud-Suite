@@ -9,23 +9,19 @@ using System.Threading.Tasks;
 
 namespace CloudSuite.Modules.Application.ViewModels.Core
 {
-    public class MediaViewModel
+    public class CountryViewModel
     {
-        [Key]
+        [Key] 
         public Guid Id { get; set; }
 
-        [DisplayName("Caption")]
-        [MaxLength(450)]
-        public string Caption { get; set; }
-
         [Required(ErrorMessage = "Este campo é de preenchimento obrigatório.")]
-        [DisplayName("FileSize")]
-        public int FileSize { get; set; }
-
-        [Required(ErrorMessage = "Este campo é de preenchimento obrigatório.")]
+        [DisplayName("CountryName")]
         [MaxLength(450)]
-        public string FileName { get; set; }
+        public string CountryName { get; private set; }
 
-        public string MediaType { get; set; }
+        [DisplayName("Code3")]
+        [MaxLength(450)]
+        public string Code3 { get; private set; }
+
     }
 }

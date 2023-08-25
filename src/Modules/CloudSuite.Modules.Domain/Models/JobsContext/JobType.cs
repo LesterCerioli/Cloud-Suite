@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 namespace CloudSuite.Modules.Domain.Models.JobsContext
 {
     [Serializable]
-    public class JobType 
+    public class JobType
     {
         [JsonProperty(PropertyName = "name")]
         public string Name { get; private set; }
@@ -27,7 +27,7 @@ namespace CloudSuite.Modules.Domain.Models.JobsContext
         [JsonProperty(PropertyName = "allow_single_instance")]
         public bool AllowSingleInstance { get; private set; }
 
-        [JsonIgnore] 
+        [JsonIgnore]
         public Type ErpJobType { get; private set; }
 
     }

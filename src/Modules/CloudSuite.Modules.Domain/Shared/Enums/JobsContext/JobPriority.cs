@@ -13,6 +13,6 @@ namespace CloudSuite.Modules.Domain.Shared.Enums.JobsContext
         Medium = 2,
         High = 3,
         Higher = 4,
-        Higest = 5 
+        Higest = 5
     }
 }

@@ -12,14 +12,14 @@ namespace CloudSuite.Modules.Domain.Models.JobsContext
 {
 
     [Serializable]
-    internal class JobResultWrapper 
+    internal class JobResultWrapper
     {
         [JsonProperty(PropertyName = "Result")]
         public dynamic Result { get; private set; } = null;
     }
 
     [Serializable]
-    public class Job 
+    public class Job
     {
         [JsonProperty(PropertyName = "type_id")]
         public Guid TypeId { get; private set; }
@@ -27,7 +27,7 @@ namespace CloudSuite.Modules.Domain.Models.JobsContext
         [JsonProperty(PropertyName = "type")]
         public JobType Type { get; private set; }
 
-        [JsonProperty(PropertyName ="type_name")]
+        [JsonProperty(PropertyName = "type_name")]
         public string TypeName { get; private set; }
 
         [JsonProperty(PropertyName = "complete_class_name")]
