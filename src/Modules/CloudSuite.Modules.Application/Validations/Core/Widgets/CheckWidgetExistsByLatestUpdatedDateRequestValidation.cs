@@ -7,10 +7,13 @@ namespace CloudSuite.Modules.Application.Validations.Core.Widgets
   {
     public CheckWidgetExistsByLatestUpdatedDateRequestValidation()        
     {
-      RuleFor(request => request.LatestUpdatedOn)
+      RuleFor(request => request.CreateUrl)
       .NotEmpty()
-      .WithMessage("LatestUpdatedOn deve ser preenchido")
-      .Must(date => date != default(DateTimeOffset)).WithMessage("LatestUpdatedOn deve ser uma data/hora válida");
+      .WithMessage("CreateUrl deve ser preenchido")
+      .MinimumLength(3)
+      .WithMessage("CreateUrl muito curto, deve conter mais de 3 caracteres")
+      .MaximumLength(255)
+      .WithMessage("CreateUrl muito longo, deve conter até 255 caracteres");
     }
   }
 }

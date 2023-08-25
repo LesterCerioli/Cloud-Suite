@@ -18,8 +18,7 @@ namespace CloudSuite.Modules.Application.Handlers.Core.Widgets
         this.ViewComponentName,
         this.CreateUrl,
         this.EditUrl,
-        this.IsPublished,
-        this.LatestUpdatedOn
+        this.IsPublished
       );
     }
 
