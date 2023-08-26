@@ -8,5 +8,8 @@ namespace CloudSuite.Modules.Application.Services.Contracts.Core
 {
     public interface IMediaService
     {
+        Task<MediaViewModel> GetByFileName(string fileName);
+
+        Task Save(CreateMediaCommand createCommand);
     }
 }
