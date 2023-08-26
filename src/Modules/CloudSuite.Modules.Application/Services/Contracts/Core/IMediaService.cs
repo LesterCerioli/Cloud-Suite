@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CloudSuite.Modules.Application.Services.Contracts.Core
 {
-    internal interface IMediaService
+    public interface IMediaService
     {
     }
 }
