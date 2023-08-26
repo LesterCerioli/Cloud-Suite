@@ -8,5 +8,6 @@ namespace CloudSuite.Modules.Application.Services.Contracts.Core
 {
     public interface IPdfConverter
     {
+        byte[] Convert(string htmlContent);
     }
 }

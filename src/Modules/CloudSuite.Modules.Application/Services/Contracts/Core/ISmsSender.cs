@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace CloudSuite.Modules.Application.Services.Contracts.Core
 {
-    internal interface ISmsSender
+    public interface ISmsSender
     {
+        Task SendSmsAsync(string number, string message);
     }
 }

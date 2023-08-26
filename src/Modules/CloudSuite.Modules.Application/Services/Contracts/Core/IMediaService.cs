@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CloudSuite.Modules.Domain.Models.Core;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,8 +9,10 @@ namespace CloudSuite.Modules.Application.Services.Contracts.Core
 {
     public interface IMediaService
     {
-        Task<MediaViewModel> GetByFileName(string fileName);
+        //Task<MediaViewModel> GetByFileName(string fileName);
 
-        Task Save(CreateMediaCommand createCommand);
+        //Task Save(CreateMediaCommand createCommand);
+
+        
     }
 }

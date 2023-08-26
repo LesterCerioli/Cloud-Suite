@@ -8,5 +8,6 @@ namespace CloudSuite.Modules.Application.Services.Contracts.Core
 {
     public interface IContentLocalizationService
     {
+        
     }
 }
