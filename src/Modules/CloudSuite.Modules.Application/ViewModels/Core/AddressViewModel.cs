@@ -17,22 +17,14 @@ namespace CloudSuite.Modules.Application.ViewModels.Core
         [Required(ErrorMessage = "Este campo é de preenchimento obrigatório.")]
         [DisplayName("ContactName")]
         [MaxLength(100)]
-        public string ContactName { get; private set; }
+        public string? ContactName { get; private set; }
 
         [Required(ErrorMessage = "Este campo é de preenchimento obrigatório.")]
         [DisplayName("AddressLine1")]
         [StringLength(450)]
         public string? AddressLine1 { get; private set; }
 
-        [Required(ErrorMessage = "Este campo é de preenchimento obrigatório.")]
-        [DisplayName("City")]
-        [MaxLength(100)]
-        public string City { get; private set; }
-
-        [Required(ErrorMessage = "Este campo é de preenchimento obrigatório.")]
-        [DisplayName("District")]
-        [MaxLength(100)]
-        public string District { get; private set; }
+        
 
     }
 }
