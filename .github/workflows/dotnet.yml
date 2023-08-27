@@ -1,0 +1,59 @@
+name: ASP.NET Core Build and Test
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  linux:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Setup .NET Core SDK
+        uses: actions/setup-dotnet@v2
+        with:
+          dotnet-version: '6.0.x' # Replace with the desired version
+
+      - name: Build and Test
+        run: |
+          dotnet build ./CloudSuite.sln
+          dotnet test --logger trx /p:CollectCoverage=true /p:CoverletOutputFormat=cobertura /p:Exclude=[xunit.*]*%2c[System.*]*
+        
+      - name: Publish Code Coverage
+        uses: actions/upload-artifact@v2
+        with:
+          name: code-coverage
+          path: coverlet/reports/Cobertura.xml
+
+  linux-release:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        build-configuration: ['Release']
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Setup .NET Core SDK
+        uses: actions/setup-dotnet@v2
+        with:
+          dotnet-version: '6.0.x' # Replace with the desired version
+
+      - name: Build and Test
+        run: |
+          dotnet build --configuration ${{ matrix.build-configuration }}
+          dotnet test --configuration ${{ matrix.build-configuration }} --logger trx /p:CollectCoverage=true /p:CoverletOutputFormat=cobertura /p:Exclude=[xunit.*]*%2c[System.*]*
+
+      - name: Publish Code Coverage
+        uses: actions/upload-artifact@v2
+        with:
+          name: code-coverage
+          path: coverlet/reports/Cobertura.xml
+
+  
