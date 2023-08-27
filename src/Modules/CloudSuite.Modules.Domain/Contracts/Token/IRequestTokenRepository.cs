@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CloudSuite.Modules.Application.Services.Contracts.Core
+namespace CloudSuite.Modules.Domain.Contracts.Token
 {
-    public interface ICurrencyService
+    internal interface IRequestTokenRepository
     {
     }
 }
