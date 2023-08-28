@@ -29,7 +29,6 @@ namespace CloudSuite.Modules.Domain.Models.Core
 
         public DateTimeOffset LatestUpdatedOn { get; private set; }
          
-
         public DateTimeOffset? PublishStart { get; private set; }
 
         public DateTimeOffset? PublishEnd { get; private set; }
@@ -39,8 +38,9 @@ namespace CloudSuite.Modules.Domain.Models.Core
 
         public Widget Widget { get; private set; }
 
-        
         public WidgetZone WidgetZone { get; private set; }
+
+        public Guid WidgetZoneId { get; private set; }
 
         public int? DisplayOrder { get; set; }
 

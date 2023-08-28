@@ -10,22 +10,22 @@ using System.Threading.Tasks;
 namespace CloudSuite.Infrastructure.Data.Mappimgs.EFCore.Core
 {
     public class ExampleMapping : IEntityTypeConfiguration<AppSetting>
-    {
-        
-        
+    {     
         public void Configure(EntityTypeBuilder<AppSetting> builder)
         {
-            builder.HasKey();
+            builder.HasKey(a => a.Id);
 
             builder.Property(a => a.Value)
                 .HasColumnName("Value")
                 .HasColumnType("varchar(450)")
-                .HasMaxLength(450);
+                .HasMaxLength(450)
+                .IsRequired();
 
             builder.Property(a => a.Module)
                 .HasColumnName("Module")
                 .HasColumnType("varchar(450)")
-                .HasMaxLength(450);
+                .HasMaxLength(450)
+                .IsRequired();
 
             builder.Property(a => a.IsVisibleInCommonSettingPage)
                 .HasColumnName("IsVisibleInCommonSettingPage")

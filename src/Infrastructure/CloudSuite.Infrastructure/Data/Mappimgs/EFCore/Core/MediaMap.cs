@@ -13,7 +13,24 @@ namespace CloudSuite.Infrastructure.Data.Mappimgs.EFCore.Core
     {
         public void Configure(EntityTypeBuilder<Media> builder)
         {
-            throw new NotImplementedException();
+            builder.HasKey(a => a.Id);
+
+            builder.Property(a => a.Caption)
+                .HasColumnName("Caption")
+                .HasColumnType("varchar(450)")
+                .HasMaxLength(450)
+                .IsRequired();
+
+            builder.Property(a => a.FileSize)
+                .HasColumnName("FileSize")
+                .HasColumnType("int")
+                .IsRequired();
+
+            builder.Property(a => a.FileName)
+                .HasColumnName("FileName")
+                .HasColumnType("varchar(450)")
+                .HasMaxLength(450)
+                .IsRequired();
         }
     }
 }
