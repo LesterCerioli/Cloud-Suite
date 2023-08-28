@@ -1,59 +1,36 @@
 version: 2.1
 
+executors:
+  dotnet-6-executor:
+    docker:
+      - image: mcr.microsoft.com/dotnet/sdk:6.0
+
 jobs:
   build:
-    docker:
-      - image: mcr.microsoft.com/dotnet/sdk:6.0
-    working_directory: ~/repo
-
+    executor: dotnet-6-executor
     steps:
       - checkout
-
-      - restore_cache:
-          keys:
-            - dotnet-{{ checksum "src/**/*.csproj" }}-{{ .Branch }}-{{ checksum "src/nuget.config" }}
-
       - run:
           name: Install dependencies
           command: dotnet restore
-
-      - save_cache:
-          key: dotnet-{{ checksum "src/**/*.csproj" }}-{{ .Branch }}-{{ checksum "src/nuget.config" }}
-          paths:
-            - ~/.nuget/packages
-
       - run:
           name: Build
-          command: dotnet build ./CloudSuite.sln
+          command: dotnet build --configuration Release
 
   test:
-    docker:
-      - image: mcr.microsoft.com/dotnet/sdk:6.0
-    working_directory: ~/repo
-
+    executor: dotnet-6-executor
     steps:
       - checkout
-
-      - restore_cache:
-          keys:
-            - dotnet-{{ checksum "src/**/*.csproj" }}-{{ .Branch }}-{{ checksum "src/nuget.config" }}
-
       - run:
           name: Install dependencies
           command: dotnet restore
-
-      - save_cache:
-          key: dotnet-{{ checksum "src/**/*.csproj" }}-{{ .Branch }}-{{ checksum "src/nuget.config" }}
-          paths:
-            - ~/.nuget/packages
-
       - run:
           name: Run tests
           command: dotnet test --configuration Release
 
 workflows:
   version: 2
-  build-test-deploy:
+  build-test:
     jobs:
       - build
       - test:
