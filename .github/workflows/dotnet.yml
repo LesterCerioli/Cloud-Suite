@@ -22,10 +22,10 @@ jobs:
           dotnet-version: 6.x
 
       - name: Restore dependencies
-        run: dotnet restore
+        run: dotnet restore ./CloudSuite.sln
 
       - name: Build
-        run: dotnet build --configuration Release
+        run: dotnet build ./CloudSuite.sln
 
       - name: Run tests
-        run: dotnet test --configuration Release
+        run: dotnet test ./CloudSuite.sln
