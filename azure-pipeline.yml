@@ -4,16 +4,12 @@
 # https://docs.microsoft.com/azure/devops/pipelines/languages/dotnet-core
 
 trigger:
-- '*'
-
-pr:
-- '*'
-
+  - main
 
 jobs:
   - job: Linux
     pool:
-      vmImage: "ubuntu-latest"
+      name: "DS11"
     steps:
       - task: UseDotNet@2
         displayName: "Use .NET Core sdk"
@@ -37,7 +33,7 @@ jobs:
           summaryFileLocation: $(Build.SourcesDirectory)/coverlet/reports/Cobertura.xml
   - job: LinuxRelease
     pool:
-      vmImage: "ubuntu-latest"
+      name: "DS11"
     variables:
       buildConfiguration: "Release"
     steps:
@@ -61,27 +57,36 @@ jobs:
         inputs:
           codeCoverageTool: Cobertura
           summaryFileLocation: $(Build.SourcesDirectory)/coverlet/reports/Cobertura.xml
-
   - job: Windows
     pool:
-      vmImage: "windows-2019"
-    variables:
-      buildConfiguration: "Release"
+      name: "DS31"
     steps:
       - task: UseDotNet@2
         displayName: "Use .NET Core sdk"
         inputs:
           packageType: "sdk"
           version: "6.0.100"
-      - script: dotnet build --configuration $(buildConfiguration)
-        displayName: "dotnet build $(buildConfiguration)"
+      - task: DotNetCoreCLI@2
+        displayName: "Restoring code using dotnet restore"
+        inputs:
+          command: "restore"
+          projects: "**/*/*.csproj"
+          includeNuGetOrg: true
+      - script: dotnet build ./CloudSuite.sln
+        displayName: "dotnet build"
       - task: DotNetCoreCLI@2
         displayName: "run tests"
         inputs:
           command: test
-          arguments: "--configuration $(buildConfiguration) --logger trx /p:CollectCoverage=true /p:CoverletOutputFormat=cobertura /p:Exclude=[xunit.*]*%2c[System.*]*"
+          arguments: "--logger trx /p:CollectCoverage=true /p:CoverletOutputFormat=cobertura /p:Exclude=[xunit.*]*%2c[System.*]*"
           projects: "test/**/*.csproj"
           nobuild: true
+      - task: DotNetCoreCLI@2
+        inputs:
+          command: custom
+          custom: tool
+          arguments: install --tool-path . dotnet-reportgenerator-globaltool
+          displayName: Install ReportGenerator tool
 
       - task: PublishCodeCoverageResults@1
         displayName: "Publish code coverage"
