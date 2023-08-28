@@ -1,54 +1,31 @@
-name: .NET 6 Multi-Stage Pipeline
+name: .NET 6 CI
 
 on:
   push:
     branches:
-      - main
+      - main  # Adjust this to your main branch name
+  pull_request:
+    branches:
+      - main  # Adjust this to your main branch name
 
 jobs:
   build:
     runs-on: ubuntu-latest
     
     steps:
-      - name: Checkout code
+      - name: Checkout repository
         uses: actions/checkout@v2
-        
-      - name: Setup .NET
+
+      - name: Setup .NET 6
         uses: actions/setup-dotnet@v2
         with:
-          dotnet-version: 6.0.x # Use the desired version
-        
+          dotnet-version: 6.x
+
       - name: Restore dependencies
-        run: dotnet restore ./CloudSuite.sln
-        
+        run: dotnet restore
+
       - name: Build
-        run: dotnet build ./CloudSuite.sln
-        
-      - name: Test
-        run: dotnet test test/**/*.Tests.csproj
-        
-  publish:
-    runs-on: ubuntu-latest
-    needs: build
-    
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-        
-      - name: Setup .NET
-        uses: actions/setup-dotnet@v2
-        with:
-          dotnet-version: 6.0.x # Use the desired version
-        
-      - name: Publish
-        run: dotnet publish --configuration Release --output ./publish
-    
-  deploy:
-    runs-on: ubuntu-latest
-    needs: publish
-    
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-        
-      
+        run: dotnet build --configuration Release
+
+      - name: Run tests
+        run: dotnet test --configuration Release
