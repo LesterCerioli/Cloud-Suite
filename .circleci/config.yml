@@ -1,44 +1,30 @@
 version: 2.1
+
 executors:
-  dotnet-executor:
+  dotnet-6-executor:
     docker:
       - image: mcr.microsoft.com/dotnet/sdk:6.0
 
 jobs:
-  build_ubuntu:
-    executor: dotnet-executor
-    environment:
-      DOTNET_CLI_TELEMETRY_OPTOUT: 1
+  build:
+    executor: dotnet-6-executor
+
     steps:
       - checkout
 
       - run:
           name: Restore dependencies
-          command: dotnet restore
+
+          command: dotnet restore src/CloudSuite.sln
 
       - run:
           name: Build
-          command: dotnet build --configuration Release
 
-      - run:
-          name: Test
-          command: dotnet test --configuration Release --no-restore
+          command: dotnet build ./CloudSuite.sln
 
-  build_debian:
-    executor: dotnet-executor
-    environment:
-      DOTNET_CLI_TELEMETRY_OPTOUT: 1
-    steps:
-      - checkout
+workflows:
+  version: 2
 
-      - run:
-          name: Restore dependencies
-          command: dotnet restore
-
-      - run:
-          name: Build
-          command: dotnet build --configuration Release
-
-      - run:
-          name: Test
-          command: dotnet test --configuration Release --no-restore
+  build-workflow:
+    jobs:
+      - build
