@@ -15,8 +15,8 @@ jobs:
           command: dotnet restore src/CloudSuite.sln
 
       - run:
-          name: Build CloudSuite.Infrastructure
-          command: dotnet build src/Infrastructure/CloudSuite.Infrastructure/CloudSuite.Infrastructure.csproj --configuration Release
+          name: Build 
+          command: dotnet build ./CloudSuite.sln
 
 workflows:
   version: 2
