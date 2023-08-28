@@ -11,20 +11,20 @@ jobs:
 
       - restore_cache:
           keys:
-            - dotnet-{{ checksum "src/YourProject.csproj" }}-{{ .Branch }}-{{ checksum "src/nuget.config" }}
+            - dotnet-{{ checksum "src/**/*.csproj" }}-{{ .Branch }}-{{ checksum "src/nuget.config" }}
 
       - run:
           name: Install dependencies
           command: dotnet restore
 
       - save_cache:
-          key: dotnet-{{ checksum "src/YourProject.csproj" }}-{{ .Branch }}-{{ checksum "src/nuget.config" }}
+          key: dotnet-{{ checksum "src/**/*.csproj" }}-{{ .Branch }}-{{ checksum "src/nuget.config" }}
           paths:
             - ~/.nuget/packages
 
       - run:
           name: Build
-          command: dotnet build --configuration Release
+          command: dotnet build ./CloudSuite.sln
 
   test:
     docker:
@@ -36,14 +36,14 @@ jobs:
 
       - restore_cache:
           keys:
-            - dotnet-{{ checksum "src/YourProject.csproj" }}-{{ .Branch }}-{{ checksum "src/nuget.config" }}
+            - dotnet-{{ checksum "src/**/*.csproj" }}-{{ .Branch }}-{{ checksum "src/nuget.config" }}
 
       - run:
           name: Install dependencies
           command: dotnet restore
 
       - save_cache:
-          key: dotnet-{{ checksum "src/YourProject.csproj" }}-{{ .Branch }}-{{ checksum "src/nuget.config" }}
+          key: dotnet-{{ checksum "src/**/*.csproj" }}-{{ .Branch }}-{{ checksum "src/nuget.config" }}
           paths:
             - ~/.nuget/packages
 
