@@ -8,8 +8,10 @@ executors:
 jobs:
   build:
     executor: dotnet-6-executor
+
     steps:
       - checkout
+
       - run:
           name: Restore dependencies
           command: dotnet restore CloudSuite.Infrastructure.csproj CloudSuite.Infrastructure.CrossCutting.csproj CloudSuite.Modules.Application.csproj CloudSuite.Modules.Domain.csproj
@@ -20,6 +22,7 @@ jobs:
 
 workflows:
   version: 2
+
   build-workflow:
     jobs:
       - build
