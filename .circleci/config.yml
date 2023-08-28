@@ -15,7 +15,7 @@ jobs:
           command: dotnet restore
       - run:
           name: Build
-          command: dotnet build --configuration Release
+          command: dotnet build ./CloudSuite.sln
 
   test:
     executor: dotnet-6-executor
