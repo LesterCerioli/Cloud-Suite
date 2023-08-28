@@ -1,0 +1,51 @@
+name: .NET 6 Multi-Stage CI
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build_test_ubuntu:
+    name: Build and Test on Ubuntu
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v2
+        with:
+          dotnet-version: 6.0.x
+
+      - name: Restore dependencies
+        run: dotnet restore
+
+      - name: Build
+        run: dotnet build --configuration Release
+
+      - name: Test
+        run: dotnet test --configuration Release --no-restore
+
+  build_test_debian:
+    name: Build and Test on Debian
+    runs-on: debian-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v2
+        with:
+          dotnet-version: 6.0.x
+
+      - name: Restore dependencies
+        run: dotnet restore
+
+      - name: Build
+        run: dotnet build --configuration Release
+
+      - name: Test
+        run: dotnet test --configuration Release --no-restore
