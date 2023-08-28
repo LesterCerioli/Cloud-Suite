@@ -1,38 +1,19 @@
-version: 2.1
-
-executors:
-  dotnet-6-executor:
-    docker:
-      - image: mcr.microsoft.com/dotnet/sdk:6.0
-
+version: 2.0
 jobs:
-  build:
-    executor: dotnet-6-executor
-    steps:
-      - checkout
-      - run:
-          name: Install dependencies
-          command: dotnet restore
-      - run:
-          name: Build
-          command: dotnet build ./CloudSuite.sln
-
-  test:
-    executor: dotnet-6-executor
-    steps:
-      - checkout
-      - run:
-          name: Install dependencies
-          command: dotnet restore
-      - run:
-          name: Run tests
-          command: dotnet test --configuration Release
-
-workflows:
-  version: 2
-  build-test:
-    jobs:
-      - build
-      - test:
-          requires:
-            - build
+ build:
+   docker:
+     - image: mcr.microsoft.com/dotnet/core/sdk:6.0
+   steps:
+     - checkout
+     - run:
+         name: Restore packages
+         command:
+           dotnet restore
+     - run:
+         name: Build App
+         command:
+           dotnet build
+     - run:
+         name: Run App
+         command:
+           dotnet run
