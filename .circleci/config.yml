@@ -1,19 +1,33 @@
-version: 2.0
+version: 2.1
+
+orbs:
+  win: circleci/windows@6.0
+
+workflows:
+  build-and-unittest:
+    jobs:
+      - build-and-test
 jobs:
- build:
-   docker:
-     - image: mcr.microsoft.com/dotnet/core/sdk:6.0
-   steps:
-     - checkout
-     - run:
-         name: Restore packages
-         command:
-           dotnet restore ./CloudSuite.sln
-     - run:
-         name: Build App
-         command:
-           dotnet build ./CloudSuite.sln
-     - run:
-         name: Run App
-         command:
-           dotnet run ./CloudSuite.sln
+  build-and-test:
+    executor:
+      name: win/default
+      version: edge
+    steps:
+      - checkout
+      - run:
+          name: Restore project dependencies and tools
+          command: dotnet restore ./CloudSuite.sln
+      - run:
+          name: Build project 
+          command: dotnet build ./CloudSuite.sln
+      - run:
+          name: "Running tests"
+          command: |
+            mkdir test-results
+            dotnet test ./Cfd.Tests --logger:"junit;LogFilePath=test-results/dotnet-sample-cfd/xunit.xml"
+      - store_test_results:
+          path: /test/**/*.csproj
+      - store_artifacts:
+          path: /test/**/*.csproj
+  
+   
