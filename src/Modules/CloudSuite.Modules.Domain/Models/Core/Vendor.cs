@@ -39,7 +39,11 @@ namespace CloudSuite.Modules.Domain.Models.Core
 
         public Cnpj Cnpj { get; private set; }
 
+        public Guid CnpjId { get; private set; }
+
         public Email Email { get; private set; }
+
+        public Guid EmailId { get; private set; }
 
         public DateTimeOffset? CreatedOn { get; private set; }
 
