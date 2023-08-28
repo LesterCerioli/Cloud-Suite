@@ -14,5 +14,7 @@ namespace CloudSuite.Modules.Domain
         public string? Name { get; private set; }
 
         public string? Age { get; private set; }
+
+        //testing
     }
 }
