@@ -12,14 +12,18 @@ jobs:
       - checkout
       - run:
           name: Restore dependencies
-          command: dotnet restore src/CloudSuite.sln
+          command: dotnet restore src/**/**/*.csproj
 
       - run:
           name: Build 
-          command: dotnet build ./CloudSuite.sln
+          command: dotnet build src/**/**/*.csproj
+      - run:
+          name: Test
+          command: dotnet test test/**/*.csproj
 
 workflows:
   version: 2
   build-workflow:
     jobs:
       - build
+      - test
