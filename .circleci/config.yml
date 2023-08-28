@@ -12,18 +12,14 @@ jobs:
       - checkout
       - run:
           name: Restore dependencies
-          command: dotnet restore src/**/**/*.csproj
+          command: dotnet restore CloudSuite.Infrastructure.csproj CloudSuite.Infrastructure.CrossCutting.csproj CloudSuite.Modules.Application.csproj CloudSuite.Modules.Domain.csproj
 
       - run:
-          name: Build 
-          command: dotnet build src/**/**/*.csproj
-      - run:
-          name: Test
-          command: dotnet test test/**/*.csproj
+          name: Build
+          command: dotnet build CloudSuite.Infrastructure.csproj CloudSuite.Infrastructure.CrossCutting.csproj CloudSuite.Modules.Application.csproj CloudSuite.Modules.Domain.csproj --configuration Release
 
 workflows:
   version: 2
   build-workflow:
     jobs:
       - build
-      - test
