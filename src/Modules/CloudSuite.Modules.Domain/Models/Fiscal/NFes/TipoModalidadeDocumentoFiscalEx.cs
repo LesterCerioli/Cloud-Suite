@@ -1,3 +1,5 @@
+using CloudSuite.Modules.Domain.Shared.Enums.Fiscal.NFs;
+
 namespace CloudSuite.Modules.Domain.Models.Fiscal.NFes
 {
     public static class TipoModalidadeDocumentoFiscalEx

@@ -13,7 +13,17 @@ namespace CloudSuite.Infrastructure.Data.Mappimgs.EFCore.Core
     {
         public void Configure(EntityTypeBuilder<UserRole> builder)
         {
-            throw new NotImplementedException();
+            builder.HasKey(c => c.Id);
+
+            builder.HasOne(c => c.User)
+               .WithMany()
+               .HasForeignKey(c => c.UserId)
+               .OnDelete(DeleteBehavior.Restrict);
+
+            builder.HasOne(c => c.Role)
+               .WithMany()
+               .HasForeignKey(c => c.RoleId)
+               .OnDelete(DeleteBehavior.Restrict);
         }
     }
 }

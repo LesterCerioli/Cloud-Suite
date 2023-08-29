@@ -9,7 +9,7 @@ namespace CloudSuite.Modules.Application.Validations.Core.RoboEmail
         {
             RuleFor(request => request.ReceivedTime)
             .NotEmpty()
-            .WithMessage("ReceivedTime deve ser preenchida");
+            .WithMessage("Horas de recebimento deve ser preenchida");
         }
     }
 }

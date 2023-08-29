@@ -7,11 +7,12 @@ namespace CloudSuite.Modules.Application.Validations.Core.Countries
   {
     public CheckCountryExistsByCodeRequestValidation()
     {
-     RuleFor(request => request.Code3)
+     RuleFor(command => command.Code3)
       .NotEmpty()
-      .WithMessage("Code3 deve ser preenchida")
-      .MaximumLength(3)
-      .WithMessage("Code3 muito curto, não deve conter mais de 3 caracteres");
+      .WithMessage("O código deve ser preenchida")
+      .MaximumLength(450)
+      .WithMessage("O código não possui mais de 450 caracteres");
     }
   }
+  
 }

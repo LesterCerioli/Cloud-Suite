@@ -44,10 +44,14 @@ namespace CloudSuite.Modules.Domain.Models.Core
 
         public Email Email { get; private set; }
 
+        public Guid EmailId { get; set; }
+
         public Cpf Cpf { get; private set; }
 
+        public Guid CpfId { get; set; }
+
         public Vendor Vendor { get; private set; }
-                
+
         public bool? IsDeleted { get; private set; }
 
         public DateTimeOffset? CreatedOn { get; private set; }

@@ -3,15 +3,15 @@ using FluentValidation;
 
 namespace CloudSuite.Modules.Application.Validations.Core.District
 {
-  public class CheckDistrictExistsByNameRequestValidation : AbstractValidator<CheckDistrictExistsByNameRequest>
-  {
-    public CheckDistrictExistsByNameRequestValidation()        
+    public class CheckDistrictExistsByNameRequestValidation : AbstractValidator<CheckDistrictExistsByNameRequest>
     {
-      RuleFor(request => request.Name)
-      .NotEmpty()
-      .WithMessage("Name deve ser preenchida")
-      .MinimumLength(3)
-      .WithMessage("Name muito curto");
+        public CheckDistrictExistsByNameRequestValidation()        
+        {
+            RuleFor(command => command.Name)
+            .NotEmpty()
+            .WithMessage("Nome do Bairro deve ser preenchida")
+            .MaximumLength(450)
+            .WithMessage("Nome do Bairro deve possuir no máximo 450 caracteres");
+        }
     }
-  }
 }
