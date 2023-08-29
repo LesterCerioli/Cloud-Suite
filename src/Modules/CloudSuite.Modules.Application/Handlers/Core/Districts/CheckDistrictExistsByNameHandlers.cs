@@ -31,7 +31,7 @@ namespace CloudSuite.Modules.Application.Handlers.Core.Districts
           var district = await _districtRepository.GetByName(request.Name);
 
           if (district != null)
-          return await Task.FromResult(new CheckDistrictExistsByNameResponse(request.Id, true, validationResult));
+            return await Task.FromResult(new CheckDistrictExistsByNameResponse(request.Id, true, validationResult));
         }
         catch (Exception ex)
         {
@@ -42,4 +42,4 @@ namespace CloudSuite.Modules.Application.Handlers.Core.Districts
       return await Task.FromResult(new CheckDistrictExistsByNameResponse(request.Id, false, validationResult));
     }
   }
-} 
+}

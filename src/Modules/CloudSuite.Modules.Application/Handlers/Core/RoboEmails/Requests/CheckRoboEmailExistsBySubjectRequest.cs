@@ -3,14 +3,16 @@ using MediatR;
 
 namespace CloudSuite.Modules.Application.Handlers.Core.RoboEmails.Requests
 {
-    public class CheckRoboEmailExistsBySubjectRequest : IRequest<CheckRoboEmailExistsBySubjectResponse>
+  public class CheckRoboEmailExistsBySubjectRequest : IRequest<CheckRoboEmailExistsBySubjectResponse>
+  {
+    public Guid Id { get; private set; }
+
+    public string? Subject { get; private set; }
+    
+    public CheckRoboEmailExistsBySubjectRequest(string subject)
     {
-        public Guid Id { get; private set; }
-        public string? Subject { get; private set; }
-        public CheckRoboEmailExistsBySubjectRequest(string subject)
-        {
-            Id = Guid.NewGuid();
-            Subject = subject;
-        }
+      Id = Guid.NewGuid();
+      Subject = subject;
     }
+  }
 }

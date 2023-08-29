@@ -7,7 +7,7 @@ namespace CloudSuite.Modules.Application.Validations.Core.RoboEmail
     {
         public CheckRoboEmailExistsBySubjectRequestValidation()        
         {
-            RuleFor(command => command.Subject)
+            RuleFor(request => request.Subject)
             .NotEmpty()
             .WithMessage("Assunto deve ser preenchida")
             .MaximumLength(10)

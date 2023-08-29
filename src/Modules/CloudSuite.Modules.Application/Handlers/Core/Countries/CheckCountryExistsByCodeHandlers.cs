@@ -31,7 +31,7 @@ namespace CloudSuite.Modules.Application.Handlers.Core.Countries
           var countries = await _countryRepository.GetByCode(request.Code3);
 
           if (countries != null)
-          return await Task.FromResult(new CheckCountryExistsByCodeResponse(request.Id, true, validationResult));
+            return await Task.FromResult(new CheckCountryExistsByCodeResponse(request.Id, true, validationResult));
         }
         catch (Exception ex)
         {

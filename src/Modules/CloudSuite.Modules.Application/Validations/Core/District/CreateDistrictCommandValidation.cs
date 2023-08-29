@@ -11,7 +11,7 @@ namespace CloudSuite.Modules.Application.Validations.Core.District
             .NotEmpty()
             .WithMessage("Name deve ser preenchida")
             .MaximumLength(450)
-            .WithMessage("Nome do Bairro deve possuir no m·ximo 450 caracteres");
+            .WithMessage("Nome do Bairro deve possuir no m√°ximo 450 caracteres");
 
             
             
