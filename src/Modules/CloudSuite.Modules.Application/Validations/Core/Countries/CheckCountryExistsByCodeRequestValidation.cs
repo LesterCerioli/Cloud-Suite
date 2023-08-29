@@ -11,7 +11,7 @@ namespace CloudSuite.Modules.Application.Validations.Core.Countries
       .NotEmpty()
       .WithMessage("Code3 deve ser preenchida")
       .MaximumLength(3)
-      .WithMessage("Code3 não pode ter mais de 3 letras");
+      .WithMessage("O código não possui mais de 3 caracteres");
     }
   }
   

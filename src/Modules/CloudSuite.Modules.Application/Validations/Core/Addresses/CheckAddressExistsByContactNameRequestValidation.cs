@@ -9,7 +9,7 @@ namespace CloudSuite.Modules.Application.Validations.Core.Addresses
     {
       RuleFor(command => command.ContactName)
       .NotEmpty()
-      .WithMessage("ContactName deve ser preenchida");
+      .WithMessage("Nome do Contato deve ser preenchida");
     }
   }
   

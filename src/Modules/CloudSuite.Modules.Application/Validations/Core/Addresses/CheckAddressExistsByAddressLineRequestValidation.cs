@@ -9,8 +9,8 @@ namespace CloudSuite.Modules.Application.Validations.Core.Addresses
     {
       RuleFor(command => command.AddressLine1)
       .NotEmpty()
-      .MaximumLength(50)
-      .WithMessage("AddressLine1 deve ser preenchida");
+      .MaximumLength(450)
+      .WithMessage("Endereço deve ser preenchida");
     }
   }
   

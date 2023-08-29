@@ -10,8 +10,8 @@ namespace CloudSuite.Modules.Application.Validations.Core.RoboEmail
             RuleFor(command => command.Subject)
             .NotEmpty()
             .WithMessage("Assunto deve ser preenchida")
-            .MinimumLength(3)
-            .WithMessage("Assunto muito curto, deve conter mais de 3 caracteres");
+            .MaximumLength(10)
+            .WithMessage("Assunto deve conter no máximo 10 caracteres");
         }
     }
 }
