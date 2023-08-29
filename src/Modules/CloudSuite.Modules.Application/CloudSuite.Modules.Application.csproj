@@ -14,4 +14,8 @@
     <ProjectReference Include="..\CloudSuite.Modules.Domain\CloudSuite.Modules.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Validations\Core\States\" />
+  </ItemGroup>
+
 </Project>

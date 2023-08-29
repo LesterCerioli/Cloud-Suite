@@ -1,4 +1,5 @@
 using NetDevPack.Domain;
+using System.ComponentModel.DataAnnotations;
 
 namespace CloudSuite.Modules.Domain.Models.Core
 {
@@ -13,10 +14,13 @@ namespace CloudSuite.Modules.Domain.Models.Core
             MessageRecipient = messageRecipient;
         }
 
-        public string? EmailAddressSender { get; private set; }        
-        
+        [MaxLength(100)]
+        public string? EmailAddressSender { get; private set; }
+
+        [MaxLength(10)]
         public string? Subject { get; private set; }
 
+        [MaxLength(100)]
         public string? Body { get; private set; }
 
         //Data e hora de reebimento do email

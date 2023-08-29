@@ -10,11 +10,11 @@ namespace CloudSuite.Modules.Application.Validations.Core.Addresses
       RuleFor(command => command.AddressLine1)
       .NotEmpty()
       .MaximumLength(50)
-      .WithMessage("AddressLine1 deve ser preenchida");
+      .WithMessage("Endereço deve ser preenchida");
 
       RuleFor(command => command.ContactName)
       .NotEmpty()
-      .WithMessage("ContactName deve ser preenchida");
+      .WithMessage("Nome di Contato deve ser preenchida");
     }
   }
   

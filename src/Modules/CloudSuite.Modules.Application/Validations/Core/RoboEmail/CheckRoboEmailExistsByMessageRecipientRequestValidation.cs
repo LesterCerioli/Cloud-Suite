@@ -9,7 +9,7 @@ namespace CloudSuite.Modules.Application.Validations.Core.RoboEmail
         {
             RuleFor(command => command.MessageRecipient)
             .NotEmpty()
-            .WithMessage("Destinario deve ser preenchida")
+            .WithMessage("Descrição deve ser preenchida")
             .MinimumLength(3)
             .WithMessage("Destinario muito curto, deve conter mais de 3 caracteres");
         }
