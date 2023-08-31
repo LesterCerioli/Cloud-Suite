@@ -9,9 +9,9 @@ namespace CloudSuite.Modules.Application.Validations.Core.Countries
     {
      RuleFor(command => command.Code3)
       .NotEmpty()
-      .WithMessage("O código deve ser preenchida")
+      .WithMessage("O código deve ser preenchido")
       .MaximumLength(450)
-      .WithMessage("O código não possui mais de 450 caracteres");
+      .WithMessage("O código não deve possuir mais que 450 caracteres");
     }
   }
   

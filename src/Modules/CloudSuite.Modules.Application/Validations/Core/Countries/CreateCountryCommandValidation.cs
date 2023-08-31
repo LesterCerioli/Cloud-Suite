@@ -10,12 +10,12 @@ namespace CloudSuite.Modules.Application.Validations.Core.Countries
       RuleFor(command => command.CountryName)
       .NotEmpty()
       .MaximumLength(450)
-      .WithMessage("O nome do País deve ser preenchida");
+      .WithMessage("O nome do País deve ser preenchido");
 
       RuleFor(command => command.Code3)
       .NotEmpty()
-      .MaximumLength(3)
-      .WithMessage("Code3 não pode ter mais de 3 letras");
+      .MaximumLength(450)
+      .WithMessage("Código3 não pode ter mais que 450 caracteres");
 
           
       

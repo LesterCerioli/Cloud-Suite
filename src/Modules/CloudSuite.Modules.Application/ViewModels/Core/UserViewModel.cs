@@ -45,12 +45,14 @@ namespace CloudSuite.Modules.Application.ViewModels.Core
         [MaxLength(450)]
         public string? RefreshTokenHash { get; private set; }
 
+        [Required(ErrorMessage = "Este campo é de preenchimento obrigatório.")]
         [DisplayName("Cultura")]
         [MaxLength(450)]
         public string? Culture { get; private set; }
 
         /// <inheritdoc />
         [DisplayName("ExtensãoData")]
+        [MaxLength(100)]
         public string? ExtensionData { get; private set; }
     }
 }

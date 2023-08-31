@@ -9,9 +9,9 @@ namespace CloudSuite.Modules.Application.Validations.Core.States
     {
       RuleFor(request => request.StateName)
       .NotEmpty()
-      .WithMessage("StateName deve ser preenchido")
-      .MinimumLength(3)
-      .WithMessage("StateName muito curto, deve conter mais de 3 caracteres");
+      .WithMessage("Nome do Estado deve ser preenchido")
+      .MaximumLength(100)
+      .WithMessage("Nome do Estado deve conter no máximo 100 caracteres");
     }
   }
 }

@@ -15,7 +15,7 @@ namespace CloudSuite.Modules.Application.ViewModels.Core
 
         [Required(ErrorMessage = "este campo é obrigatório.")]
         [DisplayName("NomeCidade")]
-        [MaxLength(45)]
+        [MaxLength(100)]
         public string? CityName { get; set; }
     }
 }

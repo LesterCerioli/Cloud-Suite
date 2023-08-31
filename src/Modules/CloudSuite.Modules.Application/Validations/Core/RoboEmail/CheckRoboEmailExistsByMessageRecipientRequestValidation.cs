@@ -10,8 +10,8 @@ namespace CloudSuite.Modules.Application.Validations.Core.RoboEmail
             RuleFor(command => command.MessageRecipient)
             .NotEmpty()
             .WithMessage("Descrição deve ser preenchida")
-            .MinimumLength(3)
-            .WithMessage("Destinario muito curto, deve conter mais de 3 caracteres");
+            .MaximumLength(100)
+            .WithMessage("A descrição deve conter no máximo 100 caracteres");
         }
     }
 }

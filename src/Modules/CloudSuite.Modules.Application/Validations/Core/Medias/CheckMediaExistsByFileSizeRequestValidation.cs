@@ -9,7 +9,7 @@ namespace CloudSuite.Modules.Application.Validations.Core.Medias
     {
       RuleFor(command => command.FileSize)
       .NotEmpty()
-      .WithMessage("FileSize deve ser preenchida")
+      .WithMessage("FileSize deve ser preenchido")
       .GreaterThan(0)
       .WithMessage("FileSize deve ser maior que zero");
     }

@@ -24,7 +24,7 @@ namespace CloudSuite.Infrastructure.Data.Mappimgs.EFCore.Core
             builder.Property(c => c.Subject)
                 .HasColumnName("Subject")
                 .HasColumnType("varchar(100)")
-                .HasMaxLength(100)
+                .HasMaxLength(10)
                 .IsRequired();
 
             builder.Property(c => c.Body)

@@ -10,8 +10,8 @@ namespace CloudSuite.Modules.Application.Validations.Core.Medias
       RuleFor(request => request.FileName)
       .NotEmpty()
       .WithMessage("FileName deve ser preenchida")
-      .MinimumLength(3)
-      .WithMessage("FileName muito curto");
+      .MinimumLength(450)
+      .WithMessage("FileName deve conter no máximo 450 caracteres");
     }
   }
 }

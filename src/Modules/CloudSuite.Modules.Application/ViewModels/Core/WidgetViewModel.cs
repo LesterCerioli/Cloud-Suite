@@ -18,14 +18,17 @@ namespace CloudSuite.Modules.Application.ViewModels.Core
         [MaxLength(450)]
         public string? Name { get; private set; }
 
+        [Required(ErrorMessage = "Este campo é de preenchimento obrigatório.")]
         [DisplayName("ViewNomeComponente")]
         [MaxLength(450)]
         public string? ViewComponentName { get; private set; }
 
+        [Required(ErrorMessage = "Este campo é de preenchimento obrigatório.")]
         [DisplayName("CriarUrl")]
         [MaxLength(450)]
         public string? CreateUrl { get; private set; }
 
+        [Required(ErrorMessage = "Este campo é de preenchimento obrigatório.")]
         [DisplayName("EditarUrl")]
         [MaxLength(450)]
         public string? EditUrl { get; private set; }

@@ -19,6 +19,7 @@ namespace CloudSuite.Modules.Application.ViewModels.Core
         [MaxLength(450)]
         public string? CountryName { get; private set; }
 
+        [Required(ErrorMessage = "Este campo é de preenchimento obrigatório.")]
         [DisplayName("Código3")]
         [MaxLength(450)]
         public string? Code3 { get; private set; }

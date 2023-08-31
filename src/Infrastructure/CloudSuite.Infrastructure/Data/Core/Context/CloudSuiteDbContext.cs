@@ -42,7 +42,7 @@ namespace CloudSuite.Infrastructure.Data.Core.Context
 
         public DbSet<Media> Medias { get; set; }
 
-        public DbSet<RoboEmail> roboEmails { get; set; }
+        public DbSet<RoboEmail> RoboEmails { get; set; }
 
         public DbSet<Role> Roles { get; set; }  
 

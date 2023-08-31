@@ -9,11 +9,9 @@ namespace CloudSuite.Modules.Application.Validations.Core.Users
     {
       RuleFor(command => command.FullName)
       .NotEmpty()
-      .WithMessage("O NOME deve ser preenchido")
-      .MinimumLength(3)
-      .WithMessage("NOME muito curto, deve conter mais de 3 caracteres")
+      .WithMessage("O nome completo deve ser preenchido")
       .MaximumLength(450)
-      .WithMessage("NOME muito longo, deve conter até 450 caracteres");
+      .WithMessage("O nome completo deve conter no máximo 450 caracteres");
       
 
       RuleFor(command => command.Email)

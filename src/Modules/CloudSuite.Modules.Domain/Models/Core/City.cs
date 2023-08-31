@@ -20,7 +20,8 @@ namespace CloudSuite.Modules.Domain.Models.Core
         
         public City() { }
 
-        [MaxLength(45)]
+        [Required(ErrorMessage = "Este campo é de preenchimento obrigatório.")]
+        [MaxLength(100)]
         public string? CityName { get; private set; }
 
         public IReadOnlyCollection<State> States => _states.AsReadOnly();
