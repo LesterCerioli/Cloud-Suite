@@ -14,18 +14,23 @@ namespace CloudSuite.Modules.Domain.Models.Core
             MessageRecipient = messageRecipient;
         }
 
+        [Required(ErrorMessage = "The {0} field is required.")]
         [MaxLength(100)]
         public string? EmailAddressSender { get; private set; }
 
+        [Required(ErrorMessage = "The {0} field is required.")]
         [MaxLength(10)]
         public string? Subject { get; private set; }
 
+        [Required(ErrorMessage = "The {0} field is required.")]
         [MaxLength(100)]
         public string? Body { get; private set; }
 
         //Data e hora de reebimento do email
         public DateTimeOffset? ReceivedTime { get; private set; }
 
+        [Required(ErrorMessage = "The {0} field is required.")]
+        [MaxLength(100)]
         public string? MessageRecipient { get; private set; }
         
     }

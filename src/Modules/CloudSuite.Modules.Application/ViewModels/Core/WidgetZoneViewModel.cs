@@ -20,6 +20,7 @@ namespace CloudSuite.Modules.Application.ViewModels.Core
 
         [Required(ErrorMessage = "Este campo é de preenchimento obrigatório.")]
         [DisplayName("Descrição")]
+        [MaxLength(100)]
         public string? Description { get; set; }
     }
 }

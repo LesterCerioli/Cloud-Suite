@@ -17,9 +17,12 @@ namespace CloudSuite.Modules.Domain.Models.Core
         }
         
         public State() { }
-        
+
+        [Required(ErrorMessage = "Este campo é de preenchimento obrigatório.")]
+        [StringLength(100)]
         public string? StateName { get; private set; }
 
+        [Required(ErrorMessage = "Este campo é de preenchimento obrigatório.")]
         [MaxLength(2)]
         public string? UF { get; private set; }
 

@@ -13,22 +13,22 @@ namespace CloudSuite.Modules.Application.Validations.Core.Medias
     {
       RuleFor(command => command.Caption)
       .NotEmpty()
-      .WithMessage("Caption deve ser preenchida")
-      .MinimumLength(3)
-      .WithMessage("Caption muito curto");
+      .WithMessage("Caption deve ser preenchido")
+      .MinimumLength(450)
+      .WithMessage("Caption deve conter no máximo 450 caracteres");
 
       RuleFor(command => command.FileSize)
       .NotEmpty()
-      .WithMessage("FileSize deve ser preenchida")
+      .WithMessage("FileSize deve ser preenchido")
       .GreaterThan(0)
       .WithMessage("FileSize deve ser maior que zero");
 
 
       RuleFor(command => command.FileName)
       .NotEmpty()
-      .WithMessage("FileName deve ser preenchida")
-      .MinimumLength(3)
-      .WithMessage("FileName muito curto");
+      .WithMessage("FileName deve ser preenchido")
+      .MinimumLength(450)
+      .WithMessage("FileName deve conter no máximo 450 caracteres");
 
       RuleFor(command => command.MediaType)
       .IsInEnum()

@@ -26,7 +26,9 @@ namespace CloudSuite.Modules.Application.ViewModels.Core
         [MaxLength(450)]
         public string? Slug { get; private set; }
 
+        [Required(ErrorMessage = "Este campo é de preenchimento obrigatório.")]
         [DisplayName("Descrição")]
+        [MaxLength(100)]
         public string? Description { get; private set; }
 
         [DisplayName("NúmeroCnpj")]

@@ -10,10 +10,8 @@ namespace CloudSuite.Modules.Application.Validations.Core.Widgets
       RuleFor(request => request.EditUrl)
       .NotEmpty()
       .WithMessage("EditUrl deve ser preenchido")
-      .MinimumLength(3)
-      .WithMessage("EditUrl muito curto, deve conter mais de 3 caracteres")
-      .MaximumLength(255)
-      .WithMessage("EditUrl muito longo, deve conter até 255 caracteres");
+      .MaximumLength(450)
+      .WithMessage("EditUrl deve conter no máximo 450 caracteres");
     }
   }
 }

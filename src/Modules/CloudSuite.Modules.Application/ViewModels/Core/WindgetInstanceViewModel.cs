@@ -31,14 +31,19 @@ namespace CloudSuite.Modules.Application.ViewModels.Core
         [DisplayName("DataDeFimDePublicação")]
         public DateTime? PublishEnd { get; private set; }
 
+        [Required(ErrorMessage = "Este campo é de preenchimento obrigatório.")]
         [DisplayName("WidgetId")]
         [MaxLength(450)]
         public string? WidgetId { get; private set; }
 
+        [Required(ErrorMessage = "Este campo é de preenchimento obrigatório.")]
         [DisplayName("Dados")]
+        [MaxLength(100)]
         public string? Data { get; set; }
 
+        [Required(ErrorMessage = "Este campo é de preenchimento obrigatório.")]
         [DisplayName("DadosHtml")]
+        [MaxLength(100)]
         public string? HtmlData { get; set; }
 
     }

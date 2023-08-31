@@ -20,9 +20,12 @@ namespace CloudSuite.Modules.Domain.Models.Core
             _districts = new List<District>();
             _cities = new List<City>();
         }
-        
+
+        [Required(ErrorMessage = "The {0} field is required.")]
+        [StringLength(100)]
         public string? ContactName { get; private set; }
 
+        [Required(ErrorMessage = "The {0} field is required.")]
         [StringLength(450)]
         public string? AddressLine1 { get; private set; }
 

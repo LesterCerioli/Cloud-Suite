@@ -10,10 +10,8 @@ namespace CloudSuite.Modules.Application.Validations.Core.Widgets
       RuleFor(request => request.CreateUrl)
       .NotEmpty()
       .WithMessage("CreateUrl deve ser preenchido")
-      .MinimumLength(3)
-      .WithMessage("CreateUrl muito curto, deve conter mais de 3 caracteres")
-      .MaximumLength(255)
-      .WithMessage("CreateUrl muito longo, deve conter até 255 caracteres");
+      .MaximumLength(450)
+      .WithMessage("CreateUrl deve conter no máximo 450 caracteres");
     }
   }
 }

@@ -9,35 +9,27 @@ namespace CloudSuite.Modules.Application.Validations.Core.Widgets
     {
       RuleFor(command => command.Name)
       .NotEmpty()
-      .WithMessage("Name deve ser preenchido")
-      .MinimumLength(3)
-      .WithMessage("Name muito curto, deve conter mais de 3 caracteres")
-      .MaximumLength(30)
-      .WithMessage("Name muito longo, deve conter até 30 caracteres");
+      .WithMessage("Nome deve ser preenchido")
+      .MaximumLength(450)
+      .WithMessage("Nome deve conter no máximo 450 caracteres");
       
       RuleFor(command => command.ViewComponentName)
       .NotEmpty()
       .WithMessage("ViewComponentName deve ser preenchido")
-      .MinimumLength(3)
-      .WithMessage("ViewComponentName muito curto, deve conter mais de 3 caracteres")
-      .MaximumLength(30)
-      .WithMessage("ViewComponentName muito longo, deve conter até 30 caracteres");;
+      .MaximumLength(450)
+      .WithMessage("Nome deve conter no máximo 450 caracteres");
 
       RuleFor(command => command.CreateUrl)
       .NotEmpty()
       .WithMessage("CreateUrl deve ser preenchido")
-      .MinimumLength(3)
-      .WithMessage("CreateUrl muito curto, deve conter mais de 3 caracteres")
-      .MaximumLength(255)
-      .WithMessage("CreateUrl muito longo, deve conter até 255 caracteres");
+      .MaximumLength(450)
+      .WithMessage("CreateUrl deve conter no máximo 450 caracteres");
 
       RuleFor(command => command.EditUrl)
       .NotEmpty()
       .WithMessage("EditUrl deve ser preenchido")
-      .MinimumLength(3)
-      .WithMessage("EditUrl muito curto, deve conter mais de 3 caracteres")
-      .MaximumLength(255)
-      .WithMessage("EditUrl muito longo, deve conter até 255 caracteres");
+      .MaximumLength(450)
+      .WithMessage("EditUrl deve conter no máximo 450 caracteres");
 
       RuleFor(command => command.IsPublished)
       .NotNull()

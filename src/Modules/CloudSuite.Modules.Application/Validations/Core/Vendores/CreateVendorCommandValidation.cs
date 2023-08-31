@@ -9,27 +9,21 @@ namespace CloudSuite.Modules.Application.Validations.Core.Vendores
     {
       RuleFor(command => command.Name)
       .NotEmpty()
-      .WithMessage("Name deve ser preenchido")
-      .MinimumLength(3)
-      .WithMessage("Name muito curto, deve conter mais de 3 caracteres")
-      .MaximumLength(30)
-      .WithMessage("Name muito longo, deve conter até 30 caracteres");
+      .WithMessage("Nome deve ser preenchido")
+      .MaximumLength(450)
+      .WithMessage("Nome deve conter no máximo 450 caracteres");
       
       RuleFor(command => command.Slug)
       .NotEmpty()
       .WithMessage("Slug deve ser preenchido")
-      .MinimumLength(3)
-      .WithMessage("Slug muito curto, deve conter mais de 3 caracteres")
-      .MaximumLength(30)
-      .WithMessage("Slug muito longo, deve conter até 30 caracteres");;
+      .MaximumLength(450)
+      .WithMessage("Slug deve conter no máximo 450 caracteres");;
 
       RuleFor(command => command.Description)
       .NotEmpty()
       .WithMessage("Description deve ser preenchido")
-      .MinimumLength(3)
-      .WithMessage("Description muito curto, deve conter mais de 3 caracteres")
-      .MaximumLength(255)
-      .WithMessage("Description muito longo, deve conter até 255 caracteres");
+      .MaximumLength(100)
+      .WithMessage("Description deve conter no máximo 100 caracteres");
 
       RuleFor(command => command.Cnpj)
       .NotEmpty()

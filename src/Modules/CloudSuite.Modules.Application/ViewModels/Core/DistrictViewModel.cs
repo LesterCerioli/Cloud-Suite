@@ -20,8 +20,13 @@ namespace CloudSuite.Modules.Application.ViewModels.Core
 
         [Required(ErrorMessage = "Este campo é de preenchimento obrigatório.")]
         [DisplayName("Nome")]
-        [StringLength(450)]
+        [MaxLength(450)]
         public string? Name { get; private set; }
+
+        [Required(ErrorMessage = "Este campo é de preenchimento obrigatório.")]
+        [DisplayName("Localização")]
+        [MaxLength(100)]
+        public string? Location { get; private set; }
 
     }
 }

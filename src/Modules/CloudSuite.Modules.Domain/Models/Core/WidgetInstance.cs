@@ -44,8 +44,10 @@ namespace CloudSuite.Modules.Domain.Models.Core
 
         public int? DisplayOrder { get; set; }
 
+        [StringLength(100)]
         public string? Data { get; set; }
 
+        [StringLength(100)]
         public string? HtmlData { get; set; }
 
         /// <summary>

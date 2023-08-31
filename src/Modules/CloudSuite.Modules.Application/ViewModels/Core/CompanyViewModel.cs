@@ -16,7 +16,6 @@ namespace CloudSuite.Modules.Application.ViewModels.Core
         [Required(ErrorMessage = "Este campo é de preenchimento obrigatório.")]
         [DisplayName("CnpjNumero")]
         [MaxLength(14)]
-        [MinLength(14)]
         public string? CnpjNumber { get; private set; }
 
         [Required(ErrorMessage = "Este campo é de preenchimento obrigatório.")]
@@ -31,6 +30,7 @@ namespace CloudSuite.Modules.Application.ViewModels.Core
 
         [Required(ErrorMessage = "Este campo é de preenchimento obrigatório.")]
         [DisplayName("EndereçoLinha1")]
+        [MaxLength(450)]
         public string? AddressLine1 { get; private set; }
 
 

@@ -13,11 +13,13 @@ namespace CloudSuite.Modules.Application.ViewModels.Core
         [Key]
         public Guid Id { get; set; }
 
-        [StringLength(450)]
+        [Required(ErrorMessage = "Este campo é de preenchimento obrigatório.")]
+        [MaxLength(450)]
         [DisplayName("Valor")]
         public string? Value { get; private set; }
 
-        [StringLength(450)]
+        [Required(ErrorMessage = "Este campo é de preenchimento obrigatório.")]
+        [MaxLength(450)]
         [DisplayName("Modulo")]
         public string? Module { get; private set; }
 

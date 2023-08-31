@@ -9,11 +9,9 @@ namespace CloudSuite.Modules.Application.Validations.Core.Vendores
     {
       RuleFor(request => request.Name)
       .NotEmpty()
-      .WithMessage("Name deve ser preenchido")
-      .MinimumLength(3)
-      .WithMessage("Name muito curto, deve conter mais de 3 caracteres")
-      .MaximumLength(30)
-      .WithMessage("Name muito longo, deve conter até 30 caracteres");
+      .WithMessage("Nome do fornecedor deve ser preenchido.")
+      .MaximumLength(450)
+      .WithMessage("Nome deve conter no máximo 450 caracteres.");
     }
   }
 }
