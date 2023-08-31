@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace CloudSuite.Infrastructure.Data.Mappimgs.EFCore.Core
 {
-    public class ExampleMapping : IEntityTypeConfiguration<AppSetting>
+    public class AppSettingMap : IEntityTypeConfiguration<AppSetting>
     {     
         public void Configure(EntityTypeBuilder<AppSetting> builder)
         {
