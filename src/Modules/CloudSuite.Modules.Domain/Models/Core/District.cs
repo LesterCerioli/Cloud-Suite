@@ -28,9 +28,12 @@ namespace CloudSuite.Modules.Domain.Models.Core
         [StringLength(450)]
         public string? Name { get; private set; }
 
+        [Required(ErrorMessage = "The {0} field is required.")]
         [StringLength(450)]
         public string? Type { get; private set; }
 
+        [Required(ErrorMessage = "The {0} field is required.")]
+        [StringLength(100)]
         public string? Location { get; private set; }
 
     }

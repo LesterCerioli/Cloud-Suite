@@ -31,7 +31,7 @@ namespace CloudSuite.Modules.Application.Handlers.Core.Cities
           var cities = await _cityRepository.GetByCityName(request.CityName);
 
           if (cities != null)
-          return await Task.FromResult(new CheckCityExistsByCityNameResponse(request.Id, true, validationResult));
+            return await Task.FromResult(new CheckCityExistsByCityNameResponse(request.Id, true, validationResult));
         }
         catch (Exception ex)
         {

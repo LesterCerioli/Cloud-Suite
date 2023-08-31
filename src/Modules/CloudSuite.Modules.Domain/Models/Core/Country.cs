@@ -27,6 +27,7 @@ namespace CloudSuite.Modules.Domain.Models.Core
         [StringLength(450)]
         public string? CountryName { get; private set; }
 
+        [Required(ErrorMessage = "The {0} field is required.")]
         [StringLength(450)]
         public string? Code3 { get; private set; }
 

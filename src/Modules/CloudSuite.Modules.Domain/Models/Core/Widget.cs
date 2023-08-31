@@ -30,12 +30,15 @@ namespace CloudSuite.Modules.Domain.Models.Core
         [StringLength(450)]
         public string? Name { get; private set; }
 
+        [Required(ErrorMessage = "The {0} field is required.")]
         [StringLength(450)]
         public string? ViewComponentName { get; private set; }
 
+        [Required(ErrorMessage = "The {0} field is required.")]
         [StringLength(450)]
         public string? CreateUrl { get; private set; }
 
+        [Required(ErrorMessage = "The {0} field is required.")]
         [StringLength(450)]
         public string? EditUrl { get; private set; }
 

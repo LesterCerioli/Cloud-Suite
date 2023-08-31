@@ -42,7 +42,7 @@ namespace CloudSuite.Infrastructure.Data.Core.Context
 
         public DbSet<Media> Medias { get; set; }
 
-        public DbSet<RoboEmail> roboEmails { get; set; }
+        public DbSet<RoboEmail> RoboEmails { get; set; }
 
         public DbSet<Role> Roles { get; set; }  
 
@@ -60,73 +60,7 @@ namespace CloudSuite.Infrastructure.Data.Core.Context
 
         public DbSet<WidgetZone> WidgetZones { get; set; }
 
-        //public DbSet<TipoCalculoCofins> TiposCalculosCofins { get; set; }
-
-        //public DbSet<TipoCalculoIPI> TiposCalculosIPI { get; set; }
-
-        //public DbSet<TipoCalculoPIS> TiposCalculosPIS { get; set; }
-
-        //public DbSet<Icms> Icms { get; set; }
-
-        //public DbSet<Cancelamento> Cancelamentos { get; set; }
-
-        //public DbSet<CartaCorrecao> CartasCorrecoes { get; set; }
-
-        //public DbSet<Download> Downloads { get; set; }
-
-        //public DbSet<DownloadEvento> DownloadsEventos { get; set; }
-
-        //public DbSet<DownloadInutilizacao> DownloadsInutilizacoes { get; set; }
-
-        //public DbSet<Inutilizacao> Inutilizacoes { get; set; }
-
-        //public DbSet<AccessKeyNFe> AccessKeysNFe { get; set; }
-
-        //public DbSet<Bill> Bills { get; set; }
-
-        //public DbSet<TipoEmissaoNF> TiposEmissoesNF { get; set; }
-
-        //public DbSet<TipoEmissaoNFeEx> TiposEmissoesNFeEX { get; set; }
-
-        //public DbSet<TipoEmissaoNFeEx> TiposEmissoesNFeEX { get; set; }
-
-        //public DbSet<TipoFinalidade> TiposFinalidades { get; set; }
-
-        //public DbSet<TipoFormatoImpressaoDanfe> TiposFormatosImpressoesDanfe { get; set; }
-
-        //public DbSet<TipoIdentificadorLocalDestinoOperacao> TiposIdentificadoresLocaisDestinosOperacoes { get; set; }
-
-        //public DbSet<TipoIndicadorPresencaComprador> TiposIndicadoresPresencaCompradores { get; set; }
-
-        //public DbSet<TipoIntermedioImportacao> TiposIntermediosImportacoes { get; set; }
-
-        //public DbSet<TipoModalidadeDocumentoFiscal> TiposModalidadesDocumentosFiscais { get; set; }
-
-        //public DbSet<TipoModalidadeDocumentoFiscalEx> TiposModalidadesDocumentosFiscaisEx { get; set; }
-
-        //public DbSet<TipoModalidadeFrete> TiposModalidadesFrete { get; set; }
-
-        //public DbSet<TipoNotaFiscal> TiposNotasFiscais { get; set; }
-
-        //public DbSet<TipoPagamento> TiposPagamentos { get; set; }
-
-        //public DbSet<TipoProcessoEmissaoNFe> TiposProcessosEmissoesNFe { get; set; }
-
-        //public DbSet<TipoProdutoEspecifico> TiposProdutosEspecificos { get; set; }
-
-        //public DbSet<TiposBasicos> TiposBasicos { get; set; }
-
-        //public DbSet<CofinsTaxStatus> CofinsTaxesStatus { get; set; }
-
-        //public DbSet<IcmsTaxStatus> IcmsTaxesStatus { get; set; }
-
-        //public DbSet<IpiTaxStatus> IpiTaxesStatus { get; set; }
-
-        //public DbSet<PisTaxStatus> PisTaxesStatus { get; set; }
-
-        //public DbSet<PisTaxStatus> PisTaxesStatus { get; set; }
-
-        //public DbSet<SsqnTaxStatus> SsqnTaxesStatus { get; set; }
+        
 
 
 
@@ -139,59 +73,26 @@ namespace CloudSuite.Infrastructure.Data.Core.Context
                     e => e.GetProperties().Where(p => p.ClrType == typeof(string))))
                 property.SetColumnType("varchar(100)");
 
-            //modelBuilder.ApplyConfiguration(new AddressMap());
-            //modelBuilder.ApplyConfiguration(new AppSettingMap());
-            //modelBuilder.ApplyConfiguration(new CityMap());
-            //modelBuilder.ApplyConfiguration(new CompanyMap());
-            //modelBuilder.ApplyConfiguration(new CountryMap());
-            //modelBuilder.ApplyConfiguration(new CustomerMap());
-            //modelBuilder.ApplyConfiguration(new CustomerGroupMap());
-            //modelBuilder.ApplyConfiguration(new DistrictMap());
-            //modelBuilder.ApplyConfiguration(new EntidadeMap());
-            //modelBuilder.ApplyConfiguration(new EntidadeTipoMap());
-            //modelBuilder.ApplyConfiguration(new MediaMap());
-            //modelBuilder.ApplyConfiguration(new RoboEmailMap());
-            //modelBuilder.ApplyConfiguration(new RoleMap());
-            //modelBuilder.ApplyConfiguration(new StateMap());
-            //modelBuilder.ApplyConfiguration(new UserMap());
-            //modelBuilder.ApplyConfiguration(new UserRoleMap());
-            //modelBuilder.ApplyConfiguration(new VendorMap());
-            //modelBuilder.ApplyConfiguration(new WidgetMap());
-            //modelBuilder.ApplyConfiguration(new WidgetInstanceMap());
-            //modelBuilder.ApplyConfiguration(new WidgetZoneMap());
+            modelBuilder.ApplyConfiguration(new AddressMap());
+            modelBuilder.ApplyConfiguration(new AppSettingMap());
+            modelBuilder.ApplyConfiguration(new CityMap());
+            modelBuilder.ApplyConfiguration(new CompanyMap());
+            modelBuilder.ApplyConfiguration(new CountryMap());
+            modelBuilder.ApplyConfiguration(new DistrictMap());
+            modelBuilder.ApplyConfiguration(new EntidadeMap());
+            modelBuilder.ApplyConfiguration(new EntidadeTipoMap());
+            modelBuilder.ApplyConfiguration(new MediaMap());
+            modelBuilder.ApplyConfiguration(new RoboEmailMap());
+            modelBuilder.ApplyConfiguration(new RoleMap());
+            modelBuilder.ApplyConfiguration(new StateMap());
+            modelBuilder.ApplyConfiguration(new UserMap());
+            modelBuilder.ApplyConfiguration(new UserRoleMap());
+            modelBuilder.ApplyConfiguration(new VendorMap());
+            modelBuilder.ApplyConfiguration(new WidgetMap());
+            modelBuilder.ApplyConfiguration(new WidgetInstanceMap());
+            modelBuilder.ApplyConfiguration(new WidgetZoneMap());
 
-            //modelBuilder.ApplyConfiguration(new TipoCalculoCofinsMap());
-            //modelBuilder.ApplyConfiguration(new TipoCalculoIPIMap());
-            //modelBuilder.ApplyConfiguration(new TipoCalculoPISMap());
-            //modelBuilder.ApplyConfiguration(new IcmsMap());
-            //modelBuilder.ApplyConfiguration(new CancelamentoMap());
-            //modelBuilder.ApplyConfiguration(new CartaCorrecaoMap());
-            //modelBuilder.ApplyConfiguration(new DownloadMap());
-            //modelBuilder.ApplyConfiguration(new DownloadEventoMap());
-            //modelBuilder.ApplyConfiguration(new DownloadInutilizacaoMap());
-            //modelBuilder.ApplyConfiguration(new InutilizacaoMap());
-            //modelBuilder.ApplyConfiguration(new AccessKeyNFeMap());
-            //modelBuilder.ApplyConfiguration(new BillMap());
-            //modelBuilder.ApplyConfiguration(new TipoEmissaoNFMap());
-            //modelBuilder.ApplyConfiguration(new TipoEmissaoNFeExMap());
-            //modelBuilder.ApplyConfiguration(new TipoFinalidadeMap());
-            //modelBuilder.ApplyConfiguration(new TipoFormatoImpressaoDanfeMap());
-            //modelBuilder.ApplyConfiguration(new TipoIdentificadorLocalDestinoOperacaoMap());
-            //modelBuilder.ApplyConfiguration(new TipoIndicadorPresencaCompradorMap());
-            //modelBuilder.ApplyConfiguration(new TipoIntermedioImportacaoMap());
-            //modelBuilder.ApplyConfiguration(new TipoModalidadeDocumentoFiscalMap());
-            //modelBuilder.ApplyConfiguration(new TipoModalidadeDocumentoFiscalExMap());
-            //modelBuilder.ApplyConfiguration(new TipoModalidadeFreteMap());
-            //modelBuilder.ApplyConfiguration(new TipoNotaFiscalMap());
-            //modelBuilder.ApplyConfiguration(new TipoPagamentoMap());
-            //modelBuilder.ApplyConfiguration(new TipoProcessoEmissaoNFeMap());
-            //modelBuilder.ApplyConfiguration(new TipoProdutoEspecificoMap());
-            //modelBuilder.ApplyConfiguration(new TiposBasicosMap());
-            //modelBuilder.ApplyConfiguration(new CofinsTaxStatusMap());
-            //modelBuilder.ApplyConfiguration(new IcmsTaxStatusMap());
-            //modelBuilder.ApplyConfiguration(new IpiTaxStatusMap());
-            //modelBuilder.ApplyConfiguration(new PisTaxStatusMap());
-            //modelBuilder.ApplyConfiguration(new SsqnTaxStatusMap());
+            
 
 
 

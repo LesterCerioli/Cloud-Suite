@@ -15,10 +15,12 @@ namespace CloudSuite.Modules.Domain.Models.Core
             Id = id;
         }
 
-        [StringLength(450)]
+        [Required(ErrorMessage = "The {0} field is required.")]
+        [MaxLength(450)]
         public string? Value { get; private set; }
 
-        [StringLength(450)]
+        [Required(ErrorMessage = "The {0} field is required.")]
+        [MaxLength(450)]
         public string? Module { get; private set; }
 
         public bool? IsVisibleInCommonSettingPage { get; private set; }

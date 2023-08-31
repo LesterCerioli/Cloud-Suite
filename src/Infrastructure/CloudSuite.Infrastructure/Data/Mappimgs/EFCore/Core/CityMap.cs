@@ -17,8 +17,8 @@ namespace CloudSuite.Infrastructure.Data.Mappimgs.EFCore.Core
 
             builder.Property(a => a.CityName)
                 .HasColumnName("CityName")
-                .HasColumnType("varchar(45)")
-                .HasMaxLength(45)
+                .HasColumnType("varchar(100)")
+                .HasMaxLength(100)
                 .IsRequired();
 
             builder.HasOne(a => a.State)

@@ -6,7 +6,7 @@ namespace CloudSuite.Modules.Application.Handlers.Core.Addresses
 {
   public class CreateAddressCommand : IRequest<CreateAddressResponse>
   {
-        public CreateAddressCommand()
+    public CreateAddressCommand()
     {
       Id = Guid.NewGuid();
     }
@@ -14,7 +14,7 @@ namespace CloudSuite.Modules.Application.Handlers.Core.Addresses
     public AddressEntity GetEntity()
     {
       return new AddressEntity(
-          this.Id
+        this.Id
       );
     }
 

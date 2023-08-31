@@ -7,11 +7,11 @@ namespace CloudSuite.Modules.Application.Validations.Core.RoboEmail
     {
         public CheckRoboEmailExistsBySubjectRequestValidation()        
         {
-            RuleFor(command => command.Subject)
+            RuleFor(request => request.Subject)
             .NotEmpty()
-            .WithMessage("Assunto deve ser preenchida")
-            .MinimumLength(3)
-            .WithMessage("Assunto muito curto, deve conter mais de 3 caracteres");
+            .WithMessage("Assunto deve ser preenchido")
+            .MaximumLength(10)
+            .WithMessage("Assunto deve conter no máximo 10 caracteres");
         }
     }
 }

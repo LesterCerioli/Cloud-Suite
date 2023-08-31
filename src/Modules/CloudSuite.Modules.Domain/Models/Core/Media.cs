@@ -19,11 +19,14 @@ namespace CloudSuite.Modules.Domain.Models.Core
             MediaType = mediaType;
         }
 
+        [Required(ErrorMessage = "Este campo é de preenchimento obrigatório.")]
         [StringLength(450)]
         public string? Caption { get; set; }
 
+        [Required(ErrorMessage = "Este campo é obrigatório.")]
         public int? FileSize { get; set; }
 
+        [Required(ErrorMessage = "Este campo é de preenchimento obrigatório.")]
         [StringLength(450)]
         public string? FileName { get; set; }
 

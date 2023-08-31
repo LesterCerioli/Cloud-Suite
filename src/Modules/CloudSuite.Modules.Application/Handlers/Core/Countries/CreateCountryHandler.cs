@@ -30,7 +30,7 @@ namespace CloudSuite.Modules.Application.Handlers.Core.Countries
           var country = await _countryRepository.GetByName(command.CountryName);
 
           if (country != null)
-          return await Task.FromResult(new CreateCountryResponse(command.Id, "País já cadastrado"));
+            return await Task.FromResult(new CreateCountryResponse(command.Id, "País já cadastrado"));
 
           await _countryRepository.Add(command.GetEntity());
 
