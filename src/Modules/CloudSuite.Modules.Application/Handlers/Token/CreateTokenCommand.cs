@@ -33,5 +33,7 @@ namespace CloudSuite.Modules.Application.Handlers.Token
     public DateTime Created { get; set; }
 
     public DateTime? Validated { get; set; }
+
+    public string Token { get; set; }
   }
 }

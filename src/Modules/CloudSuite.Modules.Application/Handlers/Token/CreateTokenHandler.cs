@@ -18,11 +18,11 @@ namespace CloudSuite.Modules.Application.Handlers.Token
       _logger = logger;
     }
 
-    public async Task<CreateAddressResponse> Handle(CreateAddressCommand command, CancellationToken cancellationToken)
+    public async Task<CreateTokenResponse> Handle(CreateTokenCommand command, CancellationToken cancellationToken)
     {
-      _logger.LogInformation($"CreateAddressCommand: {JsonSerializer.Serialize(command)}");
+      _logger.LogInformation($"CreateTokenCommand: {JsonSerializer.Serialize(command)}");
 
-      var validationResult = new CreateAddressCommandValidation().Validate(command);
+      var validationResult = new CreateTokenCommandValidation().Validate(command);
 
       if (validationResult.IsValid)
       {
