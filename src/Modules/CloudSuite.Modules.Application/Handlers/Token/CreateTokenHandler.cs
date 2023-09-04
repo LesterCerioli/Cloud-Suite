@@ -28,24 +28,24 @@ namespace CloudSuite.Modules.Application.Handlers.Token
       {
         try
         {
-          var address = await _addressRepository.GetByAddressLine(command.AddressLine1);
+          var token = await _requestTokenRepository.GetByRequestId(command.Id);
 
-          if (address != null)
-            return await Task.FromResult(new CreateAddressResponse(command.Id, "Endereço já cadastrado"));
+          if (token != null)
+            return await Task.FromResult(new CreateTokenResponse(command.Id, "Token já cadastrado"));
 
-          await _addressRepository.Add(command.GetEntity());
+          await _requestTokenRepository.Add(command.GetEntity());
 
-          return await Task.FromResult(new CreateAddressResponse(command.Id, validationResult));
+          return await Task.FromResult(new CreateTokenResponse(command.Id, validationResult));
         }
         catch (Exception ex)
         {
           _logger.LogCritical(ex.Message);
 
-          return await Task.FromResult(new CreateAddressResponse(command.Id, "Não foi possivel processar a solicitação."));
+          return await Task.FromResult(new CreateTokenResponse(command.Id, "Não foi possivel processar a solicitação."));
         }
       }
 
-      return await Task.FromResult(new CreateAddressResponse(command.Id, validationResult));
+      return await Task.FromResult(new CreateTokenResponse(command.Id, validationResult));
     }
   }
 }
