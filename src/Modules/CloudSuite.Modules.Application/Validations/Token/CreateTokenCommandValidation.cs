@@ -19,7 +19,7 @@ namespace CloudSuite.Modules.Application.Validations.Token
       .MaximumLength(2)
       .WithMessage("DDD deve conter 2 caracteres");
 
-      RuleFor(command => command.Phone)
+      RuleFor(command => command.PhoneNumber)
       .NotEmpty()
       .WithMessage("Telefone deve ser preenchido")
       .MaximumLength(13)

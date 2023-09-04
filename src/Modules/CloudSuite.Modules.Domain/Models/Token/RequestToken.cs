@@ -19,7 +19,7 @@ namespace CloudSuite.Modules.Domain.Models.Token
 
     [Required(ErrorMessage = "Este campo é de preenchimento obrigatório.")]
     [MaxLength(13)]
-    public string Phone { get; set; }
+    public string PhoneNumber { get; set; }
 
     public DateTime Created { get; set; }
 
@@ -34,12 +34,12 @@ namespace CloudSuite.Modules.Domain.Models.Token
 
     }
 
-    public RequestToken(Guid requestId, string fullName, string phoneRegion, string phone, DateTime created)
+    public RequestToken(Guid requestId, string fullName, string phoneRegion, string phoneNumber, DateTime created)
     {
       RequestId = requestId;
       FullName = fullName;
       PhoneRegion = phoneRegion;
-      Phone = phone;
+      PhoneNumber = phoneNumber;
       Created = created;
       Token = GetToken();
     }

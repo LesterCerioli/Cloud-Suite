@@ -17,7 +17,7 @@ namespace CloudSuite.Modules.Application.Handlers.Token
         this.Id,
         this.FullName,
         this.PhoneRegion,
-        this.Phone,
+        this.PhoneNumber,
         this.Created
       );
     }
@@ -28,7 +28,7 @@ namespace CloudSuite.Modules.Application.Handlers.Token
 
     public string PhoneRegion { get; set; }
 
-    public string Phone { get; set; }
+    public string PhoneNumber { get; set; }
 
     public DateTime Created { get; set; }
 
