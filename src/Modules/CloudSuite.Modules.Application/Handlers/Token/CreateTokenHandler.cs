@@ -1,10 +1,9 @@
-using CloudSuite.Modules.Application.Handlers.Core.Addresses.Responses;
+using CloudSuite.Modules.Application.Handlers.Token.Responses;
 using CloudSuite.Modules.Application.Validations.Token;
 using CloudSuite.Modules.Domain.Contracts.Token;
 using Microsoft.Extensions.Logging;
 using System.Text.Json;
 using MediatR;
-using CloudSuite.Modules.Application.Handlers.Token.Responses;
 
 namespace CloudSuite.Modules.Application.Handlers.Token
 {
