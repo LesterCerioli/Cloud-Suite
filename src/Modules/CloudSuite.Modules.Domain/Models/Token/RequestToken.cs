@@ -3,7 +3,7 @@ using NetDevPack.Domain;
 
 namespace CloudSuite.Modules.Domain.Models.Token
 {
-  public class RequestToken : Entity, IAggregateRoot
+  public class RequestToken
   {
     public int Id { get; set; }
 
