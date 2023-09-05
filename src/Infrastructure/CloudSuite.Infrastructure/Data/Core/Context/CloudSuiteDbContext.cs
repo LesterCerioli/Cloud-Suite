@@ -26,15 +26,11 @@ namespace CloudSuite.Infrastructure.Data.Core.Context
 
         public DbSet<City> Cities { get; set; }
 
-        public DbSet<Company> Companys { get; set; }    
+        public DbSet<Company> Companys { get; set; }
 
         public DbSet<Country> Countries { get; set; }
 
-        // public DbSet<Customer> Customers { get; set; }
-
-        // public DbSet<CustomerGroup> CustomerGroups { get; set; }
-
-        public DbSet<District> Districts { get; set; } 
+        public DbSet<District> Districts { get; set; }
 
         public DbSet<Entidade> Entidades { get; set; }
 
@@ -44,7 +40,7 @@ namespace CloudSuite.Infrastructure.Data.Core.Context
 
         public DbSet<RoboEmail> RoboEmails { get; set; }
 
-        public DbSet<Role> Roles { get; set; }  
+        public DbSet<Role> Roles { get; set; }
 
         public DbSet<State> States { get; set; }
 
@@ -53,15 +49,12 @@ namespace CloudSuite.Infrastructure.Data.Core.Context
         public DbSet<UserRole> UserRoles { get; set; }
 
         public DbSet<Vendor> Vendors { get; set; }
-        
+
         public DbSet<Widget> Widgets { get; set; }
 
         public DbSet<WidgetInstance> WidgetInstances { get; set; }
 
         public DbSet<WidgetZone> WidgetZones { get; set; }
-
-        
-
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -92,8 +85,6 @@ namespace CloudSuite.Infrastructure.Data.Core.Context
             modelBuilder.ApplyConfiguration(new WidgetInstanceMap());
             modelBuilder.ApplyConfiguration(new WidgetZoneMap());
 
-            
-
 
 
             modelBuilder.Entity<Address>(c =>
@@ -121,21 +112,6 @@ namespace CloudSuite.Infrastructure.Data.Core.Context
                 c.ToTable("Contries");
             });
 
-            // modelBuilder.Entity<Customer>(c =>
-            // {
-            //     c.ToTable("Customers");
-            // });
-
-            // modelBuilder.Entity<CustomerGroup>(c =>
-            // {
-            //     c.ToTable("CustomerGroups");
-            // });
-
-            // modelBuilder.Entity<CustomerGroupUser>(c =>
-            // {
-            //     c.ToTable("CustomerGroupUsers");
-            // });
-
             modelBuilder.Entity<District>(c =>
             {
                 c.ToTable("Districts");
@@ -143,14 +119,14 @@ namespace CloudSuite.Infrastructure.Data.Core.Context
 
             modelBuilder.Entity<Entidade>(c =>
             {
-                c.ToTable ("Entidades");
+                c.ToTable("Entidades");
             });
 
             modelBuilder.Entity<EntidadeTipo>(c =>
             {
                 c.ToTable("EntidadeTipos");
             });
-            
+
             modelBuilder.Entity<Media>(c =>
             {
                 c.ToTable("Medias");
