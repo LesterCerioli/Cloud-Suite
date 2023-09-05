@@ -25,11 +25,6 @@ namespace CloudSuite.Modules.Domain.Models.Token
     [MaxLength(4)]
     public string Token { get; set; }
 
-    public RequestToken()
-    {
-
-    }
-
     public RequestToken(Guid requestId, Telephone telephone, string fullName, DateTime created)
     {
       RequestId = requestId;
