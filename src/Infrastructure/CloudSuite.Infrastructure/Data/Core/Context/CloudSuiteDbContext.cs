@@ -56,6 +56,7 @@ namespace CloudSuite.Infrastructure.Data.Core.Context
 
         public DbSet<WidgetZone> WidgetZones { get; set; }
 
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Ignore<ValidationResult>();
@@ -83,6 +84,7 @@ namespace CloudSuite.Infrastructure.Data.Core.Context
             modelBuilder.ApplyConfiguration(new WidgetMap());
             modelBuilder.ApplyConfiguration(new WidgetInstanceMap());
             modelBuilder.ApplyConfiguration(new WidgetZoneMap());
+
 
 
             modelBuilder.Entity<Address>(c =>

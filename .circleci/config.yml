@@ -1,0 +1,32 @@
+version: 2.1
+
+executors:
+  default-executor:
+    docker:
+      - image: mcr.microsoft.com/dotnet/sdk:6.0
+
+jobs:
+  build:
+    executor: default-executor
+    description: Build application with Release configuration
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - dotnet-packages-v1-{{ checksum "dotnet-core-sample.csproj" }}
+      - run:
+          name: "Install project dependencies"
+          command: dotnet restore
+      - run:
+          name: "Build Application according to some given configuration"
+          command: dotnet build --configuration Release
+      - run:
+          name: "Publish to a subfolder"
+          command: |
+            dotnet publish --configuration Release --output WebAPIFolder
+
+workflows:
+  version: 2
+  build-and-deploy:
+    jobs:
+      - build
