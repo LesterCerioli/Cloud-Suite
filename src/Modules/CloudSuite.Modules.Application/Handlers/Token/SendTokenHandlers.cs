@@ -41,7 +41,7 @@ namespace CloudSuite.Modules.Application.Handlers.Token
           await _requestTokenRepository.DeleteByPhone(request.TelephoneNumber.Trim());
 
           // Cria novo token
-           RequestToken requestToken = new(request.Id, request.FullName, request.TelephoneRegion, request.TelephoneNumber, DateTime.Now); 
+          RequestToken requestToken = new(request.Id, request.FullName, request.TelephoneRegion, request.TelephoneNumber, DateTime.Now);
 
           // Envia sms
           await _twilioService.SendSMS(
