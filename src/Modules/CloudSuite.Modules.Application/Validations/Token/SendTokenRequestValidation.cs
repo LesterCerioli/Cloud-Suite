@@ -7,19 +7,19 @@ namespace CloudSuite.Modules.Application.Validations.Token
   {
     public SendTokenRequestValidation()
     {
-      RuleFor(command => command.FullName)
+      RuleFor(request => request.FullName)
       .NotEmpty()
       .WithMessage("Nome completo deve ser preenchido")
       .MaximumLength(40)
       .WithMessage("Nome completo deve conter 40 caracteres");
 
-      RuleFor(command => command.PhoneRegion)
+      RuleFor(request => request.PhoneRegion)
       .NotEmpty()
       .WithMessage("DDD deve ser preenchido")
       .MaximumLength(2)
       .WithMessage("DDD deve conter 2 caracteres");
 
-      RuleFor(command => command.PhoneNumber)
+      RuleFor(request => request.PhoneNumber)
       .NotEmpty()
       .WithMessage("Telefone deve ser preenchido")
       .MaximumLength(13)
