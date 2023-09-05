@@ -3,6 +3,7 @@ using CloudSuite.Modules.Application.Handlers.Token.Responses;
 using CloudSuite.Modules.Application.Handlers.Token.Requests;
 using CloudSuite.Modules.Application.Validations.Token;
 using CloudSuite.Modules.Domain.Contracts.Token;
+using CloudSuite.Modules.Domain.Models.Token;
 using Microsoft.Extensions.Logging;
 using System.Text.Json;
 using MediatR;
@@ -40,8 +41,7 @@ namespace CloudSuite.Modules.Application.Handlers.Token
           await _requestTokenRepository.DeleteByPhone(request.PhoneNumber.Trim());
 
           // Cria novo token
-          var requestToken = new CreateTokenCommand().GetEntity();
-          // var handler = new CreateTokenHandler();
+           RequestToken requestToken = new(request.Id, request.FullName, request.PhoneRegion, request.PhoneNumber, DateTime.Now);
 
           // Envia sms
           await _twilioService.SendSMS(
