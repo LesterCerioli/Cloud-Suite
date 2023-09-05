@@ -5,20 +5,22 @@ namespace CloudSuite.Modules.Application.Handlers.Token.Requests
 {
   public class SendTokenRequest : IRequest<SendTokenReponse>
   {
-    public Guid Id { get; private set; }
+        public SendTokenRequest(Guid id, string? fullName, string? telephoneRegion, string? telephoneNumber)
+        {
+            Id = id;
+            FullName = fullName;
+            TelephoneRegion = telephoneRegion;
+            TelephoneNumber = telephoneNumber;
+        }
 
-    public string? FullName { get; set; }
+        public Guid Id { get; private set; }
 
-    public string? PhoneRegion { get; set; }
+        public string? FullName { get; set; }
+
+        public string? TelephoneRegion { get; set; }
     
-    public string? PhoneNumber { get; set; }
+        public string? TelephoneNumber { get; set; }
 
-    public SendTokenRequest(string fullName, string phoneRegion, string phoneNumber)
-    {
-      Id = Guid.NewGuid();
-      FullName = fullName;
-      PhoneRegion = phoneRegion;
-      PhoneNumber = phoneNumber;
-    }
+    
   }
 }

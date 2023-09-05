@@ -28,7 +28,7 @@ namespace CloudSuite.Modules.Application.Handlers.Token
     public async Task<SendTokenReponse> Handle(SendTokenRequest request, CancellationToken cancellationToken)
     {
       _logger.LogInformation($"SendTokenRequest: {JsonSerializer.Serialize(request)}");
-      request.PhoneNumber = request.PhoneNumber.Trim();
+      request.TelephoneNumber = request.TelephoneNumber.Trim();
 
       // Request valido (telefone)
       var validationResult = new SendTokenRequestValidation().Validate(request);

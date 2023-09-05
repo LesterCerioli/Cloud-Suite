@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using CloudSuite.Modules.Domain.ValueObjects;
 using NetDevPack.Domain;
 
 namespace CloudSuite.Modules.Domain.Models.Token
@@ -13,15 +14,10 @@ namespace CloudSuite.Modules.Domain.Models.Token
     [MaxLength(40)]
     public string FullName { get; set; }
 
-    [Required(ErrorMessage = "Este campo é de preenchimento obrigatório.")]
-    [MaxLength(2)]
-    public string PhoneRegion { get; set; }
+        
+    public Telephone Telephone { get; set; }
 
-    [Required(ErrorMessage = "Este campo é de preenchimento obrigatório.")]
-    [MaxLength(13)]
-    public string PhoneNumber { get; set; }
-
-    public DateTime Created { get; set; }
+    public DateTime? Created { get; set; }
 
     public DateTime? Validated { get; set; }
 
@@ -34,12 +30,11 @@ namespace CloudSuite.Modules.Domain.Models.Token
 
     }
 
-    public RequestToken(Guid requestId, string fullName, string phoneRegion, string phoneNumber, DateTime created)
+    public RequestToken(Guid requestId, Telephone telephone, string fullName, DateTime created)
     {
       RequestId = requestId;
       FullName = fullName;
-      PhoneRegion = phoneRegion;
-      PhoneNumber = phoneNumber;
+      Telephone = telephone;
       Created = created;
       Token = GetToken();
     }

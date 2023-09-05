@@ -1,4 +1,5 @@
 using CloudSuite.Modules.Domain.Models.Token;
+using CloudSuite.Modules.Domain.ValueObjects;
 
 namespace CloudSuite.Modules.Domain.Contracts.Token
 {
@@ -6,7 +7,7 @@ namespace CloudSuite.Modules.Domain.Contracts.Token
   {
     Task<RequestToken> GetByRequestId(Guid requestId);
 
-    Task DeleteByPhone(string telefone);
+    Task DeleteByPhone(Telephone telephone);
 
     Task Add(RequestToken requestToken);
 
