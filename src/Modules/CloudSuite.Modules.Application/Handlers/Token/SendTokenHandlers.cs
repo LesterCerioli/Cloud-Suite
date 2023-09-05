@@ -1,21 +1,22 @@
-using CloudSuite.Modules.Application;
-using AchePacientes.Application.Validation.Token;
-using AchePacientes.Domain.Token;
-using MediatR;
+using CloudSuite.Modules.Application.Services.Contracts.Token;
+using CloudSuite.Modules.Application.Handlers.Token.Responses;
+using CloudSuite.Modules.Application.Handlers.Token.Requests;
+using CloudSuite.Modules.Domain.Contracts.Token;
 using Microsoft.Extensions.Logging;
 using System.Text.Json;
 using System.Web.Http;
+using MediatR;
 
 namespace CloudSuite.Modules.Application.Handlers.Token
 {
-    public class SendTokenHandler : IRequestHandler<SendTokenRequest, SendTokenReponse>
+    public class SendTokenHandlers : IRequestHandler<SendTokenRequest, SendTokenReponse>
     {
-        private IRequestTokenRepository _repositorioToken;
+        private IRequestTokenRepository _requestTokenRepository;
         private ITwilioSmsServices _twilioService;
-        private readonly ILogger<SendTokenHandler> _logger;
-        public SendTokenHandler(IRequestTokenRepository repositorioToken, ITwilioSmsServices twilioService, ILogger<SendTokenHandler> logger)
+        private readonly ILogger<SendTokenHandlers> _logger;
+        public SendTokenHandlers(IRequestTokenRepository requestTokenRepository, ITwilioSmsServices twilioService, ILogger<SendTokenHandlers> logger)
         {
-            _repositorioToken = repositorioToken;
+            _requestTokenRepository = requestTokenRepository;
             _twilioService = twilioService;
             _logger = logger;
         }
@@ -24,8 +25,10 @@ namespace CloudSuite.Modules.Application.Handlers.Token
         {            
             _logger.LogInformation($"SendTokenRequest: {JsonSerializer.Serialize(request)}");
             request.PhoneNumber = request.PhoneNumber.Trim();
-            // 1 Request valido (telefone) ??
+
+            // Request valido (telefone)
             var validationResult = new SendTokenRequestValidation().Validate(request);
+            
             if (validationResult.IsValid)
             {
                 try
