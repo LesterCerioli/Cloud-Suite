@@ -3,7 +3,7 @@ using CloudSuite.Modules.Application.ViewModels.Core;
 
 namespace CloudSuite.Modules.Application.Services.Contracts.Core
 {
-  internal interface IMediaService
+  public interface IMediaService
   {
     Task<MediaViewModel> GetByFileName(string fileName);
 

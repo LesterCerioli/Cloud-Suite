@@ -3,7 +3,7 @@ using CloudSuite.Modules.Application.ViewModels.Core;
 
 namespace CloudSuite.Modules.Application.Services.Contracts.Core
 {
-  internal interface ICountryService
+  public interface ICountryService
   {
     Task<CountryViewModel> GetByName(string countryName);
 
