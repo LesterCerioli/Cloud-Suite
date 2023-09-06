@@ -14,7 +14,7 @@ namespace CloudSuite.Modules.Application.Handlers.Token.Requests
     public ValidateTokenRequest(string requestId, string token)
     {
       Id = Guid.NewGuid();
-      RequestId = RequestId;
+      RequestId = requestId;
       Token = token;
     }
   }

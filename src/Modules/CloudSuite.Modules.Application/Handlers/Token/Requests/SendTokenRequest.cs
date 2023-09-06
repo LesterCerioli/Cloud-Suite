@@ -1,26 +1,23 @@
 using CloudSuite.Modules.Application.Handlers.Token.Responses;
+using CloudSuite.Modules.Domain.ValueObjects;
 using MediatR;
 
 namespace CloudSuite.Modules.Application.Handlers.Token.Requests
 {
   public class SendTokenRequest : IRequest<SendTokenReponse>
   {
-        public SendTokenRequest(Guid id, string? fullName, string? telephoneRegion, string? telephoneNumber)
-        {
-            Id = id;
-            FullName = fullName;
-            TelephoneRegion = telephoneRegion;
-            TelephoneNumber = telephoneNumber;
-        }
+    public SendTokenRequest(Guid id, string? fullName, Telephone telephone)
+    {
+      Id = id;
+      FullName = fullName;
+      Telephone = telephone;
 
-        public Guid Id { get; private set; }
+    }
 
-        public string? FullName { get; set; }
+    public Guid Id { get; private set; }
 
-        public string? TelephoneRegion { get; set; }
-    
-        public string? TelephoneNumber { get; set; }
+    public string? FullName { get; set; }
 
-    
+    public Telephone Telephone { get; set; }
   }
 }

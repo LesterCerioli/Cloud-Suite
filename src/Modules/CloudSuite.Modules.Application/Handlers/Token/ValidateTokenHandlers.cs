@@ -32,6 +32,8 @@ namespace CloudSuite.Modules.Application.Handlers.Token
       // Valida Request
       var validationResult = new ValidateTokenRequestValidation().Validate(request);
 
+      bool InvalidTime = false;
+
       try
       {
         if (validationResult.IsValid)
@@ -40,13 +42,13 @@ namespace CloudSuite.Modules.Application.Handlers.Token
 
           var originalRequest = await _requestTokenRepository.GetByRequestId(Guid.Parse(request.RequestId));
 
-          if (originalRequest == null)
+          if (originalRequest == null || originalRequest.Created == null)
           {
             return await Task.FromResult(new ValidateTokenResponse(request.Id, false, "Token inválido"));
           }
 
           // Se existir na base, valida o tempo
-          bool InvalidTime = originalRequest.Created.AddMinutes(maxValidMinutes) < DateTime.Now;
+          InvalidTime = originalRequest.Created.AddMinutes(maxValidMinutes) < DateTime.Now;
 
           // Valida token
           bool invalidToken = (originalRequest.Token != request.Token);
@@ -70,8 +72,9 @@ namespace CloudSuite.Modules.Application.Handlers.Token
       catch (Exception ex)
       {
         _logger.LogCritical(ex.Message);
-        return await Task.FromResult(new ValidateTokenResponse(request.Id, false, "Não foi possivel Processar solicitação."));
+        return await Task.FromResult(new ValidateTokenResponse(request.Id, false, "Não foi possível Processar solicitação."));
       }
     }
+
   }
 }

@@ -17,7 +17,7 @@ namespace CloudSuite.Modules.Domain.Models.Token
         
     public Telephone Telephone { get; set; }
 
-    public DateTime? Created { get; set; }
+    public DateTime Created { get; set; }
 
     public DateTime? Validated { get; set; }
 
@@ -25,7 +25,7 @@ namespace CloudSuite.Modules.Domain.Models.Token
     [MaxLength(4)]
     public string Token { get; set; }
 
-    public RequestToken(Guid requestId, Telephone telephone, string fullName, DateTime created)
+    public RequestToken(Guid requestId, string fullName, Telephone telephone, DateTime created)
     {
       RequestId = requestId;
       FullName = fullName;

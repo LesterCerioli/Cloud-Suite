@@ -38,10 +38,10 @@ namespace CloudSuite.Modules.Application.Handlers.Token
         try
         {
           // Excluir token anterior existente
-          await _requestTokenRepository.DeleteByPhone(request.TelephoneNumber.Trim());
+          await _requestTokenRepository.DeleteByPhone(request.Telephone);
 
           // Cria novo token
-          RequestToken requestToken = new(request.Id, request.FullName, request.TelephoneRegion, request.TelephoneNumber, DateTime.Now);
+          RequestToken requestToken = new(request.Id, request.FullName, request.Telephone, DateTime.Now);
 
           // Envia sms
           await _twilioService.SendSMS(
