@@ -18,5 +18,4 @@ namespace CloudSuite.Modules.Application.Validations.Core.Addresses
       .WithMessage("Nome do contato deve ser preenchido");
     }
   }
-  
 }
