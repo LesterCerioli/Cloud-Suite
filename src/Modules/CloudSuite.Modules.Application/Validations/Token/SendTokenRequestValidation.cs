@@ -13,17 +13,9 @@ namespace CloudSuite.Modules.Application.Validations.Token
       .MaximumLength(40)
       .WithMessage("Nome completo deve conter 40 caracteres");
 
-      RuleFor(request => request.Telephone.TelephoneRegion)
+      RuleFor(request => request.Telephone)
       .NotEmpty()
-      .WithMessage("DDD deve ser preenchido")
-      .MaximumLength(2)
-      .WithMessage("DDD deve conter 2 caracteres");
-
-      RuleFor(request => request.Telephone.TelephoneNumber)
-      .NotEmpty()
-      .WithMessage("Telefone deve ser preenchido")
-      .MaximumLength(13)
-      .WithMessage("Telefone deve conter 13 caracteres");
+      .WithMessage("Telephone completo deve ser preenchido");
     }
   }
 }
