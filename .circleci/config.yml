@@ -1,32 +1,64 @@
 version: 2.1
 
-executors:
-  default-executor:
-    docker:
-      - image: mcr.microsoft.com/dotnet/sdk:6.0
-
 jobs:
   build:
-    executor: default-executor
-    description: Build application with Release configuration
+    docker:
+      - image: jetcipher/circleci-dotnet-core:3.0
     steps:
       - checkout
-      - restore_cache:
-          keys:
-            - dotnet-packages-v1-{{ checksum "dotnet-core-sample.csproj" }}
       - run:
-          name: "Install project dependencies"
-          command: dotnet restore ./CloudSuite.sln
+          name: Restore CloudSuite.Infrastructure
+          command: dotnet restore
+          working_directory: ./src/Infrastructure/CloudSuite.Infrastructure
       - run:
-          name: "Build Application according to some given configuration"
-          command: dotnet build --configuration Release
+          name: Restore CloudSuite.Infrastructure.CrossCutting
+          command: dotnet build ./src/Infrastructure/CloudSuite.Infrastructure.CrossCutting
       - run:
-          name: "Publish to a subfolder"
+          name: Restore CloudSuite.Modules.Domain
+          command: dotnet build ./src/Modules.CloudSuite.Modules.Domain
+      - run:
+          name: Restore CloudSuite.Modules.Application
+          command: dotnet build ./src/Modules/CloudSuite.Modules.Application
+      - run:
+          name: Restore CloudSuite.Services.Core.API
+          command: dotnet build ./src/Rest/CloudSuite.Services.Core.API
+      - run:
+          name: Restore CloudSuite Solution
+          command: dotnet build ./CloudSuite.sln
+      - run:
+          name: Build
+          command: dotnet build -c Release
+          working_directory: ./src/Infrastructure/CloudSuite.Infrastructure
+      - run:
+          name: Build
+          command: dotnet build -c Release
+          working_directory: ./src/Infrastructure/CloudSuite.Infrastructure.CrossCutting
+      - run:
+          name: Build
+          command: dotnet build -c Release
+          working_directory: ./src/Modules/CloudSuite.Modules.Application
+      - run:
+          name: Running Tests
+          command: dotnet test
+          working_directory: ./test/CloudSuite.Infrastructure.Tests
+      - run:
+          name: Running Tests
+          command: dotnet test
+          working_directory: ./test/CloudSuite.Modules.Application.Tests
+      - run:
+          name: Running Tests
+          command: dotnet test
+          working_directory: ./test/CloudSuite.Modules.Domain.Tests
+      - run:
+          name: Running Tests
+          command: dotnet test
+          working_directory: ./test/CloudSuite.Services.Core.API.Tests
+      - setup_remote_docker:
+          docker_layer_caching: true
+      - run:
+          name: Build and push Docker image
           command: |
-            dotnet publish --configuration Release --output WebAPIFolder
-
-workflows:
-  version: 2
-  build-and-deploy:
-    jobs:
-      - build
+            docker build -t CloudSuite.Services.Core.API .
+            echo $DOCKER_PWD | docker login -u $DOCKER_LOGIN --password-stdin
+            docker tag boku herocod3r/CloudSuite.Services.Core.API
+            docker push herocod3r/CloudSuite.Services.Core.API
