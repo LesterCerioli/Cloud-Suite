@@ -28,7 +28,6 @@ namespace CloudSuite.Modules.Application.Handlers.Token
     public async Task<SendTokenReponse> Handle(SendTokenRequest request, CancellationToken cancellationToken)
     {
       _logger.LogInformation($"SendTokenRequest: {JsonSerializer.Serialize(request)}");
-      request.TelephoneNumber = request.TelephoneNumber.Trim();
 
       // Request valido (telefone)
       var validationResult = new SendTokenRequestValidation().Validate(request);
@@ -45,7 +44,7 @@ namespace CloudSuite.Modules.Application.Handlers.Token
 
           // Envia sms
           await _twilioService.SendSMS(
-              "+" + request.TelephoneNumber + request.TelephoneRegion,
+              "+" + request.Telephone,
               "Cuidados pela vida. " + request.FullName + " seu token é: " + requestToken.Token);
 
           // Persiste na base
