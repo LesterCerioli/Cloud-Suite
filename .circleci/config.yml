@@ -16,7 +16,7 @@ jobs:
             - dotnet-packages-v1-{{ checksum "dotnet-core-sample.csproj" }}
       - run:
           name: "Install project dependencies"
-          command: dotnet restore
+          command: dotnet restore ./CloudSuite.sln
       - run:
           name: "Build Application according to some given configuration"
           command: dotnet build --configuration Release
