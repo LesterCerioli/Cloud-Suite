@@ -1,5 +1,5 @@
 using CloudSuite.Modules.Application.Handlers.Core.AppSettings.Responses;
-using AppSettingEntity = CloudSuite.Modules.Domain.Models.Core.Address;
+using AppSettingEntity = CloudSuite.Modules.Domain.Models.Core.AppSetting;
 using MediatR;
 
 namespace CloudSuite.Modules.Application.Handlers.Core.AppSettings
