@@ -24,10 +24,10 @@ namespace CloudSuite.Modules.Application.Handlers.Core.Districts
 
     public Guid Id { get; private set; }
 
-    public string? Name { get; private set; }
+    public string? Name { get; set; }
 
-    public string? Type { get; private set; }
+    public string? Type { get; set; }
 
-    public string? Location { get; private set; }
+    public string? Location { get; set; }
   }
 }
