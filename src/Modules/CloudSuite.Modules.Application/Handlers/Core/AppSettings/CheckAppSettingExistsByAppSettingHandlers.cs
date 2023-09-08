@@ -28,18 +28,18 @@ namespace CloudSuite.Modules.Application.Handlers.Core.AppSettings
       {
         try
         {
-          var address = await _addressRepository.GetByAddressLine(request.AddressLine1);
+          var appSetting = await _appSettingRepository.GetByAppSetting(request.Value);
 
-          if (address != null)
-            return await Task.FromResult(new CheckAddressExistsByAddressLineResponse(request.Id, true, validationResult));
+          if (appSetting != null)
+            return await Task.FromResult(new CheckAppSettingExistsByAppSettingResponse(request.Id, true, validationResult));
         }
         catch (Exception ex)
         {
           _logger.LogCritical(ex.Message);
-          return await Task.FromResult(new CheckAddressExistsByAddressLineResponse(request.Id, "Não foi possivel processar a solicitação"));
+          return await Task.FromResult(new CheckAppSettingExistsByAppSettingResponse(request.Id, "Não foi possivel processar a solicitação"));
         }
       }
-      return await Task.FromResult(new CheckAddressExistsByAddressLineResponse(request.Id, false, validationResult));
+      return await Task.FromResult(new CheckAppSettingExistsByAppSettingResponse(request.Id, false, validationResult));
     }
   }
 }
