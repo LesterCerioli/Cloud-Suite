@@ -1,6 +1,7 @@
 ﻿
 using CloudSuite.Infrastructure.Data.Mappimgs.EFCore.Core;
 using CloudSuite.Modules.Domain.Models.Core;
+using CloudSuite.Modules.Domain.Models.Token;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -56,6 +57,7 @@ namespace CloudSuite.Infrastructure.Data.Core.Context
 
         public DbSet<WidgetZone> WidgetZones { get; set; }
 
+        public DbSet<RequestToken> RequestTokens { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -84,7 +86,7 @@ namespace CloudSuite.Infrastructure.Data.Core.Context
             modelBuilder.ApplyConfiguration(new WidgetMap());
             modelBuilder.ApplyConfiguration(new WidgetInstanceMap());
             modelBuilder.ApplyConfiguration(new WidgetZoneMap());
-
+            //modelBuilder.ApplyConfiguration(new RequestTokenMap());
 
 
             modelBuilder.Entity<Address>(c =>
@@ -175,6 +177,11 @@ namespace CloudSuite.Infrastructure.Data.Core.Context
             modelBuilder.Entity<WidgetZone>(c =>
             {
                 c.ToTable("WidgetZones");
+            });
+
+            modelBuilder.Entity<RequestToken>(c=>
+            {
+               c.ToTable("RequestTokens"); 
             });
 
             base.OnModelCreating(modelBuilder);
