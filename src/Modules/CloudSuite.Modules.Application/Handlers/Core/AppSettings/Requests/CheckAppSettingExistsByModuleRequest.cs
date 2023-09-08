@@ -3,16 +3,16 @@ using MediatR;
 
 namespace CloudSuite.Modules.Application.Handlers.Core.AppSettings.Requests
 {
-  public class CheckAppSettingExistsByAppSettingRequest : IRequest<CheckAppSettingExistsByAppSettingResponse>
+  public class CheckAppSettingExistsByModuleRequest : IRequest<CheckAppSettingExistsByModuleResponse>
   {
     public Guid Id { get; private set; }
 
-    public string? Value { get; private set; }
+    public string? Module { get; private set; }
 
-    public CheckAppSettingExistsByAppSettingRequest(string value)
+    public CheckAppSettingExistsByModuleRequest(string module)
     {
       Id = Guid.NewGuid();
-      Value = value;
+      Module = module;
     }
   }
 }
