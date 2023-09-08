@@ -1,5 +1,6 @@
 ﻿
 using CloudSuite.Infrastructure.Data.Mappimgs.EFCore.Core;
+using CloudSuite.Infrastructure.Data.Mappimgs.EFCore.Token;
 using CloudSuite.Modules.Domain.Models.Core;
 using CloudSuite.Modules.Domain.Models.Token;
 using Microsoft.EntityFrameworkCore;
@@ -86,7 +87,7 @@ namespace CloudSuite.Infrastructure.Data.Core.Context
             modelBuilder.ApplyConfiguration(new WidgetMap());
             modelBuilder.ApplyConfiguration(new WidgetInstanceMap());
             modelBuilder.ApplyConfiguration(new WidgetZoneMap());
-            //modelBuilder.ApplyConfiguration(new RequestTokenMap());
+            modelBuilder.ApplyConfiguration(new RequestTokenMap());
 
 
             modelBuilder.Entity<Address>(c =>
