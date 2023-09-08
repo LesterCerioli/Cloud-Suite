@@ -7,7 +7,7 @@ namespace CloudSuite.Modules.Application.Validations.Core.AppSettings
   {
     public CheckAppSettingExistsByModuleRequestValidation()
     {
-      RuleFor(command => command.Module)
+      RuleFor(request => request.Module)
       .NotEmpty()
       .WithMessage("Modulo deve ser preenchido")
       .MaximumLength(450)

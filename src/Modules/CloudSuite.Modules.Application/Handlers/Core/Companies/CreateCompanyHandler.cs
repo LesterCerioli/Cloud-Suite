@@ -26,24 +26,24 @@ namespace CloudSuite.Modules.Application.Handlers.Core.Companies
       {
         try
         {
-          var cities = await _cityRepository.GetByCityName(command.CityName);
+          var companies = await _companyRepository.GetByFantasyName(command.FantasyName);
 
-          if (cities != null)
-            return await Task.FromResult(new CreateCityResponse(command.Id, "Cidade já cadastrada."));
+          if (companies != null)
+            return await Task.FromResult(new CreateCompanyResponse(command.Id, "Cidade já cadastrada."));
 
-          await _cityRepository.Add(command.GetEntity());
+          await _companyRepository.Add(command.GetEntity());
 
-          return await Task.FromResult(new CreateCityResponse(command.Id, validationResult));
+          return await Task.FromResult(new CreateCompanyResponse(command.Id, validationResult));
         }
         catch (Exception ex)
         {
           _logger.LogCritical(ex.Message);
 
-          return await Task.FromResult(new CreateCityResponse(command.Id, "Não foi possivel processar a solicitação."));
+          return await Task.FromResult(new CreateCompanyResponse(command.Id, "Não foi possivel processar a solicitação."));
         }
       }
 
-      return await Task.FromResult(new CreateCityResponse(command.Id, validationResult));
+      return await Task.FromResult(new CreateCompanyResponse(command.Id, validationResult));
     }
   }
 }

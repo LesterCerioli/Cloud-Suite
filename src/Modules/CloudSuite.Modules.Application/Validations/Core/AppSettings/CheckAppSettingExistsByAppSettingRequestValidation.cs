@@ -7,7 +7,7 @@ namespace CloudSuite.Modules.Application.Validations.Core.AppSettings
   {
     public CheckAppSettingExistsByAppSettingRequestValidation()
     {
-      RuleFor(response => response.Value)
+      RuleFor(request => request.Value)
       .NotEmpty()
       .WithMessage("O valor de AppSetting deve ser preenchido")
       .MaximumLength(450)
