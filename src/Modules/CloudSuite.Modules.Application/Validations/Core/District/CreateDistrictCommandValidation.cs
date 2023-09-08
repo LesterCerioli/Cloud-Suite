@@ -12,9 +12,6 @@ namespace CloudSuite.Modules.Application.Validations.Core.District
             .WithMessage("Nome do Bairro deve ser preenchido")
             .MaximumLength(450)
             .WithMessage("Nome do Bairro deve possuir no máximo 450 caracteres");
-
-            
-            
         }
     }
 }
