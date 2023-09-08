@@ -1,3 +1,4 @@
+using CloudSuite.Modules.Application.Handlers.Core.Companies.Responses;
 using CompanyEntity = CloudSuite.Modules.Domain.Models.Core.Company;
 using CloudSuite.Modules.Domain.ValueObjects;
 using CloudSuite.Modules.Domain.Models.Core;
@@ -22,18 +23,15 @@ namespace CloudSuite.Modules.Application.Handlers.Core.Companies
         this.Address
       );
     }
+
     public Guid Id { get; private set; }
 
     public Cnpj Cnpj { get; set; }
-
-    public Guid CnpjId { get; private set; }
 
     public string? FantasyName { get; private set; }
 
     public string? RegisterName { get; private set; }
 
     public Address Address { get; private set; }
-
-    public Guid AddressId { get; private set; }
   }
 }
