@@ -3,13 +3,13 @@ using FluentValidation.Results;
 
 namespace CloudSuite.Modules.Application.Handlers.Core.Companies.Responses
 {
-  public class CheckCompanyExistsByFantasyNameResponse : Response
+  public class CheckCompanyExistsByRegisterNameResponse : Response
   {
     public Guid RequestId { get; private set; }
 
     public bool Exists { get; set; }
 
-    public CheckCompanyExistsByFantasyNameResponse(Guid requestId, bool exists, ValidationResult result)
+    public CheckCompanyExistsByRegisterNameResponse(Guid requestId, bool exists, ValidationResult result)
     {
       RequestId = requestId;
       Exists = exists;
@@ -20,11 +20,11 @@ namespace CloudSuite.Modules.Application.Handlers.Core.Companies.Responses
       }
     }
 
-    public CheckCompanyExistsByFantasyNameResponse(Guid requestId, string validationFailure)
+    public CheckCompanyExistsByRegisterNameResponse(Guid requestId, string validationFailure)
     {
       RequestId = requestId;
       Exists = false;
-
+      
       this.AddError(validationFailure);
     }
   }
