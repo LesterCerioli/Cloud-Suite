@@ -11,7 +11,9 @@ namespace CloudSuite.Modules.Application.Handlers.Core.AppSettings
   public class CheckAppSettingsExistsByAppSettingHandlers : IRequestHandler<CheckAppSettingExistsByAppSettingRequest, CheckAppSettingExistsByAppSettingResponse>
   {
     private IAppSettingRepository _appSettingRepository;
+
     private readonly ILogger<CheckAppSettingsExistsByAppSettingHandlers> _logger;
+
     public CheckAppSettingsExistsByAppSettingHandlers(IAppSettingRepository appSettingRepository, ILogger<CheckAppSettingsExistsByAppSettingHandlers> logger)
     {
       _appSettingRepository = appSettingRepository;
@@ -39,6 +41,7 @@ namespace CloudSuite.Modules.Application.Handlers.Core.AppSettings
           return await Task.FromResult(new CheckAppSettingExistsByAppSettingResponse(request.Id, "Não foi possivel processar a solicitação"));
         }
       }
+      
       return await Task.FromResult(new CheckAppSettingExistsByAppSettingResponse(request.Id, false, validationResult));
     }
   }
