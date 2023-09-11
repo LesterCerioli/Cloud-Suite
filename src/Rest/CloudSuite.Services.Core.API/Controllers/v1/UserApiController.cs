@@ -24,7 +24,7 @@ namespace CloudSuite.Services.Core.API.Controllers.v1
         }
 
         
-        [HttpGet("")]
+        [HttpGet]
         public async Task<IEnumerable<User>> GetList()
         {
             var users = await _userRepository.GetList();
@@ -32,7 +32,7 @@ namespace CloudSuite.Services.Core.API.Controllers.v1
         }
 
         // GET: api/<UserApiController>
-        [HttpGet("")]
+        [HttpGet("{email}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -59,7 +59,7 @@ namespace CloudSuite.Services.Core.API.Controllers.v1
         }
 
         // GET api/<UserApiController>/5
-        [HttpGet("")]
+        [HttpGet("{cpf}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -88,7 +88,7 @@ namespace CloudSuite.Services.Core.API.Controllers.v1
 
         // POST api/<UserApiController>
         [AllowAnonymous]
-        [HttpPost("")]
+        [HttpPost]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public async Task<ActionResult> PostUser([FromBody] CreateUserCommand command)
