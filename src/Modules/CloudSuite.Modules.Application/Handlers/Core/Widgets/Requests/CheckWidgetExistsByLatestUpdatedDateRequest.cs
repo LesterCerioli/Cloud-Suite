@@ -7,7 +7,7 @@ namespace CloudSuite.Modules.Application.Handlers.Core.Widgets.Requests
   {
     public Guid Id { get; private set; }
 
-    public string? CreateUrl { get; private set; }
+    public string? CreateUrl { get; set; }
     
     public CheckWidgetExistsByLatestUpdatedDateRequest(string? createUrl)
     {

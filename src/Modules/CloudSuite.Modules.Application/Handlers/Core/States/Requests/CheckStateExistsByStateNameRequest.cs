@@ -7,7 +7,7 @@ namespace CloudSuite.Modules.Application.Handlers.Core.States.Requests
   {
     public Guid Id { get; private set; }
 
-    public string? StateName { get; private set; }
+    public string? StateName { get; set; }
     
     public CheckStateExistsByStateNameRequest(string stateName)
     {

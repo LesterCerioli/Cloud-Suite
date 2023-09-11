@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace CloudSuite.Modules.Application.Handlers.Core.Companies.Requests
 {
-    public class CheckCompanyExistsByFantasyNameResponse
+    public class CheckCompanyExistsByFantasyNameRequest
     {
         
     }

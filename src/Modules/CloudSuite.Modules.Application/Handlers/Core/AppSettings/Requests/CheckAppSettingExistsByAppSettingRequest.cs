@@ -7,7 +7,7 @@ namespace CloudSuite.Modules.Application.Handlers.Core.AppSettings.Requests
   {
     public Guid Id { get; private set; }
 
-    public string? Value { get; private set; }
+    public string? Value { get; set; }
 
     public CheckAppSettingExistsByAppSettingRequest(string value)
     {

@@ -7,7 +7,7 @@ namespace CloudSuite.Modules.Application.Handlers.Core.Countries.Requests
   {
     public Guid Id { get; private set; }
 
-    public string? CountryName { get; private set; }
+    public string? CountryName { get; set; }
     
     public CheckCountryExistsByNameRequest(string countryName)
     {

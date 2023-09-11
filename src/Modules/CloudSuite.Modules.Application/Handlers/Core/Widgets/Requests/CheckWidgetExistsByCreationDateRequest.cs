@@ -7,7 +7,7 @@ namespace CloudSuite.Modules.Application.Handlers.Core.Widgets.Requests
   {
     public Guid Id { get; private set; }  
 
-    public DateTimeOffset CreatedOn { get; private set; }
+    public DateTimeOffset CreatedOn { get; set; }
     
     public CheckWidgetExistsByCreationDateRequest(DateTimeOffset createdOn)
     {
