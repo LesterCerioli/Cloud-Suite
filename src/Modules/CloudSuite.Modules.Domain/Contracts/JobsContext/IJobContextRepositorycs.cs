@@ -1,6 +1,7 @@
 using CloudSuite.Modules.Domain.Models.JobsContext;
 using CloudSuite.Modules.Domain.Shared.Enums.JobsContext;
 
+
 namespace CloudSuite.Modules.Domain.Contracts.JobsContext
 {
     public interface IJobContextRepositorycs

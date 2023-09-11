@@ -1,5 +1,6 @@
 using CloudSuite.Modules.Domain.Models.JobsContext;
 
+
 namespace CloudSuite.Modules.Domain.Contracts.JobsContext
 {
     public interface ISchedulePlanRepository
@@ -7,7 +8,11 @@ namespace CloudSuite.Modules.Domain.Contracts.JobsContext
          
          Task<SchedulePlan> GetByName(string name);
 
-         Task<SchedulePlan> GetByScheduledDays(SchedulePlanDaysOfWeek scheduledDays);
+         Task<SchedulePlan> GetByIntervalInMinutes(int intervalInMinutes);
+
+         Task<SchedulePlan> GetByStartTimespan(int startTimespan);
+
+         Task<SchedulePlan> GetByEndTimespan(int endTimespan);
 
         Task<IEnumerable<SchedulePlan>> GetAll();
 

@@ -8,12 +8,12 @@ using System.Threading.Tasks;
 
 namespace CloudSuite.Modules.Domain.Models.JobsContext
 {
-    public class JobManagerSettings 
+    public class JobSetting : Entity, IAggregateRoot
     {
         [JsonProperty(PropertyName ="db_connection-string")]
-        public string DbConnectinString { get; private set; }
+        public string? DbConnectinString { get; private set; }
 
         [JsonProperty(PropertyName ="enabled")]
-        public bool Enabled { get; private set; }
+        public bool? Enabled { get; private set; }
     } 
 }
