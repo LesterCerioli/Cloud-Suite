@@ -20,10 +20,10 @@ namespace CloudSuite.Modules.Application.Handlers.Core.AppSettings
 
     public Guid Id { get; private set; }
 
-    public string? Value { get; private set; }
+    public string? Value { get; set; }
 
-    public string? Module { get; private set; }
+    public string? Module { get; set; }
 
-    public bool? IsVisibleInCommonSettingPage { get; private set; }
+    public bool? IsVisibleInCommonSettingPage { get; set; }
   }
 }

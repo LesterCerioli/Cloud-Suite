@@ -28,10 +28,10 @@ namespace CloudSuite.Modules.Application.Handlers.Core.Companies
 
     public Cnpj Cnpj { get; set; }
 
-    public string? FantasyName { get; private set; }
+    public string? FantasyName { get; set; }
 
-    public string? RegisterName { get; private set; }
+    public string? RegisterName { get; set; }
 
-    public Address Address { get; private set; }
+    public Address Address { get; set; }
   }
 }
