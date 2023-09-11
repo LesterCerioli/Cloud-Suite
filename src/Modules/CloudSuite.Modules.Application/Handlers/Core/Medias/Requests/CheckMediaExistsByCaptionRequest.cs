@@ -3,7 +3,7 @@ using MediatR;
 
 namespace CloudSuite.Modules.Application.Handlers.Core.Medias.Requests
 {
-  public class CheckMediaExistsByCaptionRequest : IRequest<CheckMediaExistsByFileNameResponse>
+  public class CheckMediaExistsByCaptionRequest : IRequest<CheckMediaExistsByCaptionResponse>
   {
     public Guid Id { get; private set; }
 
