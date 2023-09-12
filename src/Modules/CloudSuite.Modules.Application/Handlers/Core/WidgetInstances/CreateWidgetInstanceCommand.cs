@@ -22,5 +22,13 @@ namespace CloudSuite.Modules.Application.Handlers.Core.WidgetInstances
     public Guid Id { get; private set; }
 
     public string? Name { get; set; }
+
+    public string? WidgetId { get; set; }
+
+    public int? DisplayOrder { get; set; }
+
+    public string? Data { get; set; }
+
+    // public string? HtmlData { get; set; }
   }
 }
