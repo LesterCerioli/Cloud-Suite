@@ -29,6 +29,6 @@ namespace CloudSuite.Modules.Application.Handlers.Core.WidgetInstances
 
     public string? Data { get; set; }
 
-    // public string? HtmlData { get; set; }
+    public string? HtmlData { get; set; }
   }
 }
