@@ -12,6 +12,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\CloudSuite.Modules.Domain\CloudSuite.Modules.Domain.csproj" />
+    <PackageReference Include="Microsoft.AspNet.WebApi.Core" Version="5.2.9" />
   </ItemGroup>
 
   <ItemGroup>
