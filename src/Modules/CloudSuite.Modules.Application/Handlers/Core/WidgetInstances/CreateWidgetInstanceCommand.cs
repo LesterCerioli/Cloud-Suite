@@ -1,4 +1,5 @@
 using WidgetInstanceEntity = CloudSuite.Modules.Domain.Models.Core.WidgetInstance;
+using CloudSuite.Modules.Application.Handlers.Core.WidgetInstances.Responses;
 using MediatR;
 
 namespace CloudSuite.Modules.Application.Handlers.Core.WidgetInstances
