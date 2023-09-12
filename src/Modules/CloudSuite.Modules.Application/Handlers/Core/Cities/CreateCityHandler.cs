@@ -19,7 +19,7 @@ namespace CloudSuite.Modules.Application.Handlers.Core.Cities
     public async Task<CreateCityResponse> Handle(CreateCityCommand command, CancellationToken cancellationToken)
     {
       _logger.LogInformation($"CreateCityCommand: {JsonSerializer.Serialize(command)}");
-      
+
       var validationResult = new CreateCityCommandValidation().Validate(command);
 
       if (validationResult.IsValid)
@@ -29,7 +29,7 @@ namespace CloudSuite.Modules.Application.Handlers.Core.Cities
           var cities = await _cityRepository.GetByCityName(command.CityName);
 
           if (cities != null)
-          return await Task.FromResult(new CreateCityResponse(command.Id, "Cidade já cadastrada."));
+            return await Task.FromResult(new CreateCityResponse(command.Id, "Cidade já cadastrada."));
 
           await _cityRepository.Add(command.GetEntity());
 

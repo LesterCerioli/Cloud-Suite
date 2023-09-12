@@ -18,11 +18,8 @@ namespace CloudSuite.Modules.Domain.Models.Core
         [StringLength(450)]
         public string? Name { get; set; }
 
-        public long? EntityId { get; set; }
+        public Guid EntidadeTipoId { get; private set; }
 
-        [StringLength(450)]
-        public string? EntityTypeId { get; set; }
-
-        public EntidadeTipo EntityType { get; set; }
+        public EntidadeTipo EntidadeTipo { get; private set; }
     }
 }

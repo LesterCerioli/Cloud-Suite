@@ -8,17 +8,21 @@ namespace CloudSuite.Modules.Domain.Models.Core
     {
         private readonly List<Country> _countries;
 
-        public State(Guid id, string uf)
+        public State(Guid id, string uf, string stateName)
         {
             Id = id;
             _countries = new List<Country>();
             UF = uf;
+            StateName = stateName;
         }
         
         public State() { }
-        
+
+        [Required(ErrorMessage = "Este campo é de preenchimento obrigatório.")]
+        [StringLength(100)]
         public string? StateName { get; private set; }
 
+        [Required(ErrorMessage = "Este campo é de preenchimento obrigatório.")]
         [MaxLength(2)]
         public string? UF { get; private set; }
 

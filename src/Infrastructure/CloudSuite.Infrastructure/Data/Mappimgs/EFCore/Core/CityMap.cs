@@ -13,13 +13,18 @@ namespace CloudSuite.Infrastructure.Data.Mappimgs.EFCore.Core
     {
         public void Configure(EntityTypeBuilder<City> builder)
         {
-            builder.HasKey();
+            builder.HasKey(a => a.Id);
 
             builder.Property(a => a.CityName)
                 .HasColumnName("CityName")
-                .HasColumnType("vaerchar(45)")
-                .HasMaxLength(45)
+                .HasColumnType("varchar(100)")
+                .HasMaxLength(100)
                 .IsRequired();
+
+            builder.HasOne(a => a.State)
+                .WithMany()
+                .HasForeignKey(a => a.StateId)
+                .OnDelete(DeleteBehavior.Restrict);
         }
     }
 }

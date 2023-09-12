@@ -9,8 +9,8 @@ namespace CloudSuite.Modules.Application.Validations.Core.Countries
     {
       RuleFor(command => command.CountryName)
       .NotEmpty()
-      .MaximumLength(50)
-      .WithMessage("CountryName deve ser preenchida");
+      .MaximumLength(450)
+      .WithMessage("O nome do País deve ser preenchido");
     }
   }
 }

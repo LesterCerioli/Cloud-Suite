@@ -35,11 +35,17 @@ namespace CloudSuite.Modules.Domain.Models.Core
         [StringLength(450)]
         public string? Slug { get; private set; }
 
+        [Required(ErrorMessage = "The {0} field is required.")]
+        [StringLength(100)]
         public string? Description { get; private set; }
 
         public Cnpj Cnpj { get; private set; }
 
+        public Guid CnpjId { get; private set; }
+
         public Email Email { get; private set; }
+
+        public Guid EmailId { get; private set; }
 
         public DateTimeOffset? CreatedOn { get; private set; }
 

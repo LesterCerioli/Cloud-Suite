@@ -3,14 +3,16 @@ using MediatR;
 
 namespace CloudSuite.Modules.Application.Handlers.Core.Countries.Requests
 {
-    public class CheckCountryExistsByNameRequest : IRequest<CheckCountryExistsByNameResponse>
+  public class CheckCountryExistsByNameRequest : IRequest<CheckCountryExistsByNameResponse>
+  {
+    public Guid Id { get; private set; }
+
+    public string? CountryName { get; private set; }
+    
+    public CheckCountryExistsByNameRequest(string countryName)
     {
-        public Guid Id { get; private set; }
-        public string? CountryName { get; private set; }
-        public CheckCountryExistsByNameRequest(string countryName)
-        {
-            Id = Guid.NewGuid();
-            CountryName = countryName;
-        }
+      Id = Guid.NewGuid();
+      CountryName = countryName;
     }
+  }
 }

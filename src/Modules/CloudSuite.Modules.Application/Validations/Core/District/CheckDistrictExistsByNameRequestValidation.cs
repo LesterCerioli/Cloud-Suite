@@ -9,9 +9,9 @@ namespace CloudSuite.Modules.Application.Validations.Core.District
         {
             RuleFor(command => command.Name)
             .NotEmpty()
-            .WithMessage("Name deve ser preenchida")
-            .MinimumLength(3)
-            .WithMessage("Name muito curto");
+            .WithMessage("Nome do Bairro deve ser preenchido")
+            .MaximumLength(450)
+            .WithMessage("Nome do Bairro deve possuir no máximo 450 caracteres");
         }
     }
 }

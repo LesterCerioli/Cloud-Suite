@@ -20,15 +20,20 @@ namespace CloudSuite.Modules.Domain.Models.Core
             _districts = new List<District>();
             _cities = new List<City>();
         }
-        
+
+        [Required(ErrorMessage = "The {0} field is required.")]
+        [StringLength(100)]
         public string? ContactName { get; private set; }
 
+        [Required(ErrorMessage = "The {0} field is required.")]
         [StringLength(450)]
         public string? AddressLine1 { get; private set; }
 
         public City City { get; private set; }
 
         public District District { get; private set; }
+
+        public Guid DistrictId { get; private set; }
 
         public IReadOnlyCollection<City> Cities => _cities.AsReadOnly();
 

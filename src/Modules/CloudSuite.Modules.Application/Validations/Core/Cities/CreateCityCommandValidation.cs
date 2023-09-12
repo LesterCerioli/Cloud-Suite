@@ -9,12 +9,10 @@ namespace CloudSuite.Modules.Application.Validations.Core.Cities
     {
       RuleFor(command => command.CityName)
       .NotEmpty()
-      .MaximumLength(50)
-      .WithMessage("CityName deve ser preenchida");
+      .MaximumLength(100)
+      .WithMessage("O nome da cidade deve ser preenchido");
 
-      RuleFor(command => command.State)
-      .NotEmpty()
-      .WithMessage("State deve ser preenchida");
+      
     }
   }
   

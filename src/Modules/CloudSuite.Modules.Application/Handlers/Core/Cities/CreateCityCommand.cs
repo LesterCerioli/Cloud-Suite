@@ -7,7 +7,7 @@ namespace CloudSuite.Modules.Application.Handlers.Core.Cities
 {
   public class CreateCityCommand : IRequest<CreateCityResponse>
   {
-        public CreateCityCommand()
+    public CreateCityCommand()
     {
       Id = Guid.NewGuid();
     }
@@ -20,6 +20,7 @@ namespace CloudSuite.Modules.Application.Handlers.Core.Cities
     public Guid Id { get; private set; }
 
     public string? CityName { get; private set; }
+    
     public State State { get; private set; }
   }
 }

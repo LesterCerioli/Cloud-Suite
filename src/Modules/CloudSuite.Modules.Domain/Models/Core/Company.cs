@@ -2,6 +2,7 @@
 using NetDevPack.Domain;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,8 +22,14 @@ namespace CloudSuite.Modules.Domain.Models.Core
 
         public Cnpj Cnpj { get; set; }
 
+        public Guid CnpjId { get; private set; }
+
+        [Required(ErrorMessage = "Este campo é de preenchimento obrigatório.")]
+        [MaxLength(100)]
         public string? FantasyName { get; private set; }
 
+        [Required(ErrorMessage = "Este campo é de preenchimento obrigatório.")]
+        [MaxLength(100)]
         public string? RegisterName { get; private set; }
 
         public Address Address { get; private set; }
