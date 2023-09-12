@@ -1,83 +1,43 @@
-﻿using CloudSuite.Modules.Application.Handlers.Core.Cities;
-using CloudSuite.Modules.Application.Handlers.Core.Cities.Requests;
-using CloudSuite.Modules.Application.Handlers.Core.Districts.Requests;
-using CloudSuite.Modules.Domain.Models.Core;
-using MediatR;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
+
+// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace CloudSuite.Services.Core.API.Controllers.v1
 {
-
     [Route("api/[controller]")]
     [ApiController]
-    public class CityApiController : ControllerBase
+    public class CountryApiController : ControllerBase
     {
-
-        private readonly IMediator _mediator;
-        private readonly ILogger<CityApiController> _logger;
-
-        public CityApiController(ILogger<CityApiController> logger, IMediator mediator)
-        {
-            _logger = logger;
-            _mediator = mediator;
-
-        }
-
+        // GET: api/<CountryApiController>
         [HttpGet]
-        [Route("{name}")]
-        [ProducesResponseType(StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status404NotFound)]
-        [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public async Task<IActionResult> GetByCityName([FromRoute] string cityName)
+        public IEnumerable<string> Get()
         {
-            try
-            {
-                var result = await _mediator.Send(new CheckCityExistsByCityNameRequest(cityName));
-                if (result.Errors.Any())
-                {
-                    return BadRequest(result);
-                }
-                if (result.Exists)
-                {
-                    return Ok(result);
-                }
-                else
-                {
-                    return NotFound(result);
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Error fetching user by name: {ex.Message}.");
-                return StatusCode(StatusCodes.Status500InternalServerError, new { message = "An internal Server Error" });
-            }
+            return new string[] { "value1", "value2" };
         }
 
-        [HttpPost]
-        [Route("")]
-        [ProducesResponseType(StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status404NotFound)]
-        [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public async Task<IActionResult> Add([FromBody] CreateCityCommand createCity)
+        // GET api/<CountryApiController>/5
+        [HttpGet("{id}")]
+        public string Get(int id)
         {
-            try
-            {
-                var result = await _mediator.Send(createCity);
-                if (result.Errors.Any())
-                {
-                    return BadRequest(result);
-                }
+            return "value";
+        }
 
-                else
-                {
-                    return Ok(result);
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Error fetching user by email: {ex.Message}.");
-                return StatusCode(StatusCodes.Status500InternalServerError, new { message = "An internal Server Error" });
-            }
+        // POST api/<CountryApiController>
+        [HttpPost]
+        public void Post([FromBody] string value)
+        {
+        }
+
+        // PUT api/<CountryApiController>/5
+        [HttpPut("{id}")]
+        public void Put(int id, [FromBody] string value)
+        {
+        }
+
+        // DELETE api/<CountryApiController>/5
+        [HttpDelete("{id}")]
+        public void Delete(int id)
+        {
         }
     }
 }
