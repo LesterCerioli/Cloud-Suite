@@ -1,5 +1,7 @@
 using CloudSuite.Modules.Application.Handlers.Core.Cities;
 using CloudSuite.Modules.Application.Handlers.Core.Cities.Requests;
+using CloudSuite.Modules.Domain.Contracts.Core;
+using CloudSuite.Modules.Domain.Models.Core;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -13,12 +15,24 @@ namespace CloudSuite.Services.Core.API.Controllers.v1
 
         private readonly IMediator _mediator;
         private readonly ILogger<CityApiController> _logger;
+        private readonly ICityRepository _cityRepository;
 
-        public CityApiController(ILogger<CityApiController> logger, IMediator mediator)
+        public CityApiController(ILogger<CityApiController> logger, IMediator mediator, ICityRepository cityRepository)
         {
             _logger = logger;
             _mediator = mediator;
+            _cityRepository = cityRepository;
+        }
 
+        [HttpGet]
+        [Route("")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public async Task<IEnumerable<City>> GetList()
+        {
+            var cities = await _cityRepository.GetList();
+            return cities;
         }
 
         [HttpGet]
@@ -56,7 +70,7 @@ namespace CloudSuite.Services.Core.API.Controllers.v1
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public async Task<IActionResult> Save([FromBody] CreateCityCommand createCity)
+        public async Task<IActionResult> Add([FromBody] CreateCityCommand createCity)
         {
             try
             {
