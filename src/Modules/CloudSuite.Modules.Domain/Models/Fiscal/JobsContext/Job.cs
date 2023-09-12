@@ -1,3 +1,8 @@
+using CloudSuite.Modules.Common.Enums.Fiscal.JobContext;
+using NetDevPack.Domain;
+using Newtonsoft.Json;
+using System.Reflection.Metadata;
+
 namespace CloudSuite.Modules.Domain.Models.Fiscal.JobsContext
 {
     [Serializable]
@@ -8,7 +13,7 @@ namespace CloudSuite.Modules.Domain.Models.Fiscal.JobsContext
     }
 
     [Serializable]
-    public class Job
+    public class Job : Entity, IAggregateRoot
     {
         [JsonProperty(PropertyName = "type_id")]
         public Guid TypeId { get; private set; }
