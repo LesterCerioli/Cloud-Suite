@@ -1,7 +1,5 @@
 using CloudSuite.Modules.Application.Handlers.Core.Cities;
 using CloudSuite.Modules.Application.Handlers.Core.Cities.Requests;
-using CloudSuite.Modules.Application.Handlers.Core.Districts.Requests;
-using CloudSuite.Modules.Domain.Models.Core;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
