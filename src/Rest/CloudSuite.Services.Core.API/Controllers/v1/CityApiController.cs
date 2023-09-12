@@ -56,7 +56,7 @@ namespace CloudSuite.Services.Core.API.Controllers.v1
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public async Task<IActionResult> Add([FromBody] CreateCityCommand createCity)
+        public async Task<IActionResult> Save([FromBody] CreateCityCommand createCity)
         {
             try
             {
