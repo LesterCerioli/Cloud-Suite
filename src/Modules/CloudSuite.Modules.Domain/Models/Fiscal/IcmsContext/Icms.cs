@@ -1,3 +1,5 @@
+using CloudSuite.Modules.Common.Enums.Fiscal.IcmsContext;
+
 namespace CloudSuite.Modules.Domain.Models.Fiscal.IcmsContext
 {
     public abstract class Icms

@@ -1,3 +1,6 @@
+using CloudSuite.Modules.Common.Enums.Fiscal.JobContext;
+using NetDevPack.Domain;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -13,7 +16,7 @@ namespace CloudSuite.Modules.Domain.Models.Fiscal.JobsContext
         public Guid JobId { get; private set; }
 
         [JsonProperty(PropertyName = "aborted")]
-        public bool Aborted { get; private set; }
+        public bool? Aborted { get; private set; }
 
         [JsonProperty(PropertyName = "priority")]
         public JobPriority Priority { get; private set; }
@@ -27,10 +30,7 @@ namespace CloudSuite.Modules.Domain.Models.Fiscal.JobsContext
         [JsonProperty(PropertyName = "type")]
         public JobType Type { get; private set; }
 
-        internal JobContext()
-        {
-
-        }
+        
         
     }
 }
