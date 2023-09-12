@@ -16,7 +16,6 @@ namespace CloudSuite.Modules.Application.Handlers.Core.Vendores
     {
       _vendorRepository = vendorRepository;
       _logger = logger;
-
     }
 
     public async Task<CheckVendorExistsByCreationDateResponse> Handle(CheckVendorExistsByCreationDateRequest request, CancellationToken cancellationToken)

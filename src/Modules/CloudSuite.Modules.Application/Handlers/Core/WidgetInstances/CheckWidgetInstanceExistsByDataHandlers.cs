@@ -16,7 +16,6 @@ namespace CloudSuite.Modules.Application.Handlers.Core.WidgetInstances
     {
       _widgetInstanceRepository = widgetInstanceRepository;
       _logger = logger;
-      
     }
 
     public async Task<CheckWidgetInstanceExistsByDataResponse> Handle(CheckWidgetInstanceExistsByDataRequest request, CancellationToken cancellationToken)
