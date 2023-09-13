@@ -16,7 +16,6 @@ namespace CloudSuite.Modules.Application.Handlers.Core.Widgets
     {
       _widgetRepository = widgetRepository;
       _logger = logger;
-      
     }
 
     public async Task<CheckWidgetExistsByCreationDateResponse> Handle(CheckWidgetExistsByCreationDateRequest request, CancellationToken cancellationToken)

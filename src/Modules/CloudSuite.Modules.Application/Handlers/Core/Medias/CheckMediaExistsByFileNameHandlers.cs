@@ -8,11 +8,11 @@ using MediatR;
 
 namespace CloudSuite.Modules.Application.Handlers.Core.Medias
 {
-  public class CheckMediaExistsByFileNameNameHandlers : IRequestHandler<CheckMediaExistsByFileNameRequest, CheckMediaExistsByFileNameResponse>
+  public class CheckMediaExistsByFileNameHandlers : IRequestHandler<CheckMediaExistsByFileNameRequest, CheckMediaExistsByFileNameResponse>
   {
     private IMediaRepository _mediaRepository;
-    private readonly ILogger<CheckMediaExistsByFileNameNameHandlers> _logger;
-    public CheckMediaExistsByFileNameNameHandlers(IMediaRepository mediaRepository, ILogger<CheckMediaExistsByFileNameNameHandlers> logger)
+    private readonly ILogger<CheckMediaExistsByFileNameHandlers> _logger;
+    public CheckMediaExistsByFileNameHandlers(IMediaRepository mediaRepository, ILogger<CheckMediaExistsByFileNameHandlers> logger)
     {
       _mediaRepository = mediaRepository;
       _logger = logger;
