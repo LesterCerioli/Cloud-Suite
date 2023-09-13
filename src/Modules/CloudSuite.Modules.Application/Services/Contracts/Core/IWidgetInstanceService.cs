@@ -1,3 +1,4 @@
+using CloudSuite.Modules.Application.Handlers.Core.WidgetInstances;
 using CloudSuite.Modules.Application.ViewModels.Core;
 
 namespace CloudSuite.Modules.Application.Services.Contracts.Core
