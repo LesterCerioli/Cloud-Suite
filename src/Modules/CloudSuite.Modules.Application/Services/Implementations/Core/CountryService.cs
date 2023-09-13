@@ -4,7 +4,7 @@ using MediatR;
 using NetDevPack.Mediator;
 using AutoMapper;
 using CloudSuite.Modules.Application.Services.Contracts.Core;
-using CloudSuite.Modules.Domain.Application.Core;
+using CloudSuite.Modules.Domain.Contracts.Core;
 
 
 namespace CloudSuite.Modules.Application.Services.Implementations.Core
@@ -14,17 +14,17 @@ namespace CloudSuite.Modules.Application.Services.Implementations.Core
         private readonly IMapper _mapper;
         private readonly ICountryRepository _countryRepository;
 
-        private readonly IMediatorHandler _mediatorHandler;
+        private readonly IMediatorHandler _mediator;
         public CountryService(
             IMapper mapper,
             ICountryRepository countryRepository,
-            IMediatorHandler mediatorHandler
+            IMediatorHandler mediator
         )
         {
 
             _mapper = mapper;
             _countryRepository = countryRepository;
-            _mediator = mediatorHandler;
+            _mediator = mediator;
         }
         public async Task<CountryViewModel> GetByName(string name)
         {
