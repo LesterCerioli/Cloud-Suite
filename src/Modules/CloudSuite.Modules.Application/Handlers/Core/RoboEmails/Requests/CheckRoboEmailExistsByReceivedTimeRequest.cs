@@ -7,7 +7,7 @@ namespace CloudSuite.Modules.Application.Handlers.Core.RoboEmails.Requests
   {
     public Guid Id { get; private set; }
 
-    public DateTimeOffset ReceivedTime { get; private set; }
+    public DateTimeOffset ReceivedTime { get; set; }
     
     public CheckRoboEmailExistsByReceivedTimeRequest(DateTimeOffset receivedTime)
     {

@@ -7,7 +7,7 @@ namespace CloudSuite.Modules.Application.Handlers.Core.States.Requests
   {
     public Guid Id { get; private set; }
 
-    public string? UF { get; private set; }
+    public string? UF { get; set; }
     
     public CheckStateExistsByUFRequest(string uf)
     {

@@ -16,7 +16,6 @@ namespace CloudSuite.Modules.Application.Handlers.Core.Users
     {
       _userRepository = userRepository;
       _logger = logger;
-
     }
 
     public async Task<CheckUserExistsByCpfResponse> Handle(CheckUserExistsByCpfRequest request, CancellationToken cancellationToken)
