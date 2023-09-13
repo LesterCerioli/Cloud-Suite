@@ -60,7 +60,7 @@ namespace CloudSuite.Services.Core.API.Controllers.v1
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Error fetching user by name: {ex.Message}.");
+                Console.WriteLine($"Error fetching city by name: {ex.Message}.");
                 return StatusCode(StatusCodes.Status500InternalServerError, new { message = "An internal Server Error" });
             }
         }
@@ -87,7 +87,7 @@ namespace CloudSuite.Services.Core.API.Controllers.v1
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Error fetching user by email: {ex.Message}.");
+                Console.WriteLine(ex.Message);
                 return StatusCode(StatusCodes.Status500InternalServerError, new { message = "An internal Server Error" });
             }
         }
