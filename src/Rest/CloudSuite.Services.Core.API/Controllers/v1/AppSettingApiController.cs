@@ -103,8 +103,7 @@ namespace CloudSuite.Services.Core.API.Controllers.v1
         public async Task<IActionResult> Add([FromBody] CreateAppSettingCommand command)
         {
             try
-            {
-                
+            {                
                     var result = await _mediator.Send(command);
 
                     if (result.Errors.Any())
