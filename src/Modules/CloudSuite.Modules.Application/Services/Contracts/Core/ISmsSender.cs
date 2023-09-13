@@ -7,6 +7,6 @@ namespace CloudSuite.Modules.Application.Services.Contracts.Core
 {
     public interface ISmsSender
     {
-        
+        Task SendSmsAsync(string number, string message);
     }
 }
