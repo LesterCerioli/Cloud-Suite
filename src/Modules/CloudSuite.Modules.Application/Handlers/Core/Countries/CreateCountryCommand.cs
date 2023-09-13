@@ -27,18 +27,18 @@ namespace CloudSuite.Modules.Application.Handlers.Core.Countries
 
     public Guid Id { get; private set; }
 
-    public string? CountryName { get; private set; }
+    public string? CountryName { get; set; }
 
-    public string? Code3 { get; private set; }
+    public string? Code3 { get; set; }
 
-    public bool? IsBillingEnabled { get; private set; }
+    public bool? IsBillingEnabled { get; set; }
 
-    public bool? IsShippingEnabled { get; private set; }
+    public bool? IsShippingEnabled { get; set; }
 
-    public bool? IsCityEnabled { get; private set; } = true;
+    public bool? IsCityEnabled { get; set; } = true;
 
-    public bool? IsZipCodeEnabled { get; private set; } = true;
+    public bool? IsZipCodeEnabled { get; set; } = true;
 
-    public bool? IsDistrictEnabled { get; private set; } = true;
+    public bool? IsDistrictEnabled { get; set; } = true;
   }
 }

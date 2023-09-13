@@ -24,18 +24,18 @@ namespace CloudSuite.Modules.Application.Handlers.Core.Widgets
 
     public Guid Id { get; private set; }
 
-    public string? Name { get; private set; }
+    public string? Name { get; set; }
 
-    public string? ViewComponentName { get; private set; }
+    public string? ViewComponentName { get; set; }
 
-    public string? CreateUrl { get; private set; }
+    public string? CreateUrl { get; set; }
 
-    public string? EditUrl { get; private set; }
+    public string? EditUrl { get; set; }
 
     public bool IsPublished { get; set; }
 
-    public DateTimeOffset? LatestUpdatedOn { get; private set; }
+    public DateTimeOffset? LatestUpdatedOn { get; set; }
 
-    public DateTimeOffset? CreatedOn { get; private set; }
+    public DateTimeOffset? CreatedOn { get; set; }
   }
 }

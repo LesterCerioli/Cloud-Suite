@@ -16,7 +16,6 @@ namespace CloudSuite.Modules.Application.Handlers.Core.Widgets
     {
       _widgetRepository = widgetRepository;
       _logger = logger;
-
     }
 
     public async Task<CheckWidgetExistsByLatestUpdatedDateResponse> Handle(CheckWidgetExistsByLatestUpdatedDateRequest request, CancellationToken cancellationToken)
