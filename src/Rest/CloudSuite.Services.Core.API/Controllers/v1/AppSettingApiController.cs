@@ -15,6 +15,7 @@ namespace CloudSuite.Services.Core.API.Controllers.v1
     {
         private readonly IMediator _mediator;
         private readonly IAppSettingRepository _appSettingRepository;
+        
         public AppSettingApiController(IMediator mediator, IAppSettingRepository appSettingRepository)
         {
             _mediator = mediator;
