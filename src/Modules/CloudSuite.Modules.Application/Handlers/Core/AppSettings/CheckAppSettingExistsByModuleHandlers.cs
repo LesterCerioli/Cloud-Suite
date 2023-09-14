@@ -30,7 +30,7 @@ namespace CloudSuite.Modules.Application.Handlers.Core.AppSettings
       {
         try
         {
-          var appSetting = await _appSettingRepository.GetByAppSetting(request.Module);
+          var appSetting = await _appSettingRepository.GetByModule(request.Module);
 
           if (appSetting != null)
             return await Task.FromResult(new CheckAppSettingExistsByModuleResponse(request.Id, true, validationResult));
