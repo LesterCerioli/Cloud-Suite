@@ -11,6 +11,11 @@ namespace CloudSuite.Modules.Application.Services.Implementations.Core
 {
     public class AddressService : IAddressService
     {
+        public async Task<AddressViewModel> GetByAddressLine(string addressLine1)
+        {
+            throw new NotImplementedException();
+        }
+
         public async Task<AddressViewModel> GetByContactName(string contactName)
         {
             throw new NotImplementedException();
