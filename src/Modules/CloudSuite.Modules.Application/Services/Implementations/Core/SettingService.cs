@@ -7,7 +7,7 @@ using AutoMapper;
 
 namespace CloudSuite.Modules.Application.Services.Implementations.Core
 {
-  public class AppSettingService : ISettingService
+  public class SettingService : ISettingService
   {
     private readonly IMediatorHandler _mediator;
 
@@ -15,7 +15,7 @@ namespace CloudSuite.Modules.Application.Services.Implementations.Core
 
     private readonly IAppSettingRepository _appSettingRepository;
 
-    public AppSettingService(IAppSettingRepository appSettingRepository, IMapper mapper, IMediatorHandler mediator)
+    public SettingService(IAppSettingRepository appSettingRepository, IMapper mapper, IMediatorHandler mediator)
     {
       _mediator = mediator;
       _mapper = mapper;
