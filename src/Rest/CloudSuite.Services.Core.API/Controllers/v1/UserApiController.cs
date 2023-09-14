@@ -16,20 +16,11 @@ namespace CloudSuite.Services.Core.API.Controllers.v1
     public class UserApiController : ControllerBase
     {
         private readonly IMediator _mediator;
-        private readonly IUserRepository _userRepository;
-        public UserApiController(IMediator mediator, IUserRepository userRepository)
+        public UserApiController(IMediator mediator)
         {
             _mediator = mediator;
-            _userRepository = userRepository;
         }
 
-        
-        [HttpGet("users")]
-        public async Task<IEnumerable<User>> GetList()
-        {
-            var users = await _userRepository.GetList();
-            return users;
-        }
 
         // GET: api/<UserApiController>
         [HttpGet("{email}")]
@@ -91,11 +82,11 @@ namespace CloudSuite.Services.Core.API.Controllers.v1
         [HttpPost("create")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public async Task<ActionResult> PostUser([FromBody] CreateUserCommand command)
+        public async Task<ActionResult> Create([FromBody] CreateUserCommand commandCreate)
         {
             try
             {
-                var result = await _mediator.Send(command);
+                var result = await _mediator.Send(commandCreate);
 
                 if (result.Errors.Any())
                 {
