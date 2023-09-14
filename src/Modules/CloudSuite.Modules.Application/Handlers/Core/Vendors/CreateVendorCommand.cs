@@ -30,22 +30,22 @@ namespace CloudSuite.Modules.Application.Handlers.Core.Vendores
 
     public Guid Id { get; private set; }
 
-    public string? Name { get; private set; }
+    public string? Name { get; set; }
 
-    public string? Slug { get; private set; }
+    public string? Slug { get; set; }
 
-    public string? Description { get; private set; }
+    public string? Description { get; set; }
 
-    public Cnpj Cnpj { get; private set; }
+    public Cnpj Cnpj { get; set; }
 
-    public Email Email { get; private set; }
+    public Email Email { get; set; }
 
-    public DateTimeOffset? CreatedOn { get; private set; }
+    public DateTimeOffset? CreatedOn { get; set; }
 
-    public DateTimeOffset? LatestUpdatedOn { get; private set; }
+    public DateTimeOffset? LatestUpdatedOn { get; set; }
 
-    public bool? IsActive { get; private set; }
+    public bool? IsActive { get; set; }
     
-    public bool? IsDeleted { get; private set; }
+    public bool? IsDeleted { get; set; }
   }
 }

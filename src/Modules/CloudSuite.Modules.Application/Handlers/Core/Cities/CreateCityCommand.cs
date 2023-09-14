@@ -19,8 +19,8 @@ namespace CloudSuite.Modules.Application.Handlers.Core.Cities
 
     public Guid Id { get; private set; }
 
-    public string? CityName { get; private set; }
+    public string? CityName { get; set; }
     
-    public State State { get; private set; }
+    public State State { get; set; }
   }
 }
