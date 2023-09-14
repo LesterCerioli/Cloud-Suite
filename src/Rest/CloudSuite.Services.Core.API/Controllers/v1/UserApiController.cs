@@ -24,7 +24,7 @@ namespace CloudSuite.Services.Core.API.Controllers.v1
         }
 
         
-        [HttpGet]
+        [HttpGet("users")]
         public async Task<IEnumerable<User>> GetList()
         {
             var users = await _userRepository.GetList();
@@ -88,7 +88,7 @@ namespace CloudSuite.Services.Core.API.Controllers.v1
 
         // POST api/<UserApiController>
         [AllowAnonymous]
-        [HttpPost]
+        [HttpPost("create")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public async Task<ActionResult> PostUser([FromBody] CreateUserCommand command)
