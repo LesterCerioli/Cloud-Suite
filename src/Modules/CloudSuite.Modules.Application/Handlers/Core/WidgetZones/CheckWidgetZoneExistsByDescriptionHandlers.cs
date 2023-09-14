@@ -16,7 +16,6 @@ namespace CloudSuite.Modules.Application.Handlers.Core.WidgetZones
     {
       _widgetZoneRepository = widgetZoneRepository;
       _logger = logger;
-      
     }
 
     public async Task<CheckWidgetZoneExistsByDescriptionResponse> Handle(CheckWidgetZoneExistsByDescriptionRequest request, CancellationToken cancellationToken)

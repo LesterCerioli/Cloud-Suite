@@ -1,5 +1,5 @@
 namespace CloudSuite.Modules.Common.Enums.Fiscal.NFs
-[
+{ 
     public enum TipoEmissaoNF
     {
         /// <summary>
@@ -46,4 +46,4 @@ namespace CloudSuite.Modules.Common.Enums.Fiscal.NFs
         /// </summary>
         ContingenciaOffLineNfce = 9
     }
-]
+}

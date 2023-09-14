@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CloudSuite.Modules.Application.Services.Implementations.Core
+namespace CloudSuite.Modules.Common.Enums.Fiscal.JobContext
 {
-    internal class EntityService
+    public enum JobType
     {
     }
 }
