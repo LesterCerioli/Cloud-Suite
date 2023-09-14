@@ -1,7 +1,5 @@
 using CloudSuite.Modules.Application.Handlers.Core.Cities;
 using CloudSuite.Modules.Application.Handlers.Core.Cities.Requests;
-using CloudSuite.Modules.Domain.Contracts.Core;
-using CloudSuite.Modules.Domain.Models.Core;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -14,26 +12,15 @@ namespace CloudSuite.Services.Core.API.Controllers.v1
     {
 
         private readonly IMediator _mediator;
-        private readonly ILogger<CityApiController> _logger;
-        private readonly ICityRepository _cityRepository;
 
-        public CityApiController(ILogger<CityApiController> logger, IMediator mediator, ICityRepository cityRepository)
+        public CityApiController(IMediator mediator)
         {
-            _logger = logger;
+
             _mediator = mediator;
-            _cityRepository = cityRepository;
+
         }
 
-        [HttpGet]
-        [Route("")]
-        [ProducesResponseType(StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status404NotFound)]
-        [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public async Task<IEnumerable<City>> GetList()
-        {
-            var cities = await _cityRepository.GetList();
-            return cities;
-        }
+
 
         [HttpGet]
         [Route("{name}")]
@@ -66,15 +53,14 @@ namespace CloudSuite.Services.Core.API.Controllers.v1
         }
 
         [HttpPost]
-        [Route("")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public async Task<IActionResult> Add([FromBody] CreateCityCommand createCity)
+        public async Task<IActionResult> Save([FromBody] CreateCityCommand commandCreate)
         {
             try
             {
-                var result = await _mediator.Send(createCity);
+                var result = await _mediator.Send(commandCreate);
                 if (result.Errors.Any())
                 {
                     return BadRequest(result);
