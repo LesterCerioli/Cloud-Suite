@@ -26,9 +26,9 @@ namespace CloudSuite.Modules.Application.Services.Contracts.Core
             _mediator = mediator;                
         }
 
-        public async Task<CityViemModel> GetByCityName(string cityName)
+        public async Task<CityViewModel> GetByCityName(string cityName)
         {
-            return _mapper.Map<CityViemModel>(await _cityRepository.GetByCityName(cityName));
+            return _mapper.Map<CityViewModel>(await _cityRepository.GetByCityName(cityName));
         }
 
         public void Dispose()

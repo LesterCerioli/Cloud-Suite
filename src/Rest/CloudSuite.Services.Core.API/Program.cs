@@ -23,7 +23,7 @@ var configuration = new MapperConfiguration(cfg =>
 builder.Services.AddTransient<IAddressService, AddressService>();
 builder.Services.AddTransient<IMediaService, MediaService>();
 builder.Services.AddTransient<IMediator, Mediator>();
-builder.Services.AddTransient<IMediaRepository, IMediaRepository>();
+
 //builder.Services.AddTransient<IRequestTokenRepository, RequestTokenRepository>();
 builder.Services.AddTransient<IMediatorHandler, MediatorHandler>();
 builder.Services.AddSingleton<IMapper>(configuration.CreateMapper());
