@@ -3,9 +3,9 @@ using FluentValidation;
 
 namespace CloudSuite.Modules.Application.Validations.Core.AppSettings
 {
-  public class CheckAppSettingExistsByAppSettingRequestValidation : AbstractValidator<CheckAppSettingExistsByAppSettingRequest>
+  public class CheckAppSettingExistsByValueRequestValidation : AbstractValidator<CheckAppSettingExistsByValueRequest>
   {
-    public CheckAppSettingExistsByAppSettingRequestValidation()
+    public CheckAppSettingExistsByValueRequestValidation()
     {
       RuleFor(request => request.Value)
       .NotEmpty()
