@@ -27,7 +27,7 @@ namespace CloudSuite.Modules.Application.Handlers.Core.AppSettings
       {
         try
         {
-          var appSettings = await _appSettingRepository.GetByAppSetting(command.Value);
+          var appSettings = await _appSettingRepository.GetByValue(command.Value);
 
           if (appSettings != null)
             return await Task.FromResult(new CreateAppSettingResponse(command.Id, "Endereço já cadastrado"));

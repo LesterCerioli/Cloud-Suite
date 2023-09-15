@@ -1,4 +1,5 @@
 ﻿using CloudSuite.Modules.Domain.Models.Core;
+using CloudSuite.Modules.Domain.ValueObjects;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,6 +13,8 @@ namespace CloudSuite.Modules.Domain.Contracts.Core
         Task<Company> GetByFantasyName(string fantasyName);
 
         Task<Company> GetByRegisterName(string registerName);
+
+        Task<Company> GetByCnpj(Cnpj cnpj);
 
         Task<IEnumerable<Company>> GetAll();
 

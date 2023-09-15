@@ -8,6 +8,7 @@ namespace CloudSuite.Modules.Application.Services.Contracts.Core
     Task SendEmailAsync(string emailAddress, string subject, string body, bool isHtml = false);
 
     Task<RoboEmailViewModel> GetBySubject(string subject);
+    
     Task Save(CreateRoboEmailCommand commandCreate);
   }
 }
