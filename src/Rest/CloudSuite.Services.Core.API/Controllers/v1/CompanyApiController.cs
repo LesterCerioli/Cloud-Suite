@@ -1,89 +1,115 @@
-﻿using CloudSuite.Modules.Application.Handlers.Core.Users;
-using CloudSuite.Modules.Application.Handlers.Token.Requests;
+﻿using CloudSuite.Modules.Application.Handlers.Core.Companies;
+using CloudSuite.Modules.Application.Handlers.Core.Companies.Requests;
+using CloudSuite.Modules.Domain.Contracts.Core;
+using CloudSuite.Modules.Domain.Models.Core;
+using CloudSuite.Modules.Domain.ValueObjects;
 using MediatR;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+
+
 
 namespace CloudSuite.Services.Core.API.Controllers.v1
 {
-    [Route("api/v{version:apiVersion}/[controller]")]
+    [Route("api/[controller]")]
     [ApiController]
-
-    public class CompanyController : ControllerBase
+    public class CompanyApiController : ControllerBase
     {
-        private readonly ILogger<CompanyController> _logger;
         private readonly IMediator _mediator;
+        private readonly ILogger<CompanyApiController> _logger;
 
-        public CompanyController(ILogger<CompanyController> logger, IMediator mediator)
+        public CompanyApiController(ILogger<CompanyApiController> logger, IMediator mediator)
         {
             _logger = logger;
             _mediator = mediator;
+
         }
 
-        /*
-        [AllowAnonymous]
-        [HttpPost("create")]
-        [ProducesResponseType(StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status400BadRequest)]
-
-        public async Task<IActionResult> Post([FromBody] CreateCompanyCommand createCommand)
-        {
-            var result = await _mediator.Send(createCommand);
-            if(result.Errors.Any())
-            {
-                return BadRequest(result);
-            }
-            else
-            {
-                return Ok(result);
-            }
-        }
-
+        // Get api/<CompanyApiController>/5
         [HttpGet]
-        [Route("exists/cnpj/{cnpj}")]
+        [Route("{fantasyname}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-
-        public async Task<IActionResult> CnpjExists([FromRoute] string cnpj)
-        {
-            var result = await _mediator.Send(new CheckCompanyExistsByCnpjRequest(cnpj));
-            if (result.Errors.Any())
-            {
-                return BadRequest(result);
-            }
-            if (result.Exists)
-            {
-                return Ok(result);
-            }
-            else
-            {
-                return NotFound(result);
-            }
-        }
-
-        [AllowAnonymous]
-        [HttpPost]
-        [ProducesResponseType(StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public async Task<ActionResult> PostCompany([FromBody] CreateCompanyCommand command)
+        public async Task<IActionResult> GetByFantasyName([FromRoute] string fantasyname)
         {
             try
             {
-                var result = await _mediator.Send(command);
-
+                var result = await _mediator.Send(new CheckCompanyExistsByFantasyNameRequest(fantasyname));
                 if (result.Errors.Any())
                 {
-                    return Ok();
+                    return BadRequest(result);
+                }
+                if (result.Exists)
+                {
+                    return Ok(result);
                 }
                 else
                 {
-                    return BadRequest(new { message = "Could not create company." });
+                    return NotFound(result);
                 }
             }
-            catch
+            catch (Exception ex)
             {
-                return StatusCode(StatusCodes.Status500InternalServerError, new { message = "An internal error occurred." });
+                Console.WriteLine($"Error fetching user by fantasyname: {ex.Message}.");
+                return StatusCode(StatusCodes.Status500InternalServerError, new { message = "An internal Server Error" });
+            }
+        }
+        /*
+        [HttpGet]
+        [Route("{cnpj}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public async Task<IActionResult> GetByCnpj([FromRoute] Cnpj cnpj)
+        {
+            try
+            {
+                var result = await _mediator.Send(new CheckCompanyExistsByCnpjRequest(cnpj));
+                if (result.Errors.Any())
+                {
+                    return BadRequest(result);
+                }
+                if (result.Exists)
+                {
+                    return Ok(result);
+                }
+                else
+                {
+                    return NotFound(result);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error fetching user by cnpj: {ex.Message}.");
+                return StatusCode(StatusCodes.Status500InternalServerError, new { message = "An internal Server Error" });
+            }
+        }
+
+        // POST api/<CompanyApiController>
+        [HttpPost]
+        [Route("")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public async Task<IActionResult> Add([FromBody] CreateCompanyCommand createCommand)
+        {
+            try
+            {
+                var result = await _mediator.Send(createCommand);
+                if (result.Errors.Any())
+                {
+                    return BadRequest(result);
+                }
+
+                else
+                {
+                    return Ok(result);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error fetching user by email: {ex.Message}.");
+                return StatusCode(StatusCodes.Status500InternalServerError, new { message = "An internal Server Error" });
             }
         }
         */
