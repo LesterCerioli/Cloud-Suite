@@ -12,7 +12,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace CloudSuite.Modules.Application.Services.Implementations.Core
-{/*
+{
     public class CompanyService : ICompanyService
     {
         private readonly IMediatorHandler _mediator;
@@ -53,5 +53,4 @@ namespace CloudSuite.Modules.Application.Services.Implementations.Core
             await _companyRepository.Add(commandCreate.GetEntity());
         }
     }
-    */
 }

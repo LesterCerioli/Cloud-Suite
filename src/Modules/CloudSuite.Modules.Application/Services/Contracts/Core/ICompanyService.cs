@@ -12,7 +12,9 @@ namespace CloudSuite.Modules.Application.Services.Contracts.Core
     public interface ICompanyService
     {
         Task<CompanyViewModel> GetByFantasyName(string fantasyName);
-        
+
+        Task<CompanyViewModel> GetByRegisterName(string registerName);
+
         Task<CompanyViewModel> GetByCnpj(Cnpj cnpj);
 
         Task Save(CreateCompanyCommand commandCreate);
