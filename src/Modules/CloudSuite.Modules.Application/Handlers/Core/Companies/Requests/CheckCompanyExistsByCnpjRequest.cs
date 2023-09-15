@@ -8,12 +8,12 @@ namespace CloudSuite.Modules.Application.Handlers.Core.Companies.Requests
     {
         public Guid Id { get; private set; }
 
-        public Cnpj cnpj { get; set; }
+        public Cnpj Cnpj { get; set; }
 
         public CheckCompanyExistsByCnpjRequest(Cnpj cnpj)
         {
             Id = Guid.NewGuid();
-            //Cnpj = cnpj;
+            Cnpj = cnpj;
         }
     }
 }

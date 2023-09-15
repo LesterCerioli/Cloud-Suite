@@ -25,7 +25,7 @@ namespace CloudSuite.Modules.Application.Handlers.Core.Companies
             _logger.LogInformation($"CheckCompanyExistsByCnpjRequest: {JsonSerializer.Serialize(request)}");
 
             var validationResult = new CheckCompanyExistsByCnpjRequestValidation().Validate(request);
-            /*
+            
             if (validationResult.IsValid)
             {
                 try
@@ -41,7 +41,6 @@ namespace CloudSuite.Modules.Application.Handlers.Core.Companies
                     return await Task.FromResult(new CheckCompanyExistsByCnpjResponse(request.Id, "Não foi possivel processar a solicitação"));
                 }
             }
-            */
 
             return await Task.FromResult(new CheckCompanyExistsByCnpjResponse(request.Id, false, validationResult));
         }
