@@ -16,6 +16,8 @@ namespace CloudSuite.Modules.Domain.Contracts.Core
 
         Task<Company> GetByRegisterName(string registerName);
 
+        Task<Company> GetByCnpj(Cnpj cnpj);
+
         Task<IEnumerable<Company>> GetAll();
 
         Task Add(Company company);

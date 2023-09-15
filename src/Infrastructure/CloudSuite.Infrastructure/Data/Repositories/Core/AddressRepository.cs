@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CloudSuite.Modules.Application.Services.Implementations.Core
+namespace CloudSuite.Infrastructure.Data.Repositories.Core
 {
-    internal class EntityService
+    public class AddressRepository
     {
     }
 }

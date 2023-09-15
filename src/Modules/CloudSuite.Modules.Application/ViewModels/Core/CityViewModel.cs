@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace CloudSuite.Modules.Application.ViewModels.Core
 {
-    public class CityViemModel
+    public class CityViewModel
     {
         [Key]
         public Guid Id { get; set; }
