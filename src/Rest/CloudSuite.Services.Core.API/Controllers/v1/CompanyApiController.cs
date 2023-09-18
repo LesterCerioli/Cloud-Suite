@@ -54,6 +54,7 @@ namespace CloudSuite.Services.Core.API.Controllers.v1
                 return StatusCode(StatusCodes.Status500InternalServerError, new { message = "An internal Server Error" });
             }
         }
+
         /*
         [HttpGet]
         [Route("{cnpj}")]
