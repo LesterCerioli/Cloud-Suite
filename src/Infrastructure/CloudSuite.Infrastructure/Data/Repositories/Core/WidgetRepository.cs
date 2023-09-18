@@ -57,14 +57,14 @@ namespace CloudSuite.Infrastructure.Data.Repositories.Core
             });
         }
 
-        public void Update(Widget widgete)
+        public void Update(Widget widget)
         {
-            DbSet.Update(widgete);
+            DbSet.Update(widget);
         }
 
-        public void Remove(Widget widgete)
+        public void Remove(Widget widget)
         {
-            DbSet.Remove(widgete);
+            DbSet.Remove(widget);
         }
     }
 }

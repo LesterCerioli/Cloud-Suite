@@ -11,49 +11,54 @@ using System.Threading.Tasks;
 
 namespace CloudSuite.Infrastructure.Data.Repositories.Core
 {
-    public class StateRepository : IStateRepository
+    public class EmailRepository : IEmailRepository
     {
 
         protected readonly CloudSuiteDbContext Db;
-        protected readonly DbSet<State> DbSet;
+        protected readonly DbSet<RoboEmail> DbSet;
 
-        public StateRepository(CloudSuiteDbContext context)
+        public EmailRepository(CloudSuiteDbContext context)
         {
             Db = context;
-            DbSet = context.States;
+            DbSet = context.RoboEmails;
         }
 
-        public async Task<State> GetByName(string stateName)
+        public async Task<RoboEmail> GetBySubject(string subject)
         {
-            return await DbSet.AsNoTracking().FirstOrDefaultAsync(c => c.StateName == stateName);
+            return await DbSet.AsNoTracking().FirstOrDefaultAsync(c => c.Subject == subject);
         }
 
-        public async Task<State> GetByUF(string uf)
+        public async Task<RoboEmail> GetByReceivedTime(DateTimeOffset receivedTime)
         {
-            return await DbSet.AsNoTracking().FirstOrDefaultAsync(c => c.UF == uf);
+            return await DbSet.AsNoTracking().FirstOrDefaultAsync(c => c.ReceivedTime == receivedTime);
         }
 
-        public async Task<IEnumerable<State>> GetList()
+        public async Task<RoboEmail> GetByMessageRecipient(string messageRecipient)
+        {
+            return await DbSet.AsNoTracking().FirstOrDefaultAsync(c => c.MessageRecipient == messageRecipient);
+        }
+
+        public async Task<IEnumerable<RoboEmail>> GetList()
         {
             return await DbSet.ToListAsync();
         }
 
-        public async Task Add(State state)
+        public async Task Add(RoboEmail roboEmail)
         {
             await Task.Run(() => {
-                DbSet.Add(state);
+                DbSet.Add(roboEmail);
                 Db.SaveChanges();
             });
         }
 
-        public void Update(State state)
+        public void Update(RoboEmail roboEmail)
         {
-            DbSet.Update(state);
+            DbSet.Update(roboEmail);
         }
 
-        public void Remove(State state)
+        public void Remove(RoboEmail roboEmail)
         {
-            DbSet.Remove(state);
+            DbSet.Remove(roboEmail);
         }
     }
 }

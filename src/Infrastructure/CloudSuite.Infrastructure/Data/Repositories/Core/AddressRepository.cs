@@ -20,7 +20,7 @@ namespace CloudSuite.Infrastructure.Data.Repositories.Core
         public AddressRepository(CloudSuiteDbContext context)
         {
             Db = context;
-            DbSet = context.AppSetting;
+            DbSet = context.Addresses;
         }
 
         public async Task<Address> GetByContactName(string contactName)
