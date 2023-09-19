@@ -10,11 +10,11 @@ namespace CloudSuite.Modules.Domain.Contracts.Core
 {
     public interface ICompanyRepository
     {
+        Task<Company> GetByCnpj(Cnpj cnpj);
+
         Task<Company> GetByFantasyName(string fantasyName);
 
         Task<Company> GetByRegisterName(string registerName);
-
-        Task<Company> GetByCnpj(Cnpj cnpj);
 
         Task<IEnumerable<Company>> GetAll();
 

@@ -11,49 +11,49 @@ using System.Threading.Tasks;
 
 namespace CloudSuite.Infrastructure.Data.Repositories.Core
 {
-    public class AddressRepository : IAddressRepository
+    public class CountryRepository : ICountryRepository
     {
 
         protected readonly CloudSuiteDbContext Db;
-        protected readonly DbSet<Address> DbSet;
+        protected readonly DbSet<Country> DbSet;
 
-        public AddressRepository(CloudSuiteDbContext context)
+        public CountryRepository(CloudSuiteDbContext context)
         {
             Db = context;
-            DbSet = context.Addresses;
+            DbSet = context.Countries;
         }
 
-        public async Task<Address> GetByContactName(string contactName)
+        public async Task<Country> GetByName(string countryName)
         {
-            return await DbSet.AsNoTracking().FirstOrDefaultAsync(c => c.ContactName == contactName);
+            return await DbSet.AsNoTracking().FirstOrDefaultAsync(c => c.CountryName == countryName);
         }
 
-        public async Task<Address> GetByAddressLine(string addressLine1)
+        public async Task<Country> GetByCode(string code3)
         {
-            return await DbSet.AsNoTracking().FirstOrDefaultAsync(c => c.AddressLine1 == addressLine1);
+            return await DbSet.AsNoTracking().FirstOrDefaultAsync(c => c.Code3 == code3);
         }
 
-        public async Task<IEnumerable<Address>> GetAll()
+        public async Task<IEnumerable<Country>> GetList()
         {
             return await DbSet.ToListAsync();
         }
 
-        public async Task Add(Address address)
+        public async Task Add(Country country)
         {
             await Task.Run(() => {
-                DbSet.Add(address);
+                DbSet.Add(country);
                 Db.SaveChanges();
             });
         }
 
-        public void Update(Address address)
+        public void Update(Country country)
         {
-            DbSet.Update(address);
+            DbSet.Update(country);
         }
 
-        public void Remove(Address address)
+        public void Remove(Country country)
         {
-            DbSet.Remove(address);
+            DbSet.Remove(country);
         }
 
         public void Dispose()
