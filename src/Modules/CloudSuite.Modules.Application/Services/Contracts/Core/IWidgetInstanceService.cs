@@ -5,11 +5,11 @@ namespace CloudSuite.Modules.Application.Services.Contracts.Core
 {
   public interface IWidgetInstanceService
   {
-    Task<WindgetInstanceViewModel> GetByName(string name);
+    Task<WidgetInstanceViewModel> GetByName(string name);
 
-    Task<WindgetInstanceViewModel> GetByDisplayOrder(int displayOrder);
+    Task<WidgetInstanceViewModel> GetByDisplayOrder(int displayOrder);
     
-    Task<WindgetInstanceViewModel> GetByData(string data);
+    Task<WidgetInstanceViewModel> GetByData(string data);
 
     Task Save(CreateWidgetInstanceCommand commandCreate);
   }
