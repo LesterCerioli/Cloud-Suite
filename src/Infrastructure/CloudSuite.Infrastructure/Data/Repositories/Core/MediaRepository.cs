@@ -23,11 +23,6 @@ namespace CloudSuite.Infrastructure.Data.Repositories.Core
             DbSet = context.Medias;
         }
 
-        public void Dispose()
-        {
-            Db.Dispose();
-        }
-
         public async Task<Media> GetByCaption(string caption)
         {
             return await DbSet.AsNoTracking().FirstOrDefaultAsync(c => c.Caption == caption);
@@ -64,6 +59,11 @@ namespace CloudSuite.Infrastructure.Data.Repositories.Core
         public void Remove(Media media)
         {
             DbSet.Remove(media);
+        }
+
+        public void Dispose()
+        {
+            Db.Dispose();
         }
     }
 }

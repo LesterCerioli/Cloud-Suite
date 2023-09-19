@@ -23,12 +23,6 @@ namespace CloudSuite.Infrastructure.Data.Repositories.Core
             DbSet = context.WidgetInstances;
         }
 
-        public void Dispose()
-        {
-            Db.Dispose();
-        }
-
-
         public async Task<WidgetInstance> GetByName(string name)
         {
             return await DbSet.AsNoTracking().FirstOrDefaultAsync(c => c.Name == name);
@@ -76,6 +70,11 @@ namespace CloudSuite.Infrastructure.Data.Repositories.Core
         public void Remove(WidgetInstance widgetInstance)
         {
             DbSet.Remove(widgetInstance);
+        }
+
+        public void Dispose()
+        {
+            Db.Dispose();
         }
     }
 }

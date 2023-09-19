@@ -23,11 +23,6 @@ namespace CloudSuite.Infrastructure.Data.Repositories.Core
             DbSet = context.Countries;
         }
 
-        public void Dispose()
-        {
-            Db.Dispose();
-        }
-
         public async Task<Country> GetByName(string countryName)
         {
             return await DbSet.AsNoTracking().FirstOrDefaultAsync(c => c.CountryName == countryName);
@@ -59,6 +54,11 @@ namespace CloudSuite.Infrastructure.Data.Repositories.Core
         public void Remove(Country country)
         {
             DbSet.Remove(country);
+        }
+
+        public void Dispose()
+        {
+            Db.Dispose();
         }
     }
 }

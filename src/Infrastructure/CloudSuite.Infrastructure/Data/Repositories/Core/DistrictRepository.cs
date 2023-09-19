@@ -23,11 +23,6 @@ namespace CloudSuite.Infrastructure.Data.Repositories.Core
             DbSet = context.Districts;
         }
 
-        public void Dispose()
-        {
-            Db.Dispose();
-        }
-
         public async Task<District> GetByName(string name)
         {
             return await DbSet.AsNoTracking().FirstOrDefaultAsync(c => c.Name == name);
@@ -54,6 +49,11 @@ namespace CloudSuite.Infrastructure.Data.Repositories.Core
         public void Remove(District district)
         {
             DbSet.Remove(district);
+        }
+
+        public void Dispose()
+        {
+            Db.Dispose();
         }
     }
 }

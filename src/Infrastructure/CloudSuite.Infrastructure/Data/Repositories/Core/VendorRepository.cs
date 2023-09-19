@@ -23,12 +23,6 @@ namespace CloudSuite.Infrastructure.Data.Repositories.Core
             DbSet = context.Vendors;
         }
 
-        public void Dispose()
-        {
-            Db.Dispose();
-        }
-
-
         public async Task<Vendor> GetByCnpj(Cnpj cnpj)
         {
             return await DbSet.AsNoTracking().FirstOrDefaultAsync(c => c.Cnpj.CnpjNumber == cnpj.CnpjNumber);
@@ -65,6 +59,11 @@ namespace CloudSuite.Infrastructure.Data.Repositories.Core
         public void Remove(Vendor vendor)
         {
             DbSet.Remove(vendor);
+        }
+
+        public void Dispose()
+        {
+            Db.Dispose();
         }
     }
 }

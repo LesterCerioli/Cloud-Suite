@@ -22,10 +22,6 @@ namespace CloudSuite.Infrastructure.Data.Repositories.Core
             Db = context;
             DbSet = context.WidgetZones;
         }
-        public void Dispose()
-        {
-            Db.Dispose();
-        }
 
         public async Task<WidgetZone> GetByName(string name)
         {
@@ -58,6 +54,11 @@ namespace CloudSuite.Infrastructure.Data.Repositories.Core
         public void Remove(WidgetZone widgetZone)
         {
             DbSet.Remove(widgetZone);
+        }
+
+        public void Dispose()
+        {
+            Db.Dispose();
         }
     }
 }
