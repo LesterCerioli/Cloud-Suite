@@ -55,7 +55,36 @@ namespace CloudSuite.Services.Core.API.Controllers.v1
             }
         }
 
-        /*
+        [HttpGet]
+        [Route("{registername}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public async Task<IActionResult> GetByRegisterName([FromRoute] string registername)
+        {
+            try
+            {
+                var result = await _mediator.Send(new CheckCompanyExistsByRegisterNameRequest(registername));
+                if (result.Errors.Any())
+                {
+                    return BadRequest(result);
+                }
+                if (result.Exists)
+                {
+                    return Ok(result);
+                }
+                else
+                {
+                    return NotFound(result);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error fetching user by registername: {ex.Message}.");
+                return StatusCode(StatusCodes.Status500InternalServerError, new { message = "An internal Server Error" });
+            }
+        }
+
         [HttpGet]
         [Route("{cnpj}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
@@ -113,6 +142,5 @@ namespace CloudSuite.Services.Core.API.Controllers.v1
                 return StatusCode(StatusCodes.Status500InternalServerError, new { message = "An internal Server Error" });
             }
         }
-        */
     }
 }
