@@ -11,49 +11,49 @@ using System.Threading.Tasks;
 
 namespace CloudSuite.Infrastructure.Data.Repositories.Core
 {
-    public class AddressRepository : IAddressRepository
+    public class UserRepository : IUserRepository
     {
 
         protected readonly CloudSuiteDbContext Db;
-        protected readonly DbSet<Address> DbSet;
+        protected readonly DbSet<User> DbSet;
 
-        public AddressRepository(CloudSuiteDbContext context)
+        public UserRepository(CloudSuiteDbContext context)
         {
             Db = context;
-            DbSet = context.Addresses;
+            DbSet = context.Users;
         }
 
-        public async Task<Address> GetByContactName(string contactName)
+        public async Task<User> GetByEmail(Email email)
         {
-            return await DbSet.AsNoTracking().FirstOrDefaultAsync(c => c.ContactName == contactName);
+            return await DbSet.AsNoTracking().FirstOrDefaultAsync(c => c.Email == email) ;
         }
 
-        public async Task<Address> GetByAddressLine(string addressLine1)
+        public async Task<User> GetByCpf(Cpf cpf)
         {
-            return await DbSet.AsNoTracking().FirstOrDefaultAsync(c => c.AddressLine1 == addressLine1);
+            return await DbSet.AsNoTracking().FirstOrDefaultAsync(c => c.Cpf.CpfNumber == cpf.CpfNumber);
         }
 
-        public async Task<IEnumerable<Address>> GetAll()
+        public async Task<IEnumerable<User>> GetList()
         {
             return await DbSet.ToListAsync();
         }
 
-        public async Task Add(Address address)
+        public async Task Add(User user)
         {
             await Task.Run(() => {
-                DbSet.Add(address);
+                DbSet.Add(user);
                 Db.SaveChanges();
             });
         }
 
-        public void Update(Address address)
+        public void Update(User user)
         {
-            DbSet.Update(address);
+            DbSet.Update(user);
         }
 
-        public void Remove(Address address)
+        public void Remove(User user)
         {
-            DbSet.Remove(address);
+            DbSet.Remove(user);
         }
 
         public void Dispose()

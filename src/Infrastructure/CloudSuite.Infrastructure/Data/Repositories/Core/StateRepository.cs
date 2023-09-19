@@ -11,49 +11,50 @@ using System.Threading.Tasks;
 
 namespace CloudSuite.Infrastructure.Data.Repositories.Core
 {
-    public class AddressRepository : IAddressRepository
+    public class StateRepository : IStateRepository
     {
 
         protected readonly CloudSuiteDbContext Db;
-        protected readonly DbSet<Address> DbSet;
+        protected readonly DbSet<State> DbSet;
 
-        public AddressRepository(CloudSuiteDbContext context)
+        public StateRepository(CloudSuiteDbContext context)
         {
             Db = context;
-            DbSet = context.Addresses;
+            DbSet = context.States;
         }
 
-        public async Task<Address> GetByContactName(string contactName)
+        public async Task<State> GetByName(string stateName)
         {
-            return await DbSet.AsNoTracking().FirstOrDefaultAsync(c => c.ContactName == contactName);
+            return await DbSet.AsNoTracking().FirstOrDefaultAsync(c => c.StateName == stateName);
         }
 
-        public async Task<Address> GetByAddressLine(string addressLine1)
+        public async Task<State> GetByUF(string uf)
         {
-            return await DbSet.AsNoTracking().FirstOrDefaultAsync(c => c.AddressLine1 == addressLine1);
+            return await DbSet.AsNoTracking().FirstOrDefaultAsync(c => c.UF == uf);
         }
 
-        public async Task<IEnumerable<Address>> GetAll()
+
+        public async Task<IEnumerable<State>> GetList()
         {
             return await DbSet.ToListAsync();
         }
 
-        public async Task Add(Address address)
+        public async Task Add(State state)
         {
             await Task.Run(() => {
-                DbSet.Add(address);
+                DbSet.Add(state);
                 Db.SaveChanges();
             });
         }
 
-        public void Update(Address address)
+        public void Update(State state)
         {
-            DbSet.Update(address);
+            DbSet.Update(state);
         }
 
-        public void Remove(Address address)
+        public void Remove(State state)
         {
-            DbSet.Remove(address);
+            DbSet.Remove(state);
         }
 
         public void Dispose()

@@ -11,49 +11,49 @@ using System.Threading.Tasks;
 
 namespace CloudSuite.Infrastructure.Data.Repositories.Core
 {
-    public class AddressRepository : IAddressRepository
+    public class EntityRepository : IEntityRepository
     {
 
         protected readonly CloudSuiteDbContext Db;
-        protected readonly DbSet<Address> DbSet;
+        protected readonly DbSet<Entidade> DbSet;
 
-        public AddressRepository(CloudSuiteDbContext context)
+        public EntityRepository(CloudSuiteDbContext context)
         {
             Db = context;
-            DbSet = context.Addresses;
+            DbSet = context.Entidades;
         }
 
-        public async Task<Address> GetByContactName(string contactName)
+        public async Task<Entidade> GetBySlug(string slug)
         {
-            return await DbSet.AsNoTracking().FirstOrDefaultAsync(c => c.ContactName == contactName);
+            return await DbSet.AsNoTracking().FirstOrDefaultAsync(c => c.Slug == slug);
         }
 
-        public async Task<Address> GetByAddressLine(string addressLine1)
+        public async Task<Entidade> GetByName(string name)
         {
-            return await DbSet.AsNoTracking().FirstOrDefaultAsync(c => c.AddressLine1 == addressLine1);
+            return await DbSet.AsNoTracking().FirstOrDefaultAsync(c => c.Name == name);
         }
 
-        public async Task<IEnumerable<Address>> GetAll()
+        public async Task<IEnumerable<Entidade>> GetAll()
         {
             return await DbSet.ToListAsync();
         }
 
-        public async Task Add(Address address)
+        public async Task Add(Entidade entity)
         {
             await Task.Run(() => {
-                DbSet.Add(address);
+                DbSet.Add(entity);
                 Db.SaveChanges();
             });
         }
 
-        public void Update(Address address)
+        public void Update(Entidade entity)
         {
-            DbSet.Update(address);
+            DbSet.Update(entity);
         }
 
-        public void Remove(Address address)
+        public void Remove(Entidade entity)
         {
-            DbSet.Remove(address);
+            DbSet.Remove(entity);
         }
 
         public void Dispose()
