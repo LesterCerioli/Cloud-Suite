@@ -6,7 +6,18 @@ using System.Threading.Tasks;
 
 namespace CloudSuite.Modules.Application.Services.Implementations.Core
 {
-    internal class WidgetInstanceService
+    public class WidgetInstanceService : IWidgetInstanceService
     {
+        public WidgetInstanceServiceidgetInstanceService(
+            IWidgetInstancceRepository widgetInstancceRepository,
+            IMediator mediator,
+            IMapper mapper
+            )
+        {
+            _widgetInstanceRepository = widgetInstancceRepository;
+            _mapper = mapper;
+            _mediator = mediator;
+
+        }
     }
 }

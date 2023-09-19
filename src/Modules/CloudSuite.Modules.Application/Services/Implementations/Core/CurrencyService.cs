@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CloudSuite.Modules.Application.Services.Implementations.Core
 {
-    internal class CurrencyService
+    public class CurrencyService
     {
     }
 }
