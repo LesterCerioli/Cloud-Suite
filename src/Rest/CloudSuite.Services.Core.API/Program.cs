@@ -20,25 +20,25 @@ var configuration = new MapperConfiguration(cfg =>
 
 });
 
-builder.Services.AddTransient<IAddressService, AddressService>();
-builder.Services.AddTransient<IMediaService, MediaService>();
-builder.Services.AddTransient<IMediator, Mediator>();
+//builder.Services.AddTransient<IAddressService, AddressService>();
+//builder.Services.AddTransient<IMediaService, MediaService>();
+//builder.Services.AddTransient<IMediator, Mediator>();
 
 //builder.Services.AddTransient<IRequestTokenRepository, RequestTokenRepository>();
-builder.Services.AddTransient<IMediatorHandler, MediatorHandler>();
-builder.Services.AddSingleton<IMapper>(configuration.CreateMapper());
+//builder.Services.AddTransient<IMediatorHandler, MediatorHandler>();
+//builder.Services.AddSingleton<IMapper>(configuration.CreateMapper());
 
-builder.Services.AddCors(options =>
-{
-    options.AddPolicy("my-cors",
-                          policy =>
-                          {
-                              policy
-                              .AllowAnyOrigin()
-                              .AllowAnyHeader()
-                              .AllowAnyMethod();
-                          });
-});
+//builder.Services.AddCors(options =>
+//{
+    //options.AddPolicy("my-cors",
+                          //policy =>
+                          //{
+                              //policy
+                              //.AllowAnyOrigin()
+                              //.AllowAnyHeader()
+                              //.AllowAnyMethod();
+                          //});
+//});
 
 var app = builder.Build();
 
