@@ -23,6 +23,12 @@ namespace CloudSuite.Infrastructure.Data.Repositories.Core
             DbSet = context.Addresses;
         }
 
+        public void Dispose()
+        {
+            Db.Dispose();
+        }
+
+
         public async Task<Address> GetByContactName(string contactName)
         {
             return await DbSet.AsNoTracking().FirstOrDefaultAsync(c => c.ContactName == contactName);

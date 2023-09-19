@@ -23,6 +23,11 @@ namespace CloudSuite.Infrastructure.Data.Repositories.Core
             DbSet = context.States;
         }
 
+        public void Dispose()
+        {
+            Db.Dispose();
+        }
+
         public async Task<State> GetByName(string stateName)
         {
             return await DbSet.AsNoTracking().FirstOrDefaultAsync(c => c.StateName == stateName);

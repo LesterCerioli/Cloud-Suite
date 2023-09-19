@@ -23,6 +23,12 @@ namespace CloudSuite.Infrastructure.Data.Repositories.Core
             DbSet = context.Users;
         }
 
+        public void Dispose()
+        {
+            Db.Dispose();
+        }
+
+
         public async Task<User> GetByEmail(Email email)
         {
             return await DbSet.AsNoTracking().FirstOrDefaultAsync(c => c.Email == email) ;

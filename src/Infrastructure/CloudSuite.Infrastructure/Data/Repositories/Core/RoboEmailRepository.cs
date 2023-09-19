@@ -23,6 +23,11 @@ namespace CloudSuite.Infrastructure.Data.Repositories.Core
             DbSet = context.RoboEmails;
         }
 
+        public void Dispose()
+        {
+            Db.Dispose();
+        }
+
         public async Task<RoboEmail> GetBySubject(string subject)
         {
             return await DbSet.AsNoTracking().FirstOrDefaultAsync(c => c.Subject == subject);

@@ -23,6 +23,12 @@ namespace CloudSuite.Infrastructure.Data.Repositories.Core
             DbSet = context.Entidades;
         }
 
+        public void Dispose()
+        {
+            Db.Dispose();
+        }
+
+
         public async Task<Entidade> GetBySlug(string slug)
         {
             return await DbSet.AsNoTracking().FirstOrDefaultAsync(c => c.Slug == slug);

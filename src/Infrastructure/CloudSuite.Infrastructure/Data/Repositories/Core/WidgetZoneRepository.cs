@@ -22,6 +22,10 @@ namespace CloudSuite.Infrastructure.Data.Repositories.Core
             Db = context;
             DbSet = context.WidgetZones;
         }
+        public void Dispose()
+        {
+            Db.Dispose();
+        }
 
         public async Task<WidgetZone> GetByName(string name)
         {
