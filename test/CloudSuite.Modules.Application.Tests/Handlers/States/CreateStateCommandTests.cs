@@ -48,7 +48,7 @@ namespace CloudSuite.Modules.Application.Tests.Handlers.States
             // Act
 
             // Assert
-            Assert.IsAssignableFrom<IRequest<CreateStateResponse>>(command);
+            Assert.IsAssignableFrom<IRequest<CreateStateResponse>>(command); 
         }
     }
 }
