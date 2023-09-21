@@ -1,7 +1,9 @@
 using CloudSuite.Modules.Application.Handlers.Core.Cities;
 using CloudSuite.Modules.Application.Handlers.Core.Cities.Requests;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 
 namespace CloudSuite.Services.Core.API.Controllers.v1
 {
@@ -11,11 +13,12 @@ namespace CloudSuite.Services.Core.API.Controllers.v1
     public class CityApiController : ControllerBase
     {
 
+        private readonly ILogger<CityApiController> _logger;
         private readonly IMediator _mediator;
 
-        public CityApiController(IMediator mediator)
+        public CityApiController(ILogger<CityApiController> logger, IMediator mediator)
         {
-
+            _logger = logger;
             _mediator = mediator;
 
         }
@@ -52,7 +55,8 @@ namespace CloudSuite.Services.Core.API.Controllers.v1
             }
         }
 
-        [HttpPost]
+        
+        [HttpPost("create")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
