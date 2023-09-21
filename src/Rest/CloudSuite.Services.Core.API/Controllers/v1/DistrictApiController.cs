@@ -6,7 +6,6 @@ using CloudSuite.Modules.Domain.ValueObjects;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
-// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace CloudSuite.Services.Core.API.Controllers.v1
 {
@@ -24,7 +23,7 @@ namespace CloudSuite.Services.Core.API.Controllers.v1
 
         }
 
-        // Get api/<DistrictApiController>/5
+
         [HttpGet]
         [Route("{name}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
@@ -56,9 +55,8 @@ namespace CloudSuite.Services.Core.API.Controllers.v1
         }
 
 
-        // POST api/<DistrictApiController>
         [HttpPost]
-        [Route("")]
+        [Route("create")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
