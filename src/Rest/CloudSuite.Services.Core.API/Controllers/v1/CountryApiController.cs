@@ -3,6 +3,7 @@ using CloudSuite.Modules.Application.Handlers.Core.Countries.Requests;
 using CloudSuite.Modules.Domain.Contracts.Core;
 using CloudSuite.Modules.Domain.Models.Core;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using NetDevPack.Messaging;
 
@@ -14,24 +15,26 @@ namespace CloudSuite.Services.Core.API.Controllers.v1
     [ApiController]
     public class CountryApiController : ControllerBase
     {
-
+        private readonly ILogger<CountryApiController> _logger;
         private readonly IMediator _mediator;
-        public CountryApiController(IMediator mediator, ICountryRepository countryRepository)
+        public CountryApiController(IMediator mediator, ILogger<CountryApiController> logger)
         {
             _mediator = mediator;
+            _logger = logger;
         }
 
        
         // GET api/<CountryApiController>/5
-        [HttpGet("{countryName}")]
+        [HttpGet]
+        [Route("{name}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult> GetByName([FromRoute]string countryName)
+        public async Task<ActionResult> GetByName([FromRoute]string name)
         {
             try
             {
-                var result = await _mediator.Send(new CheckCountryExistsByNameRequest(countryName));
+                var result = await _mediator.Send(new CheckCountryExistsByNameRequest(name));
 
                 if (result.Exists)
                 {
@@ -50,7 +53,8 @@ namespace CloudSuite.Services.Core.API.Controllers.v1
             }
         }
 
-        [HttpGet("{code}")]
+        [HttpGet]
+        [Route("{code}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
@@ -77,11 +81,12 @@ namespace CloudSuite.Services.Core.API.Controllers.v1
         }
 
         // POST api/<CountryApiController>
-        [HttpPost("postCountry")]
+        [AllowAnonymous]
+        [HttpPost("create")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult> PostCountry([FromBody] CreateCountryCommand command)
+        public async Task<ActionResult> Post([FromBody] CreateCountryCommand command)
         {
             try
             {
