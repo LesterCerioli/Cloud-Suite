@@ -30,7 +30,9 @@ namespace CloudSuite.Services.Core.API.Controllers.v1
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public async Task<IActionResult> Post([FromBody] CreateCityCommand commandCreate)
         {
-            var result = await _mediator.Send(commandCreate);
+            try
+            {
+                var result = await _mediator.Send(commandCreate);
             if (result.Errors.Any())
             {
                 return BadRequest(result);
@@ -39,6 +41,13 @@ namespace CloudSuite.Services.Core.API.Controllers.v1
             {
                 return Ok(result);
             }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error fetching city by name: {ex.Message}.");
+                return StatusCode(StatusCodes.Status500InternalServerError, new { message = "An internal Server Error" });
+            }
+
         }
 
 
