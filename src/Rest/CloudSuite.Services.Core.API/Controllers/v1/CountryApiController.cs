@@ -16,21 +16,12 @@ namespace CloudSuite.Services.Core.API.Controllers.v1
     {
 
         private readonly IMediator _mediator;
-        private readonly ICountryRepository _countryRepository;
         public CountryApiController(IMediator mediator, ICountryRepository countryRepository)
         {
             _mediator = mediator;
-            _countryRepository = countryRepository;
         }
 
-        // GET: api/<CountryApiController>
-        [HttpGet]
-        public async Task<IEnumerable<Country>> GetList()
-        {
-           var countries = await _countryRepository.GetList();
-           return countries;
-        }
-
+       
         // GET api/<CountryApiController>/5
         [HttpGet("{countryName}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
@@ -86,7 +77,7 @@ namespace CloudSuite.Services.Core.API.Controllers.v1
         }
 
         // POST api/<CountryApiController>
-        [HttpPost]
+        [HttpPost("postCountry")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
@@ -98,11 +89,12 @@ namespace CloudSuite.Services.Core.API.Controllers.v1
 
                 if (country.Errors.Any())
                 {
-                    return Ok();
+                    
+                    return BadRequest(new { message = "Could not create a country" });
                 }
                 else
                 {
-                    return BadRequest(new { message = "Could not create a country" });
+                    return Ok();
                 }
             }
             catch
