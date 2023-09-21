@@ -4,6 +4,7 @@ using CloudSuite.Modules.Domain.Contracts.Core;
 using CloudSuite.Modules.Domain.Models.Core;
 using CloudSuite.Modules.Domain.ValueObjects;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 
@@ -47,38 +48,29 @@ namespace CloudSuite.Services.Core.API.Controllers.v1
                     return NotFound(result);
                 }
             }
-            catch (Exception ex) 
+            catch (Exception ex)
             {
-                Console.WriteLine($"Error fetching user by name: {ex.Message}.");
+                Console.WriteLine($"Error fetching district by name: {ex.Message}.");
                 return StatusCode(StatusCodes.Status500InternalServerError, new { message = "An internal Server Error" });
             }
         }
 
-
+        [AllowAnonymous]
         [HttpPost]
         [Route("create")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public async Task<IActionResult> Save([FromBody] CreateDistrictCommand commandCreate)
         {
-            try
-            {
-                var result = await _mediator.Send(commandCreate);
-                if (result.Errors.Any())
-                {
-                    return BadRequest(result);
-                }
-
-                else
-                {
-                    return Ok(result);
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Error fetching user by email: {ex.Message}.");
-                return StatusCode(StatusCodes.Status500InternalServerError, new { message = "An internal Server Error" });
-            }
+           var result = await _mediator.Send(commandCreate);
+           if (result.Errors.Any())
+           {
+              return BadRequest(result);
+           }
+           else
+           {
+              return Ok(result);
+           }            
         }
     }
 }
