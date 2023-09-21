@@ -56,7 +56,8 @@ namespace CloudSuite.Services.Core.API.Controllers.v1
         }
 
         
-        [HttpPost("create")]
+        [HttpPost]
+        [Route("create")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
