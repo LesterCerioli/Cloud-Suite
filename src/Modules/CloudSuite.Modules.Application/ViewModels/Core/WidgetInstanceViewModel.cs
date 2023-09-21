@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace CloudSuite.Modules.Application.ViewModels.Core
 {
-    public class WindgetInstanceViewModel
+    public class WidgetInstanceViewModel
     {
         [Key]
         public Guid Id { get; set; }
