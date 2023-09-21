@@ -13,8 +13,8 @@ namespace CloudSuite.Services.Core.API.Controllers.v1
     [ApiController]
     public class DistrictApiController : ControllerBase
     {
-        private readonly IMediator _mediator;
         private readonly ILogger<DistrictApiController> _logger;
+        private readonly IMediator _mediator;
 
         public DistrictApiController(ILogger<DistrictApiController> logger, IMediator mediator)
         {
@@ -58,13 +58,12 @@ namespace CloudSuite.Services.Core.API.Controllers.v1
         [HttpPost]
         [Route("create")]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public async Task<IActionResult> Add([FromBody] CreateDistrictCommand createCommand)
+        public async Task<IActionResult> Save([FromBody] CreateDistrictCommand commandCreate)
         {
             try
             {
-                var result = await _mediator.Send(createCommand);
+                var result = await _mediator.Send(commandCreate);
                 if (result.Errors.Any())
                 {
                     return BadRequest(result);
