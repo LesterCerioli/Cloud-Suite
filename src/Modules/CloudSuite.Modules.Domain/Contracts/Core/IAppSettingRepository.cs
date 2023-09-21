@@ -9,7 +9,7 @@ namespace CloudSuite.Modules.Domain.Contracts.Core
 {
     public interface IAppSettingRepository
     {
-        Task<AppSetting> GetByAppSetting(string value);
+        Task<AppSetting> GetByValue(string value);
 
         Task<AppSetting> GetByModule(string module);
 

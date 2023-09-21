@@ -8,7 +8,7 @@ namespace CloudSuite.Modules.Application.Handlers.Core.Users.Requests
   {
     public Guid Id { get; private set; }
 
-    public Email Email { get; private set; }
+    public Email Email { get; set; }
     
     public CheckUserExistsByEmailRequest(Email email)
     {

@@ -1,5 +1,7 @@
+using CloudSuite.Modules.Common.Enums.Fiscal.JobContext;
+using CloudSuite.Modules.Domain.Models.Fiscal.JobsContext;
 using CloudSuite.Modules.Domain.Models.JobsContext;
-using CloudSuite.Modules.Domain.Shared.Enums.JobsContext;
+
 
 
 namespace CloudSuite.Modules.Domain.Contracts.JobsContext
@@ -7,17 +9,17 @@ namespace CloudSuite.Modules.Domain.Contracts.JobsContext
     public interface IJobContextRepositorycs
     {
          
-         Task<JobContext> GetByPriority(JobPriority priority);
+         Task<JobContextModel> GetByPriority(JobPriority priority);
 
-         Task<JobContext> GetByType(JobType type);
+         Task<JobContextModel> GetByType(JobType type);
 
-         Task<IEnumerable<JobContext>> GetAll();
+         Task<IEnumerable<JobContextModel>> GetAll();
 
-         Task Add(JobContext jobContext);
+         Task Add(JobContextModel jobContextModel);
 
-         void Update(JobContext jobContext);
+         void Update(JobContextModel jobContextModel);
 
-         void Remove(JobContext jobContext);
+         void Remove(JobContextModel jobContextModel);
          
     }
 }

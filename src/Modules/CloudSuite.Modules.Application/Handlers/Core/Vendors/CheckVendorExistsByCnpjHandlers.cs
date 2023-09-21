@@ -16,7 +16,6 @@ namespace CloudSuite.Modules.Application.Handlers.Core.Vendores
     {
       _vendorRepository = vendorRepository;
       _logger = logger;
-
     }
 
     public async Task<CheckVendorExistsByCnpjResponse> Handle(CheckVendorExistsByCnpjRequest request, CancellationToken cancellationToken)

@@ -6,8 +6,10 @@ namespace CloudSuite.Modules.Application.Services.Contracts.Core
 {
   public interface IUserService
   {
-    Task<UserViewModel> GetByCpf(Cpf cof);
+        Task<UserViewModel> GetByCpf(Cpf cpf);
 
-    Task Save(CreateUserCommand commandCreate);
+        Task<UserViewModel> GetByEmail(Email email);
+        
+        Task Save(CreateUserCommand commandCreate);
   }
 }

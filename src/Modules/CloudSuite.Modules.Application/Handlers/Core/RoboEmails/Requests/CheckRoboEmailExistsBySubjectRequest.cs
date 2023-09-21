@@ -7,7 +7,7 @@ namespace CloudSuite.Modules.Application.Handlers.Core.RoboEmails.Requests
   {
     public Guid Id { get; private set; }
 
-    public string? Subject { get; private set; }
+    public string? Subject { get; set; }
     
     public CheckRoboEmailExistsBySubjectRequest(string subject)
     {

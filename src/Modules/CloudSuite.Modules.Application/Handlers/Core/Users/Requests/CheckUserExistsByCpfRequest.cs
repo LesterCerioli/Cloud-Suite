@@ -8,7 +8,7 @@ namespace CloudSuite.Modules.Application.Handlers.Core.Users.Requests
   {
     public Guid Id { get; private set; }
 
-    public Cpf Cpf { get; private set; }
+    public Cpf Cpf { get; set; }
     
     public CheckUserExistsByCpfRequest(Cpf cpf)
     {
