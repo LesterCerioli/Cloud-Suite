@@ -15,15 +15,18 @@ namespace CloudSuite.Services.Core.API.Controllers.v1
     [ApiController]
     public class UserApiController : ControllerBase
     {
+        private readonly ILogger<UserApiController> _logger;
         private readonly IMediator _mediator;
-        public UserApiController(IMediator mediator)
+        public UserApiController(IMediator mediator, ILogger<UserApiController> logger)
         {
             _mediator = mediator;
+            _logger = logger;
         }
 
 
         // GET: api/<UserApiController>
-        [HttpGet("{email}")]
+        [HttpGet]
+        [Route("exists/email/{email}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -50,7 +53,8 @@ namespace CloudSuite.Services.Core.API.Controllers.v1
         }
 
         // GET api/<UserApiController>/5
-        [HttpGet("{cpf}")]
+        [HttpGet]
+        [Route("exists/cpf/{cpf}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -90,11 +94,11 @@ namespace CloudSuite.Services.Core.API.Controllers.v1
 
                 if (result.Errors.Any())
                 {
-                    return Ok();
+                    return BadRequest(new { message = "Could not create user." });
                 }
                 else
                 {
-                    return BadRequest(new { message = "Could not create user." });
+                    return Ok();
                 }
             }
             catch
