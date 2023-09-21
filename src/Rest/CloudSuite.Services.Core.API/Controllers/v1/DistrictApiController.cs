@@ -24,6 +24,23 @@ namespace CloudSuite.Services.Core.API.Controllers.v1
 
         }
 
+        [AllowAnonymous]
+        [HttpPost]
+        [Route("create")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public async Task<IActionResult> Post([FromBody] CreateDistrictCommand commandCreate)
+        {
+            var result = await _mediator.Send(commandCreate);
+            if (result.Errors.Any())
+            {
+                return BadRequest(result);
+            }
+            else
+            {
+                return Ok(result);
+            }
+        }
 
         [HttpGet]
         [Route("{name}")]
@@ -53,24 +70,6 @@ namespace CloudSuite.Services.Core.API.Controllers.v1
                 Console.WriteLine($"Error fetching district by name: {ex.Message}.");
                 return StatusCode(StatusCodes.Status500InternalServerError, new { message = "An internal Server Error" });
             }
-        }
-
-        [AllowAnonymous]
-        [HttpPost]
-        [Route("create")]
-        [ProducesResponseType(StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public async Task<IActionResult> Save([FromBody] CreateDistrictCommand commandCreate)
-        {
-           var result = await _mediator.Send(commandCreate);
-           if (result.Errors.Any())
-           {
-              return BadRequest(result);
-           }
-           else
-           {
-              return Ok(result);
-           }            
         }
     }
 }
