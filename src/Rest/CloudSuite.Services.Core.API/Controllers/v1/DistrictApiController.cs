@@ -4,9 +4,9 @@ using CloudSuite.Modules.Domain.Contracts.Core;
 using CloudSuite.Modules.Domain.Models.Core;
 using CloudSuite.Modules.Domain.ValueObjects;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
-// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace CloudSuite.Services.Core.API.Controllers.v1
 {
@@ -14,8 +14,8 @@ namespace CloudSuite.Services.Core.API.Controllers.v1
     [ApiController]
     public class DistrictApiController : ControllerBase
     {
-        private readonly IMediator _mediator;
         private readonly ILogger<DistrictApiController> _logger;
+        private readonly IMediator _mediator;
 
         public DistrictApiController(ILogger<DistrictApiController> logger, IMediator mediator)
         {
@@ -24,7 +24,32 @@ namespace CloudSuite.Services.Core.API.Controllers.v1
 
         }
 
-        // Get api/<DistrictApiController>/5
+        [AllowAnonymous]
+        [HttpPost]
+        [Route("create")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public async Task<IActionResult> Post([FromBody] CreateDistrictCommand commandCreate)
+        {
+            try
+            {
+                var result = await _mediator.Send(commandCreate);
+                if (result.Errors.Any())
+                {
+                    return BadRequest(result);
+                }
+                else
+                {
+                    return Ok(result);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error fetching district by name: {ex.Message}.");
+                return StatusCode(StatusCodes.Status500InternalServerError, new { message = "An internal Server Error" });
+            }
+        }
+
         [HttpGet]
         [Route("{name}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
@@ -48,38 +73,9 @@ namespace CloudSuite.Services.Core.API.Controllers.v1
                     return NotFound(result);
                 }
             }
-            catch (Exception ex) 
-            {
-                Console.WriteLine($"Error fetching user by name: {ex.Message}.");
-                return StatusCode(StatusCodes.Status500InternalServerError, new { message = "An internal Server Error" });
-            }
-        }
-
-
-        // POST api/<DistrictApiController>
-        [HttpPost]
-        [Route("")]
-        [ProducesResponseType(StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status404NotFound)]
-        [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public async Task<IActionResult> Add([FromBody] CreateDistrictCommand createCommand)
-        {
-            try
-            {
-                var result = await _mediator.Send(createCommand);
-                if (result.Errors.Any())
-                {
-                    return BadRequest(result);
-                }
-
-                else
-                {
-                    return Ok(result);
-                }
-            }
             catch (Exception ex)
             {
-                Console.WriteLine($"Error fetching user by email: {ex.Message}.");
+                Console.WriteLine($"Error fetching district by name: {ex.Message}.");
                 return StatusCode(StatusCodes.Status500InternalServerError, new { message = "An internal Server Error" });
             }
         }
