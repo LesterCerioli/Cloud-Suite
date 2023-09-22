@@ -1,38 +1,35 @@
-using CloudSuite.Modules.Application.Handlers.Core.Cities;
-using CloudSuite.Modules.Application.Handlers.Core.Cities.Requests;
+﻿using CloudSuite.Modules.Application.Handlers.Core.Districts.Requests;
+using CloudSuite.Modules.Application.Handlers.Core.Medias;
+using CloudSuite.Modules.Application.Handlers.Core.Medias.Requests;
+using CloudSuite.Modules.Domain.ValueObjects;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
+
+// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace CloudSuite.Services.Core.API.Controllers.v1
 {
-
     [Route("api/[controller]")]
     [ApiController]
-    public class CityApiController : ControllerBase
+    public class MediaApiController : ControllerBase
     {
+        private readonly ILogger<MediaApiController> _logger;
+        private IMediator _mediator;
 
-        private readonly ILogger<CityApiController> _logger;
-        private readonly IMediator _mediator;
-
-        public CityApiController(ILogger<CityApiController> logger, IMediator mediator)
+        public MediaApiController(ILogger<MediaApiController> logger, IMediator mediator)
         {
             _logger = logger;
             _mediator = mediator;
-
         }
 
         [AllowAnonymous]
-        [HttpPost]
-        [Route("create")]
+        [HttpPost("create")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public async Task<IActionResult> Post([FromBody] CreateCityCommand commandCreate)
+        public async Task<IActionResult> Post([FromBody] CreateMediaCommand createCommand)
         {
-            try
-            {
-                var result = await _mediator.Send(commandCreate);
+            var result = await _mediator.Send(createCommand);
             if (result.Errors.Any())
             {
                 return BadRequest(result);
@@ -41,26 +38,21 @@ namespace CloudSuite.Services.Core.API.Controllers.v1
             {
                 return Ok(result);
             }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Error fetching city by name: {ex.Message}.");
-                return StatusCode(StatusCodes.Status500InternalServerError, new { message = "An internal Server Error" });
-            }
-
         }
 
 
+
+
         [HttpGet]
-        [Route("{name}")]
+        [Route("{filename}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public async Task<IActionResult> GetByCityName([FromRoute] string cityName)
+        public async Task<IActionResult> GetByFileName([FromRoute] string fileName)
         {
             try
             {
-                var result = await _mediator.Send(new CheckCityExistsByCityNameRequest(cityName));
+                var result = await _mediator.Send(new CheckMediaExistsByFileNameRequest(fileName));
                 if (result.Errors.Any())
                 {
                     return BadRequest(result);
@@ -76,9 +68,10 @@ namespace CloudSuite.Services.Core.API.Controllers.v1
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Error fetching city by name: {ex.Message}.");
+                Console.WriteLine($"Error fetching user by name: {ex.Message}.");
                 return StatusCode(StatusCodes.Status500InternalServerError, new { message = "An internal Server Error" });
             }
+
         }
     }
 }
