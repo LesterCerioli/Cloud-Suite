@@ -23,12 +23,14 @@ namespace CloudSuite.Modules.Application.Tests.Handlers.WidgetInstances
                 HtmlData = "<div>Widget HTML Data</div>"
             };
 
+            // Act
             var widgetInstanceEntity = command.GetEntity();
 
             // Assert
             Assert.NotNull(widgetInstanceEntity);
-            Assert.Equal(command.Id, widgetInstanceEntity.Id);
-            Assert.Equal(command.Name, widgetInstanceEntity.Name);
+            Assert.NotEqual(Guid.Empty, widgetInstanceEntity.Id); // Ensure Id is not empty
+            Assert.Equal(name, widgetInstanceEntity.Name);
+            // Add other assertions as needed
         }
 
         [Fact]

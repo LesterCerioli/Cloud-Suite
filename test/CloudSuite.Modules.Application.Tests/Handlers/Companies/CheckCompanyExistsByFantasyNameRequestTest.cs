@@ -3,7 +3,7 @@ using CloudSuite.Modules.Application.Validations.Core.Companies;
 using FluentValidation.TestHelper;
 using Xunit;
 
-namespace YourNamespace.Tests
+namespace CloudSuite.Modules.Application.Tests.Handlers.Companies
 {
     public class CheckCompanyExistsByFantasyNameRequestValidationTests
     {
