@@ -1,5 +1,6 @@
 using AutoMapper;
 using CloudSuite.Modules.Application.Services.Contracts.Core;
+using CloudSuite.Modules.Application.Services.Contracts.Token;
 using CloudSuite.Modules.Application.Services.Implementations.Core;
 using CloudSuite.Modules.Domain.Contracts.Core;
 using CloudSuite.Modules.Domain.Contracts.Token;
@@ -26,6 +27,7 @@ var configuration = new MapperConfiguration(cfg =>
 
 //builder.Services.AddTransient<IRequestTokenRepository, RequestTokenRepository>();
 //builder.Services.AddTransient<IMediatorHandler, MediatorHandler>();
+builder.Services.AddTransient<ITwilioSmsServices, TwilioSmsService>();
 //builder.Services.AddSingleton<IMapper>(configuration.CreateMapper());
 
 //builder.Services.AddCors(options =>

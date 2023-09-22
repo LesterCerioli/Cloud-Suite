@@ -12,7 +12,7 @@ using Twilio.Types;
 
 namespace CloudSuite.Modules.Application.Services.Implementations.Core
 {
-    internal class TwilioSmsService : ITwilioSmsServices
+    public class TwilioSmsService : ITwilioSmsServices
     {
         private readonly ILogger<ITwilioSmsServices> _logger;
         private readonly IConfiguration _configuration;
@@ -25,15 +25,15 @@ namespace CloudSuite.Modules.Application.Services.Implementations.Core
 
         public Task SendSMS(string telefone, string msg)
         {
-            string accountSid = _configuration[""]; //parametros que será atribuido no appSetting
-            string authToken = _configuration[""]; //quando for adquirido os token no twilio
-            string serviceId = _configuration[""];
+            string accountSid = _configuration["Twilio:AccountSid"]; 
+            string authToken = _configuration["Twilio:AuthToken"];
+            
 
             try
             {
                 TwilioClient.Init(accountSid, authToken);
                 var messageOptions = new CreateMessageOptions(new PhoneNumber(telefone));
-                messageOptions.MessagingServiceSid = serviceId;
+                messageOptions.MessagingServiceSid = accountSid;
                 messageOptions.Body = msg;
                 var message = MessageResource.Create(messageOptions);
             }

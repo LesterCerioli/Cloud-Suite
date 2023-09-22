@@ -1,5 +1,7 @@
 ﻿using CloudSuite.Modules.Application.Handlers.Core.Users;
 using CloudSuite.Modules.Application.Handlers.Core.Users.Requests;
+using CloudSuite.Modules.Application.Handlers.Token;
+using CloudSuite.Modules.Application.Handlers.Token.Requests;
 using CloudSuite.Modules.Domain.Contracts.Core;
 using CloudSuite.Modules.Domain.Models.Core;
 using CloudSuite.Modules.Domain.ValueObjects;
@@ -17,10 +19,12 @@ namespace CloudSuite.Services.Core.API.Controllers.v1
     {
         private readonly ILogger<UserApiController> _logger;
         private readonly IMediator _mediator;
-        public UserApiController(IMediator mediator, ILogger<UserApiController> logger)
+        private readonly SendTokenHandlers _sendToken;
+        public UserApiController(IMediator mediator, ILogger<UserApiController> logger, SendTokenHandlers sendToken)
         {
             _mediator = mediator;
             _logger = logger;
+            _sendToken = sendToken;
         }
 
 
@@ -98,7 +102,13 @@ namespace CloudSuite.Services.Core.API.Controllers.v1
                 }
                 else
                 {
-                    return Ok();
+                    var sendTokenRequest = new SendTokenRequest
+                    {   Id = commandCreate.Id,
+                        FullName = commandCreate.FullName,
+                        Telephone = commandCreate.Telefone
+                    };
+
+                    var SendTokenresult = await _sendToken
                 }
             }
             catch
