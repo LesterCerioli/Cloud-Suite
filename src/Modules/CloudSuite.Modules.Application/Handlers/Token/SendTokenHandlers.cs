@@ -45,7 +45,7 @@ namespace CloudSuite.Modules.Application.Handlers.Token
           // Envia sms
           await _twilioService.SendSMS(
               "+" + request.Telephone,
-              "Cuidados pela vida. " + request.FullName + " seu token é: " + requestToken.Token);
+              "Lucas Technology Services." + request.FullName + " seu token é: " + requestToken.Token);
 
           // Persiste na base
           await _requestTokenRepository.Add(requestToken);
