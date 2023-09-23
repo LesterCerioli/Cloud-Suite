@@ -53,7 +53,7 @@ namespace CloudSuite.Services.Core.API.Controllers.v1
 
         // POST api/<VendorApiController>
         [HttpPost]
-        [Route("")]
+        [Route("create")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
