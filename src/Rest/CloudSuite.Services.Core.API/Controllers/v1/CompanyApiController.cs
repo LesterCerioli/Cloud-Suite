@@ -117,7 +117,7 @@ namespace CloudSuite.Services.Core.API.Controllers.v1
 
         // POST api/<CompanyApiController>
         [HttpPost]
-        [Route("")]
+        [Route("create")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -126,19 +126,19 @@ namespace CloudSuite.Services.Core.API.Controllers.v1
             try
             {
                 var result = await _mediator.Send(createCommand);
+
                 if (result.Errors.Any())
                 {
-                    return BadRequest(result);
+                    return BadRequest(new { message = "Could not create company." });
                 }
 
                 else
                 {
-                    return Ok(result);
+                    return Ok();
                 }
             }
-            catch (Exception ex)
+            catch
             {
-                Console.WriteLine($"Error fetching user by email: {ex.Message}.");
                 return StatusCode(StatusCodes.Status500InternalServerError, new { message = "An internal Server Error" });
             }
         }
