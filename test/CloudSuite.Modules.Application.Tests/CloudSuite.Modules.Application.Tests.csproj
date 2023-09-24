@@ -25,6 +25,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\src\Modules\CloudSuite.Modules.Application\CloudSuite.Modules.Application.csproj" />
+    <ProjectReference Include="..\..\src\Modules\CloudSuite.Modules.Domain\CloudSuite.Modules.Domain.csproj" />
     <ProjectReference Include="..\CloudSuite.Modules.Domain.Tests\CloudSuite.Modules.Domain.Tests.csproj" />
   </ItemGroup>
 
