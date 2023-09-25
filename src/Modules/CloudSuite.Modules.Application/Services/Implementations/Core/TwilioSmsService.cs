@@ -10,5 +10,6 @@ using Microsoft.Extensions.Logging;
 
 namespace CloudSuite.Modules.Application.Services.Implementations.Core
 {
+    public class TwilioSmsService
     
 }
