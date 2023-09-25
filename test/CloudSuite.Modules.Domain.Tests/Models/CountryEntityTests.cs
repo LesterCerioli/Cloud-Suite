@@ -8,12 +8,14 @@ using System.Threading.Tasks;
 
 namespace CloudSuite.Modules.Domain.Tests.Models
 {
-    public class DistrictEntityTests
+    public class CountryEntityTests
     {
         [Fact]
         public void Test1()
         {
 
         }
+
+
     }
 }
