@@ -19,6 +19,7 @@ namespace CloudSuite.Modules.Application.Handlers.Core.Users
         this.FullName,
         this.Email,
         this.Cpf,
+        this.Telephone,
         this.Vendor,
         this.IsDeleted,
         this.CreatedOn,
@@ -36,6 +37,8 @@ namespace CloudSuite.Modules.Application.Handlers.Core.Users
     public Email Email { get; set; }
 
     public Cpf Cpf { get; set; }
+
+    public Telephone Telephone { get; set; }
 
     public Vendor Vendor { get; set; }
 

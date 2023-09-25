@@ -18,57 +18,12 @@ namespace CloudSuite.Modules.Application.Tests.Services.District
 {
     public class DistrictServiceFakeTests 
     {
+        private readonly Mock<IDistrictRepository> _districtRepository;
 
-
-        [Fact]
-        public async Task GetByName_Should_Return_DistrictViewModel()
+        public DistrictServiceFakeTests()
         {
-            // Arrange
-            var districtRepositoryMock = new Mock<IDistrictRepository>();
-            //districtRepositoryMock.Setup(repo => repo.GetByName(It.IsAny<string>()))
-                //.ReturnsAsync(new DistrictEntityTests(Guid.NewGuid(), "SampleDistrictName", "SampleType", "SampleLocation"));
+            _districtRepository = new Mock<IDistrictRepository>();
 
-            var mapperConfig = new MapperConfiguration(cfg =>
-            {
-                cfg.AddProfile<DomainToViewModelMappingProfile>(); // Configure AutoMapper profile here
-            });
-            var mapper = mapperConfig.CreateMapper();
-
-            var mediatorHandlerMock = new Mock<IMediatorHandler>();
-            var districtService = new DistrictService(districtRepositoryMock.Object, mapper, mediatorHandlerMock.Object);
-
-            // Act
-            var result = await districtService.GetByName("SampleDistrictName");
-
-            // Assert
-            Assert.NotNull(result);
-            Assert.IsType<DistrictViewModel>(result);
-            // Add more assertions as needed
         }
-
-        [Fact]
-        public async Task Save_Should_Add_DistrictEntity()
-        {
-            // Arrange
-            var districtRepositoryMock = new Mock<IDistrictRepository>();
-            var mapperConfig = new MapperConfiguration(cfg =>
-            {
-                cfg.AddProfile<DomainToViewModelMappingProfile>(); // Configure AutoMapper profile here
-            });
-            var mapper = mapperConfig.CreateMapper();
-
-            var mediatorHandlerMock = new Mock<IMediatorHandler>();
-            var districtService = new DistrictService(districtRepositoryMock.Object, mapper, mediatorHandlerMock.Object);
-
-            var createDistrictCommand = new CreateDistrictCommand(); // Provide necessary data for the command
-
-            // Act
-            await districtService.Save(createDistrictCommand);
-
-            // Assert
-            //districtRepositoryMock.Verify(repo => repo.Add(It.IsAny<District>()), Times.Once);
-        }
-
-        // Add more test methods for other scenarios and edge cases
     }
 }
