@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace CloudSuite.Modules.Application.Services.Contracts.Core
 {
-    public interface ISmsSender
+    public interface ITwilioSmsSender
     {
         
     }
