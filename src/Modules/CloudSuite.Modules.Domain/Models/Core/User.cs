@@ -45,15 +45,11 @@ namespace CloudSuite.Modules.Domain.Models.Core
 
         public Email Email { get; private set; }
 
-        public Guid EmailId { get; set; }
-
+        
         public Cpf Cpf { get; private set; }
-
-        public Guid CpfId { get; set; }
+               
 
         public Telephone Telephone { get; private set; }
-
-        public Guid TelephoneId { get; set; }
 
         public Vendor Vendor { get; private set; }
 
