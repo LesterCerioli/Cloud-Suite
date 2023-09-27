@@ -17,11 +17,11 @@ namespace CloudSuite.Modules.Application.Tests.Services.City
 {
     public class CityServiceFakeTests
     {
-        private readonly Mock<ICityRepository> _cityRepository;
+        private readonly Mock<ICityService> _cityService;
 
-        public CityServiceFakeTests()
+        public CityServiceFakeTests() 
         {
-            _cityRepository = new Mock<ICityRepository>();
+            _cityService = new Mock<ICityService>();
         }
 
         [Fact]

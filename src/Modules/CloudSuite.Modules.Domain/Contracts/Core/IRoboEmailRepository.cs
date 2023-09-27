@@ -4,7 +4,7 @@ using CloudSuite.Modules.Domain.Models.Core;
 
 namespace CloudSuite.Modules.Domain.Contracts.Core
 {
-    public interface IEmailRepository
+    public interface IRoboEmailRepository
     {
         Task<RoboEmail> GetBySubject(string subject);
 

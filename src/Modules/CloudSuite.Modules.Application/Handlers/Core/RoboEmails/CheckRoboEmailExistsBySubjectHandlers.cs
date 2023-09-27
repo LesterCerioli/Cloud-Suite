@@ -10,11 +10,11 @@ namespace CloudSuite.Modules.Application.Handlers.Core.RoboEmails
 {
   public class CheckRoboEmailExistsBySubjectHandlers : IRequestHandler<CheckRoboEmailExistsBySubjectRequest, CheckRoboEmailExistsBySubjectResponse>
   {
-    private IEmailRepository _emailRepository;
+    private IRoboEmailRepository _roboEmailRepository;
     private readonly ILogger<CheckRoboEmailExistsBySubjectHandlers> _logger;
-    public CheckRoboEmailExistsBySubjectHandlers(IEmailRepository emailRepository, ILogger<CheckRoboEmailExistsBySubjectHandlers> logger)
+    public CheckRoboEmailExistsBySubjectHandlers(IRoboEmailRepository roboEmailRepository, ILogger<CheckRoboEmailExistsBySubjectHandlers> logger)
     {
-      _emailRepository = emailRepository;
+      _roboEmailRepository = roboEmailRepository;
       _logger = logger;
     }
 
@@ -28,7 +28,7 @@ namespace CloudSuite.Modules.Application.Handlers.Core.RoboEmails
       {
         try
         {
-          var email = await _emailRepository.GetBySubject(request.Subject);
+          var email = await _roboEmailRepository.GetBySubject(request.Subject);
 
           if (email != null)
             return await Task.FromResult(new CheckRoboEmailExistsBySubjectResponse(request.Id, true, validationResult));

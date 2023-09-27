@@ -1,4 +1,5 @@
-﻿using CloudSuite.Modules.Domain.Contracts.Core;
+﻿using CloudSuite.Modules.Application.Services.Contracts.Core;
+using CloudSuite.Modules.Domain.Contracts.Core;
 using Moq;
 using System;
 using System.Collections.Generic;
@@ -10,11 +11,11 @@ namespace CloudSuite.Modules.Application.Tests.Services.Media
 {
     public class MediaServiceFakeTests
     {
-        private readonly Mock<IMediaRepository> _mediaRepository;
+        private readonly Mock<IMediaService> _mediaService;
 
         public MediaServiceFakeTests()
         {
-            _mediaRepository = new Mock<IMediaRepository>();
+            _mediaService = new Mock<IMediaService>();
         }
 
             

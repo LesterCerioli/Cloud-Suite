@@ -1,45 +1,52 @@
+﻿using CloudSuite.Modules.Application.Handlers.Core.RoboEmails.Requests;
 using CloudSuite.Modules.Application.Handlers.Core.RoboEmails.Responses;
-using CloudSuite.Modules.Application.Handlers.Core.RoboEmails.Requests;
 using CloudSuite.Modules.Application.Validations.Core.RoboEmail;
 using CloudSuite.Modules.Domain.Contracts.Core;
-using Microsoft.Extensions.Logging;
-using System.Text.Json;
 using MediatR;
+using Microsoft.Extensions.Logging;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Text.Json;
+using System.Threading.Tasks;
 
 namespace CloudSuite.Modules.Application.Handlers.Core.RoboEmails
 {
-  public class CheckRoboEmailExistsByMessageRecipientHandlers : IRequestHandler<CheckRoboEmailExistsByMessageRecipientRequest, CheckRoboEmailExistsByMessageRecipientResponse>
-  {
-    private IEmailRepository _emailRepository;
-    private readonly ILogger<CheckRoboEmailExistsByMessageRecipientHandlers> _logger;
-    public CheckRoboEmailExistsByMessageRecipientHandlers(IEmailRepository emailRepository, ILogger<CheckRoboEmailExistsByMessageRecipientHandlers> logger)
+    public class CheckRoboEmailExistsByMessageRecipientHandlers : IRequestHandler<CheckRoboEmailExistsByMessageRecipientRequest, CheckRoboEmailExistsByMessageRecipientResponse>
     {
-      _emailRepository = emailRepository;
-      _logger = logger;
-    }
+        private readonly IRoboEmailRepository _roboEmailRepository;
+        private readonly ILogger<CheckRoboEmailExistsByMessageRecipientHandlers> _logger;
 
-    public async Task<CheckRoboEmailExistsByMessageRecipientResponse> Handle(CheckRoboEmailExistsByMessageRecipientRequest request, CancellationToken cancellationToken)
-    {
-      _logger.LogInformation($"CheckRoboEmailExistsByMessageRecipientRequest: {JsonSerializer.Serialize(request)}");
-
-      var validationResult = new CheckRoboEmailExistsByMessageRecipientRequestValidation().Validate(request);
-
-      if (validationResult.IsValid)
-      {
-        try
+        public CheckRoboEmailExistsByMessageRecipientHandlers(IRoboEmailRepository roboEmailRepository, ILogger<CheckRoboEmailExistsByMessageRecipientHandlers> logger)
         {
-          var email = await _emailRepository.GetByMessageRecipient(request.MessageRecipient);
+            _roboEmailRepository = roboEmailRepository;
+            _logger = logger;
+        }
 
-          if (email != null)
-            return await Task.FromResult(new CheckRoboEmailExistsByMessageRecipientResponse(request.Id, true, validationResult));
-        }
-        catch (Exception ex)
+
+        public async Task<CheckRoboEmailExistsByMessageRecipientResponse> Handle(CheckRoboEmailExistsByMessageRecipientRequest request, CancellationToken cancellationToken)
         {
-          _logger.LogCritical(ex.Message);
-          return await Task.FromResult(new CheckRoboEmailExistsByMessageRecipientResponse(request.Id, "Não foi possivel processar a solicitação"));
+            _logger.LogInformation($"CheckRoboEmailExistsByMessageRecipientRequest: {JsonSerializer.Serialize(request)}");
+
+            var validationResult = new CheckRoboEmailExistsByMessageRecipientRequestValidation().Validate(request);
+
+            if (validationResult.IsValid)
+            {
+                try
+                {
+                    var email = await _roboEmailRepository.GetByMessageRecipient(request.MessageRecipient);
+
+                    if (email != null)
+                        return await Task.FromResult(new CheckRoboEmailExistsByMessageRecipientResponse(request.Id, true, validationResult));
+                }
+                catch (Exception ex)
+                {
+                    _logger.LogCritical(ex.Message);
+                    return await Task.FromResult(new CheckRoboEmailExistsByMessageRecipientResponse(request.Id, "Não foi possivel processar a solicitação"));
+                }
+            }
+            return await Task.FromResult(new CheckRoboEmailExistsByMessageRecipientResponse(request.Id, false, validationResult));
         }
-      }
-      return await Task.FromResult(new CheckRoboEmailExistsByMessageRecipientResponse(request.Id, false, validationResult));
     }
-  }
 }

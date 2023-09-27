@@ -11,17 +11,18 @@ using System.Threading.Tasks;
 
 namespace CloudSuite.Infrastructure.Data.Repositories.Core
 {
-    public class EmailRepository : IEmailRepository
+    public class RoboEmailRepository : IRoboEmailRepository
     {
-
         protected readonly CloudSuiteDbContext Db;
         protected readonly DbSet<RoboEmail> DbSet;
 
-        public EmailRepository(CloudSuiteDbContext context)
+        public RoboEmailRepository(CloudSuiteDbContext context)
         {
             Db = context;
             DbSet = context.RoboEmails;
+
         }
+
 
         public async Task<RoboEmail> GetBySubject(string subject)
         {

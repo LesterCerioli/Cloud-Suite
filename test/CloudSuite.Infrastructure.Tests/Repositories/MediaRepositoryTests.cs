@@ -12,37 +12,38 @@ using System.Threading.Tasks;
 
 namespace CloudSuite.Infrastructure.Tests.Repositories
 {
-    public class AppSettingRepositoryTests
+    public class MediaRepositoryTests
     {
-        private readonly Mock<IAppSettingRepository> _appSettingRepository;
+        private readonly Mock<IMediaRepository> _mediaRepository;
 
-        public AppSettingRepositoryTests()
+        public MediaRepositoryTests()
         {
-            _appSettingRepository = new Mock<IAppSettingRepository>();
+            _mediaRepository = new Mock<IMediaRepository>();
         }
 
         [Fact]
-        public async Task GetByValue_ValidValue_ReturnsAppSetting()
+        public async Task GetByFileName_ValidName_ReturnsMedia()
         {
             var options = new DbContextOptionsBuilder<CloudSuiteDbContext>()
                 .UseInMemoryDatabase(databaseName: "TestDatabase")
                 .Options;
 
             using var context = new CloudSuiteDbContext(options);
-            var repository = new AppSettingRepository(context);
-            var testValue = "1";
-            var expectedAppSetting = new AppSettingMap
+            var repository = new MediaRepository(context);
+            var testFileName = "testefile";
+            var expectedCity = new MediaMap
             {
 
             };
 
             context.SaveChanges();
-            var result = await repository.GetByValue(testValue);
-            
+            var result = await repository.GetByFileName(testFileName);
             Assert.NotNull(result);
-            Assert.Equal(testValue, result.Value);
-    
+            Assert.Equal(testFileName, result.FileName);
+
 
         }
+
+
     }
 }

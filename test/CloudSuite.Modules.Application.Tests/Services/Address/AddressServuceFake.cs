@@ -15,12 +15,11 @@ namespace CloudSuite.Modules.Application.Tests.Services.Address
 {
     public class AddressServuceFake
     {
-        private readonly Mock<IAddressRepository> _addressRepository;
+        private readonly Mock<IAddressService> _addressService;
 
-        
         public AddressServuceFake()
         {
-            _addressRepository = new Mock<IAddressRepository>();
+            _addressService = new Mock<IAddressService>();
         }
 
         [Fact]
