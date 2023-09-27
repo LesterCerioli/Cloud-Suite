@@ -7,13 +7,13 @@ using NetDevPack.Mediator;
 
 namespace CloudSuite.Modules.Application.Services.Contracts.Core
 {
-    public class CityName : ICityService
+    public class CityService : ICityService
     {
         private readonly IMapper _mapper;
         private readonly ICityRepository _cityRepository;
         private readonly IMediatorHandler _mediator;
 
-        public CityName(
+        public CityService(
             
             ICityRepository cityRepository,
             IMediatorHandler mediator,
