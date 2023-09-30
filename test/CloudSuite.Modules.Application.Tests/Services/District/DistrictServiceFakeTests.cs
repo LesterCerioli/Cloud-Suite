@@ -18,11 +18,11 @@ namespace CloudSuite.Modules.Application.Tests.Services.District
 {
     public class DistrictServiceFakeTests 
     {
-        private readonly Mock<IDistrictRepository> _districtRepository;
+        private readonly Mock<IDistrictService> _districtService;
 
         public DistrictServiceFakeTests()
         {
-            _districtRepository = new Mock<IDistrictRepository>();
+            _districtService = new Mock<IDistrictService>();
 
         }
     }

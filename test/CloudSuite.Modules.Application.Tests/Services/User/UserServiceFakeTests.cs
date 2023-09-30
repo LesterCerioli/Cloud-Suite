@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CloudSuite.Modules.Application.Tests.User
+namespace CloudSuite.Modules.Application.Tests.Services.User
 {
     public class UserServiceFakeTests
     {

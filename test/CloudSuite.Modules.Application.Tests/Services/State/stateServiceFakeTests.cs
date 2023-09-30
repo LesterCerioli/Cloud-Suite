@@ -1,4 +1,5 @@
-﻿using CloudSuite.Modules.Domain.Contracts.Core;
+﻿using CloudSuite.Modules.Application.Services.Contracts.Core;
+using CloudSuite.Modules.Domain.Contracts.Core;
 using Moq;
 using System;
 using System.Collections.Generic;
@@ -10,11 +11,11 @@ namespace CloudSuite.Modules.Application.Tests.Services.State
 {
     public class StateServiceFakeTests
     {
-        private readonly Mock<IStateRepository> _stateRepository;
+        private readonly Mock<IStateService> _stateService;
 
         public StateServiceFakeTests()
         {
-            _stateRepository = new Mock<IStateRepository>();
+            _stateService = new Mock<IStateService>();
 
         }
     }

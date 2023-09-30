@@ -34,9 +34,9 @@ namespace CloudSuite.Infrastructure.Data.Core.Context
 
         public DbSet<District> Districts { get; set; }
 
-        public DbSet<Entidade> Entidades { get; set; }
+        //public DbSet<Entidade> Entidades { get; set; }
 
-        public DbSet<EntidadeTipo> EntidadeTipos { get; set; }
+        //public DbSet<EntidadeTipo> EntidadeTipos { get; set; }
 
         public DbSet<Media> Medias { get; set; }
 
@@ -76,8 +76,6 @@ namespace CloudSuite.Infrastructure.Data.Core.Context
             modelBuilder.ApplyConfiguration(new CompanyMap());
             modelBuilder.ApplyConfiguration(new CountryMap());
             modelBuilder.ApplyConfiguration(new DistrictMap());
-            modelBuilder.ApplyConfiguration(new EntidadeMap());
-            modelBuilder.ApplyConfiguration(new EntidadeTipoMap());
             modelBuilder.ApplyConfiguration(new MediaMap());
             modelBuilder.ApplyConfiguration(new RoboEmailMap());
             modelBuilder.ApplyConfiguration(new RoleMap());
@@ -121,16 +119,7 @@ namespace CloudSuite.Infrastructure.Data.Core.Context
                 c.ToTable("Districts");
             });
 
-            modelBuilder.Entity<Entidade>(c =>
-            {
-                c.ToTable("Entidades");
-            });
-
-            modelBuilder.Entity<EntidadeTipo>(c =>
-            {
-                c.ToTable("EntidadeTipos");
-            });
-
+                        
             modelBuilder.Entity<Media>(c =>
             {
                 c.ToTable("Medias");

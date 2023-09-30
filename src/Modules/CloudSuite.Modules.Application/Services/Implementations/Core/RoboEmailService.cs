@@ -14,7 +14,7 @@ namespace CloudSuite.Modules.Application.Services.Implementations.Core
 {
   public class RoboEmailService : IRoboEmailService
   {
-    private readonly IEmailRepository _roboEmailRepository;
+    private readonly IRoboEmailRepository _roboEmailRepository;
 
     private readonly IMapper _mapper;
 
@@ -26,7 +26,7 @@ namespace CloudSuite.Modules.Application.Services.Implementations.Core
 
     private readonly string _fromName;
 
-    public RoboEmailService(IEmailRepository roboEmailRepository, IMapper mapper, IMediatorHandler mediator, IConfiguration configuration)
+    public RoboEmailService(IRoboEmailRepository roboEmailRepository, IMapper mapper, IMediatorHandler mediator, IConfiguration configuration)
     {
       _roboEmailRepository = roboEmailRepository;
       _mapper = mapper;

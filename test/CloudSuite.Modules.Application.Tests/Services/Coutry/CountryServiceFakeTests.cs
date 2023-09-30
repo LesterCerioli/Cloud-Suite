@@ -17,11 +17,11 @@ namespace CloudSuite.Modules.Application.Tests.Services.Coutry
 {
     public class CountryServiceFakeTests 
     {
-        private readonly Mock<ICountryRepository> _countryRepository;
+        private readonly Mock<ICountryService> _countryService;
 
         public CountryServiceFakeTests()
         {
-            _countryRepository = new Mock<ICountryRepository>();
+            _countryService = new Mock<ICountryService>();
         }
     }
 }

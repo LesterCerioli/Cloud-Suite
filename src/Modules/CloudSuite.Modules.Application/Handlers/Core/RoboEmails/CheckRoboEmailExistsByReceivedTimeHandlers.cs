@@ -10,11 +10,11 @@ namespace CloudSuite.Modules.Application.Handlers.Core.RoboEmails
 {
   public class CheckRoboEmailExistsByReceivedTimeHandlers : IRequestHandler<CheckRoboEmailExistsByReceivedTimeRequest, CheckRoboEmailExistsByReceivedTimeResponse>
   {
-    private IEmailRepository _emailRepository;
-    private readonly ILogger<CheckRoboEmailExistsByReceivedTimeHandlers> _logger;
-    public CheckRoboEmailExistsByReceivedTimeHandlers(IEmailRepository emailRepository, ILogger<CheckRoboEmailExistsByReceivedTimeHandlers> logger)
+        private readonly IRoboEmailRepository _roboEmailRepository;
+        private readonly ILogger<CheckRoboEmailExistsByReceivedTimeHandlers> _logger;
+    public CheckRoboEmailExistsByReceivedTimeHandlers(IRoboEmailRepository roboEmailRepository, ILogger<CheckRoboEmailExistsByReceivedTimeHandlers> logger)
     {
-      _emailRepository = emailRepository;
+      _roboEmailRepository = roboEmailRepository;
       _logger = logger;
     }
 
@@ -28,7 +28,7 @@ namespace CloudSuite.Modules.Application.Handlers.Core.RoboEmails
       {
         try
         {
-          var email = await _emailRepository.GetByReceivedTime(request.ReceivedTime);
+          var email = await _roboEmailRepository.GetByReceivedTime(request.ReceivedTime);
 
           if (email != null)
             return await Task.FromResult(new CheckRoboEmailExistsByReceivedTimeResponse(request.Id, true, validationResult));
