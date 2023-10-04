@@ -57,7 +57,9 @@ namespace CloudSuite.Modules.Application.Handlers.Pismo
                     _logger.LogCritical(ex.Message);
                     return await Task.FromResult(new TransferFundsResponse("Não foi possivel processar a solicitação"));
                 }
+                
             }
         }
-    } }
+    } 
+}
             
