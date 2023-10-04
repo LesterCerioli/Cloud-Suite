@@ -15,11 +15,12 @@ namespace CloudSuite.Modules.Domain.Models.Core
         private readonly List<Vendor> _vendors;
 
         
-        public User(string? fullName, Email email, Cpf cpf, Vendor vendor, bool? isDeleted, DateTimeOffset? createdOn, DateTimeOffset? latestUpdatedOn, string? refreshTokenHash, string? culture, string? extensionData)
+        public User(string? fullName, Email email, Cpf cpf, Telephone telephone, Vendor vendor, bool? isDeleted, DateTimeOffset? createdOn, DateTimeOffset? latestUpdatedOn, string? refreshTokenHash, string? culture, string? extensionData)
         {
             FullName = fullName;
             Email = email;
             Cpf = cpf;
+            Telephone = telephone;
             Vendor = vendor;
             IsDeleted = isDeleted;
             CreatedOn = createdOn;
@@ -44,11 +45,11 @@ namespace CloudSuite.Modules.Domain.Models.Core
 
         public Email Email { get; private set; }
 
-        public Guid EmailId { get; set; }
-
+        
         public Cpf Cpf { get; private set; }
+               
 
-        public Guid CpfId { get; set; }
+        public Telephone Telephone { get; private set; }
 
         public Vendor Vendor { get; private set; }
 

@@ -1,12 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using CloudSuite.Modules.Application.Handlers.Core.WidgetInstances;
+using CloudSuite.Modules.Application.ViewModels.Core;
 
 namespace CloudSuite.Modules.Application.Services.Contracts.Core
 {
-    internal interface IWidgetInstanceService
-    {
-    }
+  public interface IWidgetInstanceService
+  {
+    Task<WidgetInstanceViewModel> GetByName(string name);
+
+    Task<WidgetInstanceViewModel> GetByDisplayOrder(int displayOrder);
+    
+    Task<WidgetInstanceViewModel> GetByData(string data);
+
+    Task Save(CreateWidgetInstanceCommand commandCreate);
+  }
 }

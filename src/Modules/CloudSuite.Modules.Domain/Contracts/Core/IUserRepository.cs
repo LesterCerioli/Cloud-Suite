@@ -12,7 +12,7 @@ namespace CloudSuite.Modules.Domain.Contracts.Core
     {
         Task<User> GetByEmail(Email email);
 
-        Task<User> GetByCpf(Cpf cof);
+        Task<User> GetByCpf(Cpf cpf);
 
         Task<IEnumerable<User>> GetList();
 

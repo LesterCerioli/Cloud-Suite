@@ -8,7 +8,7 @@ namespace CloudSuite.Modules.Application.Handlers.Core.Vendores.Requests
   {
     public Guid Id { get; private set; }  
 
-    public DateTimeOffset CreatedOn { get; private set; }
+    public DateTimeOffset CreatedOn { get; set; }
     
     public CheckVendorExistsByCreationDateRequest(DateTimeOffset createdOn)
     {

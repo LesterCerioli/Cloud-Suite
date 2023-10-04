@@ -1,6 +1,8 @@
 ﻿
 using CloudSuite.Infrastructure.Data.Mappimgs.EFCore.Core;
+using CloudSuite.Infrastructure.Data.Mappimgs.EFCore.Token;
 using CloudSuite.Modules.Domain.Models.Core;
+using CloudSuite.Modules.Domain.Models.Token;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -32,9 +34,9 @@ namespace CloudSuite.Infrastructure.Data.Core.Context
 
         public DbSet<District> Districts { get; set; }
 
-        public DbSet<Entidade> Entidades { get; set; }
+        //public DbSet<Entidade> Entidades { get; set; }
 
-        public DbSet<EntidadeTipo> EntidadeTipos { get; set; }
+        //public DbSet<EntidadeTipo> EntidadeTipos { get; set; }
 
         public DbSet<Media> Medias { get; set; }
 
@@ -56,6 +58,8 @@ namespace CloudSuite.Infrastructure.Data.Core.Context
 
         public DbSet<WidgetZone> WidgetZones { get; set; }
 
+        public DbSet<RequestToken> RequestTokens { get; set; }
+
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -72,8 +76,6 @@ namespace CloudSuite.Infrastructure.Data.Core.Context
             modelBuilder.ApplyConfiguration(new CompanyMap());
             modelBuilder.ApplyConfiguration(new CountryMap());
             modelBuilder.ApplyConfiguration(new DistrictMap());
-            modelBuilder.ApplyConfiguration(new EntidadeMap());
-            modelBuilder.ApplyConfiguration(new EntidadeTipoMap());
             modelBuilder.ApplyConfiguration(new MediaMap());
             modelBuilder.ApplyConfiguration(new RoboEmailMap());
             modelBuilder.ApplyConfiguration(new RoleMap());
@@ -84,7 +86,7 @@ namespace CloudSuite.Infrastructure.Data.Core.Context
             modelBuilder.ApplyConfiguration(new WidgetMap());
             modelBuilder.ApplyConfiguration(new WidgetInstanceMap());
             modelBuilder.ApplyConfiguration(new WidgetZoneMap());
-
+            modelBuilder.ApplyConfiguration(new RequestTokenMap());
 
 
             modelBuilder.Entity<Address>(c =>
@@ -117,16 +119,7 @@ namespace CloudSuite.Infrastructure.Data.Core.Context
                 c.ToTable("Districts");
             });
 
-            modelBuilder.Entity<Entidade>(c =>
-            {
-                c.ToTable("Entidades");
-            });
-
-            modelBuilder.Entity<EntidadeTipo>(c =>
-            {
-                c.ToTable("EntidadeTipos");
-            });
-
+                        
             modelBuilder.Entity<Media>(c =>
             {
                 c.ToTable("Medias");
@@ -175,6 +168,11 @@ namespace CloudSuite.Infrastructure.Data.Core.Context
             modelBuilder.Entity<WidgetZone>(c =>
             {
                 c.ToTable("WidgetZones");
+            });
+
+            modelBuilder.Entity<RequestToken>(c => 
+            {
+                c.ToTable("RequestTokens");
             });
 
             base.OnModelCreating(modelBuilder);

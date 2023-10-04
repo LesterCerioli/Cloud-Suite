@@ -7,7 +7,7 @@ namespace CloudSuite.Modules.Application.Handlers.Core.Widgets.Requests
   {
     public Guid Id { get; private set; }  
 
-    public string? EditUrl { get; private set; }
+    public string? EditUrl { get; set; }
     
     public CheckWidgetExistsByEditUrlRequest(string? editUrl)
     {

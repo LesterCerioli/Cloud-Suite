@@ -19,6 +19,7 @@ namespace CloudSuite.Modules.Application.Handlers.Core.Users
         this.FullName,
         this.Email,
         this.Cpf,
+        this.Telephone,
         this.Vendor,
         this.IsDeleted,
         this.CreatedOn,
@@ -31,24 +32,26 @@ namespace CloudSuite.Modules.Application.Handlers.Core.Users
 
     public Guid Id { get; private set; }
 
-    public string? FullName { get; private set; }
+    public string? FullName { get; set; }
 
-    public Email Email { get; private set; }
+    public Email Email { get; set; }
 
-    public Cpf Cpf { get; private set; }
+    public Cpf Cpf { get; set; }
 
-    public Vendor Vendor { get; private set; }
+    public Telephone Telephone { get; set; }
 
-    public bool? IsDeleted { get; private set; }
+    public Vendor Vendor { get; set; }
 
-    public DateTimeOffset? CreatedOn { get; private set; }
+    public bool? IsDeleted { get; set; }
 
-    public DateTimeOffset? LatestUpdatedOn { get; private set; }
+    public DateTimeOffset? CreatedOn { get; set; }
 
-    public string? RefreshTokenHash { get; private set; }
+    public DateTimeOffset? LatestUpdatedOn { get; set; }
 
-    public string? Culture { get; private set; }
+    public string? RefreshTokenHash { get; set; }
+
+    public string? Culture { get; set; }
     
-    public string? ExtensionData { get; private set; }
+    public string? ExtensionData { get; set; }
   }
 }

@@ -1,4 +1,11 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using CloudSuite.Modules.Application.Handlers.Core.Users;
+using CloudSuite.Modules.Application.Handlers.Core.Users.Requests;
+using CloudSuite.Modules.Domain.Contracts.Core;
+using CloudSuite.Modules.Domain.Models.Core;
+using CloudSuite.Modules.Domain.ValueObjects;
+using MediatR;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -8,36 +15,96 @@ namespace CloudSuite.Services.Core.API.Controllers.v1
     [ApiController]
     public class UserApiController : ControllerBase
     {
+        private readonly ILogger<UserApiController> _logger;
+        private readonly IMediator _mediator;
+        public UserApiController(IMediator mediator, ILogger<UserApiController> logger)
+        {
+            _mediator = mediator;
+            _logger = logger;
+        }
+
+
         // GET: api/<UserApiController>
         [HttpGet]
-        public IEnumerable<string> Get()
+        [Route("exists/email/{email}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public async Task<ActionResult> GetByEmail([FromRoute] Email email)
         {
-            return new string[] { "value1", "value2" };
+            try
+            {
+                var result = await _mediator.Send(new CheckUserExistsByEmailRequest(email));
+
+                if (result.Exists)
+                {
+                    return Ok(result);
+                }
+                else
+                {
+                    return NotFound(new { message = "User not found." });
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error fetching user by email: {ex.Message}.");
+                return StatusCode(StatusCodes.Status500InternalServerError, new { message = "An internal error occurred." });
+            }
         }
 
         // GET api/<UserApiController>/5
-        [HttpGet("{id}")]
-        public string Get(int id)
+        [HttpGet]
+        [Route("exists/cpf/{cpf}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+
+        public async Task<ActionResult> GetByCpf([FromRoute] Cpf cpf)
         {
-            return "value";
+            try
+            {
+                var result = await _mediator.Send(new CheckUserExistsByCpfRequest(cpf));
+
+                if (result.Exists)
+                {
+                    return Ok(result);
+                }
+                else
+                {
+                    return NotFound(new { message = "User not found." });
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error fetching user by cpf: {ex.Message}.");
+                return StatusCode(StatusCodes.Status500InternalServerError, new { message = "An internal error occurred." });
+            }
         }
 
         // POST api/<UserApiController>
-        [HttpPost]
-        public void Post([FromBody] string value)
+        [AllowAnonymous]
+        [HttpPost("create")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public async Task<ActionResult> Create([FromBody] CreateUserCommand commandCreate)
         {
-        }
+            try
+            {
+                var result = await _mediator.Send(commandCreate);
 
-        // PUT api/<UserApiController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
-        {
-        }
-
-        // DELETE api/<UserApiController>/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
+                if (result.Errors.Any())
+                {
+                    return BadRequest(new { message = "Could not create user." });
+                }
+                else
+                {
+                    return Ok();
+                }
+            }
+            catch
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, new { message = "An internal error occurred." });
+            }
         }
     }
 }

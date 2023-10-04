@@ -8,7 +8,7 @@ namespace CloudSuite.Modules.Application.Handlers.Core.Vendores.Requests
   {
     public Guid Id { get; private set; }  
 
-    public Cnpj Cnpj { get; private set; }
+    public Cnpj Cnpj { get; set; }
     
     public CheckVendorExistsByCnpjRequest(Cnpj cnpj)
     {

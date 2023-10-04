@@ -1,43 +1,75 @@
-﻿using Microsoft.AspNetCore.Mvc;
-
-// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+﻿using CloudSuite.Modules.Application.Handlers.Core.AppSettings;
+using CloudSuite.Modules.Application.Handlers.Core.AppSettings.Requests;
+using MediatR;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 
 namespace CloudSuite.Services.Core.API.Controllers.v1
 {
+
     [Route("api/[controller]")]
     [ApiController]
+
     public class AppSettingApiController : ControllerBase
     {
-        // GET: api/<AppSettingApiController>
-        [HttpGet]
-        public IEnumerable<string> Get()
+        private readonly ILogger<AppSettingApiController> _logger;
+        private readonly IMediator _mediator;
+
+        
+        public AppSettingApiController(ILogger<AppSettingApiController> logger, IMediator mediator)
         {
-            return new string[] { "value1", "value2" };
+            _logger = logger;
+            _mediator = mediator;
+
         }
 
-        // GET api/<AppSettingApiController>/5
-        [HttpGet("{id}")]
-        public string Get(int id)
-        {
-            return "value";
-        }
-
-        // POST api/<AppSettingApiController>
+        [AllowAnonymous]
         [HttpPost]
-        public void Post([FromBody] string value)
+        [Route("create")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public async Task<IActionResult> Save([FromBody] CreateAppSettingCommand commandCreate)
         {
+            var result = await _mediator.Send(commandCreate);
+            if (result.Errors.Any())
+            {
+                return Ok();
+            }
+            else
+            {
+                return BadRequest(new { message = "Could not create app setting." });
+            }
         }
 
-        // PUT api/<AppSettingApiController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        [HttpGet]
+        [Route("{value}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public async Task<IActionResult> GetByValue([FromRoute] string value)
         {
-        }
-
-        // DELETE api/<AppSettingApiController>/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
+            try
+            {
+                var result = await _mediator.Send(new CheckAppSettingExistsByValueRequest(value));
+                if (result.Errors.Any())
+                {
+                    return BadRequest(result);
+                }
+                if (result.Exists)
+                {
+                    return Ok(result);
+                }
+                else
+                {
+                    return NotFound(result);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error fetching App setting by App Setting: {ex.Message}.");
+                return StatusCode(StatusCodes.Status500InternalServerError, new { message = "An internal Server Error" });
+            }
         }
     }
-}
+   }

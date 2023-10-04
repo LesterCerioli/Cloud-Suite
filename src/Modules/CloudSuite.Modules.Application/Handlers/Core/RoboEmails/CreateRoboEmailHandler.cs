@@ -5,15 +5,17 @@ using Microsoft.Extensions.Logging;
 using System.Text.Json;
 using MediatR;
 
+
 namespace CloudSuite.Modules.Application.Handlers.Core.RoboEmails
 {
   public class CreateRoboEmailHandler : IRequestHandler<CreateRoboEmailCommand, CreateRoboEmailResponse>
   {
-    private IEmailRepository _emailRepository;
+
+    private readonly IRoboEmailRepository _roboEmailRepository;
     private readonly ILogger<CreateRoboEmailHandler> _logger;
-    public CreateRoboEmailHandler(IEmailRepository emailRepository, ILogger<CreateRoboEmailHandler> logger)
+    public CreateRoboEmailHandler(IRoboEmailRepository roboEmailRepository, ILogger<CreateRoboEmailHandler> logger)
     {
-      _emailRepository = emailRepository;
+      _roboEmailRepository = roboEmailRepository;
       _logger = logger;
     }
 
@@ -27,12 +29,12 @@ namespace CloudSuite.Modules.Application.Handlers.Core.RoboEmails
       {
         try
         {
-          var emails = await _emailRepository.GetBySubject(command.Subject);
+          var emails = await _roboEmailRepository.GetBySubject(command.Subject);
 
           if (emails != null)
             return await Task.FromResult(new CreateRoboEmailResponse(command.Id, "Distrito já cadastrado"));
 
-          await _emailRepository.Add(command.GetEntity());
+          await _roboEmailRepository.Add(command.GetEntity());
 
           return await Task.FromResult(new CreateRoboEmailResponse(command.Id, validationResult));
         }
