@@ -7,9 +7,8 @@ namespace CloudSuite.Modules.Application.Handlers.Pismo.Response
 {
     public class TransferFundsResponse
     {
-        public string Id { get; set; }
-        public string Status { get; set; }
-        public string StatusDescription { get; set; }
+        public string IdDebit { get; set; }
+        public string IdCredit { get; set; }
         public double Amount { get; set; }
         public string Currency { get; set; }
         public string Descriptor { get; set; }
@@ -20,13 +19,5 @@ namespace CloudSuite.Modules.Application.Handlers.Pismo.Response
             JsonConvert.PopulateObject(json, this);
         }
 
-        public TransferFundsResponse()
-        {
-        }
-
-        public static implicit operator HttpResponseMessage(TransferFundsResponse v)
-        {
-            throw new NotImplementedException();
-        }
     }
 }
