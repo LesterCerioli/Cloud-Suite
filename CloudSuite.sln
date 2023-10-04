@@ -11,31 +11,41 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CloudSuite.Modules.Domain",
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{771BB9FD-3E28-415A-9F88-06882D2477AB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CloudSuite.Infrastructure", "src\Infrastructure\CloudSuite.Infrastructure\CloudSuite.Infrastructure.csproj", "{38D5710B-77C0-491F-926D-D460FEFCD384}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CloudSuite.Infrastructure", "src\Infrastructure\CloudSuite.Infrastructure\CloudSuite.Infrastructure.csproj", "{38D5710B-77C0-491F-926D-D460FEFCD384}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CloudSuite.Infrastructure.CrossCutting", "src\Infrastructure\CloudSuite.Infrastructure.CrossCutting\CloudSuite.Infrastructure.CrossCutting.csproj", "{1BC6F06F-8EE8-4079-A6FA-8C952F3A6302}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CloudSuite.Infrastructure.CrossCutting", "src\Infrastructure\CloudSuite.Infrastructure.CrossCutting\CloudSuite.Infrastructure.CrossCutting.csproj", "{1BC6F06F-8EE8-4079-A6FA-8C952F3A6302}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CloudSuite.Modules.Application", "src\Modules\CloudSuite.Modules.Application\CloudSuite.Modules.Application.csproj", "{B1511022-5809-4103-9471-116E2FE51402}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CloudSuite.Modules.Application", "src\Modules\CloudSuite.Modules.Application\CloudSuite.Modules.Application.csproj", "{B1511022-5809-4103-9471-116E2FE51402}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Rest", "Rest", "{31621493-F2A2-445C-8A28-1CEE0CD7D57E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CloudSuite.Services.Core.API", "src\Rest\CloudSuite.Services.Core.API\CloudSuite.Services.Core.API.csproj", "{ADDB1B8F-987E-4BBC-B58C-391692D181C0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CloudSuite.Services.Core.API", "src\Rest\CloudSuite.Services.Core.API\CloudSuite.Services.Core.API.csproj", "{ADDB1B8F-987E-4BBC-B58C-391692D181C0}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{6765B9F5-A933-4FCE-9220-85B749126D17}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CloudSuite.Infrastructure.Tests", "test\CloudSuite.Infrastructure.Tests\CloudSuite.Infrastructure.Tests.csproj", "{416F0FB2-660B-4AA5-8D95-CD5118B7FA3F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CloudSuite.Infrastructure.Tests", "test\CloudSuite.Infrastructure.Tests\CloudSuite.Infrastructure.Tests.csproj", "{416F0FB2-660B-4AA5-8D95-CD5118B7FA3F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CloudSuite.Modules.Application.Tests", "test\CloudSuite.Modules.Application.Tests\CloudSuite.Modules.Application.Tests.csproj", "{7896D616-2487-4353-BA1B-5822D8EB80BD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CloudSuite.Modules.Application.Tests", "test\CloudSuite.Modules.Application.Tests\CloudSuite.Modules.Application.Tests.csproj", "{7896D616-2487-4353-BA1B-5822D8EB80BD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CloudSuite.Modules.Domain.Tests", "test\CloudSuite.Modules.Domain.Tests\CloudSuite.Modules.Domain.Tests.csproj", "{4023EC08-E259-48BD-A3F3-BE060B46B3F1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CloudSuite.Modules.Domain.Tests", "test\CloudSuite.Modules.Domain.Tests\CloudSuite.Modules.Domain.Tests.csproj", "{4023EC08-E259-48BD-A3F3-BE060B46B3F1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CloudSuite.Services.Core.API.Tests", "test\CloudSuite.Services.Core.API.Tests\CloudSuite.Services.Core.API.Tests.csproj", "{35459188-6B50-4435-92E0-7A3FDB48CBBD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CloudSuite.Services.Core.API.Tests", "test\CloudSuite.Services.Core.API.Tests\CloudSuite.Services.Core.API.Tests.csproj", "{35459188-6B50-4435-92E0-7A3FDB48CBBD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CloudSuite.Modules.Common", "src\Modules\CloudSuite.Modules.Common\CloudSuite.Modules.Common.csproj", "{D95D3C95-2488-4FD2-A310-77C6C5550DA9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CloudSuite.Modules.Common", "src\Modules\CloudSuite.Modules.Common\CloudSuite.Modules.Common.csproj", "{D95D3C95-2488-4FD2-A310-77C6C5550DA9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CloudSuite.Services.Fiscal.API", "src\Rest\CloudSuite.Services.Fiscal.API\CloudSuite.Services.Fiscal.API.csproj", "{64B98189-605E-49A6-A33F-5D0A2FCBFAC4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CloudSuite.Services.Fiscal.API", "src\Rest\CloudSuite.Services.Fiscal.API\CloudSuite.Services.Fiscal.API.csproj", "{64B98189-605E-49A6-A33F-5D0A2FCBFAC4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CloudSuite.Services.Cora.API", "src\Rest\CloudSuite.Services.Cora.API\CloudSuite.Services.Cora.API.csproj", "{994D02FE-C948-4385-B57B-393DB05B792C}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MSTests", "MSTests", "{C98C7A48-87CB-43D8-9A33-B4C27273C7D3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CloudSuite.Infrastructure.MsTests", "test\MsTests\CloudSuite.Infrastructure.MsTests\CloudSuite.Infrastructure.MsTests.csproj", "{A1A926A7-C8AE-4EC9-91E6-C1D260C93ABC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CloudSuite.Modules.Application.MsTests", "test\MsTests\CloudSuite.Modules.Application.MsTests\CloudSuite.Modules.Application.MsTests.csproj", "{F50C13ED-9CAA-45D1-A598-5FD4952B42F5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CloudSuite.Modules.Domain.MsTests", "test\MsTests\CloudSuite.Modules.Domain.MsTests\CloudSuite.Modules.Domain.MsTests.csproj", "{16F43829-32C2-4BDE-8E05-67D071BE5D21}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CloudSuite.Services.Core.API.MsTests", "test\MsTests\CloudSuite.Services.Core.API.MsTests\CloudSuite.Services.Core.API.MsTests.csproj", "{E11E23F8-7A14-46BE-9E49-CF2980CE492C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CloudSuite.Services.Fiscal.API.MsTests", "test\MsTests\CloudSuite.Services.Fiscal.API.MsTests\CloudSuite.Services.Fiscal.API.MsTests.csproj", "{6551A5CE-CDAF-42AE-96FB-15BB4692A676}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -63,10 +73,6 @@ Global
 		{ADDB1B8F-987E-4BBC-B58C-391692D181C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ADDB1B8F-987E-4BBC-B58C-391692D181C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ADDB1B8F-987E-4BBC-B58C-391692D181C0}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0E66F7B6-D386-4858-85FA-6A8689675DD4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0E66F7B6-D386-4858-85FA-6A8689675DD4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0E66F7B6-D386-4858-85FA-6A8689675DD4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0E66F7B6-D386-4858-85FA-6A8689675DD4}.Release|Any CPU.Build.0 = Release|Any CPU
 		{416F0FB2-660B-4AA5-8D95-CD5118B7FA3F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{416F0FB2-660B-4AA5-8D95-CD5118B7FA3F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{416F0FB2-660B-4AA5-8D95-CD5118B7FA3F}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -91,10 +97,26 @@ Global
 		{64B98189-605E-49A6-A33F-5D0A2FCBFAC4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{64B98189-605E-49A6-A33F-5D0A2FCBFAC4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{64B98189-605E-49A6-A33F-5D0A2FCBFAC4}.Release|Any CPU.Build.0 = Release|Any CPU
-		{994D02FE-C948-4385-B57B-393DB05B792C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{994D02FE-C948-4385-B57B-393DB05B792C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{994D02FE-C948-4385-B57B-393DB05B792C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{994D02FE-C948-4385-B57B-393DB05B792C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A1A926A7-C8AE-4EC9-91E6-C1D260C93ABC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A1A926A7-C8AE-4EC9-91E6-C1D260C93ABC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A1A926A7-C8AE-4EC9-91E6-C1D260C93ABC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A1A926A7-C8AE-4EC9-91E6-C1D260C93ABC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F50C13ED-9CAA-45D1-A598-5FD4952B42F5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F50C13ED-9CAA-45D1-A598-5FD4952B42F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F50C13ED-9CAA-45D1-A598-5FD4952B42F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F50C13ED-9CAA-45D1-A598-5FD4952B42F5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{16F43829-32C2-4BDE-8E05-67D071BE5D21}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{16F43829-32C2-4BDE-8E05-67D071BE5D21}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{16F43829-32C2-4BDE-8E05-67D071BE5D21}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{16F43829-32C2-4BDE-8E05-67D071BE5D21}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E11E23F8-7A14-46BE-9E49-CF2980CE492C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E11E23F8-7A14-46BE-9E49-CF2980CE492C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E11E23F8-7A14-46BE-9E49-CF2980CE492C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E11E23F8-7A14-46BE-9E49-CF2980CE492C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6551A5CE-CDAF-42AE-96FB-15BB4692A676}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6551A5CE-CDAF-42AE-96FB-15BB4692A676}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6551A5CE-CDAF-42AE-96FB-15BB4692A676}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6551A5CE-CDAF-42AE-96FB-15BB4692A676}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -108,14 +130,18 @@ Global
 		{B1511022-5809-4103-9471-116E2FE51402} = {5C990868-E0B0-4994-ACA0-9CA69A202757}
 		{31621493-F2A2-445C-8A28-1CEE0CD7D57E} = {17D2764D-E903-4F5A-A743-4AD49FA62C7D}
 		{ADDB1B8F-987E-4BBC-B58C-391692D181C0} = {31621493-F2A2-445C-8A28-1CEE0CD7D57E}
-		{0E66F7B6-D386-4858-85FA-6A8689675DD4} = {31621493-F2A2-445C-8A28-1CEE0CD7D57E}
 		{416F0FB2-660B-4AA5-8D95-CD5118B7FA3F} = {6765B9F5-A933-4FCE-9220-85B749126D17}
 		{7896D616-2487-4353-BA1B-5822D8EB80BD} = {6765B9F5-A933-4FCE-9220-85B749126D17}
 		{4023EC08-E259-48BD-A3F3-BE060B46B3F1} = {6765B9F5-A933-4FCE-9220-85B749126D17}
 		{35459188-6B50-4435-92E0-7A3FDB48CBBD} = {6765B9F5-A933-4FCE-9220-85B749126D17}
 		{D95D3C95-2488-4FD2-A310-77C6C5550DA9} = {5C990868-E0B0-4994-ACA0-9CA69A202757}
 		{64B98189-605E-49A6-A33F-5D0A2FCBFAC4} = {31621493-F2A2-445C-8A28-1CEE0CD7D57E}
-		{994D02FE-C948-4385-B57B-393DB05B792C} = {31621493-F2A2-445C-8A28-1CEE0CD7D57E}
+		{C98C7A48-87CB-43D8-9A33-B4C27273C7D3} = {6765B9F5-A933-4FCE-9220-85B749126D17}
+		{A1A926A7-C8AE-4EC9-91E6-C1D260C93ABC} = {C98C7A48-87CB-43D8-9A33-B4C27273C7D3}
+		{F50C13ED-9CAA-45D1-A598-5FD4952B42F5} = {C98C7A48-87CB-43D8-9A33-B4C27273C7D3}
+		{16F43829-32C2-4BDE-8E05-67D071BE5D21} = {C98C7A48-87CB-43D8-9A33-B4C27273C7D3}
+		{E11E23F8-7A14-46BE-9E49-CF2980CE492C} = {C98C7A48-87CB-43D8-9A33-B4C27273C7D3}
+		{6551A5CE-CDAF-42AE-96FB-15BB4692A676} = {C98C7A48-87CB-43D8-9A33-B4C27273C7D3}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {1A099A47-7532-4AF5-B168-7620A780FA67}
