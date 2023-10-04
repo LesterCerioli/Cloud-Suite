@@ -16,7 +16,6 @@ namespace CloudSuite.Modules.Application.Handlers.Pismo
     {
         private readonly string apiKey = "YOUR_ACCESS_TOKEN";
         private readonly string tenantId = "YOUR_TENANT_ID";
-        private readonly object idFromAccount, idToAccount;
         private readonly ILogger<TransferFundsHandler> _logger;
 
         public TransferFundsHandler(ILogger<TransferFundsHandler> logger)
@@ -26,40 +25,47 @@ namespace CloudSuite.Modules.Application.Handlers.Pismo
 
         public async Task<TransferFundsResponse> Handle(TransferFundsRequest request, CancellationToken cancellationToken)
         {
-            string message = $"TransferFundsRequest: {JsonConvert.SerializeObject(request, typeof(TransferFundsRequest)}";
-            _logger.LogInformation(message);
+            _logger.LogInformation($"TransferFundsRequest: {JsonConvert.SerializeObject(request)}");
 
-            var validationResult = new TransferFundsRequest(idFromAccount, idToAccount).Validate(request);
+            var validationResult = request; //tem que criar o metodo de validar a request ainda
 
-            if (validationResult.IsValid)
+            if (validationResult != null)
             {
                 try
                 {
-                    // Criando um cliente HTTP
-                    var client = new HttpClient();
+                    using var client = new HttpClient();
 
-                    // Adicionando as credenciais da API aos headers
                     client.DefaultRequestHeaders.Add("x-tenant", tenantId);
                     client.DefaultRequestHeaders.Add("Authorization", "Bearer " + apiKey);
 
-                    // Enviando a requisição
-                    var response = await client.PostAsync("https://api-sandbox.pismolabs.io/payments/v1/payments", new StringContent(request.ToJson(), Encoding.UTF8));
+                    var requestContent = new StringContent(request.ToJson(), Encoding.UTF8, "application/json");
 
-                    // Verificando o status code
+                    var response = await client.PostAsync("https://api-sandbox.pismolabs.io/payments/v1/payments", requestContent);
+
                     if (response.StatusCode == HttpStatusCode.OK)
                     {
-                        // Request enviado com sucesso
-                        return await Task.FromResult(JsonConvert.DeserializeObject<TransferFundsResponse>(response.Content.ReadAsStringAsync().Result));
+                        var responseContent = await response.Content.ReadAsStringAsync();
+
+                        return JsonConvert.DeserializeObject<TransferFundsResponse>(responseContent);
+                    }
+                    else
+                    {
+                        _logger.LogError($"Failed to transfer funds: {response.StatusCode}");
+
+                        return new TransferFundsResponse("Failed to transfer funds");
                     }
                 }
                 catch (Exception ex)
                 {
-                    _logger.LogCritical(ex.Message);
-                    return await Task.FromResult(new TransferFundsResponse("Não foi possivel processar a solicitação"));
+                    _logger.LogError($"Failed to transfer funds: {ex.Message}");
+
+                    return new TransferFundsResponse("Failed to transfer funds");
                 }
-                
+            }
+            else
+            {
+                return new TransferFundsResponse("Invalid request");
             }
         }
-    } 
+    }
 }
-            
