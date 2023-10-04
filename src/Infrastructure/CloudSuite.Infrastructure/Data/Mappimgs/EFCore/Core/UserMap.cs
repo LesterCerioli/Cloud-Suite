@@ -53,15 +53,11 @@ namespace CloudSuite.Infrastructure.Data.Mappimgs.EFCore.Core
                .HasColumnType("DateTimeOffset")
                .IsRequired();
 
-            builder.HasOne(a => a.Email)
-                .WithMany()
-                .HasForeignKey(a => a.EmailId)
-                .OnDelete(DeleteBehavior.Restrict);
+            builder.OwnsOne(p => p.Cpf)
+                            .Property(p => p.CpfNumber).HasColumnName("Cpf");
 
-                builder.HasOne(a => a.Cpf)
-                .WithMany()
-                .HasForeignKey(a => a.CpfId)
-                .OnDelete(DeleteBehavior.Restrict);
+            builder.OwnsOne(p => p.Email)
+                            .Property(p => p.EmailAddress).HasColumnName("Email");
 
             builder.HasOne(a => a.Vendor)
                 .WithMany()
