@@ -10,25 +10,35 @@ using System.Threading.Tasks;
 
 namespace CloudSuite.Modules.Application.Handlers.Pismo.Request
 {
-    public class TransferFundsRequest: IRequest<TransferFundsResponse>
+    public class TransferFundsRequest : IRequest<TransferFundsResponse>
     {
-        public List<Dictionary<string, object>> From { get; set; } = new List<Dictionary<string, object>>();
-        public List<Dictionary<string, object>> To { get; set; } = new List<Dictionary<string, object>>();
-        public double Amount { get; set; } = 100;
+        private object receiptMethods;
+        private object transferMethods;
+
+        public List<object> From { get; set; } = new List<object>();
+        public List<object> To { get; set; } = new List<object>();
+        public float Amount { get; set; } = 100;
         public string Currency { get; set; } = "BRL";
         public string Descriptor { get; set; } = "Transferência P2P";
 
-        public TransferFundsRequest(object idFromAccount, object idToAccount)
+        public TransferFundsRequest(object[] receiptMethods, object[] transferMethods, float amount, string currency, string descriptor)
         {
-            From.Add(new Dictionary<string, object>()
+            foreach (var transferMethod in transferMethods)
             {
-                {"account", new Dictionary<string, object>(){{"id", idFromAccount} }}
-            });
+                From.Add(transferMethod);
+            }
 
-            To.Add(new Dictionary<string, object>()
+            foreach (var receiptMethod in receiptMethods)
             {
-                {"account", new Dictionary<string, object>(){{"id", idToAccount} }}
-            });
+                To.Add(receiptMethod);
+            }
+
+            Amount = amount;
+
+            Currency = currency; // transformar as moedas em ENUM
+
+            Descriptor = descriptor;
+
         }
 
         public string ToJson()
@@ -36,9 +46,5 @@ namespace CloudSuite.Modules.Application.Handlers.Pismo.Request
             return JsonConvert.SerializeObject(this);
         }
 
-        internal ValidationResult Validate(TransferFundsRequest request) // valdiation vem da pasta validation
-        {
-            throw new NotImplementedException();
-        }
     }
 }
