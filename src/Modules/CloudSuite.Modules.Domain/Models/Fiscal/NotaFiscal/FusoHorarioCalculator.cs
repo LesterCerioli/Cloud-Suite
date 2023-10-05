@@ -9,34 +9,19 @@ namespace CloudSuite.Modules.Domain.Models.Fiscal.NotaFiscal
 {
     public class FusoHorarioCalculator : Entity, IAggregateRoot
     {
-        private readonly TimeZoneInfo _fusoHorario;
-        private readonly TimeSpan _fusoHorarioOffset;
-
-        public FusoHorarioCalculator(TimeZoneInfo fusoHorario)
+        public FusoHorarioCalculator(bool horarioVerao, bool horarioNormal)
         {
-            _fusoHorario = fusoHorario;
-            _fusoHorarioOffset = ObtemOffsetFusoHorario(_fusoHorario);
+            HorarioVerao = horarioVerao;
+            HorarioNormal = horarioNormal;
         }
 
-        private bool? EstaEmPeriodoHorarioVerao(DateTime data)
-        {
-            return _fusoHorario.IsDaylightSavingTime(data);
-        }
+        public bool HorarioVerao { get; private set; }
 
-        public TimeSpan ObtemFusoHorarioOffset(DateTime data)
-        {
-            var offset = _fusoHorarioOffset;
-            if (EstaEmPeriodoHorarioVerao(data))
-            {
-                offset = offset.Add(TimeSpan.FromHours(-1));
-            }
-            return offset;
-        }
+        public bool HorarioNormal { get; private set; }
 
-        private static TimeSpan ObtemOffsetFusoHorario(TimeZoneInfo fusoHorario)
-        {
-            return fusoHorario.BaseUtcOffset;
-        }
-        
+
+
+
+
     }
 }
