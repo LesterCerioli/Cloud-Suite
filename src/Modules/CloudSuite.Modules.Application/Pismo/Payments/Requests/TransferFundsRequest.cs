@@ -11,10 +11,7 @@ using System.Threading.Tasks;
 namespace CloudSuite.Modules.Application.Handlers.Pismo.Request
 {
     public class TransferFundsRequest : IRequest<TransferFundsResponse>
-    {
-        private object receiptMethods;
-        private object transferMethods;
-
+    { 
         public List<object> From { get; set; } = new List<object>();
         public List<object> To { get; set; } = new List<object>();
         public float Amount { get; set; } = 100;
@@ -44,6 +41,7 @@ namespace CloudSuite.Modules.Application.Handlers.Pismo.Request
         public string ToJson()
         {
             return JsonConvert.SerializeObject(this);
+            //: Declara um método público chamado ToJson(), que retorna uma representação JSON da classe TransferFundsRequest.
         }
 
     }

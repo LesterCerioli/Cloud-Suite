@@ -27,7 +27,7 @@ namespace CloudSuite.Modules.Application.Handlers.Pismo
         {
             _logger.LogInformation($"TransferFundsRequest: {JsonConvert.SerializeObject(request)}");
 
-            var validationResult = request; //tem que criar o metodo de validar a request ainda
+            var validationResult = request;
 
             if (validationResult != null)
             {
@@ -35,7 +35,7 @@ namespace CloudSuite.Modules.Application.Handlers.Pismo
                 {
                     using var client = new HttpClient();
 
-                    client.DefaultRequestHeaders.Add("x-tenant", tenantId);
+                    client.DefaultRequestHeaders.Add("x-tenant", tenantId); 
                     client.DefaultRequestHeaders.Add("Authorization", "Bearer " + apiKey);
 
                     var requestContent = new StringContent(request.ToJson(), Encoding.UTF8, "application/json");
