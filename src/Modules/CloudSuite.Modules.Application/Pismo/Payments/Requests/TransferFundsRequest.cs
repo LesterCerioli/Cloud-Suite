@@ -16,9 +16,10 @@ namespace CloudSuite.Modules.Application.Handlers.Pismo.Request
         public List<object> To { get; set; } = new List<object>();
         public float Amount { get; set; } = 100;
         public string Currency { get; set; } = "BRL";
+        public DateTime PaymentDateTime { get; set; }
         public string Descriptor { get; set; } = "Transferência P2P";
 
-        public TransferFundsRequest(object[] receiptMethods, object[] transferMethods, float amount, string currency, string descriptor)
+        public TransferFundsRequest(object[] receiptMethods, object[] transferMethods, float amount, string currency, DateTime paymentDateTime, string descriptor)
         {
             foreach (var transferMethod in transferMethods)
             {
@@ -32,7 +33,9 @@ namespace CloudSuite.Modules.Application.Handlers.Pismo.Request
 
             Amount = amount;
 
-            Currency = currency; // transformar as moedas em ENUM
+            Currency = currency;
+
+            PaymentDateTime = paymentDateTime;
 
             Descriptor = descriptor;
 
@@ -41,7 +44,6 @@ namespace CloudSuite.Modules.Application.Handlers.Pismo.Request
         public string ToJson()
         {
             return JsonConvert.SerializeObject(this);
-            //: Declara um método público chamado ToJson(), que retorna uma representação JSON da classe TransferFundsRequest.
         }
 
     }
