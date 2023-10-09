@@ -1,0 +1,3198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="MailAddressFromInsertUpdate">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="MailAddressFromId" nillable="true" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="MailAddressFrom" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Login" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="GlobalAddress" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MailAddressFromInsertUpdateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="MailAddressFromInsertUpdateResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MailAddressFromDelete">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="MailAddressFromId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MailAddressFromDeleteResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="MailAddressFromSelect">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="MailAddressFromId" nillable="true" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="UserId" nillable="true" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MailAddressFromSelectResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="MailAddressFromSelectResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MailAddressFromCountByMailAddressFrom">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="MailAddressFromId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="MailAddressFrom" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MailAddressFromCountByMailAddressFromResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="MailAddressFromCountByMailAddressFromResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MailAddressFromCountByLogin">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="MailAddressFromId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="Login" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MailAddressFromCountByLoginResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="MailAddressFromCountByLoginResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MailAddressFrom_UserSelect">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="MailAddressFromId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MailAddressFrom_UserSelectResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="MailAddressFrom_UserSelectResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MailAddressFrom_UserInsertUpdate">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="MailAddressFromId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="UserIdXML">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MailAddressFrom_UserInsertUpdateResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="MailMessageSelect">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="MailMessageId" nillable="true" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="UserId" nillable="true" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="From" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="To" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Subject" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Body" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="MailPriorityId" nillable="true" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="StartDate" nillable="true" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="EndDate" nillable="true" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MailMessageSelectResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="MailMessageSelectResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MailMessageSelectByMailMessageId">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="MailMessageId" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MailMessageSelectByMailMessageIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="MailMessageSelectByMailMessageIdResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MailSelect">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="MailId" nillable="true" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="UserId" nillable="true" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="From" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="To" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Cc" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Bcc" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Subject" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Body" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="MailStatusId" nillable="true" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="MailPriorityId" nillable="true" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="PriorityValue" nillable="true" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="StartDate" nillable="true" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="EndDate" nillable="true" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="MailAttachmentId" nillable="true" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="DeliveryReceiptRecipient" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MailSelectResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="MailSelectResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MailSelectByUserMail">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UserId" nillable="true" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="MailStatusId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="From" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="To" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="RowCount" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="PageIndex" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="LastPageIndex" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MailSelectByUserMailResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="MailSelectByUserMailResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MailSelectByStatusId">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="MailStatusId" nillable="true" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MailSelectByStatusIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="MailSelectByStatusIdResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MailSelectByNumber">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Number" nillable="true" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MailSelectByNumberResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="MailSelectByNumberResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MailSelectByMailId">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="MailId" nillable="true" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MailSelectByMailIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="MailSelectByMailIdResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MailSelectByMailMessageId">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="MailMessageId" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MailSelectByMailMessageIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="MailSelectByMailMessageIdResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MailStatusIdUpdateByMailId">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="MailId" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="MailStatusId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MailStatusIdUpdateByMailIdResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="MailPriorityValueUpdateByMailId">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="MailId" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MailPriorityValueUpdateByMailIdResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="MailInsert">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SystemId" nillable="true" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="UserId" nillable="true" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="From" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="To" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Cc" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Bcc" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Subject" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Body" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="ListId" nillable="true" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="MailStatusId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="MailPriorityId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="MailAttachmentId" nillable="true" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="DeliveryReceiptRecipient" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="HighImportant" nillable="true" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MailInsertResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="MailInsertResult" type="tns:ArrayOfInt" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfInt">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="int" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="MailInsertCSV">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SystemId" nillable="true" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="UserId" nillable="true" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="From" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ToCSV" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Cc" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Bcc" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Subject" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Body" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ListIdCSV" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="MailStatusId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="MailPriorityId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="MailAttachmentId" nillable="true" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="DeliveryReceiptRecipient" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="HighImportant" nillable="true" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MailInsertCSVResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="MailInsertCSVResult" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MailUpdate">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="MailId" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="UserId" nillable="true" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="From" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="To" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Cc" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Bcc" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Subject" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Body" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="MailStatusId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="MailPriorityId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="MailAttachmentId" nillable="true" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="DeliveryReceiptRecipient" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="HighImportant" nillable="true" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MailUpdateResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="MailDeleteById">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="MailId" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MailDeleteByIdResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="MailPrioritySelect">
+        <s:complexType />
+      </s:element>
+      <s:element name="MailPrioritySelectResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="MailPrioritySelectResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MailPrioritySelectById">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="MailPriorityId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MailPrioritySelectByIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="MailPrioritySelectByIdResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MailPrioritySelectByDescription">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MailPrioritySelectByDescriptionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="MailPrioritySelectByDescriptionResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MailPriorityInsert">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="PriorityValue" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="VisibleToUser" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="SubjectSuggestion" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="MailSuggestionMailAddressFromId" nillable="true" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MailPriorityInsertResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="MailPriorityUpdate">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="MailPriorityId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="PriorityValue" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="VisibleToUser" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="SubjectSuggestion" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="MailSuggestionMailAddressFromId" nillable="true" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MailPriorityUpdateResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="MailPriorityDeleteById">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="MailPriorityId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MailPriorityDeleteByIdResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="MailPriorityCountDescription">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="MailPriorityId" nillable="true" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MailPriorityCountDescriptionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="MailPriorityCountDescriptionResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MailPriorityCountPriorityValue">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="MailPriorityId" nillable="true" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="PriorityValue" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MailPriorityCountPriorityValueResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="MailPriorityCountPriorityValueResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MailPrioritySelectByVisibleToUser">
+        <s:complexType />
+      </s:element>
+      <s:element name="MailPrioritySelectByVisibleToUserResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="MailPrioritySelectByVisibleToUserResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MailStatusSelectById">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="MailStatusId" nillable="true" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MailStatusSelectByIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="MailStatusSelectByIdResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MailLogSelectByMailId">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="MailId" nillable="true" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MailLogSelectByMailIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="MailLogSelectByMailIdResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MailLogInsert">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="MailId" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="PreviousMailStatusId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="CurrentMailStatusId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="PreviousStatusDate" type="s:dateTime" />
+            <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MailLogInsertResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="MailLogDeleteByMailId">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="MailId" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MailLogDeleteByMailIdResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="ListInsert">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="OwnerUserId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListInsertResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ListInsertResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListSelect">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ListId" nillable="true" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="UserId" nillable="true" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListSelectResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ListSelectResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListSelectListIdByName">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListSelectListIdByNameResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ListSelectListIdByNameResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListUpdate">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ListId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListUpdateResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="ListDelete">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ListId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListDeleteResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="ListCountByName">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListCountByNameResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ListCountByNameResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="List_UserSelect">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ListId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="List_UserSelectResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="List_UserSelectResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="List_UserInsertUpdate">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ListId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="UserIdXML">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="List_UserInsertUpdateResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="ContactInsert">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Email" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ContactInsertResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ContactInsertResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ContactSelect">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ContactId" nillable="true" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ContactSelectResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ContactSelectResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ContactSelectByName">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ContactSelectByNameResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ContactSelectByNameResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ContactSelectByEmailOrName">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Text" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ContactSelectByEmailOrNameResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ContactSelectByEmailOrNameResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ContactSelectByEmail">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Email" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ContactSelectByEmailResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ContactSelectByEmailResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ContactSelectByList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ListId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ContactSelectByListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ContactSelectByListResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ContactSelectNotInList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ListId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ContactSelectNotInListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ContactSelectNotInListResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ContactSelectToAutoComplete">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Search" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="ListId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ContactSelectToAutoCompleteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ContactSelectToAutoCompleteResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ContactPagingSelect">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="PageSize" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="CurrentPage" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="SortExpression" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ContactPagingSelectResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ContactPagingSelectResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ContactUpdate">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ContactId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Email" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ContactUpdateResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="ContactDelete">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ContactId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ContactDeleteResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="ContactCountByEmail">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Email" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ContactCountByEmailResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ContactCountByEmailResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ContactCountByName">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ContactCountByNameResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ContactCountByNameResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ContactTotal">
+        <s:complexType />
+      </s:element>
+      <s:element name="ContactTotalResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ContactTotalResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ContactListInsert">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ContactId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="ListId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ContactListInsertResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="ContactListSelect">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ContactId" nillable="true" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="ListId" nillable="true" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ContactListSelectResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ContactListSelectResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ContactPagingSelectByList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="PageSize" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="CurrentPage" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="SortExpression" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="ListId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ContactPagingSelectByListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ContactPagingSelectByListResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ContactListTotal">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ListId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ContactListTotalResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ContactListTotalResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ContactListSelectByEmailOrName">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Text" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="ListId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ContactListSelectByEmailOrNameResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ContactListSelectByEmailOrNameResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ContactListDelete">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ContactId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="ListId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ContactListDeleteResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="ContactListDeleteByContactId">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ContactId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ContactListDeleteByContactIdResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="ContactListDeleteByListId">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ListId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ContactListDeleteByListIdResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="MailAttachmentInsert">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Path" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Deleted" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MailAttachmentInsertResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="MailAttachmentInsertResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MailAttachmentSelect">
+        <s:complexType />
+      </s:element>
+      <s:element name="MailAttachmentSelectResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="MailAttachmentSelectResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MailAttachmentIdSelectByPath">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Path" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MailAttachmentIdSelectByPathResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="MailAttachmentIdSelectByPathResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MailAttachmentUpdate">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="MailAttachmentId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MailAttachmentUpdateResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="MailAttachmentSelectByMailAttachmentId">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="MailAttachmentId" nillable="true" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MailAttachmentSelectByMailAttachmentIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="MailAttachmentSelectByMailAttachmentIdResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendMailsFromOutbox">
+        <s:complexType />
+      </s:element>
+      <s:element name="SendMailsFromOutboxResponse">
+        <s:complexType />
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="MailAddressFromInsertUpdateSoapIn">
+    <wsdl:part name="parameters" element="tns:MailAddressFromInsertUpdate" />
+  </wsdl:message>
+  <wsdl:message name="MailAddressFromInsertUpdateSoapOut">
+    <wsdl:part name="parameters" element="tns:MailAddressFromInsertUpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="MailAddressFromDeleteSoapIn">
+    <wsdl:part name="parameters" element="tns:MailAddressFromDelete" />
+  </wsdl:message>
+  <wsdl:message name="MailAddressFromDeleteSoapOut">
+    <wsdl:part name="parameters" element="tns:MailAddressFromDeleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="MailAddressFromSelectSoapIn">
+    <wsdl:part name="parameters" element="tns:MailAddressFromSelect" />
+  </wsdl:message>
+  <wsdl:message name="MailAddressFromSelectSoapOut">
+    <wsdl:part name="parameters" element="tns:MailAddressFromSelectResponse" />
+  </wsdl:message>
+  <wsdl:message name="MailAddressFromCountByMailAddressFromSoapIn">
+    <wsdl:part name="parameters" element="tns:MailAddressFromCountByMailAddressFrom" />
+  </wsdl:message>
+  <wsdl:message name="MailAddressFromCountByMailAddressFromSoapOut">
+    <wsdl:part name="parameters" element="tns:MailAddressFromCountByMailAddressFromResponse" />
+  </wsdl:message>
+  <wsdl:message name="MailAddressFromCountByLoginSoapIn">
+    <wsdl:part name="parameters" element="tns:MailAddressFromCountByLogin" />
+  </wsdl:message>
+  <wsdl:message name="MailAddressFromCountByLoginSoapOut">
+    <wsdl:part name="parameters" element="tns:MailAddressFromCountByLoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="MailAddressFrom_UserSelectSoapIn">
+    <wsdl:part name="parameters" element="tns:MailAddressFrom_UserSelect" />
+  </wsdl:message>
+  <wsdl:message name="MailAddressFrom_UserSelectSoapOut">
+    <wsdl:part name="parameters" element="tns:MailAddressFrom_UserSelectResponse" />
+  </wsdl:message>
+  <wsdl:message name="MailAddressFrom_UserInsertUpdateSoapIn">
+    <wsdl:part name="parameters" element="tns:MailAddressFrom_UserInsertUpdate" />
+  </wsdl:message>
+  <wsdl:message name="MailAddressFrom_UserInsertUpdateSoapOut">
+    <wsdl:part name="parameters" element="tns:MailAddressFrom_UserInsertUpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="MailMessageSelectSoapIn">
+    <wsdl:part name="parameters" element="tns:MailMessageSelect" />
+  </wsdl:message>
+  <wsdl:message name="MailMessageSelectSoapOut">
+    <wsdl:part name="parameters" element="tns:MailMessageSelectResponse" />
+  </wsdl:message>
+  <wsdl:message name="MailMessageSelectByMailMessageIdSoapIn">
+    <wsdl:part name="parameters" element="tns:MailMessageSelectByMailMessageId" />
+  </wsdl:message>
+  <wsdl:message name="MailMessageSelectByMailMessageIdSoapOut">
+    <wsdl:part name="parameters" element="tns:MailMessageSelectByMailMessageIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="MailSelectSoapIn">
+    <wsdl:part name="parameters" element="tns:MailSelect" />
+  </wsdl:message>
+  <wsdl:message name="MailSelectSoapOut">
+    <wsdl:part name="parameters" element="tns:MailSelectResponse" />
+  </wsdl:message>
+  <wsdl:message name="MailSelectByUserMailSoapIn">
+    <wsdl:part name="parameters" element="tns:MailSelectByUserMail" />
+  </wsdl:message>
+  <wsdl:message name="MailSelectByUserMailSoapOut">
+    <wsdl:part name="parameters" element="tns:MailSelectByUserMailResponse" />
+  </wsdl:message>
+  <wsdl:message name="MailSelectByStatusIdSoapIn">
+    <wsdl:part name="parameters" element="tns:MailSelectByStatusId" />
+  </wsdl:message>
+  <wsdl:message name="MailSelectByStatusIdSoapOut">
+    <wsdl:part name="parameters" element="tns:MailSelectByStatusIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="MailSelectByNumberSoapIn">
+    <wsdl:part name="parameters" element="tns:MailSelectByNumber" />
+  </wsdl:message>
+  <wsdl:message name="MailSelectByNumberSoapOut">
+    <wsdl:part name="parameters" element="tns:MailSelectByNumberResponse" />
+  </wsdl:message>
+  <wsdl:message name="MailSelectByMailIdSoapIn">
+    <wsdl:part name="parameters" element="tns:MailSelectByMailId" />
+  </wsdl:message>
+  <wsdl:message name="MailSelectByMailIdSoapOut">
+    <wsdl:part name="parameters" element="tns:MailSelectByMailIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="MailSelectByMailMessageIdSoapIn">
+    <wsdl:part name="parameters" element="tns:MailSelectByMailMessageId" />
+  </wsdl:message>
+  <wsdl:message name="MailSelectByMailMessageIdSoapOut">
+    <wsdl:part name="parameters" element="tns:MailSelectByMailMessageIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="MailStatusIdUpdateByMailIdSoapIn">
+    <wsdl:part name="parameters" element="tns:MailStatusIdUpdateByMailId" />
+  </wsdl:message>
+  <wsdl:message name="MailStatusIdUpdateByMailIdSoapOut">
+    <wsdl:part name="parameters" element="tns:MailStatusIdUpdateByMailIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="MailPriorityValueUpdateByMailIdSoapIn">
+    <wsdl:part name="parameters" element="tns:MailPriorityValueUpdateByMailId" />
+  </wsdl:message>
+  <wsdl:message name="MailPriorityValueUpdateByMailIdSoapOut">
+    <wsdl:part name="parameters" element="tns:MailPriorityValueUpdateByMailIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="MailInsertSoapIn">
+    <wsdl:part name="parameters" element="tns:MailInsert" />
+  </wsdl:message>
+  <wsdl:message name="MailInsertSoapOut">
+    <wsdl:part name="parameters" element="tns:MailInsertResponse" />
+  </wsdl:message>
+  <wsdl:message name="MailInsertCSVSoapIn">
+    <wsdl:part name="parameters" element="tns:MailInsertCSV" />
+  </wsdl:message>
+  <wsdl:message name="MailInsertCSVSoapOut">
+    <wsdl:part name="parameters" element="tns:MailInsertCSVResponse" />
+  </wsdl:message>
+  <wsdl:message name="MailUpdateSoapIn">
+    <wsdl:part name="parameters" element="tns:MailUpdate" />
+  </wsdl:message>
+  <wsdl:message name="MailUpdateSoapOut">
+    <wsdl:part name="parameters" element="tns:MailUpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="MailDeleteByIdSoapIn">
+    <wsdl:part name="parameters" element="tns:MailDeleteById" />
+  </wsdl:message>
+  <wsdl:message name="MailDeleteByIdSoapOut">
+    <wsdl:part name="parameters" element="tns:MailDeleteByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="MailPrioritySelectSoapIn">
+    <wsdl:part name="parameters" element="tns:MailPrioritySelect" />
+  </wsdl:message>
+  <wsdl:message name="MailPrioritySelectSoapOut">
+    <wsdl:part name="parameters" element="tns:MailPrioritySelectResponse" />
+  </wsdl:message>
+  <wsdl:message name="MailPrioritySelectByIdSoapIn">
+    <wsdl:part name="parameters" element="tns:MailPrioritySelectById" />
+  </wsdl:message>
+  <wsdl:message name="MailPrioritySelectByIdSoapOut">
+    <wsdl:part name="parameters" element="tns:MailPrioritySelectByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="MailPrioritySelectByDescriptionSoapIn">
+    <wsdl:part name="parameters" element="tns:MailPrioritySelectByDescription" />
+  </wsdl:message>
+  <wsdl:message name="MailPrioritySelectByDescriptionSoapOut">
+    <wsdl:part name="parameters" element="tns:MailPrioritySelectByDescriptionResponse" />
+  </wsdl:message>
+  <wsdl:message name="MailPriorityInsertSoapIn">
+    <wsdl:part name="parameters" element="tns:MailPriorityInsert" />
+  </wsdl:message>
+  <wsdl:message name="MailPriorityInsertSoapOut">
+    <wsdl:part name="parameters" element="tns:MailPriorityInsertResponse" />
+  </wsdl:message>
+  <wsdl:message name="MailPriorityUpdateSoapIn">
+    <wsdl:part name="parameters" element="tns:MailPriorityUpdate" />
+  </wsdl:message>
+  <wsdl:message name="MailPriorityUpdateSoapOut">
+    <wsdl:part name="parameters" element="tns:MailPriorityUpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="MailPriorityDeleteByIdSoapIn">
+    <wsdl:part name="parameters" element="tns:MailPriorityDeleteById" />
+  </wsdl:message>
+  <wsdl:message name="MailPriorityDeleteByIdSoapOut">
+    <wsdl:part name="parameters" element="tns:MailPriorityDeleteByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="MailPriorityCountDescriptionSoapIn">
+    <wsdl:part name="parameters" element="tns:MailPriorityCountDescription" />
+  </wsdl:message>
+  <wsdl:message name="MailPriorityCountDescriptionSoapOut">
+    <wsdl:part name="parameters" element="tns:MailPriorityCountDescriptionResponse" />
+  </wsdl:message>
+  <wsdl:message name="MailPriorityCountPriorityValueSoapIn">
+    <wsdl:part name="parameters" element="tns:MailPriorityCountPriorityValue" />
+  </wsdl:message>
+  <wsdl:message name="MailPriorityCountPriorityValueSoapOut">
+    <wsdl:part name="parameters" element="tns:MailPriorityCountPriorityValueResponse" />
+  </wsdl:message>
+  <wsdl:message name="MailPrioritySelectByVisibleToUserSoapIn">
+    <wsdl:part name="parameters" element="tns:MailPrioritySelectByVisibleToUser" />
+  </wsdl:message>
+  <wsdl:message name="MailPrioritySelectByVisibleToUserSoapOut">
+    <wsdl:part name="parameters" element="tns:MailPrioritySelectByVisibleToUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="MailStatusSelectByIdSoapIn">
+    <wsdl:part name="parameters" element="tns:MailStatusSelectById" />
+  </wsdl:message>
+  <wsdl:message name="MailStatusSelectByIdSoapOut">
+    <wsdl:part name="parameters" element="tns:MailStatusSelectByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="MailLogSelectByMailIdSoapIn">
+    <wsdl:part name="parameters" element="tns:MailLogSelectByMailId" />
+  </wsdl:message>
+  <wsdl:message name="MailLogSelectByMailIdSoapOut">
+    <wsdl:part name="parameters" element="tns:MailLogSelectByMailIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="MailLogInsertSoapIn">
+    <wsdl:part name="parameters" element="tns:MailLogInsert" />
+  </wsdl:message>
+  <wsdl:message name="MailLogInsertSoapOut">
+    <wsdl:part name="parameters" element="tns:MailLogInsertResponse" />
+  </wsdl:message>
+  <wsdl:message name="MailLogDeleteByMailIdSoapIn">
+    <wsdl:part name="parameters" element="tns:MailLogDeleteByMailId" />
+  </wsdl:message>
+  <wsdl:message name="MailLogDeleteByMailIdSoapOut">
+    <wsdl:part name="parameters" element="tns:MailLogDeleteByMailIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="ListInsertSoapIn">
+    <wsdl:part name="parameters" element="tns:ListInsert" />
+  </wsdl:message>
+  <wsdl:message name="ListInsertSoapOut">
+    <wsdl:part name="parameters" element="tns:ListInsertResponse" />
+  </wsdl:message>
+  <wsdl:message name="ListSelectSoapIn">
+    <wsdl:part name="parameters" element="tns:ListSelect" />
+  </wsdl:message>
+  <wsdl:message name="ListSelectSoapOut">
+    <wsdl:part name="parameters" element="tns:ListSelectResponse" />
+  </wsdl:message>
+  <wsdl:message name="ListSelectListIdByNameSoapIn">
+    <wsdl:part name="parameters" element="tns:ListSelectListIdByName" />
+  </wsdl:message>
+  <wsdl:message name="ListSelectListIdByNameSoapOut">
+    <wsdl:part name="parameters" element="tns:ListSelectListIdByNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="ListUpdateSoapIn">
+    <wsdl:part name="parameters" element="tns:ListUpdate" />
+  </wsdl:message>
+  <wsdl:message name="ListUpdateSoapOut">
+    <wsdl:part name="parameters" element="tns:ListUpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="ListDeleteSoapIn">
+    <wsdl:part name="parameters" element="tns:ListDelete" />
+  </wsdl:message>
+  <wsdl:message name="ListDeleteSoapOut">
+    <wsdl:part name="parameters" element="tns:ListDeleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="ListCountByNameSoapIn">
+    <wsdl:part name="parameters" element="tns:ListCountByName" />
+  </wsdl:message>
+  <wsdl:message name="ListCountByNameSoapOut">
+    <wsdl:part name="parameters" element="tns:ListCountByNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="List_UserSelectSoapIn">
+    <wsdl:part name="parameters" element="tns:List_UserSelect" />
+  </wsdl:message>
+  <wsdl:message name="List_UserSelectSoapOut">
+    <wsdl:part name="parameters" element="tns:List_UserSelectResponse" />
+  </wsdl:message>
+  <wsdl:message name="List_UserInsertUpdateSoapIn">
+    <wsdl:part name="parameters" element="tns:List_UserInsertUpdate" />
+  </wsdl:message>
+  <wsdl:message name="List_UserInsertUpdateSoapOut">
+    <wsdl:part name="parameters" element="tns:List_UserInsertUpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="ContactInsertSoapIn">
+    <wsdl:part name="parameters" element="tns:ContactInsert" />
+  </wsdl:message>
+  <wsdl:message name="ContactInsertSoapOut">
+    <wsdl:part name="parameters" element="tns:ContactInsertResponse" />
+  </wsdl:message>
+  <wsdl:message name="ContactSelectSoapIn">
+    <wsdl:part name="parameters" element="tns:ContactSelect" />
+  </wsdl:message>
+  <wsdl:message name="ContactSelectSoapOut">
+    <wsdl:part name="parameters" element="tns:ContactSelectResponse" />
+  </wsdl:message>
+  <wsdl:message name="ContactSelectByNameSoapIn">
+    <wsdl:part name="parameters" element="tns:ContactSelectByName" />
+  </wsdl:message>
+  <wsdl:message name="ContactSelectByNameSoapOut">
+    <wsdl:part name="parameters" element="tns:ContactSelectByNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="ContactSelectByEmailOrNameSoapIn">
+    <wsdl:part name="parameters" element="tns:ContactSelectByEmailOrName" />
+  </wsdl:message>
+  <wsdl:message name="ContactSelectByEmailOrNameSoapOut">
+    <wsdl:part name="parameters" element="tns:ContactSelectByEmailOrNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="ContactSelectByEmailSoapIn">
+    <wsdl:part name="parameters" element="tns:ContactSelectByEmail" />
+  </wsdl:message>
+  <wsdl:message name="ContactSelectByEmailSoapOut">
+    <wsdl:part name="parameters" element="tns:ContactSelectByEmailResponse" />
+  </wsdl:message>
+  <wsdl:message name="ContactSelectByListSoapIn">
+    <wsdl:part name="parameters" element="tns:ContactSelectByList" />
+  </wsdl:message>
+  <wsdl:message name="ContactSelectByListSoapOut">
+    <wsdl:part name="parameters" element="tns:ContactSelectByListResponse" />
+  </wsdl:message>
+  <wsdl:message name="ContactSelectNotInListSoapIn">
+    <wsdl:part name="parameters" element="tns:ContactSelectNotInList" />
+  </wsdl:message>
+  <wsdl:message name="ContactSelectNotInListSoapOut">
+    <wsdl:part name="parameters" element="tns:ContactSelectNotInListResponse" />
+  </wsdl:message>
+  <wsdl:message name="ContactSelectToAutoCompleteSoapIn">
+    <wsdl:part name="parameters" element="tns:ContactSelectToAutoComplete" />
+  </wsdl:message>
+  <wsdl:message name="ContactSelectToAutoCompleteSoapOut">
+    <wsdl:part name="parameters" element="tns:ContactSelectToAutoCompleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="ContactPagingSelectSoapIn">
+    <wsdl:part name="parameters" element="tns:ContactPagingSelect" />
+  </wsdl:message>
+  <wsdl:message name="ContactPagingSelectSoapOut">
+    <wsdl:part name="parameters" element="tns:ContactPagingSelectResponse" />
+  </wsdl:message>
+  <wsdl:message name="ContactUpdateSoapIn">
+    <wsdl:part name="parameters" element="tns:ContactUpdate" />
+  </wsdl:message>
+  <wsdl:message name="ContactUpdateSoapOut">
+    <wsdl:part name="parameters" element="tns:ContactUpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="ContactDeleteSoapIn">
+    <wsdl:part name="parameters" element="tns:ContactDelete" />
+  </wsdl:message>
+  <wsdl:message name="ContactDeleteSoapOut">
+    <wsdl:part name="parameters" element="tns:ContactDeleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="ContactCountByEmailSoapIn">
+    <wsdl:part name="parameters" element="tns:ContactCountByEmail" />
+  </wsdl:message>
+  <wsdl:message name="ContactCountByEmailSoapOut">
+    <wsdl:part name="parameters" element="tns:ContactCountByEmailResponse" />
+  </wsdl:message>
+  <wsdl:message name="ContactCountByNameSoapIn">
+    <wsdl:part name="parameters" element="tns:ContactCountByName" />
+  </wsdl:message>
+  <wsdl:message name="ContactCountByNameSoapOut">
+    <wsdl:part name="parameters" element="tns:ContactCountByNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="ContactTotalSoapIn">
+    <wsdl:part name="parameters" element="tns:ContactTotal" />
+  </wsdl:message>
+  <wsdl:message name="ContactTotalSoapOut">
+    <wsdl:part name="parameters" element="tns:ContactTotalResponse" />
+  </wsdl:message>
+  <wsdl:message name="ContactListInsertSoapIn">
+    <wsdl:part name="parameters" element="tns:ContactListInsert" />
+  </wsdl:message>
+  <wsdl:message name="ContactListInsertSoapOut">
+    <wsdl:part name="parameters" element="tns:ContactListInsertResponse" />
+  </wsdl:message>
+  <wsdl:message name="ContactListSelectSoapIn">
+    <wsdl:part name="parameters" element="tns:ContactListSelect" />
+  </wsdl:message>
+  <wsdl:message name="ContactListSelectSoapOut">
+    <wsdl:part name="parameters" element="tns:ContactListSelectResponse" />
+  </wsdl:message>
+  <wsdl:message name="ContactPagingSelectByListSoapIn">
+    <wsdl:part name="parameters" element="tns:ContactPagingSelectByList" />
+  </wsdl:message>
+  <wsdl:message name="ContactPagingSelectByListSoapOut">
+    <wsdl:part name="parameters" element="tns:ContactPagingSelectByListResponse" />
+  </wsdl:message>
+  <wsdl:message name="ContactListTotalSoapIn">
+    <wsdl:part name="parameters" element="tns:ContactListTotal" />
+  </wsdl:message>
+  <wsdl:message name="ContactListTotalSoapOut">
+    <wsdl:part name="parameters" element="tns:ContactListTotalResponse" />
+  </wsdl:message>
+  <wsdl:message name="ContactListSelectByEmailOrNameSoapIn">
+    <wsdl:part name="parameters" element="tns:ContactListSelectByEmailOrName" />
+  </wsdl:message>
+  <wsdl:message name="ContactListSelectByEmailOrNameSoapOut">
+    <wsdl:part name="parameters" element="tns:ContactListSelectByEmailOrNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="ContactListDeleteSoapIn">
+    <wsdl:part name="parameters" element="tns:ContactListDelete" />
+  </wsdl:message>
+  <wsdl:message name="ContactListDeleteSoapOut">
+    <wsdl:part name="parameters" element="tns:ContactListDeleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="ContactListDeleteByContactIdSoapIn">
+    <wsdl:part name="parameters" element="tns:ContactListDeleteByContactId" />
+  </wsdl:message>
+  <wsdl:message name="ContactListDeleteByContactIdSoapOut">
+    <wsdl:part name="parameters" element="tns:ContactListDeleteByContactIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="ContactListDeleteByListIdSoapIn">
+    <wsdl:part name="parameters" element="tns:ContactListDeleteByListId" />
+  </wsdl:message>
+  <wsdl:message name="ContactListDeleteByListIdSoapOut">
+    <wsdl:part name="parameters" element="tns:ContactListDeleteByListIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="MailAttachmentInsertSoapIn">
+    <wsdl:part name="parameters" element="tns:MailAttachmentInsert" />
+  </wsdl:message>
+  <wsdl:message name="MailAttachmentInsertSoapOut">
+    <wsdl:part name="parameters" element="tns:MailAttachmentInsertResponse" />
+  </wsdl:message>
+  <wsdl:message name="MailAttachmentSelectSoapIn">
+    <wsdl:part name="parameters" element="tns:MailAttachmentSelect" />
+  </wsdl:message>
+  <wsdl:message name="MailAttachmentSelectSoapOut">
+    <wsdl:part name="parameters" element="tns:MailAttachmentSelectResponse" />
+  </wsdl:message>
+  <wsdl:message name="MailAttachmentIdSelectByPathSoapIn">
+    <wsdl:part name="parameters" element="tns:MailAttachmentIdSelectByPath" />
+  </wsdl:message>
+  <wsdl:message name="MailAttachmentIdSelectByPathSoapOut">
+    <wsdl:part name="parameters" element="tns:MailAttachmentIdSelectByPathResponse" />
+  </wsdl:message>
+  <wsdl:message name="MailAttachmentUpdateSoapIn">
+    <wsdl:part name="parameters" element="tns:MailAttachmentUpdate" />
+  </wsdl:message>
+  <wsdl:message name="MailAttachmentUpdateSoapOut">
+    <wsdl:part name="parameters" element="tns:MailAttachmentUpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="MailAttachmentSelectByMailAttachmentIdSoapIn">
+    <wsdl:part name="parameters" element="tns:MailAttachmentSelectByMailAttachmentId" />
+  </wsdl:message>
+  <wsdl:message name="MailAttachmentSelectByMailAttachmentIdSoapOut">
+    <wsdl:part name="parameters" element="tns:MailAttachmentSelectByMailAttachmentIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendMailsFromOutboxSoapIn">
+    <wsdl:part name="parameters" element="tns:SendMailsFromOutbox" />
+  </wsdl:message>
+  <wsdl:message name="SendMailsFromOutboxSoapOut">
+    <wsdl:part name="parameters" element="tns:SendMailsFromOutboxResponse" />
+  </wsdl:message>
+  <wsdl:portType name="PluralEmailManagementSoap">
+    <wsdl:operation name="MailAddressFromInsertUpdate">
+      <wsdl:input message="tns:MailAddressFromInsertUpdateSoapIn" />
+      <wsdl:output message="tns:MailAddressFromInsertUpdateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MailAddressFromDelete">
+      <wsdl:input message="tns:MailAddressFromDeleteSoapIn" />
+      <wsdl:output message="tns:MailAddressFromDeleteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MailAddressFromSelect">
+      <wsdl:input message="tns:MailAddressFromSelectSoapIn" />
+      <wsdl:output message="tns:MailAddressFromSelectSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MailAddressFromCountByMailAddressFrom">
+      <wsdl:input message="tns:MailAddressFromCountByMailAddressFromSoapIn" />
+      <wsdl:output message="tns:MailAddressFromCountByMailAddressFromSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MailAddressFromCountByLogin">
+      <wsdl:input message="tns:MailAddressFromCountByLoginSoapIn" />
+      <wsdl:output message="tns:MailAddressFromCountByLoginSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MailAddressFrom_UserSelect">
+      <wsdl:input message="tns:MailAddressFrom_UserSelectSoapIn" />
+      <wsdl:output message="tns:MailAddressFrom_UserSelectSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MailAddressFrom_UserInsertUpdate">
+      <wsdl:input message="tns:MailAddressFrom_UserInsertUpdateSoapIn" />
+      <wsdl:output message="tns:MailAddressFrom_UserInsertUpdateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MailMessageSelect">
+      <wsdl:input message="tns:MailMessageSelectSoapIn" />
+      <wsdl:output message="tns:MailMessageSelectSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MailMessageSelectByMailMessageId">
+      <wsdl:input message="tns:MailMessageSelectByMailMessageIdSoapIn" />
+      <wsdl:output message="tns:MailMessageSelectByMailMessageIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MailSelect">
+      <wsdl:input message="tns:MailSelectSoapIn" />
+      <wsdl:output message="tns:MailSelectSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MailSelectByUserMail">
+      <wsdl:input message="tns:MailSelectByUserMailSoapIn" />
+      <wsdl:output message="tns:MailSelectByUserMailSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MailSelectByStatusId">
+      <wsdl:input message="tns:MailSelectByStatusIdSoapIn" />
+      <wsdl:output message="tns:MailSelectByStatusIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MailSelectByNumber">
+      <wsdl:input message="tns:MailSelectByNumberSoapIn" />
+      <wsdl:output message="tns:MailSelectByNumberSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MailSelectByMailId">
+      <wsdl:input message="tns:MailSelectByMailIdSoapIn" />
+      <wsdl:output message="tns:MailSelectByMailIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MailSelectByMailMessageId">
+      <wsdl:input message="tns:MailSelectByMailMessageIdSoapIn" />
+      <wsdl:output message="tns:MailSelectByMailMessageIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MailStatusIdUpdateByMailId">
+      <wsdl:input message="tns:MailStatusIdUpdateByMailIdSoapIn" />
+      <wsdl:output message="tns:MailStatusIdUpdateByMailIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MailPriorityValueUpdateByMailId">
+      <wsdl:input message="tns:MailPriorityValueUpdateByMailIdSoapIn" />
+      <wsdl:output message="tns:MailPriorityValueUpdateByMailIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MailInsert">
+      <wsdl:input message="tns:MailInsertSoapIn" />
+      <wsdl:output message="tns:MailInsertSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MailInsertCSV">
+      <wsdl:input message="tns:MailInsertCSVSoapIn" />
+      <wsdl:output message="tns:MailInsertCSVSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MailUpdate">
+      <wsdl:input message="tns:MailUpdateSoapIn" />
+      <wsdl:output message="tns:MailUpdateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MailDeleteById">
+      <wsdl:input message="tns:MailDeleteByIdSoapIn" />
+      <wsdl:output message="tns:MailDeleteByIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MailPrioritySelect">
+      <wsdl:input message="tns:MailPrioritySelectSoapIn" />
+      <wsdl:output message="tns:MailPrioritySelectSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MailPrioritySelectById">
+      <wsdl:input message="tns:MailPrioritySelectByIdSoapIn" />
+      <wsdl:output message="tns:MailPrioritySelectByIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MailPrioritySelectByDescription">
+      <wsdl:input message="tns:MailPrioritySelectByDescriptionSoapIn" />
+      <wsdl:output message="tns:MailPrioritySelectByDescriptionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MailPriorityInsert">
+      <wsdl:input message="tns:MailPriorityInsertSoapIn" />
+      <wsdl:output message="tns:MailPriorityInsertSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MailPriorityUpdate">
+      <wsdl:input message="tns:MailPriorityUpdateSoapIn" />
+      <wsdl:output message="tns:MailPriorityUpdateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MailPriorityDeleteById">
+      <wsdl:input message="tns:MailPriorityDeleteByIdSoapIn" />
+      <wsdl:output message="tns:MailPriorityDeleteByIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MailPriorityCountDescription">
+      <wsdl:input message="tns:MailPriorityCountDescriptionSoapIn" />
+      <wsdl:output message="tns:MailPriorityCountDescriptionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MailPriorityCountPriorityValue">
+      <wsdl:input message="tns:MailPriorityCountPriorityValueSoapIn" />
+      <wsdl:output message="tns:MailPriorityCountPriorityValueSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MailPrioritySelectByVisibleToUser">
+      <wsdl:input message="tns:MailPrioritySelectByVisibleToUserSoapIn" />
+      <wsdl:output message="tns:MailPrioritySelectByVisibleToUserSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MailStatusSelectById">
+      <wsdl:input message="tns:MailStatusSelectByIdSoapIn" />
+      <wsdl:output message="tns:MailStatusSelectByIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MailLogSelectByMailId">
+      <wsdl:input message="tns:MailLogSelectByMailIdSoapIn" />
+      <wsdl:output message="tns:MailLogSelectByMailIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MailLogInsert">
+      <wsdl:input message="tns:MailLogInsertSoapIn" />
+      <wsdl:output message="tns:MailLogInsertSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MailLogDeleteByMailId">
+      <wsdl:input message="tns:MailLogDeleteByMailIdSoapIn" />
+      <wsdl:output message="tns:MailLogDeleteByMailIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ListInsert">
+      <wsdl:input message="tns:ListInsertSoapIn" />
+      <wsdl:output message="tns:ListInsertSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ListSelect">
+      <wsdl:input message="tns:ListSelectSoapIn" />
+      <wsdl:output message="tns:ListSelectSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ListSelectListIdByName">
+      <wsdl:input message="tns:ListSelectListIdByNameSoapIn" />
+      <wsdl:output message="tns:ListSelectListIdByNameSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ListUpdate">
+      <wsdl:input message="tns:ListUpdateSoapIn" />
+      <wsdl:output message="tns:ListUpdateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ListDelete">
+      <wsdl:input message="tns:ListDeleteSoapIn" />
+      <wsdl:output message="tns:ListDeleteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ListCountByName">
+      <wsdl:input message="tns:ListCountByNameSoapIn" />
+      <wsdl:output message="tns:ListCountByNameSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="List_UserSelect">
+      <wsdl:input message="tns:List_UserSelectSoapIn" />
+      <wsdl:output message="tns:List_UserSelectSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="List_UserInsertUpdate">
+      <wsdl:input message="tns:List_UserInsertUpdateSoapIn" />
+      <wsdl:output message="tns:List_UserInsertUpdateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ContactInsert">
+      <wsdl:input message="tns:ContactInsertSoapIn" />
+      <wsdl:output message="tns:ContactInsertSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ContactSelect">
+      <wsdl:input message="tns:ContactSelectSoapIn" />
+      <wsdl:output message="tns:ContactSelectSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ContactSelectByName">
+      <wsdl:input message="tns:ContactSelectByNameSoapIn" />
+      <wsdl:output message="tns:ContactSelectByNameSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ContactSelectByEmailOrName">
+      <wsdl:input message="tns:ContactSelectByEmailOrNameSoapIn" />
+      <wsdl:output message="tns:ContactSelectByEmailOrNameSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ContactSelectByEmail">
+      <wsdl:input message="tns:ContactSelectByEmailSoapIn" />
+      <wsdl:output message="tns:ContactSelectByEmailSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ContactSelectByList">
+      <wsdl:input message="tns:ContactSelectByListSoapIn" />
+      <wsdl:output message="tns:ContactSelectByListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ContactSelectNotInList">
+      <wsdl:input message="tns:ContactSelectNotInListSoapIn" />
+      <wsdl:output message="tns:ContactSelectNotInListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ContactSelectToAutoComplete">
+      <wsdl:input message="tns:ContactSelectToAutoCompleteSoapIn" />
+      <wsdl:output message="tns:ContactSelectToAutoCompleteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ContactPagingSelect">
+      <wsdl:input message="tns:ContactPagingSelectSoapIn" />
+      <wsdl:output message="tns:ContactPagingSelectSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ContactUpdate">
+      <wsdl:input message="tns:ContactUpdateSoapIn" />
+      <wsdl:output message="tns:ContactUpdateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ContactDelete">
+      <wsdl:input message="tns:ContactDeleteSoapIn" />
+      <wsdl:output message="tns:ContactDeleteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ContactCountByEmail">
+      <wsdl:input message="tns:ContactCountByEmailSoapIn" />
+      <wsdl:output message="tns:ContactCountByEmailSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ContactCountByName">
+      <wsdl:input message="tns:ContactCountByNameSoapIn" />
+      <wsdl:output message="tns:ContactCountByNameSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ContactTotal">
+      <wsdl:input message="tns:ContactTotalSoapIn" />
+      <wsdl:output message="tns:ContactTotalSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ContactListInsert">
+      <wsdl:input message="tns:ContactListInsertSoapIn" />
+      <wsdl:output message="tns:ContactListInsertSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ContactListSelect">
+      <wsdl:input message="tns:ContactListSelectSoapIn" />
+      <wsdl:output message="tns:ContactListSelectSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ContactPagingSelectByList">
+      <wsdl:input message="tns:ContactPagingSelectByListSoapIn" />
+      <wsdl:output message="tns:ContactPagingSelectByListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ContactListTotal">
+      <wsdl:input message="tns:ContactListTotalSoapIn" />
+      <wsdl:output message="tns:ContactListTotalSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ContactListSelectByEmailOrName">
+      <wsdl:input message="tns:ContactListSelectByEmailOrNameSoapIn" />
+      <wsdl:output message="tns:ContactListSelectByEmailOrNameSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ContactListDelete">
+      <wsdl:input message="tns:ContactListDeleteSoapIn" />
+      <wsdl:output message="tns:ContactListDeleteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ContactListDeleteByContactId">
+      <wsdl:input message="tns:ContactListDeleteByContactIdSoapIn" />
+      <wsdl:output message="tns:ContactListDeleteByContactIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ContactListDeleteByListId">
+      <wsdl:input message="tns:ContactListDeleteByListIdSoapIn" />
+      <wsdl:output message="tns:ContactListDeleteByListIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MailAttachmentInsert">
+      <wsdl:input message="tns:MailAttachmentInsertSoapIn" />
+      <wsdl:output message="tns:MailAttachmentInsertSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MailAttachmentSelect">
+      <wsdl:input message="tns:MailAttachmentSelectSoapIn" />
+      <wsdl:output message="tns:MailAttachmentSelectSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MailAttachmentIdSelectByPath">
+      <wsdl:input message="tns:MailAttachmentIdSelectByPathSoapIn" />
+      <wsdl:output message="tns:MailAttachmentIdSelectByPathSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MailAttachmentUpdate">
+      <wsdl:input message="tns:MailAttachmentUpdateSoapIn" />
+      <wsdl:output message="tns:MailAttachmentUpdateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MailAttachmentSelectByMailAttachmentId">
+      <wsdl:input message="tns:MailAttachmentSelectByMailAttachmentIdSoapIn" />
+      <wsdl:output message="tns:MailAttachmentSelectByMailAttachmentIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendMailsFromOutbox">
+      <wsdl:input message="tns:SendMailsFromOutboxSoapIn" />
+      <wsdl:output message="tns:SendMailsFromOutboxSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="PluralEmailManagementSoap" type="tns:PluralEmailManagementSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="MailAddressFromInsertUpdate">
+      <soap:operation soapAction="http://tempuri.org/MailAddressFromInsertUpdate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MailAddressFromDelete">
+      <soap:operation soapAction="http://tempuri.org/MailAddressFromDelete" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MailAddressFromSelect">
+      <soap:operation soapAction="http://tempuri.org/MailAddressFromSelect" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MailAddressFromCountByMailAddressFrom">
+      <soap:operation soapAction="http://tempuri.org/MailAddressFromCountByMailAddressFrom" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MailAddressFromCountByLogin">
+      <soap:operation soapAction="http://tempuri.org/MailAddressFromCountByLogin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MailAddressFrom_UserSelect">
+      <soap:operation soapAction="http://tempuri.org/MailAddressFrom_UserSelect" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MailAddressFrom_UserInsertUpdate">
+      <soap:operation soapAction="http://tempuri.org/MailAddressFrom_UserInsertUpdate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MailMessageSelect">
+      <soap:operation soapAction="http://tempuri.org/MailMessageSelect" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MailMessageSelectByMailMessageId">
+      <soap:operation soapAction="http://tempuri.org/MailMessageSelectByMailMessageId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MailSelect">
+      <soap:operation soapAction="http://tempuri.org/MailSelect" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MailSelectByUserMail">
+      <soap:operation soapAction="http://tempuri.org/MailSelectByUserMail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MailSelectByStatusId">
+      <soap:operation soapAction="http://tempuri.org/MailSelectByStatusId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MailSelectByNumber">
+      <soap:operation soapAction="http://tempuri.org/MailSelectByNumber" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MailSelectByMailId">
+      <soap:operation soapAction="http://tempuri.org/MailSelectByMailId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MailSelectByMailMessageId">
+      <soap:operation soapAction="http://tempuri.org/MailSelectByMailMessageId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MailStatusIdUpdateByMailId">
+      <soap:operation soapAction="http://tempuri.org/MailStatusIdUpdateByMailId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MailPriorityValueUpdateByMailId">
+      <soap:operation soapAction="http://tempuri.org/MailPriorityValueUpdateByMailId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MailInsert">
+      <soap:operation soapAction="http://tempuri.org/MailInsert" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MailInsertCSV">
+      <soap:operation soapAction="http://tempuri.org/MailInsertCSV" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MailUpdate">
+      <soap:operation soapAction="http://tempuri.org/MailUpdate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MailDeleteById">
+      <soap:operation soapAction="http://tempuri.org/MailDeleteById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MailPrioritySelect">
+      <soap:operation soapAction="http://tempuri.org/MailPrioritySelect" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MailPrioritySelectById">
+      <soap:operation soapAction="http://tempuri.org/MailPrioritySelectById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MailPrioritySelectByDescription">
+      <soap:operation soapAction="http://tempuri.org/MailPrioritySelectByDescription" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MailPriorityInsert">
+      <soap:operation soapAction="http://tempuri.org/MailPriorityInsert" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MailPriorityUpdate">
+      <soap:operation soapAction="http://tempuri.org/MailPriorityUpdate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MailPriorityDeleteById">
+      <soap:operation soapAction="http://tempuri.org/MailPriorityDeleteById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MailPriorityCountDescription">
+      <soap:operation soapAction="http://tempuri.org/MailPriorityCountDescription" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MailPriorityCountPriorityValue">
+      <soap:operation soapAction="http://tempuri.org/MailPriorityCountPriorityValue" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MailPrioritySelectByVisibleToUser">
+      <soap:operation soapAction="http://tempuri.org/MailPrioritySelectByVisibleToUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MailStatusSelectById">
+      <soap:operation soapAction="http://tempuri.org/MailStatusSelectById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MailLogSelectByMailId">
+      <soap:operation soapAction="http://tempuri.org/MailLogSelectByMailId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MailLogInsert">
+      <soap:operation soapAction="http://tempuri.org/MailLogInsert" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MailLogDeleteByMailId">
+      <soap:operation soapAction="http://tempuri.org/MailLogDeleteByMailId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListInsert">
+      <soap:operation soapAction="http://tempuri.org/ListInsert" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListSelect">
+      <soap:operation soapAction="http://tempuri.org/ListSelect" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListSelectListIdByName">
+      <soap:operation soapAction="http://tempuri.org/ListSelectListIdByName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListUpdate">
+      <soap:operation soapAction="http://tempuri.org/ListUpdate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListDelete">
+      <soap:operation soapAction="http://tempuri.org/ListDelete" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListCountByName">
+      <soap:operation soapAction="http://tempuri.org/ListCountByName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="List_UserSelect">
+      <soap:operation soapAction="http://tempuri.org/List_UserSelect" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="List_UserInsertUpdate">
+      <soap:operation soapAction="http://tempuri.org/List_UserInsertUpdate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ContactInsert">
+      <soap:operation soapAction="http://tempuri.org/ContactInsert" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ContactSelect">
+      <soap:operation soapAction="http://tempuri.org/ContactSelect" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ContactSelectByName">
+      <soap:operation soapAction="http://tempuri.org/ContactSelectByName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ContactSelectByEmailOrName">
+      <soap:operation soapAction="http://tempuri.org/ContactSelectByEmailOrName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ContactSelectByEmail">
+      <soap:operation soapAction="http://tempuri.org/ContactSelectByEmail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ContactSelectByList">
+      <soap:operation soapAction="http://tempuri.org/ContactSelectByList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ContactSelectNotInList">
+      <soap:operation soapAction="http://tempuri.org/ContactSelectNotInList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ContactSelectToAutoComplete">
+      <soap:operation soapAction="http://tempuri.org/ContactSelectToAutoComplete" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ContactPagingSelect">
+      <soap:operation soapAction="http://tempuri.org/ContactPagingSelect" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ContactUpdate">
+      <soap:operation soapAction="http://tempuri.org/ContactUpdate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ContactDelete">
+      <soap:operation soapAction="http://tempuri.org/ContactDelete" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ContactCountByEmail">
+      <soap:operation soapAction="http://tempuri.org/ContactCountByEmail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ContactCountByName">
+      <soap:operation soapAction="http://tempuri.org/ContactCountByName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ContactTotal">
+      <soap:operation soapAction="http://tempuri.org/ContactTotal" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ContactListInsert">
+      <soap:operation soapAction="http://tempuri.org/ContactListInsert" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ContactListSelect">
+      <soap:operation soapAction="http://tempuri.org/ContactListSelect" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ContactPagingSelectByList">
+      <soap:operation soapAction="http://tempuri.org/ContactPagingSelectByList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ContactListTotal">
+      <soap:operation soapAction="http://tempuri.org/ContactListTotal" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ContactListSelectByEmailOrName">
+      <soap:operation soapAction="http://tempuri.org/ContactListSelectByEmailOrName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ContactListDelete">
+      <soap:operation soapAction="http://tempuri.org/ContactListDelete" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ContactListDeleteByContactId">
+      <soap:operation soapAction="http://tempuri.org/ContactListDeleteByContactId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ContactListDeleteByListId">
+      <soap:operation soapAction="http://tempuri.org/ContactListDeleteByListId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MailAttachmentInsert">
+      <soap:operation soapAction="http://tempuri.org/MailAttachmentInsert" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MailAttachmentSelect">
+      <soap:operation soapAction="http://tempuri.org/MailAttachmentSelect" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MailAttachmentIdSelectByPath">
+      <soap:operation soapAction="http://tempuri.org/MailAttachmentIdSelectByPath" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MailAttachmentUpdate">
+      <soap:operation soapAction="http://tempuri.org/MailAttachmentUpdate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MailAttachmentSelectByMailAttachmentId">
+      <soap:operation soapAction="http://tempuri.org/MailAttachmentSelectByMailAttachmentId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendMailsFromOutbox">
+      <soap:operation soapAction="http://tempuri.org/SendMailsFromOutbox" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="PluralEmailManagementSoap12" type="tns:PluralEmailManagementSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="MailAddressFromInsertUpdate">
+      <soap12:operation soapAction="http://tempuri.org/MailAddressFromInsertUpdate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MailAddressFromDelete">
+      <soap12:operation soapAction="http://tempuri.org/MailAddressFromDelete" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MailAddressFromSelect">
+      <soap12:operation soapAction="http://tempuri.org/MailAddressFromSelect" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MailAddressFromCountByMailAddressFrom">
+      <soap12:operation soapAction="http://tempuri.org/MailAddressFromCountByMailAddressFrom" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MailAddressFromCountByLogin">
+      <soap12:operation soapAction="http://tempuri.org/MailAddressFromCountByLogin" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MailAddressFrom_UserSelect">
+      <soap12:operation soapAction="http://tempuri.org/MailAddressFrom_UserSelect" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MailAddressFrom_UserInsertUpdate">
+      <soap12:operation soapAction="http://tempuri.org/MailAddressFrom_UserInsertUpdate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MailMessageSelect">
+      <soap12:operation soapAction="http://tempuri.org/MailMessageSelect" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MailMessageSelectByMailMessageId">
+      <soap12:operation soapAction="http://tempuri.org/MailMessageSelectByMailMessageId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MailSelect">
+      <soap12:operation soapAction="http://tempuri.org/MailSelect" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MailSelectByUserMail">
+      <soap12:operation soapAction="http://tempuri.org/MailSelectByUserMail" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MailSelectByStatusId">
+      <soap12:operation soapAction="http://tempuri.org/MailSelectByStatusId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MailSelectByNumber">
+      <soap12:operation soapAction="http://tempuri.org/MailSelectByNumber" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MailSelectByMailId">
+      <soap12:operation soapAction="http://tempuri.org/MailSelectByMailId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MailSelectByMailMessageId">
+      <soap12:operation soapAction="http://tempuri.org/MailSelectByMailMessageId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MailStatusIdUpdateByMailId">
+      <soap12:operation soapAction="http://tempuri.org/MailStatusIdUpdateByMailId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MailPriorityValueUpdateByMailId">
+      <soap12:operation soapAction="http://tempuri.org/MailPriorityValueUpdateByMailId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MailInsert">
+      <soap12:operation soapAction="http://tempuri.org/MailInsert" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MailInsertCSV">
+      <soap12:operation soapAction="http://tempuri.org/MailInsertCSV" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MailUpdate">
+      <soap12:operation soapAction="http://tempuri.org/MailUpdate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MailDeleteById">
+      <soap12:operation soapAction="http://tempuri.org/MailDeleteById" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MailPrioritySelect">
+      <soap12:operation soapAction="http://tempuri.org/MailPrioritySelect" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MailPrioritySelectById">
+      <soap12:operation soapAction="http://tempuri.org/MailPrioritySelectById" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MailPrioritySelectByDescription">
+      <soap12:operation soapAction="http://tempuri.org/MailPrioritySelectByDescription" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MailPriorityInsert">
+      <soap12:operation soapAction="http://tempuri.org/MailPriorityInsert" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MailPriorityUpdate">
+      <soap12:operation soapAction="http://tempuri.org/MailPriorityUpdate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MailPriorityDeleteById">
+      <soap12:operation soapAction="http://tempuri.org/MailPriorityDeleteById" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MailPriorityCountDescription">
+      <soap12:operation soapAction="http://tempuri.org/MailPriorityCountDescription" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MailPriorityCountPriorityValue">
+      <soap12:operation soapAction="http://tempuri.org/MailPriorityCountPriorityValue" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MailPrioritySelectByVisibleToUser">
+      <soap12:operation soapAction="http://tempuri.org/MailPrioritySelectByVisibleToUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MailStatusSelectById">
+      <soap12:operation soapAction="http://tempuri.org/MailStatusSelectById" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MailLogSelectByMailId">
+      <soap12:operation soapAction="http://tempuri.org/MailLogSelectByMailId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MailLogInsert">
+      <soap12:operation soapAction="http://tempuri.org/MailLogInsert" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MailLogDeleteByMailId">
+      <soap12:operation soapAction="http://tempuri.org/MailLogDeleteByMailId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListInsert">
+      <soap12:operation soapAction="http://tempuri.org/ListInsert" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListSelect">
+      <soap12:operation soapAction="http://tempuri.org/ListSelect" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListSelectListIdByName">
+      <soap12:operation soapAction="http://tempuri.org/ListSelectListIdByName" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListUpdate">
+      <soap12:operation soapAction="http://tempuri.org/ListUpdate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListDelete">
+      <soap12:operation soapAction="http://tempuri.org/ListDelete" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListCountByName">
+      <soap12:operation soapAction="http://tempuri.org/ListCountByName" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="List_UserSelect">
+      <soap12:operation soapAction="http://tempuri.org/List_UserSelect" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="List_UserInsertUpdate">
+      <soap12:operation soapAction="http://tempuri.org/List_UserInsertUpdate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ContactInsert">
+      <soap12:operation soapAction="http://tempuri.org/ContactInsert" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ContactSelect">
+      <soap12:operation soapAction="http://tempuri.org/ContactSelect" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ContactSelectByName">
+      <soap12:operation soapAction="http://tempuri.org/ContactSelectByName" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ContactSelectByEmailOrName">
+      <soap12:operation soapAction="http://tempuri.org/ContactSelectByEmailOrName" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ContactSelectByEmail">
+      <soap12:operation soapAction="http://tempuri.org/ContactSelectByEmail" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ContactSelectByList">
+      <soap12:operation soapAction="http://tempuri.org/ContactSelectByList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ContactSelectNotInList">
+      <soap12:operation soapAction="http://tempuri.org/ContactSelectNotInList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ContactSelectToAutoComplete">
+      <soap12:operation soapAction="http://tempuri.org/ContactSelectToAutoComplete" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ContactPagingSelect">
+      <soap12:operation soapAction="http://tempuri.org/ContactPagingSelect" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ContactUpdate">
+      <soap12:operation soapAction="http://tempuri.org/ContactUpdate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ContactDelete">
+      <soap12:operation soapAction="http://tempuri.org/ContactDelete" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ContactCountByEmail">
+      <soap12:operation soapAction="http://tempuri.org/ContactCountByEmail" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ContactCountByName">
+      <soap12:operation soapAction="http://tempuri.org/ContactCountByName" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ContactTotal">
+      <soap12:operation soapAction="http://tempuri.org/ContactTotal" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ContactListInsert">
+      <soap12:operation soapAction="http://tempuri.org/ContactListInsert" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ContactListSelect">
+      <soap12:operation soapAction="http://tempuri.org/ContactListSelect" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ContactPagingSelectByList">
+      <soap12:operation soapAction="http://tempuri.org/ContactPagingSelectByList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ContactListTotal">
+      <soap12:operation soapAction="http://tempuri.org/ContactListTotal" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ContactListSelectByEmailOrName">
+      <soap12:operation soapAction="http://tempuri.org/ContactListSelectByEmailOrName" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ContactListDelete">
+      <soap12:operation soapAction="http://tempuri.org/ContactListDelete" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ContactListDeleteByContactId">
+      <soap12:operation soapAction="http://tempuri.org/ContactListDeleteByContactId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ContactListDeleteByListId">
+      <soap12:operation soapAction="http://tempuri.org/ContactListDeleteByListId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MailAttachmentInsert">
+      <soap12:operation soapAction="http://tempuri.org/MailAttachmentInsert" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MailAttachmentSelect">
+      <soap12:operation soapAction="http://tempuri.org/MailAttachmentSelect" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MailAttachmentIdSelectByPath">
+      <soap12:operation soapAction="http://tempuri.org/MailAttachmentIdSelectByPath" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MailAttachmentUpdate">
+      <soap12:operation soapAction="http://tempuri.org/MailAttachmentUpdate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MailAttachmentSelectByMailAttachmentId">
+      <soap12:operation soapAction="http://tempuri.org/MailAttachmentSelectByMailAttachmentId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendMailsFromOutbox">
+      <soap12:operation soapAction="http://tempuri.org/SendMailsFromOutbox" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="PluralEmailManagement">
+    <wsdl:port name="PluralEmailManagementSoap" binding="tns:PluralEmailManagementSoap">
+      <soap:address location="http://service/PluralEmailService/PluralEmailService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="PluralEmailManagementSoap12" binding="tns:PluralEmailManagementSoap12">
+      <soap12:address location="http://service/PluralEmailService/PluralEmailService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
