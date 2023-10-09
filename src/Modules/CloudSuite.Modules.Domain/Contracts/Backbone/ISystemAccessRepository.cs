@@ -1,12 +1,16 @@
 using CloudSuite.Modules.Domain.Models.Backbone;
-
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 namespace CloudSuite.Modules.Domain.Contracts.Backbone
 {
     public interface ISystemAccessRepository
     {
         Task<SystemAccess> GetByName(string name);
 
-        Task<SystemAccess> GetByCreatedOn(datetime createdon);
+        Task<SystemAccess> GetByCreatedOn(DateTimeOffSet createdOn);
 
         Task<IEnumerable<SystemAccess>> GetList();
 
