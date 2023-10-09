@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.168
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BankIntegrationService", "BankIntegrationService\BankIntegrationService.csproj", "{36342F7C-A828-4514-8158-30900D4F4505}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebAPIMatera", "WebAPIMatera\WebAPIMatera.csproj", "{D8C46BE8-82B5-468C-8D79-605426A95354}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{36342F7C-A828-4514-8158-30900D4F4505}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{36342F7C-A828-4514-8158-30900D4F4505}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{36342F7C-A828-4514-8158-30900D4F4505}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{36342F7C-A828-4514-8158-30900D4F4505}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D8C46BE8-82B5-468C-8D79-605426A95354}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D8C46BE8-82B5-468C-8D79-605426A95354}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D8C46BE8-82B5-468C-8D79-605426A95354}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D8C46BE8-82B5-468C-8D79-605426A95354}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BCD82BB8-B03D-4A8A-9067-A50F42FE2267}
+	EndGlobalSection
+EndGlobal
