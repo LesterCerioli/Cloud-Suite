@@ -14,8 +14,7 @@ namespace CloudSuite.Modules.Domain.Contracts.Backbone
 
         Task<Cpf> GetByCpf(Cpf cpf);
 
-        Task<IEnumerable<Credential>> GetList();
-
+        
         Task Add(Credential credential);
 
         void Update(Credential credential);

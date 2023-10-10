@@ -1,4 +1,5 @@
-﻿using CloudSuite.Modules.Domain.ValueObjects;
+﻿using System.ComponentModel;
+using CloudSuite.Modules.Domain.ValueObjects;
 using NetDevPack.Domain;
 using System;
 using System.Collections.Generic;
@@ -14,14 +15,14 @@ namespace CloudSuite.Modules.Domain.Models.Backbone
         {
             Name = name;
             IsProper = isProper;
-            CreatedOn = createdOn;
+            CreatedOn = DateTimeOffset.Now;
         }
 
         public string? Name { get; private set; }
 
         public bool? IsProper { get; private set; }
 
-        public DateTime? CreatedOn { get; private set; }
+        public DateTimeOffset? CreatedOn { get; private set; }
 
         public Cpf Cpf { get; private set; }
     }
