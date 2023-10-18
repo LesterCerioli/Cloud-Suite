@@ -1,6 +1,6 @@
 namespace CloudSuite.Modules.Cora.Application.Handlers.Extrato
 {
-    public class CreateExtratoCommand
+    public class CreateExtractHandler
     {
         
     }
