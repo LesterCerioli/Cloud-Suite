@@ -1,6 +1,9 @@
+using CloudSuite.Infrastructure.Data.Mappimgs.EFCore.Core;
 using CloudSuite.Modules.Domain.Models.Cora.ExtractContext;
+using System.ComponentModel.DataAnnotations;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
+using CloudSuite.Modules.Domain.Models.Core;
 
 namespace CloudSuite.Infrastructure.Data.Cora.Context
 {
@@ -13,5 +16,22 @@ namespace CloudSuite.Infrastructure.Data.Cora.Context
         }
 
         public DbSet<Extract> Extracts { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Ignore<ValidationResult>();
+            modelBuilder.Ignore<EventArgs>();
+
+            foreach (var property in modelBuilder.Model.GetEntityTypes().SelectMany(
+                    e => e.GetProperties().Where(p => p.ClrType == typeof(string))))
+                property.SetColumnType("varchar(100)");
+
+            //  modelBuilder.ApplyConfiguration(new ExtractMap());    criar o map do extract
+
+            modelBuilder.Entity<Extract>(c =>
+            {
+                c.ToTable("Extracts");
+            });
+        }
     }
 }
