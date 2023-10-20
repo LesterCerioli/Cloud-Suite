@@ -6,6 +6,8 @@ namespace CloudSuite.Modules.Core.Application.Services.Contracts
 
         Task<AddressViewModel> GetByAddressLine(string addressLine1);
 
+        Task<AddressViewModel> GetList();
+
         //Task Save(CreateAddressCommand commandCreate);
          
     }
