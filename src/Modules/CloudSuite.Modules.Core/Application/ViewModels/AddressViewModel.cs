@@ -13,6 +13,8 @@ namespace CloudSuite.Modules.Core.Application.ViewModel
         [Key]
         public Guid Id { get; set; }
 
+        //test
+
         [Required(ErrorMessage = "Este campo é de preenchimento obrigatório.")]
         [DisplayName("NomeContato")]
         [MaxLength(100)]
