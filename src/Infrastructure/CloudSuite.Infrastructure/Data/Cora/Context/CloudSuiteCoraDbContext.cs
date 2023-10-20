@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 using CloudSuite.Modules.Domain.Models.Core;
+using CloudSuite.Infrastructure.Data.Mappimgs.EFCore.Cora;
 
 namespace CloudSuite.Infrastructure.Data.Cora.Context
 {
@@ -26,7 +27,7 @@ namespace CloudSuite.Infrastructure.Data.Cora.Context
                     e => e.GetProperties().Where(p => p.ClrType == typeof(string))))
                 property.SetColumnType("varchar(100)");
 
-            //  modelBuilder.ApplyConfiguration(new ExtractMap());    criar o map do extract
+            modelBuilder.ApplyConfiguration(new ExtractMap());
 
             modelBuilder.Entity<Extract>(c =>
             {
