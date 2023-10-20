@@ -1,24 +1,23 @@
-﻿using CloudSuite.Modules.Application.ViewModels.Cora;
-using CloudSuite.Modules.Common.Enums.Cora;
+﻿using CloudSuite.Modules.Common.Enums.Cora;
 using CloudSuite.Modules.Cora.Application.Handlers.Extrato;
-using CloudSuite.Modules.Domain.Models.Cora.ExtractContext;
+using CloudSuite.Modules.Cora.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CloudSuite.Modules.Application.Services.Contracts.Cora
+namespace CloudSuite.Modules.Cora.Services.Contracts
 {
     public interface IExtractService
     {
         Task<ExtractViewModel> GetByStartDate(DateTimeOffset dataInicio);
 
-        Task<ExtractViewModel> GetByEndDate(DateTimeOffset dataFinal);
+        Task<ExtractViewModels> GetByEndDate(DateTimeOffset dataFinal);
 
         Task<ExtractViewModel> GetByType(EntryType entryType);
 
-        Task<ExtractViewModel> GetByTransactionType(TransactionType transactionType);
+        Task<ExtractViewModels> GetByTransactionType(TransactionType transactionType);
 
         Task<ExtractViewModel> GetByEntryAmount(decimal amount);
 

@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CloudSuite.Modules.Domain.Models.Cora.ExtractContext
+namespace CloudSuite.Modules.Cora.Domain.Models
 {
     public class Extract : Entity, IAggregateRoot
     {

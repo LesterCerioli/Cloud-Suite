@@ -1,12 +1,12 @@
 ﻿using CloudSuite.Modules.Common.Enums.Cora;
-using CloudSuite.Modules.Domain.Models.Cora.ExtractContext;
+using CloudSuite.Modules.Cora.Domain.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CloudSuite.Modules.Domain.Contracts.Cora
+namespace CloudSuite.Modules.Cora.Domain.Contracts
 {
     public interface IExtratoRepository
     {
