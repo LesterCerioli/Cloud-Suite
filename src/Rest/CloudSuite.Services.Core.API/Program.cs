@@ -1,10 +1,5 @@
-using AutoMapper;
-using CloudSuite.Modules.Application.Services.Contracts.Core;
-using CloudSuite.Modules.Application.Services.Implementations.Core;
-using CloudSuite.Modules.Domain.Contracts.Core;
-using CloudSuite.Modules.Domain.Contracts.Token;
 using MediatR;
-using NetDevPack.Mediator;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,10 +10,10 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-var configuration = new MapperConfiguration(cfg =>
-{
+//var configuration = new MapperConfiguration(cfg =>
+//{
 
-});
+//});
 
 //builder.Services.AddTransient<IAddressService, AddressService>();
 //builder.Services.AddTransient<IMediaService, MediaService>();

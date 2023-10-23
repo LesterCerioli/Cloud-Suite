@@ -32,8 +32,4 @@
     <InternalsVisibleTo Include="CloudSuite.Services.Core.API.Tests" />
   </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\..\Modules\CloudSuite.Modules.Application\CloudSuite.Modules.Application.csproj" />
-  </ItemGroup>
-
 </Project>
