@@ -7,7 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Modules\CloudSuite.Modules.Application\CloudSuite.Modules.Application.csproj" />
     <ProjectReference Include="..\CloudSuite.Infrastructure\CloudSuite.Infrastructure.csproj" />
   </ItemGroup>
 

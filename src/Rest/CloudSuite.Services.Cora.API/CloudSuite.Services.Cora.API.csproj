@@ -11,4 +11,9 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\Infrastructure\CloudSuite.Infrastructure.CrossCutting\CloudSuite.Infrastructure.CrossCutting.csproj" />
+    <ProjectReference Include="..\..\Modules\CloudSuite.Modules.Cora\CloudSuite.Modules.Cora.csproj" />
+  </ItemGroup>
+
 </Project>

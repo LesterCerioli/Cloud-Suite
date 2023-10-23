@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
@@ -32,7 +32,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\Modules\CloudSuite.Modules.Domain\CloudSuite.Modules.Domain.csproj" />
     <ProjectReference Include="..\..\Modules\CloudSuite.Modules.Cora\CloudSuite.Modules.Cora.csproj" />
+    <ProjectReference Include="..\..\Modules\CloudSuite.Modules.Core\CloudSuite.Modules.Core.csproj" />
   </ItemGroup>
 
 </Project>
