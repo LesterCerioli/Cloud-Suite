@@ -11,11 +11,6 @@
         public class Extract : Entity, IAggregateRoot
         {
 
-            public Extract(object startDate, Guid id)
-            {
-                Id = id;
-            }
-
             public Extract(DateTimeOffset startDate, int startBalance, DateTimeOffset endDate, int endBalance,
                            string? entryId, string? entryType, int? entryAmount, string? entryCreatedAt,
                            string? entryTransactionId, int entryTransactionType, string entryTransactionDescription,
