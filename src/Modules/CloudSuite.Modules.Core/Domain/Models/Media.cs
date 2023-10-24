@@ -33,3 +33,4 @@ namespace CloudSuite.Modules.Core.Domain.Models
 
         public MediaType MediaType { get; set; }
     }
+}

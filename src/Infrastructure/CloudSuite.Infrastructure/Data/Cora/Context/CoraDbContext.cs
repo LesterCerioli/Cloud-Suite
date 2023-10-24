@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CloudSuite.Infrastructure.Data.Repositories.Cora
+namespace CloudSuite.Infrastructure.Data.Cora.Context
 {
-	public class AccountRepository 
+	public class CoraDbContext
 	{
 	}
 }

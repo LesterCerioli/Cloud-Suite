@@ -17,7 +17,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\Infrastructure\CloudSuite.Infrastructure\CloudSuite.Infrastructure.csproj" />
-    <ProjectReference Include="..\CloudSuite.Modules.Common\CloudSuite.Modules.Common.csproj" />
   </ItemGroup>
 
 </Project>
