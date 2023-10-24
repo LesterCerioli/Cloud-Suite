@@ -1,4 +1,5 @@
-﻿    using NetDevPack.Domain;
+﻿using CloudSuite.Modules.Cora.Application.Enums;
+using NetDevPack.Domain;
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
@@ -48,7 +49,7 @@
 
             public string? EntryId { get; private set; }
 
-            public string? EntryType { get; private set; }
+            public EEntryType? EntryType { get; private set; }
 
             public int? EntryAmount { get; private set; }
 
@@ -56,7 +57,7 @@
 
             public string? EntryTransactionId { get; private set; }
 
-            public int EntryTransactionType { get; private set; }
+            public EEntryTransactionType EntryTransactionType { get; private set; }
 
             public string EntryTransactionDescription { get; private set; }
 
