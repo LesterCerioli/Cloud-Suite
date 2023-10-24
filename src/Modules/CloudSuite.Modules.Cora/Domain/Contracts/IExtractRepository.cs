@@ -8,8 +8,6 @@ using System.Threading.Tasks;
 
 namespace CloudSuite.Modules.Cora.Domain.Contracts
 {
-    internal class IExtractRepository
-    {
         public interface IExtratoRepository
         {
             Task<Extract> GetByStartDate(DateTimeOffset dataInicio);
@@ -49,4 +47,3 @@ namespace CloudSuite.Modules.Cora.Domain.Contracts
             void Remove(Extract extrato);
         }
     }
-}
