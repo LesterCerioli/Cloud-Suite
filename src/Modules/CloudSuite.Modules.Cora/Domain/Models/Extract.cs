@@ -13,8 +13,8 @@ using NetDevPack.Domain;
         {
 
             public Extract(DateTimeOffset startDate, int startBalance, DateTimeOffset endDate, int endBalance,
-                           string? entryId, string? entryType, int? entryAmount, string? entryCreatedAt,
-                           string? entryTransactionId, int entryTransactionType, string entryTransactionDescription,
+                           string? entryId, EEntryType? entryType, int? entryAmount, string? entryCreatedAt,
+                           string? entryTransactionId, EEntryTransactionType entryTransactionType, string entryTransactionDescription,
                            string entryTransactionCounterPartyName, string entryTransactionCounterPartyIdentity, string? aggregationsCreditTotal,
                            string? aggregationsDebitTotal, string? headerBusinessName, string? headerBusinessDocument)
             {

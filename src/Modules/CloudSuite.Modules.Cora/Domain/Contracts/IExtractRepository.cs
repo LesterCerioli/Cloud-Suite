@@ -1,4 +1,5 @@
-﻿using CloudSuite.Modules.Cora.Domain.Models;
+﻿using CloudSuite.Modules.Cora.Application.Enums;
+using CloudSuite.Modules.Cora.Domain.Models;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using System;
 using System.Collections.Generic;
@@ -14,9 +15,9 @@ namespace CloudSuite.Modules.Cora.Domain.Contracts
 
             Task<Extract> GetByEndDate(DateTimeOffset dataFinal);
 
-            //Task<Extract> GetByType(EntryType entryType); nesses dois casos o (EntryType, TransactionType)são ENUMs estão presentes na minha branch mas não na develops.
+            Task<Extract> GetByType(EEntryType entryType);
 
-            //Task<Extract> GetByTransactionType(TransactionType transactionType);
+            Task<Extract> GetByTransactionType(EEntryTransactionType transactionType);
 
             Task<Extract> GetByEntryAmount(decimal amount);
 
