@@ -1,4 +1,4 @@
-﻿using CloudSuite.Modules.Cora.Domain.Models.CloudSuite.Modules.Cora.Domain.Models;
+﻿using CloudSuite.Modules.Cora.Domain.Models;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using System;
 using System.Collections.Generic;
