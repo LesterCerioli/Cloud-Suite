@@ -1,12 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace CloudSuite.Modules.Cora.Domain.Models
-{
-    using NetDevPack.Domain;
+﻿    using NetDevPack.Domain;
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
@@ -88,5 +80,3 @@ namespace CloudSuite.Modules.Cora.Domain.Models
             public string? HeaderBusinessDocument { get; private set; }
         }
     }
-
-}
