@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace CloudSuite.Modules.Cora.Domain.Contracts
 {
-        public interface IExtratoRepository
+        public interface IExtractRepository
         {
             Task<Extract> GetByStartDate(DateTimeOffset dataInicio);
 
