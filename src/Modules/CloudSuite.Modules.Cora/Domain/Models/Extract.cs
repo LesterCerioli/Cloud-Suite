@@ -40,12 +40,12 @@ using NetDevPack.Domain;
             [Required(ErrorMessage = "The {0} field is required.")]
             public DateTimeOffset StartDate { get; private set; }
 
-            public int StartBalance { get; private set; }
+            public int? StartBalance { get; private set; }
 
             [Required(ErrorMessage = "The {0} field is required.")]
             public DateTimeOffset EndDate { get; private set; }
 
-            public int EndBalance { get; private set; }
+            public int? EndBalance { get; private set; }
 
             public string? EntryId { get; private set; }
 
@@ -57,22 +57,22 @@ using NetDevPack.Domain;
 
             public string? EntryTransactionId { get; private set; }
 
-            public EEntryTransactionType EntryTransactionType { get; private set; }
+            public EEntryTransactionType? EntryTransactionType { get; private set; }
 
-            public string EntryTransactionDescription { get; private set; }
+            public string? EntryTransactionDescription { get; private set; }
 
-            public string EntryTransactionCounterPartyName { get; private set; }
+            public string? EntryTransactionCounterPartyName { get; private set; }
 
-            public string EntryTransactionCounterPartyIdentity { get; private set; }
+            public string? EntryTransactionCounterPartyIdentity { get; private set; }
 
             public string? AggregationsCreditTotal { get; private set; }
 
             public string? AggregationsDebitTotal { get; private set; }
 
             [Required(ErrorMessage = "The {0} field is required.")]
-            public string? HeaderBusinessName { get; private set; }
+            public string HeaderBusinessName { get; private set; }
 
             [Required(ErrorMessage = "The {0} field is required.")]
-            public string? HeaderBusinessDocument { get; private set; }
+            public string HeaderBusinessDocument { get; private set; }
         }
     }
