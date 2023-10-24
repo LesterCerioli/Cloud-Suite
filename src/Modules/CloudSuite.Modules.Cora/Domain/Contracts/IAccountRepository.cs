@@ -25,7 +25,7 @@ namespace CloudSuite.Modules.Cora.Domain.Contracts
 
         void Update(Account account);
 
-        void Remove(Account account)
+        void Remove(Account account);
 
 
     }

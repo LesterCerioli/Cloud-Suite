@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CloudSuite.Infrastructure.Data.Repositories.Cora
+namespace CloudSuite.Modules.Cora.Application.Handlers.Account.Requests
 {
-	public class AccountRepository 
+	public class CheckExixtxAccountByAccountNumberRequest
 	{
 	}
 }

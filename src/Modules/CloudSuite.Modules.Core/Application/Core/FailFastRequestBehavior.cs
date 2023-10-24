@@ -1,3 +1,7 @@
+using FluentValidation;
+using FluentValidation.Results;
+using MediatR;
+
 namespace CloudSuite.Modules.Core.Application.Core
 {
     public class FailFastRequestBehavior<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>

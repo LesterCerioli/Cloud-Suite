@@ -1,3 +1,4 @@
+using CloudSuite.Modules.Core.Domain.Models;
 using NetDevPack.Domain;
 using System;
 using System.Collections.Generic;

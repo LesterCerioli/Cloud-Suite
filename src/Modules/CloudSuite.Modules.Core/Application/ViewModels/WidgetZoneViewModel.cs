@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 
-amespace CloudSuite.Modules.Core.Application.ViewModels
+namespace CloudSuite.Modules.Core.Application.ViewModels
 {
     public class WidgetZoneViewModel
     {

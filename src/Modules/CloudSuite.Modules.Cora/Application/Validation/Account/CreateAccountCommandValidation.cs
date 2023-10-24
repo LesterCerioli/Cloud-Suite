@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CloudSuite.Infrastructure.Data.Repositories.Cora
+namespace CloudSuite.Modules.Cora.Application.Validation.Account
 {
-	public class AccountRepository 
+	internal class CreateAccountCommandValidation
 	{
 	}
 }

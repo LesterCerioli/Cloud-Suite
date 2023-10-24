@@ -1,5 +1,7 @@
 using NetDevPack.Domain;
 using System;
+using System.ComponentModel.DataAnnotations;
+using System.Text.RegularExpressions;
 
 namespace CloudSuite.Modules.Core.Domain.ValueObjects
 {

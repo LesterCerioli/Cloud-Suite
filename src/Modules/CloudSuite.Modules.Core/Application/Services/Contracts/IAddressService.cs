@@ -1,3 +1,5 @@
+using CloudSuite.Modules.Core.Application.ViewModel;
+
 namespace CloudSuite.Modules.Core.Application.Services.Contracts
 {
     public interface IAddressService
