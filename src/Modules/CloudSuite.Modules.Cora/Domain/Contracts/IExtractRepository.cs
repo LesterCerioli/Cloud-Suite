@@ -15,15 +15,17 @@ namespace CloudSuite.Modules.Cora.Domain.Contracts
 
             Task<Extract> GetByEndDate(DateTimeOffset dataFinal);
 
+            Task<Extract> GetByEntryId(string clientName);
+            
             Task<Extract> GetByEntryAmount(decimal amount);
 
             Task<Extract> GetByEntryCreatedAt(string entryCreatedAt);
 
-            Task<Extract> GetByEntryTransactionDescription(string entryTransactionDescription);
+            Task<Extract> GetByEntryTransactionId(string transactionId);
 
-            Task<Extract> GetByAggregationsCreditTotal(string aggregationsCreditTotal);
+            Task<Extract> GetByEntryTransactionCounterPartyName(string counterPartyName);
 
-            Task<Extract> GetByAggregationsDebitTotal(string aggregationsDebitTotal);
+            Task<Extract> GetByEntryTransactionCounterPartyIdentity(string counterPartyIdentity);
 
             Task<IEnumerable<Extract>> GetList();
 
