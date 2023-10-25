@@ -1,20 +1,20 @@
-﻿using CloudSuite.Modules.Cora.Application.Enums;
+﻿using CloudSuite.Modules.Common.Enums.Cora;
 using NetDevPack.Domain;
-    using System;
-    using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-    namespace CloudSuite.Modules.Cora.Domain.Models
-    {
-        public class Extract : Entity, IAggregateRoot
+namespace CloudSuite.Modules.Cora.Domain.Models
+{
+    public class Extract : Entity, IAggregateRoot
         {
 
             public Extract(DateTimeOffset startDate, int startBalance, DateTimeOffset endDate, int endBalance,
-                           string? entryId, EEntryType? entryType, int? entryAmount, string? entryCreatedAt,
-                           string? entryTransactionId, EEntryTransactionType entryTransactionType, string entryTransactionDescription,
+                           string? entryId, EntryTypeEnum entryType, int? entryAmount, string? entryCreatedAt,
+                           string? entryTransactionId, EntryTransactionTypeEnum entryTransactionType, string entryTransactionDescription,
                            string entryTransactionCounterPartyName, string entryTransactionCounterPartyIdentity, string? aggregationsCreditTotal,
                            string? aggregationsDebitTotal, string? headerBusinessName, string? headerBusinessDocument)
             {
@@ -49,7 +49,7 @@ using NetDevPack.Domain;
 
             public string? EntryId { get; private set; }
 
-            public EEntryType? EntryType { get; private set; }
+            public EntryTypeEnum EntryType { get; private set; }
 
             public int? EntryAmount { get; private set; }
 
@@ -57,7 +57,7 @@ using NetDevPack.Domain;
 
             public string? EntryTransactionId { get; private set; }
 
-            public EEntryTransactionType? EntryTransactionType { get; private set; }
+            public EntryTransactionTypeEnum EntryTransactionType { get; private set; }
 
             public string? EntryTransactionDescription { get; private set; }
 

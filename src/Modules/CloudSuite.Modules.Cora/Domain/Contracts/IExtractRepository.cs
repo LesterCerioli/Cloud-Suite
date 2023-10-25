@@ -15,36 +15,24 @@ namespace CloudSuite.Modules.Cora.Domain.Contracts
 
             Task<Extract> GetByEndDate(DateTimeOffset dataFinal);
 
-            Task<Extract> GetByType(EEntryType entryType);
-
-            Task<Extract> GetByTransactionType(EEntryTransactionType transactionType);
-
+            Task<Extract> GetByEntryId(string clientName);
+            
             Task<Extract> GetByEntryAmount(decimal amount);
 
-            Task<Extract> GetByEntryCreatedAt(string EntryCreatedAt);
+            Task<Extract> GetByEntryCreatedAt(string entryCreatedAt);
 
-            Task<Extract> GetByEntryTransactionId(string EntryTransactionId);
+            Task<Extract> GetByEntryTransactionId(string transactionId);
 
-            Task<Extract> GetByEntryTransactionDescription(string EntryTransactionId);
+            Task<Extract> GetByEntryTransactionCounterPartyName(string counterPartyName);
 
-            Task<Extract> GetByEntryTransactionCounterPartyName(string EntryTransactionCounterPartyName);
-
-            Task<Extract> GetByEntryTransactionCounterPartyIdentity(string EntryTransactionCounterPartyIdentity);
-
-            Task<Extract> GetByAggregationsCreditTotaly(string EntryTransactionCounterPartyIdentity);
-
-            Task<Extract> GetByAggregationsDebitTotal(string EntryTransactionCounterPartyIdentity);
-
-            Task<Extract> GetByHeaderBusinessName(string EntryTransactionCounterPartyIdentity);
-
-            Task<Extract> GetByHeaderBusinessDocument(string EntryTransactionCounterPartyIdentity);
+            Task<Extract> GetByEntryTransactionCounterPartyIdentity(string counterPartyIdentity);
 
             Task<IEnumerable<Extract>> GetList();
 
-            Task Add(Extract extrato);
+            Task Add(Extract extract);
 
-            void Update(Extract extrato);
+            void Update(Extract extract);
 
-            void Remove(Extract extrato);
+            void Remove(Extract extract);
         }
     }
