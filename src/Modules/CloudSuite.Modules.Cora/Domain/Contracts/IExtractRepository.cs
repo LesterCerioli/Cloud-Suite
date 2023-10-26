@@ -1,6 +1,4 @@
-﻿using CloudSuite.Modules.Cora.Application.Enums;
-using CloudSuite.Modules.Cora.Domain.Models;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
+﻿using CloudSuite.Modules.Cora.Domain.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
