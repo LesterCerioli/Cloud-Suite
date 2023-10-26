@@ -1,4 +1,5 @@
-﻿using CloudSuite.Modules.Cora.Domain.Contracts;
+﻿using CloudSuite.Infrastructure.Data.Cora.Context;
+using CloudSuite.Modules.Cora.Domain.Contracts;
 using CloudSuite.Modules.Cora.Domain.Models;
 using System;
 using System.Collections.Generic;
@@ -11,37 +12,41 @@ namespace CloudSuite.Infrastructure.Data.Repositories.Cora
 {
 	public class AccountRepository : IAccountRepository
 	{
-		public Task Add(Account account)
+		public AccountRepository(CoraDbContext context)
+		{
+
+		}
+		public async Task Add(Account account)
+		{
+			
+		}
+
+		public async Task<Account> GetByAccountDigit(string accountDigit)
 		{
 			throw new NotImplementedException();
 		}
 
-		public Task<Account> GetByAccountDigit(string accountDigit)
+		public async Task<Account> GetByAccountNumber(string accountNumber)
 		{
 			throw new NotImplementedException();
 		}
 
-		public Task<Account> GetByAccountNumber(string accountNumber)
+		public async Task<Account> GetByAgency(string agency)
 		{
 			throw new NotImplementedException();
 		}
 
-		public Task<Account> GetByAgency(string agency)
+		public async Task<Account> GetByBankCode(string bankCode)
 		{
 			throw new NotImplementedException();
 		}
 
-		public Task<Account> GetByBankCode(string bankCode)
+		public async Task<Account> GetByBankName(string bankName)
 		{
 			throw new NotImplementedException();
 		}
 
-		public Task<Account> GetByBankName(string bankName)
-		{
-			throw new NotImplementedException();
-		}
-
-		public Task<IEnumerable<Account>> GetList()
+		public asyncTask<IEnumerable<Account>> GetList()
 		{
 			throw new NotImplementedException();
 		}
