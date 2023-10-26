@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CloudSuite.Modules.Cora.Application.Handlers.Account.Requests
 {
-	public class CheckExixtxAccountByAccountNumberRequest
+	public class CheckExistsAccountByAccountNumberRequest
 	{
 	}
 }
