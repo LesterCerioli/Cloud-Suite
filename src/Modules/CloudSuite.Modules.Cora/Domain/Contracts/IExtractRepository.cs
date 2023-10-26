@@ -1,4 +1,5 @@
-﻿using CloudSuite.Modules.Cora.Domain.Models;
+﻿using CloudSuite.Modules.Common.Enums.Cora;
+using CloudSuite.Modules.Cora.Domain.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,9 +13,13 @@ namespace CloudSuite.Modules.Cora.Domain.Contracts
             Task<Extract> GetByStartDate(DateTimeOffset dataInicio);
 
             Task<Extract> GetByEndDate(DateTimeOffset dataFinal);
-
-            Task<Extract> GetByEntryId(string clientName);
             
+            Task<Extract> GetByEntryId(string clientName);
+
+            Task<Extract> GetByEntryType(EntryTypeEnum entryType);
+
+            Task<Extract> GetByEntryTransactionType(EntryTransactionTypeEnum entryTransactionType);
+
             Task<Extract> GetByEntryAmount(decimal amount);
 
             Task<Extract> GetByEntryCreatedAt(string entryCreatedAt);
