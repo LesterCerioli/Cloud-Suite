@@ -1,4 +1,5 @@
 ﻿using CloudSuite.Modules.Common.Enums.Cora;
+using CloudSuite.Modules.Common.ValueObjects;
 using NetDevPack.Domain;
 using System;
 using System.Collections.Generic;
@@ -10,46 +11,25 @@ using System.Threading.Tasks;
 namespace CloudSuite.Modules.Cora.Domain.Models
 {
     public class Extract : Entity, IAggregateRoot
-        {
+    {
 
-            public Extract(DateTimeOffset startDate, int startBalance, DateTimeOffset endDate, int endBalance,
-                           string? entryId, EntryTypeEnum entryType, int? entryAmount, string? entryCreatedAt,
-                           string? entryTransactionId, EntryTransactionTypeEnum entryTransactionType, string entryTransactionDescription,
-                           string entryTransactionCounterPartyName, string entryTransactionCounterPartyIdentity, string? aggregationsCreditTotal,
-                           string? aggregationsDebitTotal, string? headerBusinessName, string? headerBusinessDocument)
-            {
-                StartDate = DateTime.Now;
-                StartBalance = startBalance;
-                EndDate = DateTime.Now;
-                EndBalance = endBalance;
-                EntryId = entryId;
-                EntryType = entryType;
-                EntryAmount = entryAmount;
-                EntryCreatedAt = entryCreatedAt;
-                EntryTransactionId = entryTransactionId;
-                EntryTransactionType = entryTransactionType;
-                EntryTransactionDescription = entryTransactionDescription;
-                EntryTransactionCounterPartyName = entryTransactionCounterPartyName;
-                EntryTransactionCounterPartyIdentity = entryTransactionCounterPartyIdentity;
-                AggregationsCreditTotal = aggregationsCreditTotal;
-                AggregationsDebitTotal = aggregationsDebitTotal;
-                HeaderBusinessName = headerBusinessName;
-                HeaderBusinessDocument = headerBusinessDocument;
-            }
+            
 
             [Required(ErrorMessage = "The {0} field is required.")]
             public DateTimeOffset StartDate { get; private set; }
 
+            // Valor total na data inicial do extrato
             public int? StartBalance { get; private set; }
 
             [Required(ErrorMessage = "The {0} field is required.")]
             public DateTimeOffset EndDate { get; private set; }
 
+            // Valor total na data final do extrato 
             public int? EndBalance { get; private set; }
 
-            public string? EntryId { get; private set; }
+            public Customer Customer { get; private set; }
 
-            public EntryTypeEnum EntryType { get; private set; }
+            public OperationTypeEnum OperationTypeEnum { get; private set; }
 
             public int? EntryAmount { get; private set; }
 
@@ -57,7 +37,7 @@ namespace CloudSuite.Modules.Cora.Domain.Models
 
             public string? EntryTransactionId { get; private set; }
 
-            public EntryTransactionTypeEnum EntryTransactionType { get; private set; }
+            public TransactionTypeEnum TransactionTypeEnum { get; private set; }
 
             public string? EntryTransactionDescription { get; private set; }
 
@@ -65,14 +45,15 @@ namespace CloudSuite.Modules.Cora.Domain.Models
 
             public string? EntryTransactionCounterPartyIdentity { get; private set; }
 
-            public string? AggregationsCreditTotal { get; private set; }
+            public int? AggregationsCreditTotal { get; private set; }
 
-            public string? AggregationsDebitTotal { get; private set; }
+            public int? AggregationsDebitTotal { get; private set; }
 
             [Required(ErrorMessage = "The {0} field is required.")]
             public string HeaderBusinessName { get; private set; }
 
             [Required(ErrorMessage = "The {0} field is required.")]
             public string HeaderBusinessDocument { get; private set; }
-        }
+        
     }
+}

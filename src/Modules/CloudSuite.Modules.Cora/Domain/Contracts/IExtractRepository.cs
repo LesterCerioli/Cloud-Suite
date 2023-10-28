@@ -16,9 +16,9 @@ namespace CloudSuite.Modules.Cora.Domain.Contracts
             
             Task<Extract> GetByEntryId(string clientName);
 
-            Task<Extract> GetByEntryType(EntryTypeEnum entryType);
+            Task<Extract> GetByEntryType(OperationTypeEnum entryType);
 
-            Task<Extract> GetByEntryTransactionType(EntryTransactionTypeEnum entryTransactionType);
+            Task<Extract> GetByEntryTransactionType(TransactionTypeEnum entryTransactionType);
 
             Task<Extract> GetByEntryAmount(decimal amount);
 
