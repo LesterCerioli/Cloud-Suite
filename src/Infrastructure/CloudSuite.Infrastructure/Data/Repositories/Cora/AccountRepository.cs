@@ -1,5 +1,8 @@
-﻿using CloudSuite.Modules.Cora.Domain.Contracts;
+﻿
+using CloudSuite.Infrastructure.Data.Cora.Context;
+using CloudSuite.Modules.Cora.Domain.Contracts;
 using CloudSuite.Modules.Cora.Domain.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,49 +13,64 @@ namespace CloudSuite.Infrastructure.Data.Repositories.Cora
 {
 	public class AccountRepository : IAccountRepository
 	{
-		public Task Add(Account account)
+		protected readonly CoraDbContext Db;
+        protected readonly DbSet<Account> DbSet;
+
+        public AccountRepository(CoraDbContext context) 
 		{
-			throw new NotImplementedException();
+			Db = context;
+			DbSet = context.Accounts;
 		}
 
-		public Task<Account> GetByAccountDigit(string accountDigit)
+		
+
+		public async Task Add(Account account)
 		{
-			throw new NotImplementedException();
+            await Task.Run(() => {
+                DbSet.Add(account);
+                Db.SaveChanges();
+            });
+
+        }
+
+		public async Task<Account> GetByAccountDigit(string accountDigit)
+		{
+            return await DbSet.AsNoTracking().FirstOrDefaultAsync(c => c.AccountDigit == accountDigit);
 		}
 
-		public Task<Account> GetByAccountNumber(string accountNumber)
+		public async Task<Account> GetByAccountNumber(string accountNumber)
 		{
-			throw new NotImplementedException();
+			return await DbSet.AsNoTracking().FirstOrDefaultAsync(c => c.AccountNumber == accountNumber);
 		}
 
-		public Task<Account> GetByAgency(string agency)
+		public async Task<Account> GetByAgency(string agency)
 		{
-			throw new NotImplementedException();
+			return await DbSet.AsNoTracking().FirstOrDefaultAsync(c => c.Agency == agency);
 		}
 
-		public Task<Account> GetByBankCode(string bankCode)
+		public async Task<Account> GetByBankCode(string bankCode)
 		{
-			throw new NotImplementedException();
-		}
+            return await DbSet.AsNoTracking().FirstOrDefaultAsync(c => c.BankCode == bankCode);
+        }
 
-		public Task<Account> GetByBankName(string bankName)
+		public async Task<Account> GetByBankName(string bankName)
 		{
-			throw new NotImplementedException();
-		}
+            return await DbSet.AsNoTracking().FirstOrDefaultAsync(c => c.BankName == bankName);
+        }
 
-		public Task<IEnumerable<Account>> GetList()
+		public async Task<IEnumerable<Account>> GetList()
 		{
-			throw new NotImplementedException();
-		}
+            return await DbSet.ToListAsync();
+        }
 
 		public void Remove(Account account)
 		{
-			throw new NotImplementedException();
+			DbSet.Remove(account);
 		}
 
 		public void Update(Account account)
 		{
-			throw new NotImplementedException();
+			DbSet.Update(account);
 		}
 	}
 }

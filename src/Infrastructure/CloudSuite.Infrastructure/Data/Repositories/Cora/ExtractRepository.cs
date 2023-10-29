@@ -1,9 +1,14 @@
-﻿using CloudSuite.Modules.Common.Enums.Cora;
+﻿using CloudSuite.Infrastructure.Data.Cora.Context;
+using CloudSuite.Modules.Common.Enums.Cora;
+using CloudSuite.Modules.Common.ValueObjects;
 using CloudSuite.Modules.Cora.Domain.Contracts;
 using CloudSuite.Modules.Cora.Domain.Models;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Principal;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -11,74 +16,69 @@ namespace CloudSuite.Infrastructure.Data.Repositories.Cora
 {
 	public class ExtractRepository : IExtractRepository
 	{
-		public Task Add(Extract extract)
+
+        protected readonly CoraDbContext Db;
+        protected readonly DbSet<Extract> DbSet;
+
+        public ExtractRepository(CoraDbContext context)
 		{
-			throw new NotImplementedException();
+            Db = context;
+            DbSet = context.Extracts;
+
+        }
+        public async Task Add(Extract extract)
+		{
+			await Task.Run(() => {
+                DbSet.Add(extract);
+                Db.SaveChanges();
+            });
+        }
+
+		public async Task<Extract> GetByCustomer(Customer customer)
+		{
+			return await DbSet.AsNoTracking().FirstOrDefaultAsync(c => c.Customer.LastName == customer.LastName);
 		}
 
-		public Task<Extract> GetByEndDate(DateTimeOffset dataFinal)
+		public async Task<Extract> GetByEndDate(DateTimeOffset endDate)
 		{
-			throw new NotImplementedException();
+			return await DbSet.AsNoTracking().FirstOrDefaultAsync(c => c.EndDate == endDate);
 		}
 
-		public Task<Extract> GetByEntryAmount(decimal amount)
+		public async Task<Extract> GetByEntryAmount(decimal entryAmount)
 		{
-			throw new NotImplementedException();
+			return await DbSet.AsNoTracking().FirstOrDefaultAsync(c => c.EntryAmount == entryAmount);
 		}
 
-		public Task<Extract> GetByEntryCreatedAt(string entryCreatedAt)
+				
+		public async Task<Extract> GetByEntryTransactionCounterPartyName(string counterPartyName)
 		{
-			throw new NotImplementedException();
+			return await DbSet.AsNoTracking().FirstOrDefaultAsync(c => c.EntryTransactionCounterPartyName == counterPartyName);
+		}
+			
+		
+		public async Task<Extract> GetByEntryType(OperationTypeEnum entryType)
+		{
+			return await DbSet.AsNoTracking().FirstOrDefaultAsync(c => c.OperationTypeEnum == entryType);
 		}
 
-		public Task<Extract> GetByEntryId(string clientName)
+		public async Task<Extract> GetByStartDate(DateTimeOffset startDate)
 		{
-			throw new NotImplementedException();
+			return await DbSet.AsNoTracking().FirstOrDefaultAsync(c => c.StartDate == startDate);
 		}
 
-		public Task<Extract> GetByEntryTransactionCounterPartyIdentity(string counterPartyIdentity)
+		public async Task<IEnumerable<Extract>> GetList()
 		{
-			throw new NotImplementedException();
-		}
-
-		public Task<Extract> GetByEntryTransactionCounterPartyName(string counterPartyName)
-		{
-			throw new NotImplementedException();
-		}
-
-		public Task<Extract> GetByEntryTransactionId(string transactionId)
-		{
-			throw new NotImplementedException();
-		}
-
-		public Task<Extract> GetByEntryTransactionType(TransactionTypeEnum entryTransactionType)
-		{
-			throw new NotImplementedException();
-		}
-
-		public Task<Extract> GetByEntryType(OperationTypeEnum entryType)
-		{
-			throw new NotImplementedException();
-		}
-
-		public Task<Extract> GetByStartDate(DateTimeOffset dataInicio)
-		{
-			throw new NotImplementedException();
-		}
-
-		public Task<IEnumerable<Extract>> GetList()
-		{
-			throw new NotImplementedException();
+			return await DbSet.ToListAsync();
 		}
 
 		public void Remove(Extract extract)
 		{
-			throw new NotImplementedException();
+			DbSet.Remove(extract);
 		}
 
 		public void Update(Extract extract)
 		{
-			throw new NotImplementedException();
+			DbSet.Update(extract);
 		}
 	}
 }

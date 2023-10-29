@@ -1,4 +1,5 @@
 ﻿using CloudSuite.Modules.Common.Enums.Cora;
+using CloudSuite.Modules.Common.ValueObjects;
 using CloudSuite.Modules.Cora.Domain.Models;
 using System;
 using System.Collections.Generic;
@@ -10,25 +11,15 @@ namespace CloudSuite.Modules.Cora.Domain.Contracts
 {
         public interface IExtractRepository
         {
-            Task<Extract> GetByStartDate(DateTimeOffset dataInicio);
+            Task<Extract> GetByStartDate(DateTimeOffset startDate);
 
-            Task<Extract> GetByEndDate(DateTimeOffset dataFinal);
+            Task<Extract> GetByEndDate(DateTimeOffset endDate);
             
-            Task<Extract> GetByEntryId(string clientName);
+            Task<Extract> GetByCustomer(Customer customer);
 
             Task<Extract> GetByEntryType(OperationTypeEnum entryType);
 
-            Task<Extract> GetByEntryTransactionType(TransactionTypeEnum entryTransactionType);
-
-            Task<Extract> GetByEntryAmount(decimal amount);
-
-            Task<Extract> GetByEntryCreatedAt(string entryCreatedAt);
-
-            Task<Extract> GetByEntryTransactionId(string transactionId);
-
-            Task<Extract> GetByEntryTransactionCounterPartyName(string counterPartyName);
-
-            Task<Extract> GetByEntryTransactionCounterPartyIdentity(string counterPartyIdentity);
+            Task<Extract> GetByEntryAmount(decimal entryAmount);
 
             Task<IEnumerable<Extract>> GetList();
 

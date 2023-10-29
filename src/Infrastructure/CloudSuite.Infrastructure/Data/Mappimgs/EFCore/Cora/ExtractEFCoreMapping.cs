@@ -9,9 +9,9 @@ using System.Threading.Tasks;
 
 namespace CloudSuite.Infrastructure.Data.Mappimgs.EFCore.Cora
 {
-	public class AccountEFCoreMapping : IEntityTypeConfiguration<Account>
+	public class ExtractEFCoreMapping : IEntityTypeConfiguration<Extract>
 	{
-		public void Configure(EntityTypeBuilder<Account> builder)
+		public void Configure(EntityTypeBuilder<Extract> builder)
 		{
 			throw new NotImplementedException();
 		}
