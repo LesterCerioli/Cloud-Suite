@@ -1,78 +1,72 @@
-﻿using CloudSuite.Modules.Common.Enums.Cora;
-using NetDevPack.Domain;
-using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using CloudSuite.Modules.Common.ValueObjects;
+using NetDevPack.Domain;
 
 namespace CloudSuite.Modules.Cora.Domain.Models
 {
     public class Extract : Entity, IAggregateRoot
+    {
+        private List<Transaction> _transactions;
+
+        public Extract(DateTimeOffset startDate, decimal? startBalance, 
+        DateTimeOffset? endDate, decimal? endBalance, 
+        Customer customer, Transaction transaction, 
+        decimal? entryAmount, DateTimeOffset? entryCreatedAt, 
+        decimal? aggregationsCreditTotal, decimal? aggregationsDebitTotal, 
+        string? headerBusinessName, string? headerBusinessDocument)
         {
-
-            public Extract(DateTimeOffset startDate, int startBalance, DateTimeOffset endDate, int endBalance,
-                           string? entryId, EntryTypeEnum entryType, int? entryAmount, string? entryCreatedAt,
-                           string? entryTransactionId, EntryTransactionTypeEnum entryTransactionType, string entryTransactionDescription,
-                           string entryTransactionCounterPartyName, string entryTransactionCounterPartyIdentity, string? aggregationsCreditTotal,
-                           string? aggregationsDebitTotal, string? headerBusinessName, string? headerBusinessDocument)
-            {
-                StartDate = DateTime.Now;
-                StartBalance = startBalance;
-                EndDate = DateTime.Now;
-                EndBalance = endBalance;
-                EntryId = entryId;
-                EntryType = entryType;
-                EntryAmount = entryAmount;
-                EntryCreatedAt = entryCreatedAt;
-                EntryTransactionId = entryTransactionId;
-                EntryTransactionType = entryTransactionType;
-                EntryTransactionDescription = entryTransactionDescription;
-                EntryTransactionCounterPartyName = entryTransactionCounterPartyName;
-                EntryTransactionCounterPartyIdentity = entryTransactionCounterPartyIdentity;
-                AggregationsCreditTotal = aggregationsCreditTotal;
-                AggregationsDebitTotal = aggregationsDebitTotal;
-                HeaderBusinessName = headerBusinessName;
-                HeaderBusinessDocument = headerBusinessDocument;
-            }
-
-            [Required(ErrorMessage = "The {0} field is required.")]
-            public DateTimeOffset StartDate { get; private set; }
-
-            public int? StartBalance { get; private set; }
-
-            [Required(ErrorMessage = "The {0} field is required.")]
-            public DateTimeOffset EndDate { get; private set; }
-
-            public int? EndBalance { get; private set; }
-
-            public string? EntryId { get; private set; }
-
-            public EntryTypeEnum EntryType { get; private set; }
-
-            public int? EntryAmount { get; private set; }
-
-            public string? EntryCreatedAt { get; private set; }
-
-            public string? EntryTransactionId { get; private set; }
-
-            public EntryTransactionTypeEnum EntryTransactionType { get; private set; }
-
-            public string? EntryTransactionDescription { get; private set; }
-
-            public string? EntryTransactionCounterPartyName { get; private set; }
-
-            public string? EntryTransactionCounterPartyIdentity { get; private set; }
-
-            public string? AggregationsCreditTotal { get; private set; }
-
-            public string? AggregationsDebitTotal { get; private set; }
-
-            [Required(ErrorMessage = "The {0} field is required.")]
-            public string HeaderBusinessName { get; private set; }
-
-            [Required(ErrorMessage = "The {0} field is required.")]
-            public string HeaderBusinessDocument { get; private set; }
+            StartDate = startDate;
+            StartBalance = startBalance;
+            EndDate = endDate;
+            EndBalance = endBalance;
+            Customer = customer;
+            Transaction = transaction;
+            EntryAmount = entryAmount;
+            EntryCreatedAt = entryCreatedAt;
+            AggregationsCreditTotal = aggregationsCreditTotal;
+            AggregationsDebitTotal = aggregationsDebitTotal;
+            HeaderBusinessName = headerBusinessName;
+            HeaderBusinessDocument = headerBusinessDocument;
+            _transactions = new List<Transaction>();
+            
         }
+
+        public DateTimeOffset StartDate { get; private set; }
+
+        
+        public decimal? StartBalance { get; private set; }
+
+        
+        public DateTimeOffset? EndDate { get; private set; }
+
+        
+        public decimal? EndBalance { get; private set; }
+
+        public Customer Customer { get; private set; }
+
+        public Transaction Transaction { get; private set; }
+
+        public decimal? EntryAmount { get; private set; }
+        
+        public DateTimeOffset? EntryCreatedAt { get; private set; }
+
+        
+          
+        public decimal? AggregationsCreditTotal { get; private set; }
+
+        public decimal? AggregationsDebitTotal { get; private set; }
+
+        
+        public string? HeaderBusinessName { get; private set; }
+
+        
+        public string? HeaderBusinessDocument { get; private set; }
+
+        
+
+        public Guid TransactionId { get; private set; }
+
+        public IReadOnlyCollection<Transaction> Transactions { get { return _transactions.ToArray(); } }
+        
     }
+}

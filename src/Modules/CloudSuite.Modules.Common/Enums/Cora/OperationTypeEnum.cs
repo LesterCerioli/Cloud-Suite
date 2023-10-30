@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CloudSuite.Modules.Common.Enums.Cora
 {
-    public enum EntryTypeEnum
+    public enum OperationTypeEnum
     {
         CREDIT = 1,
         DEBIT = 2
