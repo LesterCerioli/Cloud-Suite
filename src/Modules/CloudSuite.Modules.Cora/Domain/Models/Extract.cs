@@ -12,7 +12,9 @@ namespace CloudSuite.Modules.Cora.Domain.Models
 {
     public class Extract : Entity, IAggregateRoot
     {
-		public Extract(DateTimeOffset startDate, int? startBalance, 
+        private readonly List<Transaction> _transactions;
+
+        public Extract(DateTimeOffset startDate, int? startBalance, 
             DateTimeOffset endDate, int? endBalance, Customer customer,
             OperationTypeEnum operationTypeEnum, int? entryAmount, 
             string? entryCreatedAt, string? entryTransactionId,
@@ -30,8 +32,8 @@ namespace CloudSuite.Modules.Cora.Domain.Models
 			Customer = customer;
 			OperationTypeEnum = operationTypeEnum;
 			EntryAmount = entryAmount;
-			EntryCreatedAt = entryCreatedAt;
-			EntryTransactionId = entryTransactionId;
+			EntryCreatedAt = DateTime.Now;
+			TransactionId = transactionId;
 			TransactionTypeEnum = transactionTypeEnum;
 			EntryTransactionDescription = entryTransactionDescription;
 			EntryTransactionCounterPartyName = entryTransactionCounterPartyName;
@@ -40,29 +42,35 @@ namespace CloudSuite.Modules.Cora.Domain.Models
 			AggregationsDebitTotal = aggregationsDebitTotal;
 			HeaderBusinessName = headerBusinessName;
 			HeaderBusinessDocument = headerBusinessDocument;
+            _transactions = new List<Transaction>();
+            
 		}
 
 		[Required(ErrorMessage = "The {0} field is required.")]
         public DateTimeOffset StartDate { get; private set; }
 
         // Valor total na data inicial do extrato
-        public int? StartBalance { get; private set; }
+        public decimal? StartBalance { get; private set; }
 
         [Required(ErrorMessage = "The {0} field is required.")]
-        public DateTimeOffset EndDate { get; private set; }
+        public DateTimeOffset? EndDate { get; private set; }
 
         // Valor total na data final do extrato 
-        public int? EndBalance { get; private set; }
+        public decimal? EndBalance { get; private set; }
 
         public Customer Customer { get; private set; }
 
         public OperationTypeEnum OperationTypeEnum { get; private set; }
 
-        public int? EntryAmount { get; private set; }
+        public decimal? EntryAmount { get; private set; }
 
-        public string? EntryCreatedAt { get; private set; }
+        
+        public DateTimeOffset? EntryCreatedAt { get; private set; }
 
-        public string? EntryTransactionId { get; private set; }
+        public Guid TransactionId { get; private set; }
+
+        public IReadOnlyCollection<Transaction> Transactions { get { return _transactions.ToArray(); } }
+        //public IReadOnlyCollection<Client> Clients { get { return _clients.ToArray(); } }
 
         public TransactionTypeEnum TransactionTypeEnum { get; private set; }
 
