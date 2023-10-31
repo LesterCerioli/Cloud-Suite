@@ -11,7 +11,7 @@ namespace CloudSuite.Modules.Cora.Domain.Models
         public Extract(DateTimeOffset startDate, decimal? startBalance, 
         DateTimeOffset? endDate, decimal? endBalance, 
         Customer customer, Transaction transaction,
-        decimal? aggregationsCreditTotal, decimal? aggregationsDebitTotal, 
+        decimal? aggregationsCreditTotal, decimal? aggregationsDebitTotal,
         string? headerBusinessName, string? headerBusinessDocument)
         {
             StartDate = startDate;
