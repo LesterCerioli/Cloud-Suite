@@ -21,6 +21,10 @@ namespace CloudSuite.Modules.Cora.Domain.Models
 
         public TransactionTypeEnum TransactionTypeEnum { get; private set; }
 
+        public decimal? EntryAmount { get; private set; }
+
+        public DateTimeOffset? EntryCreatedAt { get; private set; }
+
         public string? EntryTransactionDescription { get; private set; }
 
         public string? EntryTransactionCounterPartyName { get; private set; }
