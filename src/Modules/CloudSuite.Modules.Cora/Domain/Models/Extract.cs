@@ -28,7 +28,6 @@ namespace CloudSuite.Modules.Cora.Domain.Models
             
         }
 
-
         public DateTimeOffset StartDate { get; private set; }
 
         public decimal? StartBalance { get; private set; }
