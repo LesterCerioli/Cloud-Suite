@@ -10,8 +10,7 @@ namespace CloudSuite.Modules.Cora.Domain.Models
 
         public Extract(DateTimeOffset startDate, decimal? startBalance, 
         DateTimeOffset? endDate, decimal? endBalance, 
-        Customer customer, Transaction transaction, 
-        decimal? entryAmount, DateTimeOffset? entryCreatedAt, 
+        Customer customer, Transaction transaction,
         decimal? aggregationsCreditTotal, decimal? aggregationsDebitTotal, 
         string? headerBusinessName, string? headerBusinessDocument)
         {
@@ -21,8 +20,6 @@ namespace CloudSuite.Modules.Cora.Domain.Models
             EndBalance = endBalance;
             Customer = customer;
             Transaction = transaction;
-            EntryAmount = entryAmount;
-            EntryCreatedAt = entryCreatedAt;
             AggregationsCreditTotal = aggregationsCreditTotal;
             AggregationsDebitTotal = aggregationsDebitTotal;
             HeaderBusinessName = headerBusinessName;
@@ -33,36 +30,23 @@ namespace CloudSuite.Modules.Cora.Domain.Models
 
         public DateTimeOffset StartDate { get; private set; }
 
-        
         public decimal? StartBalance { get; private set; }
 
-        
         public DateTimeOffset? EndDate { get; private set; }
 
-        
         public decimal? EndBalance { get; private set; }
 
         public Customer Customer { get; private set; }
 
         public Transaction Transaction { get; private set; }
-
-        public decimal? EntryAmount { get; private set; }
-        
-        public DateTimeOffset? EntryCreatedAt { get; private set; }
-
-        
           
         public decimal? AggregationsCreditTotal { get; private set; }
 
         public decimal? AggregationsDebitTotal { get; private set; }
 
-        
         public string? HeaderBusinessName { get; private set; }
 
-        
         public string? HeaderBusinessDocument { get; private set; }
-
-        
 
         public Guid TransactionId { get; private set; }
 
