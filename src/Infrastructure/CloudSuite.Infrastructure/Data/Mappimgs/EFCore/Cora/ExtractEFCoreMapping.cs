@@ -13,7 +13,7 @@ namespace CloudSuite.Infrastructure.Data.Mappimgs.EFCore.Cora
 	{
 		public void Configure(EntityTypeBuilder<Extract> builder)
 		{
-			throw new NotImplementedException();
+			builder.HasKey(e => e.Id);
 		}
 	}
 }

@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using CloudSuite.Modules.Common.Enums.Cora;
 using CloudSuite.Modules.Common.ValueObjects;
 using NetDevPack.Domain;
 
@@ -12,7 +13,7 @@ namespace CloudSuite.Modules.Cora.Domain.Models
         DateTimeOffset? endDate, decimal? endBalance, 
         Customer customer, Transaction transaction,
         decimal? aggregationsCreditTotal, decimal? aggregationsDebitTotal,
-        string? headerBusinessName, string? headerBusinessDocument)
+        string? headerBusinessName, string? headerBusinessDocument, decimal entryAmount)
         {
             StartDate = startDate;
             StartBalance = startBalance;
@@ -25,6 +26,7 @@ namespace CloudSuite.Modules.Cora.Domain.Models
             HeaderBusinessName = headerBusinessName;
             HeaderBusinessDocument = headerBusinessDocument;
             _transactions = new List<Transaction>();
+            EntryAmount = entryAmount;
             
         }
 
@@ -38,11 +40,15 @@ namespace CloudSuite.Modules.Cora.Domain.Models
 
         public Customer Customer { get; private set; }
 
+        public OperationTypeEnum EntryType { get; private set; }
+
         public Transaction Transaction { get; private set; }
           
         public decimal? AggregationsCreditTotal { get; private set; }
 
         public decimal? AggregationsDebitTotal { get; private set; }
+
+        public decimal? EntryAmount { get; private set; }
 
         public string? HeaderBusinessName { get; private set; }
 

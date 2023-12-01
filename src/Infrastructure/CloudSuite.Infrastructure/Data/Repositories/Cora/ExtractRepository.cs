@@ -16,54 +16,50 @@ namespace CloudSuite.Infrastructure.Data.Repositories.Cora
 {
 	public class ExtractRepository : IExtractRepository
 	{
+		protected readonly CoraDbContext Db;
+		protected readonly DbSet<Extract> DbSet;
 
-        protected readonly CoraDbContext Db;
-        protected readonly DbSet<Extract> DbSet;
-
-        public ExtractRepository(CoraDbContext context)
+		public ExtractRepository(CoraDbContext context)
 		{
-            Db = context;
-            DbSet = context.Extracts;
+			Db = context;
+			DbSet = context.Extracts;
 
-        }
-        public async Task Add(Extract extract)
+		}
+
+		
+
+		public async Task Add(Extract extract)
 		{
-			await Task.Run(() => {
-                DbSet.Add(extract);
-                Db.SaveChanges();
-            });
-        }
+			await Task.Run(() =>
+			{
+				DbSet.Add(extract);
+				Db.SaveChangesAsync();
+			});
+		}
 
 		public async Task<Extract> GetByCustomer(Customer customer)
 		{
-			return await DbSet.AsNoTracking().FirstOrDefaultAsync(c => c.Customer.LastName == customer.LastName);
+			return await DbSet.FirstOrDefaultAsync(e => e.Customer == customer);
 		}
 
 		public async Task<Extract> GetByEndDate(DateTimeOffset endDate)
 		{
-			return await DbSet.AsNoTracking().FirstOrDefaultAsync(c => c.EndDate == endDate);
+			return await DbSet.FirstOrDefaultAsync(e => e.EndDate == endDate);
 		}
 
 		public async Task<Extract> GetByEntryAmount(decimal entryAmount)
 		{
-			return await DbSet.AsNoTracking().FirstOrDefaultAsync(c => c.EntryAmount == entryAmount);
+			return await DbSet.FirstOrDefaultAsync(e => e.EntryAmount == entryAmount);
 		}
 
-				
-		public async Task<Extract> GetByEntryTransactionCounterPartyName(string counterPartyName)
-		{
-			return await DbSet.AsNoTracking().FirstOrDefaultAsync(c => c.EntryTransactionCounterPartyName == counterPartyName);
-		}
-			
-		
-		public async Task<Extract> GetByEntryType(OperationTypeEnum entryType)
-		{
-			return await DbSet.AsNoTracking().FirstOrDefaultAsync(c => c.OperationTypeEnum == entryType);
-		}
+		//public async Task<Extract> GetByEntryType(OperationTypeEnum entryType)
+		//{
+			//return await DbSet.AsNoTracking().FirstOrDefaultAsync(c => c.EntryTypeEnum == entryType);
+		//}
 
 		public async Task<Extract> GetByStartDate(DateTimeOffset startDate)
 		{
-			return await DbSet.AsNoTracking().FirstOrDefaultAsync(c => c.StartDate == startDate);
+			return await DbSet.FirstOrDefaultAsync(e => e.StartDate == startDate);
 		}
 
 		public async Task<IEnumerable<Extract>> GetList()

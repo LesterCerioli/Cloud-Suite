@@ -5,21 +5,21 @@ namespace CloudSuite.Modules.Cora.Domain.Models
 {
     public class Transaction : Entity, IAggregateRoot
     {
-        public Transaction(OperationTypeEnum operation, TransactionTypeEnum transactionTypeEnum, string? entryTransactionDescription, string? entryTransactionCounterPartyName, string? transactionOrder, string? entryTransactionCounterPartyIdentity, decimal? entryAmount, DateTimeOffset? entryCreatedAt)
+        public Transaction(decimal? entryAmount, DateTimeOffset? entryCreatedAt, string? entryTransactionDescription,
+            string? entryTransactionCounterPartyName, string? transactiOnorder, string? entryTransactionCounterPartyIdentity)
         {
-            Operation = operation;
-            TransactionTypeEnum = transactionTypeEnum;
-            EntryTransactionDescription = entryTransactionDescription;
-            EntryTransactionCounterPartyName = entryTransactionCounterPartyName;
+            //Operation = operation;
+            //TransactionTypeEnum = transactionTypeEnum;
             EntryAmount = entryAmount;
             EntryCreatedAt = entryCreatedAt;
-            TransactiOnorder = transactionOrder;
+            EntryTransactionDescription = entryTransactionDescription;
+            EntryTransactionCounterPartyName = entryTransactionCounterPartyName;
+            TransactiOnorder = transactiOnorder;
             EntryTransactionCounterPartyIdentity = entryTransactionCounterPartyIdentity;
         }
 
-        public Transaction() {}
-        
-        public OperationTypeEnum Operation { get; private set; }
+        //public Transaction() {}
+        //public OperationTypeEnum Operation { get; private set; }
 
         public TransactionTypeEnum TransactionTypeEnum { get; private set; }
 

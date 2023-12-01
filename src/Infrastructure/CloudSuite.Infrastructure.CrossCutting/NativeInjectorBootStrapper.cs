@@ -1,4 +1,4 @@
-using CloudSuite.Infrastructure.Data.Core.Context;
+using CloudSuite.Infrastructure.Data.Cora.Context;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace CloudSuite.Infrastructure.CrossCutting
@@ -7,7 +7,7 @@ namespace CloudSuite.Infrastructure.CrossCutting
     {
         public static void RegisterService(IServiceCollection service)
         {
-            service.AddScoped<CloudSuiteDbContext>();
+            service.AddScoped<CoraDbContext>();
 
             // Application
             
