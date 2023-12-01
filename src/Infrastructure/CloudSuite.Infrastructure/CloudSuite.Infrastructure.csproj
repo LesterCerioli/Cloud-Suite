@@ -1,10 +1,14 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Data\Mappimgs\EFCore\Cora\TransferFilterEFCoreMapping.cs~RF9333cac.TMP" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Dapper" Version="2.0.151" />
@@ -32,7 +36,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Modules\CloudSuite.Modules.Domain\CloudSuite.Modules.Domain.csproj" />
+    <ProjectReference Include="..\..\Modules\CloudSuite.Modules.Cora\CloudSuite.Modules.Cora.csproj" />
   </ItemGroup>
+
+  
 
 </Project>
